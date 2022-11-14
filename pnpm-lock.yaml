@@ -121,7 +121,7 @@ importers:
       puppeteer: ~3.3.0
       react: ~17.0.2
       react-app-rewired: ~2.2.1
-      react-command-palette: ~0.21.1
+      react-command-palette: ~0.22.0
       react-dom: ~17.0.2
       react-refresh: 0.14.0
       react-scripts: 5.0.1
@@ -138,7 +138,7 @@ importers:
     dependencies:
       '@just-web/states': 4.0.1_@just-web+types@4.0.1
       react: 17.0.2
-      react-command-palette: 0.21.1_sfoxds7t5ydpegc3knd667wn6m
+      react-command-palette: 0.22.0_sfoxds7t5ydpegc3knd667wn6m
       react-dom: 17.0.2_react@17.0.2
       type-plus: 4.16.0
     devDependencies:
@@ -19005,9 +19005,9 @@ packages:
       shallow-equal: 1.2.1
     dev: false
 
-  /react-command-palette/0.21.1_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-jmOmLla5glK20jQBtgJUrQh0YxITOv3hbXwS+YVTBKSn6BuVv+OLc5DEzXRIwy2w+1I29JYHZOGxjLG6O9gzXg==}
-    engines: {node: '>=16 <=17'}
+  /react-command-palette/0.22.0_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-5SzjzWreWWBWj0wUAh45vb0D30ZhEzmOFJg8O+OGvMWJAuYoU87iUzqX051psiOfKYPdTMcsJ8f7WEZ9V6goEA==}
+    engines: {node: '>=16 <=18'}
     peerDependencies:
       react: 16 - 18
       react-dom: 16 - 18
