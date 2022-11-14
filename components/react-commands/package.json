@@ -148,7 +148,7 @@
     "size-limit": "~7.0.8",
     "standard-log-color": "^11.0.0",
     "storybook-css-modules-preset": "~1.1.1",
-    "storybook-dark-mode": "~1.0.9",
+    "storybook-dark-mode": "~1.1.0",
     "style-loader": "~3.3.1",
     "ts-jest": "^27.1.3",
     "typescript": "^4.8.4",
