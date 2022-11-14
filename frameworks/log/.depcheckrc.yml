@@ -1,7 +1,0 @@
-ignores:
-  - "@just-func/types" # don't know why it doesn't detect correctly
-  - "@size-limit/*"
-  - "@types/jest"
-  - npm-check-updates
-  - size-limit
-  - type-plus # don't know why it doesn't detect correctly

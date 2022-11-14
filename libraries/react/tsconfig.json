@@ -10,21 +10,6 @@
     "rootDir": "src"
   },
   "references": [
-    {
-      "path": "../../frameworks/app"
-    },
-    {
-      "path": "../../frameworks/log"
-    },
-    {
-      "path": "../../frameworks/types"
-    },
-    {
-      "path": "../../libraries/states"
-    },
-    {
-      "path": "../../tools/repo-scripts"
-    }
   ],
   "include": [
     "src",

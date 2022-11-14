@@ -15,37 +15,19 @@
     "app": "pnpm --filter=@just-web/app",
     "build": "turbo run build",
     "build:doc": "typedoc",
-    "browser": "pnpm --filter=@just-web/browser",
-    "browser-keyboard": "pnpm --filter=@just-web/browser-keyboard",
-    "browser-preferences": "pnpm --filter=@just-web/browser-preferences",
     "clean": "turbo run clean",
-    "commands": "pnpm --filter=@just-web/commands",
     "coverage": "turbo run coverage",
     "cs": "changeset",
     "depcheck": "turbo run depcheck",
     "dev": "turbo run dev --parallel",
-    "errors": "pnpm --filter=@just-web/errors",
-    "events": "pnpm --filter=@just-web/events",
-    "keyboard": "pnpm --filter=@just-web/keyboard",
     "lint": "turbo run lint",
-    "log": "pnpm --filter=@just-web/log",
     "nuke:local": "rimraf node_modules || true",
     "nuke": "turbo run nuke && pnpm nuke:local",
-    "os": "pnpm --filter=@just-web/os",
-    "platform": "pnpm --filter=@just-web/platform",
-    "play-react": "pnpm --filter=@just-func/play-react",
-    "play-solid": "pnpm --filter=@just-func/play-solid",
-    "preferences": "pnpm --filter=@just-web/preferences",
     "react-commands": "pnpm --filter=@just-web/react-commands",
     "react": "pnpm --filter=@just-web/react",
     "release": "changeset publish",
-    "repo-scripts": "pnpm --filter=@just-web/repo-scripts",
-    "routes": "pnpm --filter=@just-web/routes",
     "size": "turbo run size",
-    "states": "pnpm --filter=@just-web/states",
     "test": "turbo run test",
-    "testing": "pnpm --filter=@just-web/testing",
-    "types": "pnpm --filter=@just-web/types",
     "verify": "turbo run verify",
     "version": "changeset version && pnpm install",
     "watch": "jest --watch",
@@ -57,7 +39,7 @@
     "@changesets/cli": "^2.25.0",
     "@commitlint/cli": "^17.0.2",
     "@commitlint/config-conventional": "^17.0.2",
-    "@just-web/repo-scripts": "workspace:^",
+    "@just-web/repo-scripts": "^0.1.1",
     "@types/eslint": "^8.4.3",
     "@types/jest": "^27.5.2",
     "eslint": "^8.17.0",
@@ -76,10 +58,5 @@
     "typedoc-plugin-resolve-crossmodule-references": "^0.3.0",
     "typescript": "^4.8.4"
   },
-  "pnpm": {
-    "overrides": {
-      "immer": "unional/immer#master"
-    }
-  },
-  "packageManager": "pnpm@7.13.4"
+  "packageManager": "pnpm@7.15.0"
 }

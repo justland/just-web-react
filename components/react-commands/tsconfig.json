@@ -11,31 +11,7 @@
   },
   "references": [
     {
-      "path": "../../frameworks/app"
-    },
-    {
-      "path": "../../frameworks/log"
-    },
-    {
-      "path": "../../frameworks/types"
-    },
-    {
       "path": "../../libraries/react"
-    },
-    {
-      "path": "../../plugins/browser-keyboard"
-    },
-    {
-      "path": "../../plugins/commands"
-    },
-    {
-      "path": "../../plugins/keyboard"
-    },
-    {
-      "path": "../../plugins/os"
-    },
-    {
-      "path": "../../tools/repo-scripts"
     }
   ],
   "include": [
