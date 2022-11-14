@@ -98,7 +98,7 @@ importers:
       '@types/testing-library__jest-dom': ~5.14.3
       autoprefixer: ~10.4.4
       babel-loader: ~8.3.0
-      chromatic: ~6.10.0
+      chromatic: ~6.11.0
       copyfiles: ~2.4.1
       cross-env: ~7.0.3
       css-loader: ~6.7.1
@@ -189,7 +189,7 @@ importers:
       '@types/testing-library__jest-dom': 5.14.3
       autoprefixer: 10.4.7_postcss@8.4.14
       babel-loader: 8.3.0_jzdsusohi23wobhstm6lj7n7ui
-      chromatic: 6.10.1
+      chromatic: 6.11.4
       copyfiles: 2.4.1
       cross-env: 7.0.3
       css-loader: 6.7.1_webpack@5.73.0
@@ -272,7 +272,7 @@ importers:
       assertron: ^10.0.0
       autoprefixer: ~10.4.4
       babel-loader: ~8.3.0
-      chromatic: ~6.10.0
+      chromatic: ~6.11.0
       copyfiles: ~2.4.1
       cross-env: ~7.0.3
       css-loader: ~6.7.1
@@ -360,7 +360,7 @@ importers:
       assertron: 10.0.0
       autoprefixer: 10.4.7_postcss@8.4.14
       babel-loader: 8.3.0_jzdsusohi23wobhstm6lj7n7ui
-      chromatic: 6.10.1
+      chromatic: 6.11.4
       copyfiles: 2.4.1
       cross-env: 7.0.3
       css-loader: 6.7.1_webpack@5.73.0
@@ -8978,8 +8978,8 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
-  /chromatic/6.10.1:
-    resolution: {integrity: sha512-x8UN5rQ4HK1bUv2uDsHnCQW3bcsFmJH90F5w8mXHkiDc7kEAvbOAm/im2cWbi/VUDI+jW+A7SvZTUi54lBF5wQ==}
+  /chromatic/6.11.4:
+    resolution: {integrity: sha512-f1TcuIXKjGUuOjPuwFF44kzbuEcESFcDxHzrzWPLmHuC90dV8HLxbufqYaTOBYMO/rJ32Zftb7S9pXuF/Rhfog==}
     hasBin: true
     dependencies:
       '@discoveryjs/json-ext': 0.5.7
