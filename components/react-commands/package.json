@@ -85,7 +85,7 @@
     "@just-web/react": "^4.0.1",
     "@just-web/repo-scripts": "^0.1.1",
     "@just-web/types": "^4.0.1",
-    "@size-limit/preset-small-lib": "~7.0.8",
+    "@size-limit/preset-small-lib": "~8.1.0",
     "@storybook/addon-actions": "~6.5.0",
     "@storybook/addon-console": "~1.2.3",
     "@storybook/addon-essentials": "~6.5.0",
