@@ -126,7 +126,7 @@ importers:
       react-refresh: 0.14.0
       react-scripts: 5.0.1
       rimraf: ~3.0.2
-      size-limit: ~7.0.8
+      size-limit: ~8.1.0
       standard-log-color: ^11.0.0
       storybook-css-modules-preset: ~1.1.1
       storybook-dark-mode: ~1.1.0
@@ -154,7 +154,7 @@ importers:
       '@just-web/react': link:../../libraries/react
       '@just-web/repo-scripts': 0.1.1
       '@just-web/types': 4.0.1
-      '@size-limit/preset-small-lib': 8.1.0_size-limit@7.0.8
+      '@size-limit/preset-small-lib': 8.1.0_size-limit@8.1.0
       '@storybook/addon-actions': 6.5.12_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-console': 1.2.3_4vc7sdltfygmuywbon6ood5rwy
       '@storybook/addon-essentials': 6.5.12_aigxzpbbr4r472cbsvgklaooam
@@ -214,7 +214,7 @@ importers:
       react-refresh: 0.14.0
       react-scripts: 5.0.1_x4aluemm3rmsq7lkui6j2s6rfm
       rimraf: 3.0.2
-      size-limit: 7.0.8
+      size-limit: 8.1.0
       standard-log-color: 11.0.0_standard-log@11.2.2
       storybook-css-modules-preset: 1.1.1
       storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
@@ -302,7 +302,7 @@ importers:
       react-scripts: 5.0.1
       react-test-renderer: ~17.0.2
       rimraf: ~3.0.2
-      size-limit: ~7.0.8
+      size-limit: ~8.1.0
       storybook-css-modules-preset: ~1.1.1
       storybook-dark-mode: ~1.1.0
       style-loader: ~3.3.1
@@ -322,7 +322,7 @@ importers:
       '@just-web/repo-scripts': 0.1.1
       '@just-web/states': 4.0.1_@just-web+types@4.0.1
       '@just-web/types': 4.0.1
-      '@size-limit/preset-small-lib': 8.1.0_size-limit@7.0.8
+      '@size-limit/preset-small-lib': 8.1.0_size-limit@8.1.0
       '@storybook/addon-actions': 6.5.12_sfoxds7t5ydpegc3knd667wn6m
       '@storybook/addon-console': 1.2.3_4vc7sdltfygmuywbon6ood5rwy
       '@storybook/addon-essentials': 6.5.12_aigxzpbbr4r472cbsvgklaooam
@@ -390,7 +390,7 @@ importers:
       react-scripts: 5.0.1_5opkg24argtsov3wofnk3uvixi
       react-test-renderer: 17.0.2_react@17.0.2
       rimraf: 3.0.2
-      size-limit: 7.0.8
+      size-limit: 8.1.0
       storybook-css-modules-preset: 1.1.1
       storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
       style-loader: 3.3.1_webpack@5.73.0
@@ -3918,7 +3918,7 @@ packages:
       '@sinonjs/commons': 1.8.3
     dev: true
 
-  /@size-limit/esbuild/8.1.0_size-limit@7.0.8:
+  /@size-limit/esbuild/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-Lq+vJAUO13RXbiNF4bZOB07LmzMURkbV8Z6dhAkhTdAVWYLUn0zjfIe3O6IMwhj9dqJ0WtadhKHJvNQKG+po3w==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -3926,27 +3926,27 @@ packages:
     dependencies:
       esbuild: 0.15.13
       nanoid: 3.3.4
-      size-limit: 7.0.8
+      size-limit: 8.1.0
     dev: true
 
-  /@size-limit/file/8.1.0_size-limit@7.0.8:
+  /@size-limit/file/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-Ur+NgJSRHBnbQBrD8X2doxXYdBcVJsMxe2KfWrUmnZ6wYz09YKhQ1iYLqNztjf2yf/JEp00zp1vyhmimUQfUHQ==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
       size-limit: 8.1.0
     dependencies:
       semver: 7.3.7
-      size-limit: 7.0.8
+      size-limit: 8.1.0
     dev: true
 
-  /@size-limit/preset-small-lib/8.1.0_size-limit@7.0.8:
+  /@size-limit/preset-small-lib/8.1.0_size-limit@8.1.0:
     resolution: {integrity: sha512-fs0XD0+rN4SVKGUwae7VMX1uDqK+oUYNGlPe7E0oKhwAH6ek08iH8qiEm0q9IKDrsCfZ9/d/pqNpg9di3p1SVw==}
     peerDependencies:
       size-limit: 8.1.0
     dependencies:
-      '@size-limit/esbuild': 8.1.0_size-limit@7.0.8
-      '@size-limit/file': 8.1.0_size-limit@7.0.8
-      size-limit: 7.0.8
+      '@size-limit/esbuild': 8.1.0_size-limit@8.1.0
+      '@size-limit/file': 8.1.0_size-limit@8.1.0
+      size-limit: 8.1.0
     dev: true
 
   /@storybook/addon-actions/6.5.12_sfoxds7t5ydpegc3knd667wn6m:
@@ -9920,7 +9920,7 @@ packages:
       postcss: ^8.2.15
     dependencies:
       cssnano-preset-default: 5.2.11_postcss@8.4.14
-      lilconfig: 2.0.5
+      lilconfig: 2.0.6
       postcss: 8.4.14
       yaml: 1.10.2
     dev: true
@@ -15640,8 +15640,8 @@ packages:
       resolve: 1.22.1
     dev: true
 
-  /lilconfig/2.0.5:
-    resolution: {integrity: sha512-xaYmXZtTHPAw5m+xLN8ab9C+3a8YmV3asNSPOATITbtwrfbwaLJj8h66H1WMIpALCkqsIzK3h7oQ+PdX+LQ9Eg==}
+  /lilconfig/2.0.6:
+    resolution: {integrity: sha512-9JROoBW7pobfsx+Sq2JsASvCo6Pfo6WWoUW79HuB1BCoBXD4PLWJPqDF6fNj67pqBYTbAHkE57M1kS/+L1neOg==}
     engines: {node: '>=10'}
     dev: true
 
@@ -18017,7 +18017,7 @@ packages:
       ts-node:
         optional: true
     dependencies:
-      lilconfig: 2.0.5
+      lilconfig: 2.0.6
       postcss: 8.4.14
       yaml: 1.10.2
     dev: true
@@ -20456,16 +20456,16 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
-  /size-limit/7.0.8:
-    resolution: {integrity: sha512-3h76c9E0e/nNhYLSR7IBI/bSoXICeo7EYkYjlyVqNIsu7KvN/PQmMbIXeyd2QKIF8iZKhaiZQoXLkGWbyPDtvQ==}
-    engines: {node: ^12.0.0 || ^14.0.0 || >=16.0.0}
+  /size-limit/8.1.0:
+    resolution: {integrity: sha512-bUL+Uyyt/G+a1XzKlI2WKHVDepmXtqMDhF65pdtjccheiQTNjExWW4nFefgbRL2QgNTzRfK6ayFKjO3o4ER4gg==}
+    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
       chokidar: 3.5.3
       ci-job-number: 1.2.2
       globby: 11.1.0
-      lilconfig: 2.0.5
+      lilconfig: 2.0.6
       mkdirp: 1.0.4
       nanospinner: 1.1.0
       picocolors: 1.0.0
@@ -21256,7 +21256,7 @@ packages:
       fast-glob: 3.2.11
       glob-parent: 6.0.2
       is-glob: 4.0.3
-      lilconfig: 2.0.5
+      lilconfig: 2.0.6
       normalize-path: 3.0.0
       object-hash: 3.0.0
       picocolors: 1.0.0
