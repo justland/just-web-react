@@ -88,7 +88,7 @@ importers:
       '@testing-library/dom': ~8.19.0
       '@testing-library/jest-dom': ^5.16.2
       '@testing-library/react': ^12.1.4
-      '@testing-library/user-event': ^13.5.0
+      '@testing-library/user-event': ^14.0.0
       '@types/jest': ^27.4.1
       '@types/mousetrap': ~1.6.9
       '@types/node': ^16.11.26
@@ -179,7 +179,7 @@ importers:
       '@testing-library/dom': 8.19.0
       '@testing-library/jest-dom': 5.16.4
       '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
-      '@testing-library/user-event': 13.5.0_aaq3sbffpfe3jnxzm2zngsddei
+      '@testing-library/user-event': 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
       '@types/jest': 27.5.2
       '@types/mousetrap': 1.6.9
       '@types/node': 16.11.39
@@ -259,7 +259,7 @@ importers:
       '@testing-library/dom': ~8.19.0
       '@testing-library/jest-dom': ^5.16.2
       '@testing-library/react': ^12.1.5
-      '@testing-library/user-event': ^13.5.0
+      '@testing-library/user-event': ^14.0.0
       '@types/jest': ^27.4.1
       '@types/mousetrap': ~1.6.9
       '@types/node': ^16.11.26
@@ -347,7 +347,7 @@ importers:
       '@testing-library/dom': 8.19.0
       '@testing-library/jest-dom': 5.16.4
       '@testing-library/react': 12.1.5_sfoxds7t5ydpegc3knd667wn6m
-      '@testing-library/user-event': 13.5.0_aaq3sbffpfe3jnxzm2zngsddei
+      '@testing-library/user-event': 14.4.3_aaq3sbffpfe3jnxzm2zngsddei
       '@types/jest': 27.5.2
       '@types/mousetrap': 1.6.9
       '@types/node': 16.11.39
@@ -6156,6 +6156,15 @@ packages:
       '@testing-library/dom': '>=7.21.4'
     dependencies:
       '@babel/runtime': 7.18.3
+      '@testing-library/dom': 8.19.0
+    dev: true
+
+  /@testing-library/user-event/14.4.3_aaq3sbffpfe3jnxzm2zngsddei:
+    resolution: {integrity: sha512-kCUc5MEwaEMakkO5x7aoD+DLi02ehmEM2QCGWvNqAS1dV/fAvORWEjnjsEIvml59M7Y5kCkWN6fCCyPOe8OL6Q==}
+    engines: {node: '>=12', npm: '>=6'}
+    peerDependencies:
+      '@testing-library/dom': '>=7.21.4'
+    dependencies:
       '@testing-library/dom': 8.19.0
     dev: true
 
