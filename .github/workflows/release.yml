@@ -5,7 +5,10 @@ on:
 
 jobs:
   code:
-    uses: justland/.github/.github/workflows/pnpm-verify-cross-platform.yml@main
+    uses: justland/.github/.github/workflows/pnpm-verify.yml@main
+    with:
+      os: '["ubuntu-latest"]'
+      node-version: '[18]'
 
   release:
     uses: justland/.github/.github/workflows/pnpm-release-changeset.yml@main
