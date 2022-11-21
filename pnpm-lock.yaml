@@ -97,7 +97,7 @@ importers:
       '@types/react-dom': ^18.0.0
       '@types/testing-library__jest-dom': ~5.14.3
       autoprefixer: ~10.4.4
-      babel-loader: ~8.3.0
+      babel-loader: ~9.1.0
       chromatic: ~6.11.0
       copyfiles: ~2.4.1
       cross-env: ~7.0.3
@@ -188,7 +188,7 @@ importers:
       '@types/react-dom': 18.0.6
       '@types/testing-library__jest-dom': 5.14.3
       autoprefixer: 10.4.7_postcss@8.4.14
-      babel-loader: 8.3.0_jzdsusohi23wobhstm6lj7n7ui
+      babel-loader: 9.1.0_jzdsusohi23wobhstm6lj7n7ui
       chromatic: 6.11.4
       copyfiles: 2.4.1
       cross-env: 7.0.3
@@ -271,7 +271,7 @@ importers:
       '@types/testing-library__jest-dom': ~5.14.3
       assertron: ^10.0.0
       autoprefixer: ~10.4.4
-      babel-loader: ~8.3.0
+      babel-loader: ~9.1.0
       chromatic: ~6.11.0
       copyfiles: ~2.4.1
       cross-env: ~7.0.3
@@ -359,7 +359,7 @@ importers:
       '@types/testing-library__jest-dom': 5.14.3
       assertron: 10.0.0
       autoprefixer: 10.4.7_postcss@8.4.14
-      babel-loader: 8.3.0_jzdsusohi23wobhstm6lj7n7ui
+      babel-loader: 9.1.0_jzdsusohi23wobhstm6lj7n7ui
       chromatic: 6.11.4
       copyfiles: 2.4.1
       cross-env: 7.0.3
@@ -5549,7 +5549,7 @@ packages:
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.7_ixqhyzd7eiz5jgrk4ldm2gupye
       '@storybook/node-logger': 6.5.12
       '@storybook/react': 6.5.12_oqff32epc76zgzuun27m5rlfom
-      '@storybook/react-docgen-typescript-plugin': 1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0_pfhymta45wkqia6xzv764wgtky
+      '@storybook/react-docgen-typescript-plugin': 1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0_pfhymta45wkqia6xzv764wgtky
       '@types/babel__core': 7.1.19
       babel-plugin-react-docgen: 4.2.1
       pnp-webpack-plugin: 1.7.0_typescript@4.8.4
@@ -5592,6 +5592,25 @@ packages:
       ts-dedent: 2.2.0
       unfetch: 4.2.0
       util-deprecate: 1.0.2
+    dev: true
+
+  /@storybook/react-docgen-typescript-plugin/1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0_pfhymta45wkqia6xzv764wgtky:
+    resolution: {integrity: sha512-tnaT0VqSGhmMi/I880aMOToSrNd7XCr1avS/M1tk/+FDO+0GqHXo9abC5sos705ly3Hmi1FxFvHnzV/cvU1JTg==}
+    peerDependencies:
+      typescript: '>= 3.x'
+      webpack: '>= 4'
+    dependencies:
+      debug: 4.3.4
+      endent: 2.1.0
+      find-cache-dir: 3.3.2
+      flat-cache: 3.0.4
+      micromatch: 4.0.5
+      react-docgen-typescript: 2.2.2_typescript@4.8.4
+      tslib: 2.4.0
+      typescript: 4.8.4
+      webpack: 5.73.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@storybook/react-docgen-typescript-plugin/1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0_pfhymta45wkqia6xzv764wgtky:
@@ -7970,6 +7989,19 @@ packages:
       make-dir: 3.1.0
       schema-utils: 2.7.1
       webpack: 4.46.0
+    dev: true
+
+  /babel-loader/9.1.0_jzdsusohi23wobhstm6lj7n7ui:
+    resolution: {integrity: sha512-Antt61KJPinUMwHwIIz9T5zfMgevnfZkEVWYDWlG888fgdvRRGD0JTuf/fFozQnfT+uq64sk1bmdHDy/mOEWnA==}
+    engines: {node: '>= 14.15.0'}
+    peerDependencies:
+      '@babel/core': ^7.12.0
+      webpack: '>=5'
+    dependencies:
+      '@babel/core': 7.20.2
+      find-cache-dir: 3.3.2
+      schema-utils: 4.0.0
+      webpack: 5.73.0
     dev: true
 
   /babel-plugin-add-react-displayname/0.0.5:
