@@ -1,0 +1,16 @@
+{
+  "compilerOptions": {
+    "allowSyntheticDefaultImports": true,
+    "declaration": true,
+    "declarationDir": "dts",
+    "emitDeclarationOnly": true,
+    "jsx": "react-jsx",
+    "moduleResolution": "Node",
+    "rootDir": "ts",
+    "target": "ESNext"
+  },
+  "include": [
+    "ts",
+    "typings"
+  ]
+}
