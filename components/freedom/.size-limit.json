@@ -1,0 +1,6 @@
+[
+  {
+    "path": "./dist/react-freedom.js",
+    "limit": "20 kb"
+  }
+]
