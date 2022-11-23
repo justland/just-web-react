@@ -118,7 +118,7 @@ importers:
       npm-run-all: ^4.1.5
       postcss: ~8.4.12
       preact: ~10.11.0
-      puppeteer: ~19.2.0
+      puppeteer: ~19.3.0
       react: ~18.2.0
       react-app-rewired: ~2.2.1
       react-command-palette: ~0.22.0
@@ -161,7 +161,7 @@ importers:
       '@storybook/addon-interactions': 6.5.12_36qg2244tg2gfmersmqoxqpiaq
       '@storybook/addon-links': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-storyshots': 6.5.12_piqbnmgqufejdeye6tzshgcczu
-      '@storybook/addon-storyshots-puppeteer': 6.5.12_4lny5jq5q4gab3jxhd35l5ypgm
+      '@storybook/addon-storyshots-puppeteer': 6.5.12_qebps7jvixarxqajfkakg3kniq
       '@storybook/addon-storysource': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/addons': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/api': 6.5.12_biqbaboplfbrettd7655fr4n2y
@@ -209,7 +209,7 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.14
       preact: 10.11.1
-      puppeteer: 19.2.2
+      puppeteer: 19.3.0
       react-app-rewired: 2.2.1_react-scripts@5.0.1
       react-refresh: 0.14.0
       react-scripts: 5.0.1_ubcimlg4jfz6j7by6ted7uvfc4
@@ -293,7 +293,7 @@ importers:
       npm-run-all: ^4.1.5
       postcss: ~8.4.12
       preact: ~10.11.0
-      puppeteer: ~19.2.0
+      puppeteer: ~19.3.0
       react: ~18.2.0
       react-app-rewired: ~2.2.1
       react-dom: ~18.2.0
@@ -329,7 +329,7 @@ importers:
       '@storybook/addon-interactions': 6.5.12_36qg2244tg2gfmersmqoxqpiaq
       '@storybook/addon-links': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/addon-storyshots': 6.5.12_piqbnmgqufejdeye6tzshgcczu
-      '@storybook/addon-storyshots-puppeteer': 6.5.12_4lny5jq5q4gab3jxhd35l5ypgm
+      '@storybook/addon-storyshots-puppeteer': 6.5.12_qebps7jvixarxqajfkakg3kniq
       '@storybook/addon-storysource': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/addons': 6.5.12_biqbaboplfbrettd7655fr4n2y
       '@storybook/api': 6.5.12_biqbaboplfbrettd7655fr4n2y
@@ -381,7 +381,7 @@ importers:
       npm-run-all: 4.1.5
       postcss: 8.4.14
       preact: 10.11.1
-      puppeteer: 19.2.2
+      puppeteer: 19.3.0
       react: 18.2.0
       react-app-rewired: 2.2.1_react-scripts@5.0.1
       react-dom: 18.2.0_react@18.2.0
@@ -420,14 +420,14 @@ packages:
       leven: 3.1.0
     dev: true
 
-  /@axe-core/puppeteer/4.4.2_puppeteer@19.2.2:
+  /@axe-core/puppeteer/4.4.2_puppeteer@19.3.0:
     resolution: {integrity: sha512-HsiXUALjQ5fcWZZgGUvYGr/b7qvWbQXeDuW2z+2YYOJsavlPV9z0IGdm4rmX0lmsdJ9usA5vq5LNLiz23ZyXmw==}
     engines: {node: '>=6.4.0'}
     peerDependencies:
       puppeteer: '>=1.10.0 <= 13'
     dependencies:
       axe-core: 4.4.2
-      puppeteer: 19.2.2
+      puppeteer: 19.3.0
     dev: true
 
   /@babel/code-frame/7.18.6:
@@ -2987,7 +2987,7 @@ packages:
     dependencies:
       '@jest/types': 27.5.1
       '@sinonjs/fake-timers': 8.1.0
-      '@types/node': 18.8.4
+      '@types/node': 18.11.8
       jest-message-util: 27.5.1
       jest-mock: 27.5.1
       jest-util: 27.5.1
@@ -4309,7 +4309,7 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/addon-storyshots-puppeteer/6.5.12_4lny5jq5q4gab3jxhd35l5ypgm:
+  /@storybook/addon-storyshots-puppeteer/6.5.12_qebps7jvixarxqajfkakg3kniq:
     resolution: {integrity: sha512-/K7GoAEhvZZ5EWaciH4OR23/gdKUh8v4ev56PKLtMm0gbOlwve9qZEBmEG0dbL6sRKaf04ccIFen23/POGkO3Q==}
     peerDependencies:
       '@storybook/addon-storyshots': 6.5.12
@@ -4318,14 +4318,14 @@ packages:
       puppeteer:
         optional: true
     dependencies:
-      '@axe-core/puppeteer': 4.4.2_puppeteer@19.2.2
+      '@axe-core/puppeteer': 4.4.2_puppeteer@19.3.0
       '@storybook/addon-storyshots': 6.5.12_piqbnmgqufejdeye6tzshgcczu
       '@storybook/csf': 0.0.2--canary.4566f4d.1
       '@storybook/node-logger': 6.5.12
       '@types/jest-image-snapshot': 4.3.1
       core-js: 3.25.4
       jest-image-snapshot: 4.5.1_jest@27.5.1
-      puppeteer: 19.2.2
+      puppeteer: 19.3.0
       regenerator-runtime: 0.13.9
     transitivePeerDependencies:
       - jest
@@ -5549,7 +5549,7 @@ packages:
       '@pmmmwh/react-refresh-webpack-plugin': 0.5.7_ixqhyzd7eiz5jgrk4ldm2gupye
       '@storybook/node-logger': 6.5.12
       '@storybook/react': 6.5.12_oqff32epc76zgzuun27m5rlfom
-      '@storybook/react-docgen-typescript-plugin': 1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0_pfhymta45wkqia6xzv764wgtky
+      '@storybook/react-docgen-typescript-plugin': 1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0_pfhymta45wkqia6xzv764wgtky
       '@types/babel__core': 7.1.19
       babel-plugin-react-docgen: 4.2.1
       pnp-webpack-plugin: 1.7.0_typescript@4.8.4
@@ -5592,6 +5592,25 @@ packages:
       ts-dedent: 2.2.0
       unfetch: 4.2.0
       util-deprecate: 1.0.2
+    dev: true
+
+  /@storybook/react-docgen-typescript-plugin/1.0.2--canary.7.324a727c65a1819f7f3ede5abc1f32d440e4530a.0_pfhymta45wkqia6xzv764wgtky:
+    resolution: {integrity: sha512-tnaT0VqSGhmMi/I880aMOToSrNd7XCr1avS/M1tk/+FDO+0GqHXo9abC5sos705ly3Hmi1FxFvHnzV/cvU1JTg==}
+    peerDependencies:
+      typescript: '>= 3.x'
+      webpack: '>= 4'
+    dependencies:
+      debug: 4.3.4
+      endent: 2.1.0
+      find-cache-dir: 3.3.2
+      flat-cache: 3.0.4
+      micromatch: 4.0.5
+      react-docgen-typescript: 2.2.2_typescript@4.8.4
+      tslib: 2.4.0
+      typescript: 4.8.4
+      webpack: 5.73.0
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /@storybook/react-docgen-typescript-plugin/1.0.2-canary.6.9d540b91e815f8fc2f8829189deb00553559ff63.0_pfhymta45wkqia6xzv764wgtky:
@@ -6486,10 +6505,6 @@ packages:
 
   /@types/node/18.8.0:
     resolution: {integrity: sha512-u+h43R6U8xXDt2vzUaVP3VwjjLyOJk6uEciZS8OSyziUQGOwmk+l+4drxcsDboHXwyTaqS1INebghmWMRxq3LA==}
-    dev: true
-
-  /@types/node/18.8.4:
-    resolution: {integrity: sha512-WdlVphvfR/GJCLEMbNA8lJ0lhFNBj4SW3O+O5/cEGw9oYrv0al9zTwuQsq+myDUXgNx2jgBynoVgZ2MMJ6pbow==}
     dev: true
 
   /@types/normalize-package-data/2.4.1:
@@ -18847,8 +18862,8 @@ packages:
       escape-goat: 4.0.0
     dev: true
 
-  /puppeteer-core/19.2.2:
-    resolution: {integrity: sha512-faojf+1pZ/tHXSr4x1q+9MVd9FrL3rpdbC0w7qN7MNClMoLuCvMbpR4vzcjoiJYgclt1n+SOPUOmHQViTw6frw==}
+  /puppeteer-core/19.3.0:
+    resolution: {integrity: sha512-P8VAAOBnBJo/7DKJnj1b0K9kZBF2D8lkdL94CjJ+DZKCp182LQqYemPI9omUSZkh4bgykzXjZhaVR1qtddTTQg==}
     engines: {node: '>=14.1.0'}
     dependencies:
       cross-fetch: 3.1.5
@@ -18868,8 +18883,8 @@ packages:
       - utf-8-validate
     dev: true
 
-  /puppeteer/19.2.2:
-    resolution: {integrity: sha512-m1T5Mog5qu5+dMBptWYTn6pXRdnFbydbVUCthqwbfd8/kOiMlzZBR9ywjX79LpvI1Sj+/z8+FKeIsjnMul8ZYA==}
+  /puppeteer/19.3.0:
+    resolution: {integrity: sha512-WJbi/ULaeuFOz7cfMgJlJCBAZiyqIFeQ6os4h5ex3PVTt2qosXgwI9eruFZqFAwJRv8x5pOuMhWR0aSRgyDqEg==}
     engines: {node: '>=14.1.0'}
     requiresBuild: true
     dependencies:
@@ -18878,7 +18893,7 @@ packages:
       https-proxy-agent: 5.0.1
       progress: 2.0.3
       proxy-from-env: 1.1.0
-      puppeteer-core: 19.2.2
+      puppeteer-core: 19.3.0
     transitivePeerDependencies:
       - bufferutil
       - encoding
