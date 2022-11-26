@@ -1,5 +1,14 @@
 * text=auto eol=lf
 
+*.gif binary
+*.ico binary
+*.jpg binary
+*.jepg binary
+*.png binary
+*.webp binary
+*.woff binary
+*.woff2 binary
+
 # Don't allow people to merge changes to these generated files, because the result
 # may be invalid.  You need to run "rush update" again.
 pnpm-lock.yaml               merge=text

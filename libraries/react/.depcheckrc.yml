@@ -1,24 +1,10 @@
 ignores:
-  - "@babel/plugin-syntax-flow"
-  - "@babel/plugin-transform-react-jsx"
-  - "@just-web/repo-scripts"
-  - "@storybook/*"
-  - "@testing-library/*"
-  - "@size-limit/*"
-  - "@types/*"
-  - autoprefixer
-  - babel-loader
-  - css-loader
-  - identity-obj-proxy
-  - jest-*
-  - npm-check-updates
-  - preact
-  - puppeteer
-  - postcss
-  - react-refresh
+  - '@just-web/repo-scripts'
+  - '@storybook/*'
+  - '@testing-library/*'
+  - '@size-limit/*'
+  - '@types/*'
+  - '@vitest/coverage-c8'
+  - jest-image-snapshot
   - size-limit
   - storybook-dark-mode
-  - storybook-css-modules-preset
-  - style-loader
-  - ts-jest
-  - webpack
