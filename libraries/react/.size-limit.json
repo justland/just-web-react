@@ -1,0 +1,11 @@
+[
+  {
+
+    "path": "./dist/just-web-react.js",
+    "limit": "20 kb"
+  },
+  {
+    "path": "./dist/just-web-react.cjs",
+    "limit": "20 kb"
+  }
+]

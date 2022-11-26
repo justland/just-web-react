@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "declaration": true,
+    "declarationDir": "dts",
+    "emitDeclarationOnly": true,
+    "skipLibCheck": true,
+    "rootDir": "ts"
+  },
+  "include": [
+    "ts",
+    "typings"
+  ],
+  "exclude": [
+    "**/*.spec.*",
+    "**/*.stories.*",
+    "**/dummyModule.ts"
+  ]
+}

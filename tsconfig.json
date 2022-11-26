@@ -2,7 +2,10 @@
   "files": [],
   "references": [
     {
-      "path": "components/react-commands"
+      "path": "components/commands"
+    },
+    {
+      "path": "components/freedom"
     },
     {
       "path": "libraries/react"

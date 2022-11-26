@@ -1,7 +1,10 @@
 !.depcheckrc.yml
 !.storybook
 build
+cjs
 dist*
+dts
+esm
 lib*
 node_modules
 out*
