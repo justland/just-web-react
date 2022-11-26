@@ -1,10 +1,8 @@
 !.depcheckrc.yml
 !.storybook
 build
-cjs
-dist*
-esm
-lib*
+dist
+dts
 node_modules
 out*
 storybook-static

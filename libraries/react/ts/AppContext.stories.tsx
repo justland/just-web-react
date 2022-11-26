@@ -24,6 +24,10 @@ export const GetContext = () => {
   </AppContext.Provider>
 }
 
+GetContext.parameters = {
+  visual: false
+}
+
 const DefaultType = () => {
   const c = useAppContext()
   return <div>

@@ -7,8 +7,8 @@ module.exports = {
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    // '@storybook/addon-storysource',
-    // 'storybook-dark-mode'
+    '@storybook/addon-storysource',
+    'storybook-dark-mode'
   ],
   framework: "@storybook/react",
   core: {
@@ -16,7 +16,7 @@ module.exports = {
   },
   features: {
     storyStoreV7: true,
-    // interactionsDebugger: true
+    interactionsDebugger: true
   },
   typescript: {
     check: false
