@@ -23,7 +23,8 @@ yarn-debug.log*
 yarn-error.log*
 
 # project specfiic
-__snapshots__/__diff_output__
-lib
+__snapshots__/*/__diff_output__
+dist
+dts
 storybook-static
 *.tsbuildinfo
