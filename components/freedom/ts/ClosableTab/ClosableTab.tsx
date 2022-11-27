@@ -1,14 +1,11 @@
 import { Tab } from '@headlessui/react'
-import { Props } from '@headlessui/react/dist/types'
-import { Fragment } from 'react'
+import { ComponentType, Fragment } from 'react'
 
-export type ClosableTabProps<TTag extends React.ElementType<any> = 'button'> = Props<
-  TTag,
-  { selected: boolean },
-  'id' | 'role' | 'type' | 'aria-controls' | 'aria-selected' | 'tabIndex'
-> & { onClose: () => void }
+type ExtractProps<T> = T extends ComponentType<infer P> ? P : T
 
-export function ClosableTab(props: ClosableTabProps<'div'>) {
+export type ClosableTabProps = ExtractProps<typeof Tab> & { onClose: () => void }
+
+export function ClosableTab(props: ClosableTabProps) {
   const { onClose, onClick, ...rest } = props
 
   return (

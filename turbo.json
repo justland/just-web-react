@@ -30,12 +30,7 @@
         "^build"
       ]
     },
-    "nuke": {
-      "cache": false,
-      "dependsOn": [
-        "clean"
-      ]
-    },
+    "sb": {},
     "size": {
       "dependsOn": [
         "build"

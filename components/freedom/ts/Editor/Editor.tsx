@@ -6,12 +6,12 @@ export function Editor() {
     <Tab.Group>
       <Tab.List>
         <Tab as={Fragment}>
-          <div role="tab" onClick={() => console.log('outer')}>
+          <div role="tab" onClick={() => console.info('outer')}>
             text
             <div
               onClick={(e) => {
                 e.preventDefault()
-                console.log('closing')
+                console.info('closing')
               }}
             >
               [x]

@@ -2,5 +2,9 @@
   {
     "path": "./dist/react-freedom.js",
     "limit": "20 kb"
+  },
+  {
+    "path": "./dist/react-freedom.cjs",
+    "limit": "30 kb"
   }
 ]

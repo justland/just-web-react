@@ -1,19 +1,24 @@
 module.exports = {
-  "stories": [
+  stories: [
     "../ts/**/*.stories.mdx",
     "../ts/**/*.stories.@(js|jsx|ts|tsx)"
   ],
-  "addons": [
+  addons: [
     "@storybook/addon-links",
     "@storybook/addon-essentials",
     "@storybook/addon-interactions",
-    'storybook-dark-mode',
+    '@storybook/addon-storysource',
+    'storybook-dark-mode'
   ],
-  "framework": "@storybook/react",
-  "core": {
-    "builder": "@storybook/builder-vite"
+  framework: "@storybook/react",
+  core: {
+    builder: "@storybook/builder-vite"
   },
-  "features": {
-    "storyStoreV7": true
+  features: {
+    storyStoreV7: true,
+    interactionsDebugger: true
+  },
+  typescript: {
+    check: false
   }
 }
