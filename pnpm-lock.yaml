@@ -93,7 +93,7 @@ importers:
       react-command-palette: ~0.22.0
       react-dom: ^17.0.2
       rimraf: ~3.0.2
-      rollup-plugin-node-externals: ^4.1.1
+      rollup-plugin-node-externals: ^5.0.0
       size-limit: ~8.1.0
       standard-log-color: ^11.0.0
       storybook-dark-mode: ~1.1.2
@@ -154,7 +154,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       rimraf: 3.0.2
-      rollup-plugin-node-externals: 4.1.1_rollup@2.79.1
+      rollup-plugin-node-externals: 5.0.2_rollup@2.79.1
       size-limit: 8.1.0
       standard-log-color: 11.4.1_standard-log@11.4.1
       storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
@@ -203,7 +203,7 @@ importers:
       react: ^17.0.2
       react-dom: ^17.0.2
       rimraf: ~3.0.2
-      rollup-plugin-node-externals: ^4.1.1
+      rollup-plugin-node-externals: ^5.0.0
       size-limit: ~8.1.0
       storybook-dark-mode: ~1.1.2
       typescript: ^4.9.3
@@ -250,7 +250,7 @@ importers:
       react: 17.0.2
       react-dom: 17.0.2_react@17.0.2
       rimraf: 3.0.2
-      rollup-plugin-node-externals: 4.1.1_rollup@2.79.1
+      rollup-plugin-node-externals: 5.0.2_rollup@2.79.1
       size-limit: 8.1.0
       storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
       typescript: 4.9.3
@@ -313,7 +313,7 @@ importers:
       react-modal: ^3.16.1
       react-test-renderer: ^17.0.2
       rimraf: ~3.0.2
-      rollup-plugin-node-externals: ^4.1.1
+      rollup-plugin-node-externals: ^5.0.0
       size-limit: ~8.1.0
       storybook-dark-mode: ~1.1.2
       type-plus: ^4.18.0
@@ -377,7 +377,7 @@ importers:
       react-modal: 3.16.1_sfoxds7t5ydpegc3knd667wn6m
       react-test-renderer: 17.0.2_react@17.0.2
       rimraf: 3.0.2
-      rollup-plugin-node-externals: 4.1.1_rollup@2.79.1
+      rollup-plugin-node-externals: 5.0.2_rollup@2.79.1
       size-limit: 8.1.0
       storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
       typescript: 4.9.3
@@ -16302,13 +16302,12 @@ packages:
       inherits: 2.0.4
     dev: true
 
-  /rollup-plugin-node-externals/4.1.1_rollup@2.79.1:
-    resolution: {integrity: sha512-hiGCMTKHVoueaTmtcUv1KR0/dlNBuI9GYzHUlSHQbMd7T7yomYdXCFnBisoBqdZYy61EGAIfz8AvJaWWBho3Pg==}
+  /rollup-plugin-node-externals/5.0.2_rollup@2.79.1:
+    resolution: {integrity: sha512-UGAPdPjD0PPk4hNcHLnqwqsfNc/u0vaAjWnjkyS6j2jIMB4LLi1pW3TE01eaytJKZactNik2t8AQC33esS9GKw==}
     engines: {node: '>=14.0.0'}
     peerDependencies:
-      rollup: ^2.60.0
+      rollup: ^2.60.0 || ^3.0.0
     dependencies:
-      find-up: 5.0.0
       rollup: 2.79.1
     dev: true
 
