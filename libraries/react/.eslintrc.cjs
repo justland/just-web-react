@@ -18,6 +18,11 @@ module.exports = {
     rules: {
       '@typescript-eslint/require-await': 'off',
       'harmony/ts-member-delimiter-style': 'off'
+    },
+    settings: {
+      react: {
+        version: 'detect'
+      }
     }
   }, {
     extends: ['plugin:storybook/recommended'],
