@@ -7,14 +7,9 @@ export default {
   component: AppContext
 }
 
-export const ValueMustBeApp = () => {
-  const app = createApp({ name: 'app' })
-  return <AppContext.Provider value={app} />
-}
-
 const LogChild = () => {
   const c = useAppContext<LogContext>()
-  return <div>Keys in log: {Object.keys(c.log).join(', ')}</div>
+  return <div>Keys in `ctx.log``: {Object.keys(c.log).join(', ')}</div>
 }
 
 export const GetContext = () => {
