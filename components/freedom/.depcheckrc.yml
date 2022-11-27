@@ -1,0 +1,10 @@
+ignores:
+  - '@just-web/repo-scripts'
+  - '@storybook/*'
+  - '@testing-library/*'
+  - '@size-limit/*'
+  - '@types/*'
+  - '@vitest/coverage-c8'
+  - jest-image-snapshot
+  - size-limit
+  - storybook-dark-mode

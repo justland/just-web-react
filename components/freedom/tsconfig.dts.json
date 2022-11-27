@@ -1,16 +1,17 @@
 {
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
     "declaration": true,
     "declarationDir": "dts",
     "emitDeclarationOnly": true,
-    "jsx": "react-jsx",
-    "moduleResolution": "Node",
-    "rootDir": "ts",
-    "target": "ESNext"
+    "rootDir": "ts"
   },
   "include": [
     "ts",
     "typings"
+  ],
+  "exclude": [
+    "**/*.spec.*",
+    "**/*.stories.*"
   ]
 }
