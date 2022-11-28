@@ -1,5 +1,17 @@
 # @just-web/react
 
+## 5.0.0
+
+### Major Changes
+
+- 11e8e16: Support `ESM`.
+
+  Update to `@just-web` 5.
+
+### Patch Changes
+
+- 9897bd9: Adjust `import type`
+
 ## 4.0.1
 
 ### Patch Changes
