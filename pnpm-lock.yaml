@@ -297,7 +297,7 @@ importers:
       '@types/testing-library__jest-dom': ~5.14.3
       '@vitejs/plugin-react': ^2.2.0
       '@vitest/coverage-c8': ^0.25.3
-      assertron: ^10.0.1
+      assertron: ^11.0.0
       delay: ^5.0.0
       depcheck: ~1.4.3
       eslint: ^8.28.0
@@ -361,7 +361,7 @@ importers:
       '@types/testing-library__jest-dom': 5.14.5
       '@vitejs/plugin-react': 2.2.0_vite@3.2.4
       '@vitest/coverage-c8': 0.25.3_jsdom@20.0.3
-      assertron: 10.0.1
+      assertron: 11.0.1
       delay: 5.0.0
       depcheck: 1.4.3
       eslint: 8.28.0
@@ -6406,8 +6406,8 @@ packages:
     resolution: {integrity: sha512-jgsaNduz+ndvGyFt3uSuWqvy4lCnIJiovtouQN5JZHOKCS2QuhEdbcQHFhVksz2N2U9hXJo8odG7ETyWlEeuDw==}
     dev: true
 
-  /assertron/10.0.1:
-    resolution: {integrity: sha512-C1Y3kBcbuQC4cnWP7yALh2HLXZkWCSA3J4Zv9Cis+ii0oracI2cidXPrkRHvySJewHpuDKD4NFypaNm1wVc7gg==}
+  /assertron/11.0.1:
+    resolution: {integrity: sha512-D1U7weslbYgIoItGhuRqasdvZtU/1dtO9cmeMhuUbcNzd6Zztp3mlNlUF/EtZBfgjSFLjgUhBxw5uabsDR/b8A==}
     engines: {node: '>= 10'}
     dependencies:
       is-promise: 4.0.0
