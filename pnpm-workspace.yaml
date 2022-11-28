@@ -1,0 +1,8 @@
+packages:
+  - apps/*/*
+  - components/*
+  - frameworks/*
+  - libraries/*
+  - plugins/*
+  - presets/*
+  - tools/*

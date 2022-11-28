@@ -1,0 +1,19 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "outDir": ".nowhere",
+    "rootDir": "ts"
+  },
+  "include": [
+    "ts",
+    "typings"
+  ],
+  "references": [
+    {
+      "path": "./tsconfig.node.json"
+    },
+    {
+      "path": "../../libraries/react"
+    }
+  ]
+}

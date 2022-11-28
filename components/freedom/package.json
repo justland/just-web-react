@@ -1,0 +1,113 @@
+{
+  "name": "react-freedom",
+  "version": "0.0.0",
+  "homepage": "https://github.com/justland/just-web-react/tree/main/components/react-commands",
+  "bugs": {
+    "url": "https://github.com/justland/just-web-react/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justland/just-web-react.git",
+    "directory": "components/commands"
+  },
+  "license": "MIT",
+  "author": {
+    "name": "Homa Wong (unional)",
+    "email": "homawong@gmail.com",
+    "url": "https://github.com/unional"
+  },
+  "sideEffects": false,
+  "type": "module",
+  "exports": {
+    "import": "./dist/react-freedom.js",
+    "require": "./dist/react-freedom.cjs",
+    "default": "./dist/react-freedom.js",
+    "types": "./dts/index.d.ts"
+  },
+  "source": "./ts/index.ts",
+  "types": "./dts/index.d.ts",
+  "files": [
+    "dist",
+    "dts",
+    "ts",
+    "!**/*.spec.*",
+    "!**/*.stories.*"
+  ],
+  "scripts": {
+    "build": "run-p build:vite build:dts",
+    "build:storybook": "build-storybook",
+    "build:vite": "vite build",
+    "build:dts": "tsc -p tsconfig.dts.json",
+    "coverage": "vitest run --coverage",
+    "clean": "rimraf coverage dist dts *.tsbuildinfo",
+    "depcheck": "depcheck",
+    "dev": "vite",
+    "lint": "eslint --ext=ts,tsx,js,yaml,yml .",
+    "nuke": "rimraf node_modules",
+    "preview": "vite preview",
+    "sb": "start-storybook -p 6008",
+    "sb:test": "test-storybook --url http://localhost:6008",
+    "size": "size-limit",
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:tsc": "tsc --noEmit",
+    "verify": "npm-run-all -p lint build coverage depcheck -p size"
+  },
+  "dependencies": {
+    "@headlessui/react": "^1.7.4"
+  },
+  "devDependencies": {
+    "@size-limit/preset-small-lib": "~8.1.0",
+    "@storybook/addon-actions": "^6.5.13",
+    "@storybook/addon-backgrounds": "^6.5.13",
+    "@storybook/addon-console": "~1.2.3",
+    "@storybook/addon-docs": "^6.5.13",
+    "@storybook/addon-essentials": "^6.5.13",
+    "@storybook/addon-interactions": "^6.5.13",
+    "@storybook/addon-links": "^6.5.13",
+    "@storybook/addon-measure": "^6.5.13",
+    "@storybook/addon-outline": "^6.5.13",
+    "@storybook/addon-storysource": "^6.5.13",
+    "@storybook/addons": "^6.5.13",
+    "@storybook/builder-vite": "^0.2.5",
+    "@storybook/channel-postmessage": "^6.5.13",
+    "@storybook/channel-websocket": "^6.5.13",
+    "@storybook/client-api": "^6.5.13",
+    "@storybook/preview-web": "^6.5.13",
+    "@storybook/react": "^6.5.13",
+    "@storybook/test-runner": "^0.9.1",
+    "@storybook/testing-library": "^0.0.13",
+    "@testing-library/jest-dom": "^5.16.5",
+    "@types/jest": "^29.2.3",
+    "@types/node": "^16.11.26",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@types/testing-library__jest-dom": "~5.14.3",
+    "@vitejs/plugin-react": "^2.2.0",
+    "@vitest/coverage-c8": "^0.25.3",
+    "depcheck": "~1.4.3",
+    "eslint": "^8.11.0",
+    "eslint-plugin-harmony": "^7.1.1",
+    "eslint-plugin-react": "^7.31.11",
+    "eslint-plugin-storybook": "^0.6.7",
+    "jest-image-snapshot": "^6.0.0",
+    "npm-run-all": "^4.1.5",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "rimraf": "~3.0.2",
+    "rollup-plugin-node-externals": "^5.0.0",
+    "size-limit": "~8.1.0",
+    "storybook-dark-mode": "~1.1.2",
+    "typescript": "^4.9.3",
+    "vite": "^3.2.4",
+    "vitest": "^0.25.3"
+  },
+  "peerDependencies": {
+    "react": "^16 || ^17 || ^18",
+    "react-dom": "^16 || ^17 || ^18"
+  },
+  "typedoc": {
+    "entryPoint": "./ts/index.tsx",
+    "readmeFile": "./README.md"
+  }
+}

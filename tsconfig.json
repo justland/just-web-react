@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    {
+      "path": "components/commands"
+    },
+    {
+      "path": "components/freedom"
+    },
+    {
+      "path": "libraries/react"
+    }
+  ]
+}
