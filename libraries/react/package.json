@@ -126,11 +126,11 @@
     "vitest": "^0.25.3"
   },
   "peerDependencies": {
-    "@just-web/app": "^5 || >=5.0.0-beta",
-    "@just-web/log": "^5 || >=5.0.0-beta",
-    "@just-web/preferences": "^5 || >=5.0.0-beta",
-    "@just-web/states": "^5 || >=5.0.0-beta",
-    "@just-web/types": "^5 || >=5.0.0-beta",
+    "@just-web/app": "^5",
+    "@just-web/log": "^5",
+    "@just-web/preferences": "^5",
+    "@just-web/states": "^5",
+    "@just-web/types": "^5",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
   },

@@ -121,15 +121,15 @@
     "vitest": "^0.25.3"
   },
   "peerDependencies": {
-    "@just-web/app": "^5 || >=5.0.0-beta",
-    "@just-web/browser-keyboard": "^5 || >=5.0.0-beta",
-    "@just-web/commands": "^5 || >=5.0.0-beta",
-    "@just-web/keyboard": "^5 || >=5.0.0-beta",
-    "@just-web/log": "^5 || >=5.0.0-beta",
-    "@just-web/os": "^5 || >=5.0.0-beta",
+    "@just-web/app": "^5",
+    "@just-web/browser-keyboard": "^5",
+    "@just-web/commands": "^5",
+    "@just-web/keyboard": "^5",
+    "@just-web/log": "^5",
+    "@just-web/os": "^5",
     "@just-web/react": "workspace:^",
-    "@just-web/states": "^5 || >=5.0.0-beta",
-    "@just-web/types": "^5 || >=5.0.0-beta",
+    "@just-web/states": "^5",
+    "@just-web/types": "^5",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
   },
