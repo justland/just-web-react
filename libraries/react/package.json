@@ -102,7 +102,7 @@
     "@types/testing-library__jest-dom": "~5.14.3",
     "@vitejs/plugin-react": "^2.2.0",
     "@vitest/coverage-c8": "^0.25.3",
-    "assertron": "^10.0.1",
+    "assertron": "^11.0.0",
     "delay": "^5.0.0",
     "depcheck": "~1.4.3",
     "eslint": "^8.28.0",
@@ -126,11 +126,11 @@
     "vitest": "^0.25.3"
   },
   "peerDependencies": {
-    "@just-web/app": "^5 || >=5.0.0-beta",
-    "@just-web/log": "^5 || >=5.0.0-beta",
-    "@just-web/preferences": "^5 || >=5.0.0-beta",
-    "@just-web/states": "^5 || >=5.0.0-beta",
-    "@just-web/types": "^5 || >=5.0.0-beta",
+    "@just-web/app": "^5",
+    "@just-web/log": "^5",
+    "@just-web/preferences": "^5",
+    "@just-web/states": "^5",
+    "@just-web/types": "^5",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
   },
