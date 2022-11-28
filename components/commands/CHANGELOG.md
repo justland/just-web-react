@@ -1,5 +1,19 @@
 # @just-web/react-commands
 
+## 6.0.0
+
+### Minor Changes
+
+- 76c5698: Connect `showCommandPalette`.
+  Add ESM support
+
+### Patch Changes
+
+- 9897bd9: Adjust `import type`
+- Updated dependencies [9897bd9]
+- Updated dependencies [11e8e16]
+  - @just-web/react@5.0.0
+
 ## 5.0.1
 
 ### Patch Changes
