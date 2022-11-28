@@ -1,5 +1,5 @@
 import { createStore, Store } from '@just-web/states'
-import { Updater } from '@just-web/states'
+import type { Updater } from '@just-web/states'
 import { useCallback, useEffect, useState } from 'react'
 import { isType } from 'type-plus'
 

@@ -1,10 +1,10 @@
 import { CommandContribution, CommandsContext, formatCommand, showCommandPalette } from '@just-web/commands'
 import { formatKeyBinding, KeyBindingContribution, KeyboardContext } from '@just-web/keyboard'
-import { OSContext } from '@just-web/os'
+import type { OSContext } from '@just-web/os'
 import { useAppContext } from '@just-web/react'
 import { ComponentType, ReactElement, useCallback, useEffect, useMemo, useState, VFC } from 'react'
 import CP from 'react-command-palette'
-import { AnyFunction } from 'type-plus'
+import type { AnyFunction } from 'type-plus'
 import styles from './CommandPalette.module.css'
 
 export type CommandPaletteCommand = Omit<CommandContribution & KeyBindingContribution, 'command'> & {

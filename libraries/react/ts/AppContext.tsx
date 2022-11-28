@@ -1,5 +1,5 @@
-import { LogContext } from '@just-web/log'
-import { AppBaseContext } from '@just-web/types'
+import type { LogContext } from '@just-web/log'
+import type { AppBaseContext } from '@just-web/types'
 import { createContext, useContext } from 'react'
 
 /**
