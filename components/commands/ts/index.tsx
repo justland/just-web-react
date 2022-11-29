@@ -1,6 +1,6 @@
-import { definePlugin } from '@just-web/types'
 import { CommandsContext, showCommandPalette } from '@just-web/commands'
 import type { KeyboardContext } from '@just-web/keyboard'
+import { definePlugin } from '@just-web/types'
 
 export * from './CommandPalette/index.js'
 
