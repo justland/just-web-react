@@ -28,3 +28,4 @@ dist
 dts
 storybook-static
 *.tsbuildinfo
+vite.config.ts.*
