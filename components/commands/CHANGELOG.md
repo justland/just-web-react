@@ -1,5 +1,22 @@
 # @just-web/react-commands
 
+## 6.0.1
+
+### Patch Changes
+
+- b8337bb: Update dependencies.
+
+  Moving some used dependencies to normal `dependencies`,
+  while keeping thme in `peerDependencies`.
+
+  They are `@just-web` plugins which should be installed by the app,
+  so they should remain as `peerDependencies`.
+
+  Moving them from `devDependencies` to `dependencies` so that proper version bump can be done correctly.
+
+- Updated dependencies [b8337bb]
+  - @just-web/react@5.0.1
+
 ## 6.0.0
 
 ### Minor Changes
