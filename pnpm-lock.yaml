@@ -96,7 +96,7 @@ importers:
       rollup-plugin-node-externals: ^5.0.2
       size-limit: ~8.1.0
       standard-log-color: ^11.5.0
-      storybook-dark-mode: ~1.1.2
+      storybook-dark-mode: ~2.0.0
       type-plus: ^4.18.0
       typescript: ^4.9.3
       vite: ^3.2.4
@@ -157,7 +157,7 @@ importers:
       rollup-plugin-node-externals: 5.0.2_rollup@3.5.0
       size-limit: 8.1.0
       standard-log-color: 11.5.0_standard-log@11.5.0
-      storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
+      storybook-dark-mode: 2.0.3_sfoxds7t5ydpegc3knd667wn6m
       typescript: 4.9.3
       vite: 3.2.4_@types+node@14.18.33
       vitest: 0.25.3
@@ -205,7 +205,7 @@ importers:
       rimraf: ~3.0.2
       rollup-plugin-node-externals: ^5.0.2
       size-limit: ~8.1.0
-      storybook-dark-mode: ~1.1.2
+      storybook-dark-mode: ~2.0.0
       typescript: ^4.9.3
       vite: ^3.2.4
       vitest: ^0.25.3
@@ -252,7 +252,7 @@ importers:
       rimraf: 3.0.2
       rollup-plugin-node-externals: 5.0.2_rollup@3.5.0
       size-limit: 8.1.0
-      storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
+      storybook-dark-mode: 2.0.3_sfoxds7t5ydpegc3knd667wn6m
       typescript: 4.9.3
       vite: 3.2.4_@types+node@16.18.3
       vitest: 0.25.3
@@ -315,7 +315,7 @@ importers:
       rimraf: ~3.0.2
       rollup-plugin-node-externals: ^5.0.2
       size-limit: ~8.1.0
-      storybook-dark-mode: ~1.1.2
+      storybook-dark-mode: ~2.0.0
       type-plus: ^4.18.0
       typescript: ^4.9.3
       vite: ^3.2.4
@@ -379,7 +379,7 @@ importers:
       rimraf: 3.0.2
       rollup-plugin-node-externals: 5.0.2_rollup@3.5.0
       size-limit: 8.1.0
-      storybook-dark-mode: 1.1.2_sfoxds7t5ydpegc3knd667wn6m
+      storybook-dark-mode: 2.0.3_sfoxds7t5ydpegc3knd667wn6m
       typescript: 4.9.3
       vite: 3.2.4_@types+node@14.18.33
       vitest: 0.25.3_jsdom@20.0.3
@@ -3137,7 +3137,7 @@ packages:
     resolution: {integrity: sha512-UIrKVJ4EOsPEtjsTsCbmvjRqtZiQVqI8nyomQl+h1ybCOBK0Vqvy25+gKkoesRK/8ljlP6g3PvIdXAVyQD0Rdw==}
     dependencies:
       '@just-web/log': 5.0.2_@just-web+types@5.0.2
-      immer: github.com/unional/immer/b74706f08e74afffb4ccadf628d12348e811af17
+      immer: github.com/unional/immer/c8ba915c3c02ead76898edc354e39156b5ad7f72
       tersify: 3.10.5
       type-plus: 4.18.0
     transitivePeerDependencies:
@@ -16941,8 +16941,8 @@ packages:
     resolution: {integrity: sha512-siT1RiqlfQnGqgT/YzXVUNsom9S0H1OX+dpdGN1xkyYATo4I6sep5NmsRD/40s3IIOvlCq6akxkqG82urIZW1w==}
     dev: true
 
-  /storybook-dark-mode/1.1.2_sfoxds7t5ydpegc3knd667wn6m:
-    resolution: {integrity: sha512-L5QjJN49bl+ktprM6faMkTeW+LCvuMYWQaRo8/JGSMmzomIjLT7Yo20UiTsnMgMYyYWYF5O4EK/F3OvjDNp8tQ==}
+  /storybook-dark-mode/2.0.3_sfoxds7t5ydpegc3knd667wn6m:
+    resolution: {integrity: sha512-UhFZ3truqDsI6N6KgrrTWjd3/2eAH+KhMCxXu9ytP/nSPhUb59HURAREh7LNEx61vZ/sbUY8w+uDswogUCFHLg==}
     peerDependencies:
       react: ^16.8.0 || ^17.0.0 || ^18.0.0
       react-dom: ^16.8.0 || ^17.0.0 || ^18.0.0
@@ -19059,7 +19059,7 @@ packages:
     resolution: {integrity: sha512-V50KMwwzqJV0NpZIZFwfOD5/lyny3WlSzRiXgA0G7VUnRlqttta1L6UQIHzd6EuBY/cHGfwTIck7w1yH6Q5zUw==}
     dev: true
 
-  github.com/unional/immer/b74706f08e74afffb4ccadf628d12348e811af17:
-    resolution: {tarball: https://codeload.github.com/unional/immer/tar.gz/b74706f08e74afffb4ccadf628d12348e811af17}
-    name: immer
+  github.com/unional/immer/c8ba915c3c02ead76898edc354e39156b5ad7f72:
+    resolution: {tarball: https://codeload.github.com/unional/immer/tar.gz/c8ba915c3c02ead76898edc354e39156b5ad7f72}
+    name: '@unional/immer'
     version: 9.0.0-beta.1
