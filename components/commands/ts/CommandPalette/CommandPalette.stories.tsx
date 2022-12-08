@@ -4,7 +4,7 @@ import commandsPlugin, { CommandsContext, CommandsOptions } from '@just-web/comm
 import keyboardPlugin, { KeyboardOptions } from '@just-web/keyboard'
 import { logLevels } from '@just-web/log'
 import { isMac, OSContext, OSTestOptions, osTestPlugin } from '@just-web/os'
-import { AppContext, useAppContext } from '@just-web/react'
+import { AppContextProvider, useAppContext } from '@just-web/react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import Mousetrap from 'mousetrap'
 import { createColorLogReporter } from 'standard-log-color'
@@ -36,9 +36,9 @@ export default {
   },
   decorators: [
     (Story, { loaded: { app } }) => (
-      <AppContext.Provider value={app}>
+      <AppContextProvider value={app}>
         <Story />
-      </AppContext.Provider>
+      </AppContextProvider>
     )
   ]
 } as ComponentMeta<typeof CommandPalette>
