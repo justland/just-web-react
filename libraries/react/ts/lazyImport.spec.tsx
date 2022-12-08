@@ -1,4 +1,3 @@
-import { it, expect } from 'vitest'
 import { createTestApp } from '@just-web/app'
 import '@testing-library/jest-dom'
 import { render, screen } from '@testing-library/react'
@@ -6,7 +5,8 @@ import { AssertOrder } from 'assertron'
 import delay from 'delay'
 import isCI from 'is-ci'
 import { Suspense } from 'react'
-import { lazyImport } from './lazyImport.js'
+import { expect, it } from 'vitest'
+import { lazyImport } from './index.js'
 
 it('lazy imports module', async () => {
   const app = createTestApp({ name: 'test' })

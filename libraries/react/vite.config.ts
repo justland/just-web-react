@@ -7,10 +7,7 @@ import { resolve } from 'node:path'
 import externals from 'rollup-plugin-node-externals'
 
 export default defineConfig({
-  plugins: [
-    react({ exclude: [/\.spec\.tsx?$/, /\.stories\.tsx?$/] }),
-    { ...externals(), enforce: 'pre' }
-  ],
+  plugins: [react({ exclude: [/\.spec\.tsx?$/, /\.stories\.tsx?$/] }), { ...externals(), enforce: 'pre' }],
   build: {
     lib: {
       entry: resolve(__dirname, 'ts/index.ts'),
@@ -18,6 +15,11 @@ export default defineConfig({
       fileName: 'just-web-react'
     },
     minify: false,
+    rollupOptions: {
+      output: {
+        exports: 'named'
+      }
+    },
     sourcemap: true
   },
   resolve: {
@@ -28,6 +30,6 @@ export default defineConfig({
   test: {
     globals: true,
     environment: 'jsdom',
-    setupFiles: 'scripts/setup-test.ts',
+    setupFiles: 'scripts/setup-test.ts'
   }
 })
