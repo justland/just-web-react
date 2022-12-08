@@ -25,10 +25,10 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "types": "./dts/index.d.ts",
     "import": "./dist/just-web-react.js",
     "require": "./dist/just-web-react.cjs",
-    "default": "./dist/just-web-react.js",
-    "types": "./dts/index.d.ts"
+    "default": "./dist/just-web-react.cjs"
   },
   "source": "./ts/index.ts",
   "types": "./dts/index.d.ts",
