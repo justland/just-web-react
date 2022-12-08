@@ -1,8 +1,8 @@
 import type { LogContext } from '@just-web/log'
 import { createStore } from '@just-web/states'
 import type { AppBaseContext } from '@just-web/types'
-import { createContext, useContext } from 'react'
-import { ReactPluginContext } from './reactPlugin.js'
+import { createContext, ReactNode, useContext } from 'react'
+import type { ReactPluginContext } from './reactPlugin.js'
 
 const AppContext = createContext<AppBaseContext & LogContext>(undefined as any)
 
@@ -16,9 +16,13 @@ const AppContext = createContext<AppBaseContext & LogContext>(undefined as any)
  * While in non-MFE application you can rely on global scope or module scope to share state/app,
  * it is recommend to use this so that you can use any plugin that relies on `AppContextProvider` as needed.
  */
-export function AppContextProvider<
-  A extends AppBaseContext & LogContext & Partial<ReactPluginContext>
->({ value, children }: { value: A; children: React.ReactNode }) {
+export function AppContextProvider<A extends AppBaseContext & LogContext & Partial<ReactPluginContext>>({
+  value,
+  children
+}: {
+  value: A
+  children: ReactNode
+}) {
   const contexts = Array.from(value.react?.storeContexts.entries() ?? [])
   return (
     <AppContext.Provider value={value}>
@@ -43,9 +47,9 @@ export function AppContextProvider<
  * It does not perform additional check so it is possible that you get `undefined` error,
  * If the app did not load the plugin you need.
  */
-export function useAppContext<
-  C extends Record<string | symbol, any> = AppBaseContext & LogContext
->(): C & AppBaseContext & LogContext {
+export function useAppContext<C extends Record<string | symbol, any> = AppBaseContext & LogContext>(): C &
+  AppBaseContext &
+  LogContext {
   const app = useContext(AppContext) as unknown as C & AppBaseContext & LogContext
   if (!app) {
     throw new Error('AppContext.Provider must be used before using useAppContext()')
