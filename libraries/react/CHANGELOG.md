@@ -1,5 +1,12 @@
 # @just-web/react
 
+## 6.0.1
+
+### Patch Changes
+
+- a951c8f: Adjust exports field order.
+  And set `default` to cjs.
+
 ## 6.0.0
 
 ### Major Changes
