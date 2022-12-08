@@ -1,21 +1,22 @@
 {
-	"folders": [
-		{
-			"path": "."
-		},
-		{
-			"path": "../just-web"
-		},
-		{
-			"path": "../.github"
-		}
-	],
-	"settings": {
-		"files.associations": {
-			"**/common/config/rush/*.json": "jsonc",
-			"*.scss": "postcss",
-			"common/git-hooks/*": "shell",
-			"rush.json": "jsonc"
-		}
-	}
+  "folders": [
+    {
+      "path": "."
+    },
+    {
+      "path": "../just-web"
+    },
+    {
+      "path": "../.github"
+    }
+  ],
+  "settings": {
+    "files.associations": {
+      "**/common/config/rush/*.json": "jsonc",
+      "*.scss": "postcss",
+      "common/git-hooks/*": "shell",
+      "rush.json": "jsonc"
+    },
+    "typescript.tsdk": "just-web-react\\node_modules\\typescript\\lib"
+  }
 }
