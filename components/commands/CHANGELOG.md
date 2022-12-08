@@ -1,5 +1,14 @@
 # @just-web/react-commands
 
+## 7.0.1
+
+### Patch Changes
+
+- a951c8f: Adjust exports field order.
+  And set `default` to cjs.
+- Updated dependencies [a951c8f]
+  - @just-web/react@6.0.1
+
 ## 7.0.0
 
 ### Patch Changes
