@@ -1,7 +1,7 @@
 import { a } from 'assertron'
 import { create } from 'react-test-renderer'
-import { createStoreContext, useStoreContext } from './index.js'
 import { describe, it } from 'vitest'
+import { createStoreContext, useStoreContext } from './index.js'
 
 describe(`${useStoreContext.name}()`, () => {
   it('throws if Context.Provider is not fill in first', () => {

@@ -1,6 +1,6 @@
-import { test, expect } from 'vitest'
 import { createStore } from '@just-web/states'
 import { act, create } from 'react-test-renderer'
+import { expect, test } from 'vitest'
 import { useStore } from './index.js'
 
 test('store change with same value will not trigger render', async () => {
