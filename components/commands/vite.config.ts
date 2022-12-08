@@ -32,6 +32,9 @@ export default defineConfig({
   },
   test: {
     globals: true,
+    deps: {
+      inline: [/@just-web/, /just-web-react/]
+    },
     environment: 'jsdom',
     setupFiles: 'scripts/setup-test.ts',
     typecheck: {
