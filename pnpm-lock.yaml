@@ -79,7 +79,7 @@ importers:
       '@types/react': ^17
       '@types/react-dom': ^18.0.9
       '@types/testing-library__jest-dom': ~5.14.5
-      '@vitejs/plugin-react': ^2.2.0
+      '@vitejs/plugin-react': ^3.0.0
       '@vitest/coverage-c8': ^0.25.3
       depcheck: ~1.4.3
       eslint: ^8.28.0
@@ -142,7 +142,7 @@ importers:
       '@types/react': 17.0.52
       '@types/react-dom': 18.0.9
       '@types/testing-library__jest-dom': 5.14.5
-      '@vitejs/plugin-react': 2.2.0_vite@3.2.4
+      '@vitejs/plugin-react': 3.0.0_vite@3.2.4
       '@vitest/coverage-c8': 0.25.3
       depcheck: 1.4.3
       eslint: 8.28.0
@@ -191,7 +191,7 @@ importers:
       '@types/react': ^17
       '@types/react-dom': ^18.0.9
       '@types/testing-library__jest-dom': ~5.14.5
-      '@vitejs/plugin-react': ^2.2.0
+      '@vitejs/plugin-react': ^3.0.0
       '@vitest/coverage-c8': ^0.25.3
       depcheck: ~1.4.3
       eslint: ^8.28.0
@@ -239,7 +239,7 @@ importers:
       '@types/react': 17.0.52
       '@types/react-dom': 18.0.9
       '@types/testing-library__jest-dom': 5.14.5
-      '@vitejs/plugin-react': 2.2.0_vite@3.2.4
+      '@vitejs/plugin-react': 3.0.0_vite@3.2.4
       '@vitest/coverage-c8': 0.25.3
       depcheck: 1.4.3
       eslint: 8.28.0
@@ -295,7 +295,7 @@ importers:
       '@types/react-modal': ^3.13.1
       '@types/react-test-renderer': ^18.0.0
       '@types/testing-library__jest-dom': ~5.14.5
-      '@vitejs/plugin-react': ^2.2.0
+      '@vitejs/plugin-react': ^3.0.0
       '@vitest/coverage-c8': ^0.25.3
       assertron: ^11.0.1
       delay: ^5.0.0
@@ -359,7 +359,7 @@ importers:
       '@types/react-modal': 3.13.1
       '@types/react-test-renderer': 18.0.0
       '@types/testing-library__jest-dom': 5.14.5
-      '@vitejs/plugin-react': 2.2.0_vite@3.2.4
+      '@vitejs/plugin-react': 3.0.0_vite@3.2.4
       '@vitest/coverage-c8': 0.25.3_jsdom@20.0.3
       assertron: 11.0.1
       delay: 5.0.0
@@ -905,7 +905,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.12.9
-      '@babel/helper-plugin-utils': 7.10.4
+      '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-object-rest-spread': 7.8.3_@babel+core@7.12.9
       '@babel/plugin-transform-parameters': 7.20.5_@babel+core@7.12.9
     dev: true
@@ -5575,6 +5575,22 @@ packages:
       - supports-color
     dev: true
 
+  /@vitejs/plugin-react/3.0.0_vite@3.2.4:
+    resolution: {integrity: sha512-1mvyPc0xYW5G8CHQvJIJXLoMjl5Ct3q2g5Y2s6Ccfgwm45y48LBvsla7az+GkkAtYikWQ4Lxqcsq5RHLcZgtNQ==}
+    engines: {node: ^14.18.0 || >=16.0.0}
+    peerDependencies:
+      vite: ^4.0.0
+    dependencies:
+      '@babel/core': 7.20.5
+      '@babel/plugin-transform-react-jsx-self': 7.18.6_@babel+core@7.20.5
+      '@babel/plugin-transform-react-jsx-source': 7.19.6_@babel+core@7.20.5
+      magic-string: 0.27.0
+      react-refresh: 0.14.0
+      vite: 3.2.4_@types+node@14.18.33
+    transitivePeerDependencies:
+      - supports-color
+    dev: true
+
   /@vitest/coverage-c8/0.25.3:
     resolution: {integrity: sha512-+tmrB3E7pZTSM+aWKzLk0FpyyaQOoRQf0594hHp+E3Kk0tiFONiEFYf7+9a1Z+C2ffU/0w6KvyBjpNPdashMrg==}
     dependencies:
@@ -5632,7 +5648,7 @@ packages:
   /@vue/compiler-sfc/3.2.45:
     resolution: {integrity: sha512-1jXDuWah1ggsnSAOGsec8cFjT/K6TMZ0sPL3o3d84Ft2AYZi2jWJgRMjw4iaK0rBfA89L5gw427H4n1RZQBu6Q==}
     dependencies:
-      '@babel/parser': 7.16.4
+      '@babel/parser': 7.20.5
       '@vue/compiler-core': 3.2.45
       '@vue/compiler-dom': 3.2.45
       '@vue/compiler-ssr': 3.2.45
@@ -13322,6 +13338,13 @@ packages:
     engines: {node: '>=12'}
     dependencies:
       sourcemap-codec: 1.4.8
+    dev: true
+
+  /magic-string/0.27.0:
+    resolution: {integrity: sha512-8UnnX2PeRAPZuN12svgR9j7M1uWMovg/CEnIwIG0LFkXSJJe4PdfUGiTGl8V9bsBHFUtfVINcSyYxd7q+kx9fA==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@jridgewell/sourcemap-codec': 1.4.14
     dev: true
 
   /make-dir/2.1.0:
