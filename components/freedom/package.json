@@ -19,12 +19,13 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
+    "types": "./dts/index.d.ts",
     "import": "./dist/react-freedom.js",
     "require": "./dist/react-freedom.cjs",
-    "default": "./dist/react-freedom.js",
-    "types": "./dts/index.d.ts"
+    "default": "./dist/react-freedom.cjs"
   },
-  "source": "./ts/index.ts",
+  "main": "./dist/react-freedom.cjs",
+  "module": "./dist/react-freedom.js",
   "types": "./dts/index.d.ts",
   "files": [
     "dist",
