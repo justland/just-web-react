@@ -30,7 +30,8 @@
     "require": "./dist/just-web-react-commands.cjs",
     "default": "./dist/just-web-react-commands.cjs"
   },
-  "source": "./ts/index.ts",
+  "main": "./dist/just-web-react-commands.cjs",
+  "module": "./dist/just-web-react-commands.js",
   "types": "./dts/index.d.ts",
   "files": [
     "dist",
