@@ -1,7 +1,14 @@
 import { createApp, createTestApp } from '@just-web/app'
 import { LogContext, TestLogContext } from '@just-web/log'
 import osPlugin, { OSContext } from '@just-web/os'
-import reactPlugin, { AppContextProvider, createStoreContext, useAppContext, useStoreContext } from './index.js'
+import { definePlugin } from '@just-web/types'
+import reactPlugin, {
+  AppContextProvider,
+  createStoreContext,
+  ReactPluginContext,
+  useAppContext,
+  useStoreContext
+} from './index.js'
 
 export default {
   component: AppContextProvider
@@ -71,9 +78,7 @@ const AddLog = () => {
   return (
     <>
       <div>Number of logs: {c.log.reporter.logs.length}</div>
-      <button onClick={() => c.log.info('write another log')}>
-        Write log will not trigger render
-      </button>
+      <button onClick={() => c.log.info('write another log')}>Write log will not trigger render</button>
     </>
   )
 }
@@ -88,17 +93,33 @@ export const ModifyingAppState = () => {
 }
 
 const FeatureAContext = createStoreContext<{ a: number }>()
-const FeatureBContext = createStoreContext<{ b: number }>()
 
 const FeatureA = () => {
   const [a] = useStoreContext(FeatureAContext, (s) => s.a)
   return <div>Feature A: {a}</div>
 }
 
+const featureAPlugin = definePlugin(() => ({
+  name: 'featureA',
+  init: (ctx: ReactPluginContext) => {
+    ctx.react.storeContexts.register(FeatureAContext, { a: 1 })
+    return []
+  }
+}))
+
+const FeatureBContext = createStoreContext<{ b: number }>()
 const FeatureB = () => {
   const [b] = useStoreContext(FeatureBContext, (s) => s.b)
   return <div>Feature B: {b}</div>
 }
+
+const featureBPlugin = definePlugin(() => ({
+  name: 'featureB',
+  init: (ctx: ReactPluginContext) => {
+    ctx.react.storeContexts.register(FeatureBContext, { b: 2 })
+    return []
+  }
+}))
 
 const FeatureButtons = () => {
   const [, setA] = useStoreContext(
@@ -125,11 +146,7 @@ const FeatureButtons = () => {
 }
 
 export function WithContexts() {
-  const app = createTestApp().extend(reactPlugin())
-
-  // these are normaly registered by the features in their plugins
-  app.react.storeContexts.register(FeatureAContext, { a: 1 })
-  app.react.storeContexts.register(FeatureBContext, { b: 2 })
+  const app = createTestApp().extend(reactPlugin()).extend(featureAPlugin()).extend(featureBPlugin())
 
   return (
     <AppContextProvider value={app}>
