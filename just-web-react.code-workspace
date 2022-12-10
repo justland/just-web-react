@@ -17,6 +17,7 @@
       "common/git-hooks/*": "shell",
       "rush.json": "jsonc"
     },
-    "typescript.tsdk": "just-web-react\\node_modules\\typescript\\lib"
+    "typescript.tsdk": "just-web-react\\node_modules\\typescript\\lib",
+    "githubPullRequests.logLevel": "debug"
   }
 }
