@@ -86,7 +86,7 @@
     "@types/react-dom": "^18.0.9",
     "@types/testing-library__jest-dom": "~5.14.5",
     "@vitejs/plugin-react": "^3.0.0",
-    "@vitest/coverage-c8": "^0.25.3",
+    "@vitest/coverage-c8": "^0.25.7",
     "depcheck": "~1.4.3",
     "eslint": "^8.28.0",
     "eslint-plugin-harmony": "^7.1.1",
