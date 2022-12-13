@@ -63,11 +63,11 @@
   "dependencies": {
     "@just-web/commands": "^5.0.2",
     "@just-web/keyboard": "^5.0.2",
-    "@just-web/types": "^5.0.2",
     "@just-web/os": "^5.0.2",
     "@just-web/react": "workspace:^",
-    "react-command-palette": "~0.22.0",
+    "@just-web/types": "^5.0.2",
     "react": "^17.0.2",
+    "react-command-palette": "~0.22.0",
     "type-plus": "^4.18.0"
   },
   "devDependencies": {
@@ -102,13 +102,14 @@
     "@types/react-dom": "^18.0.9",
     "@types/testing-library__jest-dom": "~5.14.5",
     "@vitejs/plugin-react": "^3.0.0",
-    "@vitest/coverage-c8": "^0.25.3",
+    "@vitest/coverage-c8": "^0.25.7",
     "depcheck": "~1.4.3",
     "eslint": "^8.28.0",
     "eslint-plugin-harmony": "^7.1.1",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-storybook": "^0.6.7",
     "jest-image-snapshot": "^6.0.0",
+    "jsdom": "^20.0.3",
     "mousetrap": "~1.6.5",
     "npm-run-all": "^4.1.5",
     "react-dom": "^17.0.2",
@@ -118,8 +119,8 @@
     "standard-log-color": "^11.5.0",
     "storybook-dark-mode": "~2.0.0",
     "typescript": "^4.9.3",
-    "vite": "^3.2.4",
-    "vitest": "^0.25.3"
+    "vite": "^4.0.0",
+    "vitest": "^0.25.7"
   },
   "peerDependencies": {
     "@just-web/app": "^5",
