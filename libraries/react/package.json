@@ -127,11 +127,11 @@
     "vitest": "^0.25.7"
   },
   "peerDependencies": {
-    "@just-web/app": "^6.0.0",
-    "@just-web/log": "^6.0.0",
-    "@just-web/preferences": "^6.0.0",
-    "@just-web/states": "^6.0.0",
-    "@just-web/types": "^6.0.0",
+    "@just-web/app": "^6",
+    "@just-web/log": "^6",
+    "@just-web/preferences": "^6",
+    "@just-web/states": "^6",
+    "@just-web/types": "^6",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
   },
