@@ -68,7 +68,7 @@
     "@just-web/types": "^5.0.2",
     "react": "^17.0.2",
     "react-command-palette": "~0.22.0",
-    "type-plus": "^4.18.0"
+    "type-plus": "^5.0.0"
   },
   "devDependencies": {
     "@just-web/app": "^5.0.2",
