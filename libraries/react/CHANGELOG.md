@@ -1,5 +1,11 @@
 # @just-web/react
 
+## 6.0.3
+
+### Patch Changes
+
+- b8c5e73: Update peer deps
+
 ## 6.0.2
 
 ### Patch Changes
