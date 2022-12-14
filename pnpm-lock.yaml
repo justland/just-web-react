@@ -43,7 +43,7 @@ importers:
 
   components/commands:
     specifiers:
-      '@just-web/app': ^5.0.2
+      '@just-web/app': ^6.0.0
       '@just-web/browser-keyboard': ^5.0.2
       '@just-web/commands': ^5.0.2
       '@just-web/keyboard': ^5.0.2
@@ -113,7 +113,7 @@ importers:
       react-command-palette: 0.22.0_sfoxds7t5ydpegc3knd667wn6m
       type-plus: 5.0.0
     devDependencies:
-      '@just-web/app': 5.0.2_2hghiniwnksmgifardyxovgjly
+      '@just-web/app': 6.0.0_2hghiniwnksmgifardyxovgjly
       '@just-web/browser-keyboard': 5.0.2_6fg5blr4l4hgcqugmhkrmst6lm
       '@just-web/log': 5.0.2_@just-web+types@5.0.2
       '@just-web/repo-scripts': 0.2.0_@types+node@14.18.33
@@ -261,7 +261,7 @@ importers:
 
   libraries/react:
     specifiers:
-      '@just-web/app': ^5.0.2
+      '@just-web/app': ^6.0.0
       '@just-web/log': ^5.0.2
       '@just-web/os': ^5.0.2
       '@just-web/preferences': ^5.0.2
@@ -328,7 +328,7 @@ importers:
       '@just-web/types': 5.0.2
       type-plus: 5.0.0
     devDependencies:
-      '@just-web/app': 5.0.2_2hghiniwnksmgifardyxovgjly
+      '@just-web/app': 6.0.0_2hghiniwnksmgifardyxovgjly
       '@just-web/os': 5.0.2_2hghiniwnksmgifardyxovgjly
       '@just-web/preferences': 5.0.2_nugia6xlajykiejn5s2fcp2fj4
       '@just-web/repo-scripts': 0.2.0_@types+node@14.18.33
@@ -3202,16 +3202,16 @@ packages:
     dependencies:
       type-plus: 4.18.0
 
-  /@just-web/app/5.0.2_2hghiniwnksmgifardyxovgjly:
-    resolution: {integrity: sha512-86gSFVqnIDFD6gBA4gz89iQb5E+iOgFJsBDmmzpKX+nfrKTRsoBt9DtUETc3sjo+MAtEhOIlL+EBA+j9vh+4oA==}
+  /@just-web/app/6.0.0_2hghiniwnksmgifardyxovgjly:
+    resolution: {integrity: sha512-8Z+lDIWrJQINio14SqACg+poeau9dkzVtAvdqhKUdEJFr61ISpO01c3r1wN7Odv+F+OhNTJ/BPJgO8GzOeNIfg==}
     peerDependencies:
-      '@just-web/log': ^5.0.2
-      '@just-web/types': ^5.0.2
+      '@just-web/log': ^6.0.0
+      '@just-web/types': ^6.0.0
     dependencies:
       '@just-web/log': 5.0.2_@just-web+types@5.0.2
       '@just-web/types': 5.0.2
       iso-error: 5.0.0
-      type-plus: 4.18.0
+      type-plus: 5.0.0
     dev: true
 
   /@just-web/browser-keyboard/5.0.2_6fg5blr4l4hgcqugmhkrmst6lm:
@@ -18263,7 +18263,6 @@ packages:
     dependencies:
       tersify: 3.11.1
       unpartial: 1.0.4
-    dev: false
 
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
