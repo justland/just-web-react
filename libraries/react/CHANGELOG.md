@@ -1,5 +1,17 @@
 # @just-web/react
 
+## 6.0.2
+
+### Patch Changes
+
+- ac35820: Fix `exports` fields.
+  `types` should go first,
+  `default` should go last, and point to CJS code.
+
+  Also added `main` and `module` to improve compatibility.
+
+- e2d1489: Update just-web. While it is a major version bump, it doesn't break anything in this package.
+
 ## 6.0.1
 
 ### Patch Changes
