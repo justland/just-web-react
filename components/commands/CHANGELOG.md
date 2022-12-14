@@ -1,5 +1,13 @@
 # @just-web/react-commands
 
+## 7.0.3
+
+### Patch Changes
+
+- b8c5e73: Update peer deps
+- Updated dependencies [b8c5e73]
+  - @just-web/react@6.0.3
+
 ## 7.0.2
 
 ### Patch Changes
