@@ -129,7 +129,7 @@
   "peerDependencies": {
     "@just-web/app": "^6.0.0",
     "@just-web/log": "^6.0.0",
-    "@just-web/preferences": "^5",
+    "@just-web/preferences": "^6.0.0",
     "@just-web/states": "^5",
     "@just-web/types": "^5",
     "react": "^16 || ^17 || ^18",
