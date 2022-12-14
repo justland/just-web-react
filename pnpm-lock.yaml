@@ -98,7 +98,7 @@ importers:
       size-limit: ~8.1.0
       standard-log-color: ^11.5.0
       storybook-dark-mode: ~2.0.0
-      type-plus: ^4.18.0
+      type-plus: ^5.0.0
       typescript: ^4.9.3
       vite: ^4.0.0
       vitest: ^0.25.7
@@ -111,7 +111,7 @@ importers:
       '@just-web/types': 5.0.2
       react: 17.0.2
       react-command-palette: 0.22.0_sfoxds7t5ydpegc3knd667wn6m
-      type-plus: 4.18.0
+      type-plus: 5.0.0
     devDependencies:
       '@just-web/app': 5.0.2_2hghiniwnksmgifardyxovgjly
       '@just-web/browser-keyboard': 5.0.2_6fg5blr4l4hgcqugmhkrmst6lm
@@ -318,7 +318,7 @@ importers:
       rollup-plugin-node-externals: ^5.0.2
       size-limit: ~8.1.0
       storybook-dark-mode: ~2.0.0
-      type-plus: ^4.18.0
+      type-plus: ^5.0.0
       typescript: ^4.9.3
       vite: ^4.0.0
       vitest: ^0.25.7
@@ -326,7 +326,7 @@ importers:
       '@just-web/log': 5.0.2_@just-web+types@5.0.2
       '@just-web/states': 5.0.2_@just-web+types@5.0.2
       '@just-web/types': 5.0.2
-      type-plus: 4.18.0
+      type-plus: 5.0.0
     devDependencies:
       '@just-web/app': 5.0.2_2hghiniwnksmgifardyxovgjly
       '@just-web/os': 5.0.2_2hghiniwnksmgifardyxovgjly
@@ -16752,7 +16752,7 @@ packages:
   /satisfier/5.4.2:
     resolution: {integrity: sha512-K1QPzEPjiC/7FcwiCwRH218SS3OVEWlx56EcHI+tZIf+TaAs+OHwwruAD4ke6xvRk/QniwSPkP98o9Oo84RxGQ==}
     dependencies:
-      tersify: 3.10.5
+      tersify: 3.11.1
     dev: true
 
   /saxes/6.0.0:
@@ -17828,7 +17828,6 @@ packages:
       acorn: 8.8.1
       is-buffer: 2.0.5
       unpartial: 1.0.4
-    dev: true
 
   /test-exclude/6.0.0:
     resolution: {integrity: sha512-cAGWPIyOHU6zlmg88jwm7VRyXnMN7iV68OGAbYDk/Mh/xC/pzVPlQtY6ngoIH/5/tciuhGfvESU8GrHrcxD56w==}
@@ -18256,8 +18255,15 @@ packages:
   /type-plus/4.18.0:
     resolution: {integrity: sha512-Hds5neDmogRcQheEmdjbEqVq/cE9UUdd9Ic7eCRI2/AzUH1JB+0ha3Hb3Spn2m1PQRBA61kNjbgSLaljNp0L9Q==}
     dependencies:
-      tersify: 3.10.5
+      tersify: 3.11.1
       unpartial: 1.0.4
+
+  /type-plus/5.0.0:
+    resolution: {integrity: sha512-nKp5pOQDldmR9BdEjLplLFwiXTVhOK2kReBSgVJ65URDLXCqENYzVDCONaExADIIc1CAGzvzTkB0TUgMAWR2qQ==}
+    dependencies:
+      tersify: 3.11.1
+      unpartial: 1.0.4
+    dev: false
 
   /typedarray-to-buffer/3.1.5:
     resolution: {integrity: sha512-zdu8XMNEDepKKR+XYOXAVPtWui0ly0NtohUscw+UmaHiAWT8hrV1rr//H6V+0DvJ3OQ19S979M0laLfX8rm82Q==}
