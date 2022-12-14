@@ -131,7 +131,7 @@
     "@just-web/log": "^6.0.0",
     "@just-web/preferences": "^6.0.0",
     "@just-web/states": "^6.0.0",
-    "@just-web/types": "^5",
+    "@just-web/types": "^6.0.0",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
   },
