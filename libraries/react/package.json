@@ -62,15 +62,15 @@
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/log": "^5.0.2",
-    "@just-web/states": "^5.0.2",
-    "@just-web/types": "^5.0.2",
+    "@just-web/log": "^6.0.0",
+    "@just-web/states": "^6.0.0",
+    "@just-web/types": "^6.0.0",
     "type-plus": "^5.0.0"
   },
   "devDependencies": {
     "@just-web/app": "^6.0.0",
-    "@just-web/os": "^5.0.2",
-    "@just-web/preferences": "^5.0.2",
+    "@just-web/os": "^6.0.0",
+    "@just-web/preferences": "^6.0.0",
     "@just-web/repo-scripts": "^0.2.0",
     "@size-limit/preset-small-lib": "~8.1.0",
     "@storybook/addon-actions": "^6.5.13",
