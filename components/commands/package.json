@@ -71,7 +71,7 @@
     "type-plus": "^5.0.0"
   },
   "devDependencies": {
-    "@just-web/app": "^5.0.2",
+    "@just-web/app": "^6.0.0",
     "@just-web/browser-keyboard": "^5.0.2",
     "@just-web/log": "^5.0.2",
     "@just-web/repo-scripts": "^0.2.0",
@@ -123,7 +123,7 @@
     "vitest": "^0.25.7"
   },
   "peerDependencies": {
-    "@just-web/app": "^5",
+    "@just-web/app": "^6.0.0",
     "@just-web/browser-keyboard": "^5",
     "@just-web/commands": "^5",
     "@just-web/keyboard": "^5",
