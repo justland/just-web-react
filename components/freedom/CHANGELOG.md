@@ -1,5 +1,15 @@
 # react-freedom
 
+## 0.0.3
+
+### Patch Changes
+
+- ac35820: Fix `exports` fields.
+  `types` should go first,
+  `default` should go last, and point to CJS code.
+
+  Also added `main` and `module` to improve compatibility.
+
 ## 0.0.2
 
 ### Patch Changes
