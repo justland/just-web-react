@@ -289,7 +289,7 @@ importers:
       '@storybook/test-runner': ^0.9.1
       '@storybook/testing-library': ^0.0.13
       '@testing-library/jest-dom': ^5.16.5
-      '@testing-library/react': ^12.1.5
+      '@testing-library/react': ^13.0.0
       '@types/is-ci': ^3.0.0
       '@types/node': ^18.0.0
       '@types/react': ^17
@@ -353,7 +353,7 @@ importers:
       '@storybook/test-runner': 0.9.1_j7zjyn4sds7qq4hsepxcltneui
       '@storybook/testing-library': 0.0.13_biqbaboplfbrettd7655fr4n2y
       '@testing-library/jest-dom': 5.16.5
-      '@testing-library/react': 12.1.5_biqbaboplfbrettd7655fr4n2y
+      '@testing-library/react': 13.4.0_biqbaboplfbrettd7655fr4n2y
       '@types/is-ci': 3.0.0
       '@types/node': 18.11.9
       '@types/react': 17.0.52
@@ -5161,16 +5161,16 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react/12.1.5_biqbaboplfbrettd7655fr4n2y:
-    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
+  /@testing-library/react/13.4.0_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-sXOGON+WNTh3MLE9rve97ftaZukN3oNf2KjDy7YTx6hcTO2uuLHuCGynMDhFwGw/jYf4OJ2Qk0i4i79qMNNkyw==}
     engines: {node: '>=12'}
     peerDependencies:
-      react: <18.0.0
-      react-dom: <18.0.0
+      react: ^18.0.0
+      react-dom: ^18.0.0
     dependencies:
       '@babel/runtime': 7.20.6
       '@testing-library/dom': 8.19.0
-      '@types/react-dom': 17.0.18
+      '@types/react-dom': 18.0.9
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
     dev: true
@@ -5434,12 +5434,6 @@ packages:
 
   /@types/qs/6.9.7:
     resolution: {integrity: sha512-FGa1F62FT09qcrueBA6qYTrJPVDzah9a+493+o2PCXsesWHIn27G98TsSMs3WPNbZIEj4+VJf6saSFpvD+3Zsw==}
-    dev: true
-
-  /@types/react-dom/17.0.18:
-    resolution: {integrity: sha512-rLVtIfbwyur2iFKykP2w0pl/1unw26b5td16d5xMgp7/yjTHomkyxPYChFoCr/FtEX1lN9wY6lFj1qvKdS5kDw==}
-    dependencies:
-      '@types/react': 17.0.52
     dev: true
 
   /@types/react-dom/18.0.9:
