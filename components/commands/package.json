@@ -98,7 +98,7 @@
     "@testing-library/jest-dom": "^5.16.5",
     "@types/mousetrap": "~1.6.11",
     "@types/node": "^18.0.0",
-    "@types/react": "^17.0.52",
+    "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.9",
     "@types/testing-library__jest-dom": "~5.14.5",
     "@vitejs/plugin-react": "^3.0.0",
