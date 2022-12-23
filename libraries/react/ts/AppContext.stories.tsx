@@ -104,7 +104,9 @@ const FeatureA = () => {
 const featureAPlugin = definePlugin(() => ({
   name: 'featureA',
   init: (ctx: ReactPluginContext) => {
-    ctx.react.providers.register(FeatureAContext.Provider, { value: createStore({ a: 1 }) })
+    ctx.react.providers.register(({ children }) => (
+      <FeatureAContext.Provider value={createStore({ a: 1 })}>{children}</FeatureAContext.Provider>
+    ))
     return []
   }
 }))
@@ -118,7 +120,9 @@ const FeatureB = () => {
 const featureBPlugin = definePlugin(() => ({
   name: 'featureB',
   init: (ctx: ReactPluginContext) => {
-    ctx.react.providers.register(FeatureBContext.Provider, { value: createStore({ b: 2 }) })
+    ctx.react.providers.register(({ children }) => (
+      <FeatureBContext.Provider value={createStore({ b: 2 })}>{children}</FeatureBContext.Provider>
+    ))
     return []
   }
 }))
