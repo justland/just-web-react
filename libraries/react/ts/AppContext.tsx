@@ -1,5 +1,4 @@
 import type { LogContext } from '@just-web/log'
-import { createStore } from '@just-web/states'
 import type { AppBaseContext } from '@just-web/types'
 import { createContext, ReactNode, useContext } from 'react'
 import type { ReactPluginContext } from './reactPlugin.js'
@@ -23,13 +22,11 @@ export function AppContextProvider<A extends AppBaseContext & LogContext & Parti
   value: A
   children: ReactNode
 }) {
-  const contexts = Array.from(value.react?.storeContexts.entries() ?? [])
+  const providers = Array.from(value.react?.providers.entries() ?? [])
   return (
     <AppContext.Provider value={value}>
-      {contexts.reduce((children, entry) => {
-        const { Context, init } = entry
-        const store = createStore(init)
-        return <Context.Provider value={store}>{children}</Context.Provider>
+      {providers.reduce((children, Component) => {
+        return <Component>{children}</Component>
       }, children)}
     </AppContext.Provider>
   )

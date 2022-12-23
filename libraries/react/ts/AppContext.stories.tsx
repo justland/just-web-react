@@ -1,7 +1,9 @@
 import { createApp, createTestApp } from '@just-web/app'
 import { LogContext, TestLogContext } from '@just-web/log'
 import osPlugin, { OSContext } from '@just-web/os'
+import { createStore } from '@just-web/states'
 import { definePlugin } from '@just-web/types'
+import { ComponentMeta } from '@storybook/react'
 import reactPlugin, {
   AppContextProvider,
   createStoreContext,
@@ -12,7 +14,7 @@ import reactPlugin, {
 
 export default {
   component: AppContextProvider
-}
+} as ComponentMeta<typeof AppContextProvider>
 
 const LogChild = () => {
   const c = useAppContext<LogContext>()
@@ -102,7 +104,9 @@ const FeatureA = () => {
 const featureAPlugin = definePlugin(() => ({
   name: 'featureA',
   init: (ctx: ReactPluginContext) => {
-    ctx.react.storeContexts.register(FeatureAContext, { a: 1 })
+    ctx.react.providers.register(({ children }) => (
+      <FeatureAContext.Provider value={createStore({ a: 1 })}>{children}</FeatureAContext.Provider>
+    ))
     return []
   }
 }))
@@ -116,7 +120,9 @@ const FeatureB = () => {
 const featureBPlugin = definePlugin(() => ({
   name: 'featureB',
   init: (ctx: ReactPluginContext) => {
-    ctx.react.storeContexts.register(FeatureBContext, { b: 2 })
+    ctx.react.providers.register(({ children }) => (
+      <FeatureBContext.Provider value={createStore({ b: 2 })}>{children}</FeatureBContext.Provider>
+    ))
     return []
   }
 }))
