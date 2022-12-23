@@ -1,5 +1,13 @@
 # @just-web/react
 
+## 7.0.0
+
+### Major Changes
+
+- a5b8d4b: replace `storeContexts` with `providers`.
+
+  Providers allows plugin to add any react providers to the app.
+
 ## 6.0.3
 
 ### Patch Changes
