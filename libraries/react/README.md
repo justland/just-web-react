@@ -26,6 +26,7 @@ rush add -p @just-web/react
 - [lazyImport](#lazyimport)
 - [useStore](#usestore)
 - [useStoreContext](#usestorecontext)
+- [react.providers](#reactproviders)
 
 ## lazyImport
 
@@ -125,6 +126,32 @@ const YourConsumer = () => {
   </>
 }
 ```
+
+## react.providers
+
+You can use `react.providers` to provide a set of providers to the app.
+
+```tsx
+import { createApp } from '@just-web/app'
+import reactPlugin, { AppContextProvider } from '@just-web/react'
+
+function YourApp() {
+  const app = createApp({...}).extned(reactPlugin)
+  app.react.providers.register(YourProvider, yourProviderProps)
+
+  return (
+    <AppContextProvider value={app}>
+      ...
+    </AppContextProvider>
+  )
+}
+```
+
+The providers will be added to the app in the order they are registered,
+inside the `<AppContextProvider>`.
+
+This allows any plugin to add their needed providers to the app,
+without having the app to know about them.
 
 [@just-web]: https://github.com/justland/just-web
 [@just-web/react]: https://github.com/justland/just-web/tree/main/frameworks/react

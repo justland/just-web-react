@@ -1,26 +1,33 @@
-import { Store } from '@just-web/states'
 import { definePlugin, PluginContext } from '@just-web/types'
-import { Context } from 'react'
+import type { ComponentProps, JSXElementConstructor } from 'react'
 
-export const reactPlugin = definePlugin(() => ({
+const reactPlugin = definePlugin(() => ({
   name: '@just-web/react',
   init: () => {
-    const reactContexts: Array<{ Context: Context<any>; init: any }> = []
-
+    const providers: Array<{
+      Provider: JSXElementConstructor<any> | keyof JSX.IntrinsicElements
+      props: Record<string, unknown>
+    }> = []
     return [
       {
         react: {
-          storeContexts: {
-            register<T>(context: Context<Store<T>>, init: T) {
-              reactContexts.push({ Context: context, init })
+          providers: {
+            register<T extends JSXElementConstructor<any> | keyof JSX.IntrinsicElements>(
+              Provider: T,
+              props: Omit<ComponentProps<T>, 'children'>
+            ) {
+              providers.push({ Provider, props })
             },
-            entries(): Iterable<{ Context: Context<any>; init: any }> {
+            entries(): Iterable<{
+              Provider: JSXElementConstructor<any> | keyof JSX.IntrinsicElements
+              props: Record<string, unknown>
+            }> {
               return {
                 *[Symbol.iterator]() {
-                  for (let i = 0; i < reactContexts.length; i++) {
-                    yield reactContexts[i]
+                  for (let i = 0; i < providers.length; i++) {
+                    yield providers[i]
                   }
-                  return reactContexts.length
+                  return providers.length
                 }
               }
             }
@@ -32,3 +39,5 @@ export const reactPlugin = definePlugin(() => ({
 }))
 
 export type ReactPluginContext = PluginContext<typeof reactPlugin>
+
+export default reactPlugin
