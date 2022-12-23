@@ -12,5 +12,5 @@
   "ignore": [],
   "linked": [],
   "title": "chore: version packages",
-  "updateInternalDependencies": "patch"
+  "updateInternalDependencies": "minor"
 }
