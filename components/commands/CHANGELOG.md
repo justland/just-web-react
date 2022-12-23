@@ -1,5 +1,12 @@
 # @just-web/react-commands
 
+## 7.0.4
+
+### Patch Changes
+
+- Updated dependencies [a5b8d4b]
+  - @just-web/react@7.0.0
+
 ## 7.0.3
 
 ### Patch Changes
