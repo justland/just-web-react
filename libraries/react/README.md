@@ -137,7 +137,7 @@ import reactPlugin, { AppContextProvider } from '@just-web/react'
 
 function YourApp() {
   const app = createApp({...}).extned(reactPlugin)
-  app.react.providers.register(YourProvider, yourProviderProps)
+  app.react.providers.register(({ children }) => <YourProvider {...}>{children}</YourProvider>)
 
   return (
     <AppContextProvider value={app}>

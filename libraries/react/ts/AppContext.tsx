@@ -25,9 +25,8 @@ export function AppContextProvider<A extends AppBaseContext & LogContext & Parti
   const providers = Array.from(value.react?.providers.entries() ?? [])
   return (
     <AppContext.Provider value={value}>
-      {providers.reduce((children, entry) => {
-        const { Provider, props } = entry
-        return <Provider {...props}>{children}</Provider>
+      {providers.reduce((children, Component) => {
+        return <Component>{children}</Component>
       }, children)}
     </AppContext.Provider>
   )
