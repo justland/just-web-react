@@ -1,33 +1,24 @@
 import { definePlugin, PluginContext } from '@just-web/types'
-import type { ComponentProps, JSXElementConstructor } from 'react'
+import type { JSXElementConstructor, ReactNode } from 'react'
 
 const reactPlugin = definePlugin(() => ({
   name: '@just-web/react',
   init: () => {
-    const providers: Array<{
-      Provider: JSXElementConstructor<any> | keyof JSX.IntrinsicElements
-      props: Record<string, unknown>
-    }> = []
+    const components: Array<JSXElementConstructor<{ children: ReactNode }>> = []
     return [
       {
         react: {
           providers: {
-            register<T extends JSXElementConstructor<any> | keyof JSX.IntrinsicElements>(
-              Provider: T,
-              props: Omit<ComponentProps<T>, 'children'>
-            ) {
-              providers.push({ Provider, props })
+            register(Component: JSXElementConstructor<{ children: ReactNode }>) {
+              components.push(Component)
             },
-            entries(): Iterable<{
-              Provider: JSXElementConstructor<any> | keyof JSX.IntrinsicElements
-              props: Record<string, unknown>
-            }> {
+            entries(): Iterable<JSXElementConstructor<{ children: ReactNode }>> {
               return {
                 *[Symbol.iterator]() {
-                  for (let i = 0; i < providers.length; i++) {
-                    yield providers[i]
+                  for (let i = 0; i < components.length; i++) {
+                    yield components[i]
                   }
-                  return providers.length
+                  return components.length
                 }
               }
             }
