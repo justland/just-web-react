@@ -80,7 +80,7 @@ importers:
       '@types/react-dom': ^18.0.9
       '@types/testing-library__jest-dom': ~5.14.5
       '@vitejs/plugin-react': ^3.0.0
-      '@vitest/coverage-c8': ^0.25.7
+      '@vitest/coverage-c8': ^0.26.0
       depcheck: ~1.4.3
       eslint: ^8.28.0
       eslint-plugin-harmony: ^7.1.1
@@ -101,7 +101,7 @@ importers:
       type-plus: ^5.0.0
       typescript: ^4.9.3
       vite: ^4.0.0
-      vitest: ^0.25.7
+      vitest: ^0.26.0
     dependencies:
       '@just-web/commands': 6.0.0_q5yc3bo7osexqvkhc4gzkwxk4u
       '@just-web/keyboard': 6.0.0_ikylsw35n7dd5zatnkpbxjfouy
@@ -144,7 +144,7 @@ importers:
       '@types/react-dom': 18.0.9
       '@types/testing-library__jest-dom': 5.14.5
       '@vitejs/plugin-react': 3.0.0_vite@4.0.0
-      '@vitest/coverage-c8': 0.25.7_jsdom@21.0.0
+      '@vitest/coverage-c8': 0.26.3_jsdom@21.0.0
       depcheck: 1.4.3
       eslint: 8.28.0
       eslint-plugin-harmony: 7.1.1_32tydemwe2lxhy3up5mpfxo2ji
@@ -162,7 +162,7 @@ importers:
       storybook-dark-mode: 2.0.3_biqbaboplfbrettd7655fr4n2y
       typescript: 4.9.3
       vite: 4.0.0_@types+node@18.11.9
-      vitest: 0.25.7_jsdom@21.0.0
+      vitest: 0.26.3_jsdom@21.0.0
 
   components/freedom:
     specifiers:
@@ -194,7 +194,7 @@ importers:
       '@types/react-dom': ^18.0.9
       '@types/testing-library__jest-dom': ~5.14.5
       '@vitejs/plugin-react': ^3.0.0
-      '@vitest/coverage-c8': ^0.25.7
+      '@vitest/coverage-c8': ^0.26.0
       depcheck: ~1.4.3
       eslint: ^8.28.0
       eslint-plugin-harmony: ^7.1.1
@@ -210,7 +210,7 @@ importers:
       storybook-dark-mode: ~2.0.0
       typescript: ^4.9.3
       vite: ^4.0.0
-      vitest: ^0.25.7
+      vitest: ^0.26.0
     dependencies:
       '@headlessui/react': 1.7.4_biqbaboplfbrettd7655fr4n2y
       react: 18.2.0
@@ -242,7 +242,7 @@ importers:
       '@types/react-dom': 18.0.9
       '@types/testing-library__jest-dom': 5.14.5
       '@vitejs/plugin-react': 3.0.0_vite@4.0.0
-      '@vitest/coverage-c8': 0.25.7
+      '@vitest/coverage-c8': 0.26.3
       depcheck: 1.4.3
       eslint: 8.28.0
       eslint-plugin-harmony: 7.1.1_32tydemwe2lxhy3up5mpfxo2ji
@@ -257,7 +257,7 @@ importers:
       storybook-dark-mode: 2.0.3_biqbaboplfbrettd7655fr4n2y
       typescript: 4.9.3
       vite: 4.0.0_@types+node@18.11.9
-      vitest: 0.25.7
+      vitest: 0.26.3
 
   libraries/react:
     specifiers:
@@ -299,7 +299,7 @@ importers:
       '@types/react-test-renderer': ^18.0.0
       '@types/testing-library__jest-dom': ~5.14.5
       '@vitejs/plugin-react': ^3.0.0
-      '@vitest/coverage-c8': ^0.25.7
+      '@vitest/coverage-c8': ^0.26.0
       assertron: ^11.0.1
       delay: ^5.0.0
       depcheck: ~1.4.3
@@ -322,7 +322,7 @@ importers:
       type-plus: ^5.0.0
       typescript: ^4.9.3
       vite: ^4.0.0
-      vitest: ^0.25.7
+      vitest: ^0.26.0
     dependencies:
       '@just-web/log': 6.0.0_@just-web+types@6.0.0
       '@just-web/states': 6.0.0_@just-web+types@6.0.0
@@ -364,7 +364,7 @@ importers:
       '@types/react-test-renderer': 18.0.0
       '@types/testing-library__jest-dom': 5.14.5
       '@vitejs/plugin-react': 3.0.0_vite@4.0.0
-      '@vitest/coverage-c8': 0.25.7_jsdom@21.0.0
+      '@vitest/coverage-c8': 0.26.3_jsdom@21.0.0
       assertron: 11.0.1
       delay: 5.0.0
       depcheck: 1.4.3
@@ -386,7 +386,7 @@ importers:
       storybook-dark-mode: 2.0.3_biqbaboplfbrettd7655fr4n2y
       typescript: 4.9.3
       vite: 4.0.0_@types+node@18.11.9
-      vitest: 0.25.7_jsdom@21.0.0
+      vitest: 0.26.3_jsdom@21.0.0
 
 packages:
 
@@ -5891,11 +5891,11 @@ packages:
       - supports-color
     dev: true
 
-  /@vitest/coverage-c8/0.25.7:
-    resolution: {integrity: sha512-TEoYjW4YIDXKCMmLqduIGpIq2JmlhE3M0Q68apjNM0ljrJyEvYpaDI5b7OyfXbAJjhmZvIlfEZfZnmhbExHLHg==}
+  /@vitest/coverage-c8/0.26.3:
+    resolution: {integrity: sha512-sjmVYPozajWY2DawzuvhYX6hEe/LD6p2xv9VmPvh1zzDeNNVCAnyLcvXoaSMQD522x9bqciuyPrlrnh2iNkE/w==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.25.7
+      vitest: 0.26.3
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -5910,11 +5910,11 @@ packages:
       - terser
     dev: true
 
-  /@vitest/coverage-c8/0.25.7_jsdom@21.0.0:
-    resolution: {integrity: sha512-TEoYjW4YIDXKCMmLqduIGpIq2JmlhE3M0Q68apjNM0ljrJyEvYpaDI5b7OyfXbAJjhmZvIlfEZfZnmhbExHLHg==}
+  /@vitest/coverage-c8/0.26.3_jsdom@21.0.0:
+    resolution: {integrity: sha512-sjmVYPozajWY2DawzuvhYX6hEe/LD6p2xv9VmPvh1zzDeNNVCAnyLcvXoaSMQD522x9bqciuyPrlrnh2iNkE/w==}
     dependencies:
       c8: 7.12.0
-      vitest: 0.25.7_jsdom@21.0.0
+      vitest: 0.26.3_jsdom@21.0.0
     transitivePeerDependencies:
       - '@edge-runtime/vm'
       - '@vitest/browser'
@@ -14095,6 +14095,15 @@ packages:
     hasBin: true
     dev: true
 
+  /mlly/1.0.0:
+    resolution: {integrity: sha512-QL108Hwt+u9bXdWgOI0dhzZfACovn5Aen4Xvc8Jasd9ouRH4NjnrXEiyP3nVvJo91zPlYjVRckta0Nt2zfoR6g==}
+    dependencies:
+      acorn: 8.8.1
+      pathe: 1.0.0
+      pkg-types: 1.0.1
+      ufo: 1.0.1
+    dev: true
+
   /mousetrap/1.6.5:
     resolution: {integrity: sha512-QNo4kEepaIBwiT8CDhP98umTetp+JNfQYBWvC1pc6/OAibuXtRcxZ58Qz8skvEHYvURne/7R8T5VoOI7rDsEUA==}
 
@@ -15164,6 +15173,14 @@ packages:
     engines: {node: '>=8'}
     dev: true
 
+  /pathe/0.2.0:
+    resolution: {integrity: sha512-sTitTPYnn23esFR3RlqYBWn4c45WGeLcsKzQiUpXJAyfcWkolvlYpV8FLo7JishK946oQwMFUCHXQ9AjGPKExw==}
+    dev: true
+
+  /pathe/1.0.0:
+    resolution: {integrity: sha512-nPdMG0Pd09HuSsr7QOKUXO2Jr9eqaDiZvDwdyIhNG5SHYujkQHYKDfGQkulBxvbDHz8oHLsTgKN86LSwYzSHAg==}
+    dev: true
+
   /pathval/1.1.1:
     resolution: {integrity: sha512-Dp6zGqpTdETdR63lehJYPeIOqpiNBNtc7BpWSLrOje7UaIsE5aY92r/AunQA7rsXvet3lrJ3JnZX29UPTKXyKQ==}
     dev: true
@@ -15265,6 +15282,14 @@ packages:
     engines: {node: '>=10'}
     dependencies:
       find-up: 5.0.0
+    dev: true
+
+  /pkg-types/1.0.1:
+    resolution: {integrity: sha512-jHv9HB+Ho7dj6ItwppRDDl0iZRYBD0jsakHXtFgoLr+cHSF6xC+QL54sJmWxyGxOLYSHm0afhXhXcQDQqH9z8g==}
+    dependencies:
+      jsonc-parser: 3.2.0
+      mlly: 1.0.0
+      pathe: 1.0.0
     dev: true
 
   /platform/1.3.6:
@@ -18160,6 +18185,10 @@ packages:
     hasBin: true
     dev: true
 
+  /ufo/1.0.1:
+    resolution: {integrity: sha512-boAm74ubXHY7KJQZLlXrtMz52qFvpsbOxDcZOnw/Wf+LS4Mmyu7JxmzD4tDLtUQtmZECypJ0FrCz4QIe6dvKRA==}
+    dev: true
+
   /uglify-js/3.17.4:
     resolution: {integrity: sha512-T9q82TJI9e/C1TAxYvfb16xO120tMVFZrGA3f9/P4424DNu6ypK103y0GPFVa17yotwSyZW5iYXgjYHkGrJW/g==}
     engines: {node: '>=0.8.0'}
@@ -18601,6 +18630,27 @@ packages:
       vfile-message: 2.0.4
     dev: true
 
+  /vite-node/0.26.3_@types+node@18.11.9:
+    resolution: {integrity: sha512-Te2bq0Bfvq6XiO718I+1EinMjpNYKws6SNHKOmVbILAQimKoZKDd+IZLlkaYcBXPpK3HFe2U80k8Zw+m3w/a2w==}
+    engines: {node: '>=v14.16.0'}
+    hasBin: true
+    dependencies:
+      debug: 4.3.4
+      mlly: 1.0.0
+      pathe: 0.2.0
+      source-map: 0.6.1
+      source-map-support: 0.5.21
+      vite: 4.0.0_@types+node@18.11.9
+    transitivePeerDependencies:
+      - '@types/node'
+      - less
+      - sass
+      - stylus
+      - sugarss
+      - supports-color
+      - terser
+    dev: true
+
   /vite/4.0.0_@types+node@18.11.9:
     resolution: {integrity: sha512-ynad+4kYs8Jcnn8J7SacS9vAbk7eMy0xWg6E7bAhS1s79TK+D7tVFGXVZ55S7RNLRROU1rxoKlvZ/qjaB41DGA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -18635,8 +18685,8 @@ packages:
       fsevents: 2.3.2
     dev: true
 
-  /vitest/0.25.7:
-    resolution: {integrity: sha512-lJ+Ue+v8kHl2JzjaKHJ9u5Yo/loU7zrWK2/Whn8OKQjtq5G7nkeWfXuq3elZaC8xKdkdIuWiiIicaNBG1F5yzg==}
+  /vitest/0.26.3:
+    resolution: {integrity: sha512-FmHxU9aUCxTi23keF3vxb/Qp0lYXaaJ+jRLGOUmMS3qVTOJvgGE+f1VArupA6pEhaG2Ans4X+zV9dqM5WISMbg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -18671,6 +18721,7 @@ packages:
       tinypool: 0.3.0
       tinyspy: 1.0.2
       vite: 4.0.0_@types+node@18.11.9
+      vite-node: 0.26.3_@types+node@18.11.9
     transitivePeerDependencies:
       - less
       - sass
@@ -18680,8 +18731,8 @@ packages:
       - terser
     dev: true
 
-  /vitest/0.25.7_jsdom@21.0.0:
-    resolution: {integrity: sha512-lJ+Ue+v8kHl2JzjaKHJ9u5Yo/loU7zrWK2/Whn8OKQjtq5G7nkeWfXuq3elZaC8xKdkdIuWiiIicaNBG1F5yzg==}
+  /vitest/0.26.3_jsdom@21.0.0:
+    resolution: {integrity: sha512-FmHxU9aUCxTi23keF3vxb/Qp0lYXaaJ+jRLGOUmMS3qVTOJvgGE+f1VArupA6pEhaG2Ans4X+zV9dqM5WISMbg==}
     engines: {node: '>=v14.16.0'}
     hasBin: true
     peerDependencies:
@@ -18717,6 +18768,7 @@ packages:
       tinypool: 0.3.0
       tinyspy: 1.0.2
       vite: 4.0.0_@types+node@18.11.9
+      vite-node: 0.26.3_@types+node@18.11.9
     transitivePeerDependencies:
       - less
       - sass
