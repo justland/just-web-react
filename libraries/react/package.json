@@ -72,7 +72,7 @@
     "@just-web/os": "^6.0.0",
     "@just-web/preferences": "^6.0.0",
     "@just-web/repo-scripts": "^0.2.0",
-    "@size-limit/preset-small-lib": "~8.1.0",
+    "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-actions": "^6.5.13",
     "@storybook/addon-backgrounds": "^6.5.13",
     "@storybook/addon-console": "~1.2.3",
