@@ -4,22 +4,22 @@ import { expect, test } from 'vitest'
 import { useStore } from './index.js'
 
 test('store change with same value will not trigger render', async () => {
-  const store = createStore({ counter: 0 })
+	const store = createStore({ counter: 0 })
 
-  const values: number[] = []
-  const Counter = () => {
-    const [value] = useStore(store, (s) => s.counter)
-    values.push(value)
-    return (
-      <>
-        <div>{value}</div>
-      </>
-    )
-  }
+	const values: number[] = []
+	const Counter = () => {
+		const [value] = useStore(store, s => s.counter)
+		values.push(value)
+		return (
+			<>
+				<div>{value}</div>
+			</>
+		)
+	}
 
-  create(<Counter />)
+	create(<Counter />)
 
-  act(() => store.update((s) => s))
+	act(() => store.update(s => s))
 
-  expect(values).toEqual([0])
+	expect(values).toEqual([0])
 })

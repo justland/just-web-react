@@ -9,68 +9,70 @@ import { expect, it } from 'vitest'
 import { lazyImport } from './index.js'
 
 it('lazy imports module', async () => {
-  const app = createTestApp({ name: 'test' })
+	const app = createTestApp({ name: 'test' })
 
-  const { Component } = lazyImport(import('./test-artifacts/dummyModule.js'), 'Component', (plugin) =>
-    app.extend(plugin({ a: 1 }))
-  )
+	const { Component } = lazyImport(import('./test-artifacts/dummyModule.js'), 'Component', plugin =>
+		app.extend(plugin({ a: 1 }))
+	)
 
-  render(
-    <Suspense fallback={<div>loading...</div>}>
-      <Component />
-    </Suspense>
-  )
+	render(
+		<Suspense fallback={<div>loading...</div>}>
+			<Component />
+		</Suspense>
+	)
 
-  if (isCI) await delay(2000)
-  expect(await screen.findByText('dummy')).toBeInTheDocument()
+	if (isCI) await delay(2000)
+	expect(await screen.findByText('dummy')).toBeInTheDocument()
 })
 
 it('returns a promise for the extended app', async () => {
-  const app = createTestApp({ name: 'test' })
+	const app = createTestApp({ name: 'test' })
 
-  const { Component, getExtendingApp } = lazyImport(import('./test-artifacts/dummyModule.js'), 'Component', (plugin) =>
-    app.extend(plugin({ a: 1 }))
-  )
+	const { Component, getExtendingApp } = lazyImport(
+		import('./test-artifacts/dummyModule.js'),
+		'Component',
+		plugin => app.extend(plugin({ a: 1 }))
+	)
 
-  const extApp = await getExtendingApp()
-  expect(extApp.dummy).toEqual(1)
+	const extApp = await getExtendingApp()
+	expect(extApp.dummy).toEqual(1)
 
-  render(
-    <Suspense fallback={<div>loading...</div>}>
-      <Component />
-    </Suspense>
-  )
+	render(
+		<Suspense fallback={<div>loading...</div>}>
+			<Component />
+		</Suspense>
+	)
 
-  if (isCI) await delay(2000)
-  expect(await screen.findByText('dummy')).toBeInTheDocument()
+	if (isCI) await delay(2000)
+	expect(await screen.findByText('dummy')).toBeInTheDocument()
 })
 
 it('does not extend app twice from rendering Component and getting extended app', async () => {
-  const app = createTestApp({ name: 'test' })
-  const o = new AssertOrder(1)
-  const { Component, getExtendingApp } = lazyImport(
-    Promise.resolve({
-      default: () => ({
-        name: 'dummy-2',
-        init() {
-          o.once(1)
-        }
-      }),
-      Component: () => <div>dummy</div>
-    }),
-    'Component',
-    (plugin) => app.extend(plugin())
-  )
+	const app = createTestApp({ name: 'test' })
+	const o = new AssertOrder(1)
+	const { Component, getExtendingApp } = lazyImport(
+		Promise.resolve({
+			default: () => ({
+				name: 'dummy-2',
+				init() {
+					o.once(1)
+				}
+			}),
+			Component: () => <div>dummy</div>
+		}),
+		'Component',
+		plugin => app.extend(plugin())
+	)
 
-  await getExtendingApp()
+	await getExtendingApp()
 
-  render(
-    <Suspense fallback={<div>loading...</div>}>
-      <Component />
-    </Suspense>
-  )
+	render(
+		<Suspense fallback={<div>loading...</div>}>
+			<Component />
+		</Suspense>
+	)
 
-  if (isCI) await delay(2000)
-  expect(await screen.findByText('dummy')).toBeInTheDocument()
-  o.end()
+	if (isCI) await delay(2000)
+	expect(await screen.findByText('dummy')).toBeInTheDocument()
+	o.end()
 })
