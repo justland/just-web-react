@@ -1,15 +1,24 @@
 {
-  "compilerOptions": {
-    "allowSyntheticDefaultImports": true,
-    "composite": true,
-    "forceConsistentCasingInFileNames": true,
-    "jsx": "react-jsx",
-    "module": "ESNext",
-    "moduleResolution": "NodeNext",
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "target": "ESNext",
-    "useDefineForClassFields": true
-  }
+	"compilerOptions": {
+		"allowSyntheticDefaultImports": true,
+		"composite": true,
+		"forceConsistentCasingInFileNames": true,
+		"jsx": "react-jsx",
+		"module": "ESNext",
+		"moduleResolution": "NodeNext",
+		"plugins": [
+			{
+				"transform": "@formatjs/ts-transformer",
+				"import": "transform",
+				"type": "config",
+				"overrideIdFn": "[sha512:contenthash:base64:6]",
+				"ast": true
+			}
+		],
+		"resolveJsonModule": true,
+		"skipLibCheck": true,
+		"strict": true,
+		"target": "ESNext",
+		"useDefineForClassFields": true
+	}
 }

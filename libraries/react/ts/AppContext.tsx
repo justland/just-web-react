@@ -16,20 +16,20 @@ const AppContext = createContext<AppBaseContext & LogContext>(undefined as any)
  * it is recommend to use this so that you can use any plugin that relies on `AppContextProvider` as needed.
  */
 export function AppContextProvider<A extends AppBaseContext & LogContext & Partial<ReactPluginContext>>({
-  value,
-  children
+	value,
+	children
 }: {
-  value: A
-  children: ReactNode
+	value: A
+	children: ReactNode
 }) {
-  const providers = Array.from(value.react?.providers.entries() ?? [])
-  return (
-    <AppContext.Provider value={value}>
-      {providers.reduce((children, Component) => {
-        return <Component>{children}</Component>
-      }, children)}
-    </AppContext.Provider>
-  )
+	const providers = Array.from(value.react?.providers.entries() ?? [])
+	return (
+		<AppContext.Provider value={value}>
+			{providers.reduce((children, Component) => {
+				return <Component>{children}</Component>
+			}, children)}
+		</AppContext.Provider>
+	)
 }
 /**
  * Use the app from `AppContext`.
@@ -45,11 +45,11 @@ export function AppContextProvider<A extends AppBaseContext & LogContext & Parti
  * If the app did not load the plugin you need.
  */
 export function useAppContext<C extends Record<string | symbol, any> = AppBaseContext & LogContext>(): C &
-  AppBaseContext &
-  LogContext {
-  const app = useContext(AppContext) as unknown as C & AppBaseContext & LogContext
-  if (!app) {
-    throw new Error('AppContext.Provider must be used before using useAppContext()')
-  }
-  return app
+	AppBaseContext &
+	LogContext {
+	const app = useContext(AppContext) as unknown as C & AppBaseContext & LogContext
+	if (!app) {
+		throw new Error('AppContext.Provider must be used before using useAppContext()')
+	}
+	return app
 }

@@ -15,150 +15,150 @@ type Story = ComponentStory<typeof CommandPalette> & { loaders?: Array<() => Pro
 const shortcut = isMac() ? 'cmd+p' : 'ctrl+p'
 
 export default {
-  component: ({ ...args }) => {
-    const app = useAppContext<CommandsContext & OSContext>()
-    const shortcut = app.os.isMac() ? 'cmd+p' : 'ctrl+p'
-    return (
-      <>
-        <div>
-          <code>{shortcut}</code> to show the command palette
-        </div>
-        <button
-          onClick={() => {
-            app.commands.showCommandPalette()
-          }}
-        >
-          Open Command Palette
-        </button>
-        <CommandPalette {...args} />
-      </>
-    )
-  },
-  decorators: [
-    (Story, { loaded: { app } }) => (
-      <AppContextProvider value={app}>
-        <Story />
-      </AppContextProvider>
-    )
-  ]
+	component: ({ ...args }) => {
+		const app = useAppContext<CommandsContext & OSContext>()
+		const shortcut = app.os.isMac() ? 'cmd+p' : 'ctrl+p'
+		return (
+			<>
+				<div>
+					<code>{shortcut}</code> to show the command palette
+				</div>
+				<button
+					onClick={() => {
+						app.commands.showCommandPalette()
+					}}
+				>
+					Open Command Palette
+				</button>
+				<CommandPalette {...args} />
+			</>
+		)
+	},
+	decorators: [
+		(Story, { loaded: { app } }) => (
+			<AppContextProvider value={app}>
+				<Story />
+			</AppContextProvider>
+		)
+	]
 } as ComponentMeta<typeof CommandPalette>
 
 const simpleCmd = { id: 'core.simpleCommand' }
 const keyedCmd = {
-  id: 'core.keyedCommand',
-  name: 'Command with key',
-  key: 'ctrl+k'
+	id: 'core.keyedCommand',
+	name: 'Command with key',
+	key: 'ctrl+k'
 }
 const macCmd = {
-  id: 'core.macCommand',
-  name: 'Command with mac key override',
-  key: 'ctrl+m',
-  mac: 'cmd+m'
+	id: 'core.macCommand',
+	name: 'Command with mac key override',
+	key: 'ctrl+m',
+	mac: 'cmd+m'
 }
 const macOnlyCmd = {
-  id: 'core.macOnlyCommand',
-  name: 'Command with only mac key',
-  mac: 'cmd+o'
+	id: 'core.macOnlyCommand',
+	name: 'Command with only mac key',
+	mac: 'cmd+o'
 }
 
 async function setupApp(options?: KeyboardOptions & CommandsOptions & OSTestOptions) {
-  const reporter = createColorLogReporter()
-  const app = createApp({
-    name: 'storybook',
-    log: { logLevel: logLevels.all, reporters: [reporter] }
-  })
-    .extend(keyboardPlugin(options))
-    .extend(commandsPlugin(options))
-    .extend(osTestPlugin(options))
-    .extend(browserKeyboardPlugin())
-    .extend(plugin())
+	const reporter = createColorLogReporter()
+	const app = createApp({
+		name: 'storybook',
+		log: { logLevel: logLevels.all, reporters: [reporter] }
+	})
+		.extend(keyboardPlugin(options))
+		.extend(commandsPlugin(options))
+		.extend(osTestPlugin(options))
+		.extend(browserKeyboardPlugin())
+		.extend(plugin())
 
-  await app.start()
-  return { app }
+	await app.start()
+	return { app }
 }
 
 export const NoCommand = {
-  loaders: [async (_) => setupApp()],
-  play: async (_) => void Mousetrap.trigger(shortcut)
+	loaders: [async _ => setupApp()],
+	play: async _ => void Mousetrap.trigger(shortcut)
 } as Story
 
 export const OneCommand = {
-  loaders: [
-    async (_) =>
-      setupApp({
-        commands: {
-          contributions: [simpleCmd],
-          handlers: {
-            [simpleCmd.id]: () => alert(simpleCmd.id)
-          }
-        }
-      })
-  ],
-  play: async (_) => void Mousetrap.trigger(shortcut)
+	loaders: [
+		async _ =>
+			setupApp({
+				commands: {
+					contributions: [simpleCmd],
+					handlers: {
+						[simpleCmd.id]: () => alert(simpleCmd.id)
+					}
+				}
+			})
+	],
+	play: async _ => void Mousetrap.trigger(shortcut)
 } as Story
 
 export const WithKey = {
-  loaders: [
-    async (_) =>
-      setupApp({
-        commands: {
-          contributions: [keyedCmd],
-          handlers: {
-            [keyedCmd.id]: () => alert(keyedCmd.id)
-          }
-        },
-        keyboard: {
-          keyBindingContributions: [keyedCmd]
-        }
-      }) as any
-  ],
-  play: async (_) => void Mousetrap.trigger(shortcut)
+	loaders: [
+		async _ =>
+			setupApp({
+				commands: {
+					contributions: [keyedCmd],
+					handlers: {
+						[keyedCmd.id]: () => alert(keyedCmd.id)
+					}
+				},
+				keyboard: {
+					keyBindingContributions: [keyedCmd]
+				}
+			}) as any
+	],
+	play: async _ => void Mousetrap.trigger(shortcut)
 } as Story
 
 export const OverrideMacCommandInMac = {
-  loaders: [
-    async (_) =>
-      setupApp({
-        commands: {
-          contributions: [simpleCmd, keyedCmd, macCmd, macOnlyCmd],
-          handlers: {
-            [simpleCmd.id]: () => alert(simpleCmd.id),
-            [keyedCmd.id]: () => alert(keyedCmd.id),
-            [macCmd.id]: () => alert(macCmd.id),
-            [macOnlyCmd.id]: () => alert(macOnlyCmd.id)
-          }
-        },
-        keyboard: {
-          keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
-        },
-        os: {
-          isMac: () => true
-        }
-      })
-  ],
-  play: async (_) => void Mousetrap.trigger('command+p')
+	loaders: [
+		async _ =>
+			setupApp({
+				commands: {
+					contributions: [simpleCmd, keyedCmd, macCmd, macOnlyCmd],
+					handlers: {
+						[simpleCmd.id]: () => alert(simpleCmd.id),
+						[keyedCmd.id]: () => alert(keyedCmd.id),
+						[macCmd.id]: () => alert(macCmd.id),
+						[macOnlyCmd.id]: () => alert(macOnlyCmd.id)
+					}
+				},
+				keyboard: {
+					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
+				},
+				os: {
+					isMac: () => true
+				}
+			})
+	],
+	play: async _ => void Mousetrap.trigger('command+p')
 } as Story
 
 export const OverrideMacCommandInWindow = {
-  loaders: [
-    async (_) =>
-      setupApp({
-        commands: {
-          contributions: [simpleCmd, keyedCmd, macCmd, macOnlyCmd],
-          handlers: {
-            [simpleCmd.id]: () => alert(simpleCmd.id),
-            [keyedCmd.id]: () => alert(keyedCmd.id),
-            [macCmd.id]: () => alert(macCmd.id),
-            [macOnlyCmd.id]: () => alert(macOnlyCmd.id)
-          }
-        },
-        keyboard: {
-          keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
-        },
-        os: {
-          isMac: () => false
-        }
-      })
-  ],
-  play: async (_) => void Mousetrap.trigger('ctrl+p')
+	loaders: [
+		async _ =>
+			setupApp({
+				commands: {
+					contributions: [simpleCmd, keyedCmd, macCmd, macOnlyCmd],
+					handlers: {
+						[simpleCmd.id]: () => alert(simpleCmd.id),
+						[keyedCmd.id]: () => alert(keyedCmd.id),
+						[macCmd.id]: () => alert(macCmd.id),
+						[macOnlyCmd.id]: () => alert(macOnlyCmd.id)
+					}
+				},
+				keyboard: {
+					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
+				},
+				os: {
+					isMac: () => false
+				}
+			})
+	],
+	play: async _ => void Mousetrap.trigger('ctrl+p')
 } as Story

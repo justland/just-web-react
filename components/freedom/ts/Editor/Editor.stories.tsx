@@ -1,7 +1,7 @@
 import { Editor } from './Editor'
 
 export default {
-  component: Editor
+	component: Editor
 }
 
 export const Playground = {}

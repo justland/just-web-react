@@ -7,7 +7,7 @@ import { useStore } from './useStore.js'
  * @type T Type of the store value.
  */
 export function createStoreContext<T extends Record<any, any>>() {
-  return createContext<Store<T>>(undefined as any)
+	return createContext<Store<T>>(undefined as any)
 }
 
 /**
@@ -17,13 +17,13 @@ export function createStoreContext<T extends Record<any, any>>() {
  * @param updateStore Optional. The function to update the store when the returning `setValue()` is called.
  */
 export function useStoreContext<S extends Record<any, any>, V>(
-  reactContext: Context<Store<S>>,
-  getState: (s: S) => V,
-  updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>
+	reactContext: Context<Store<S>>,
+	getState: (s: S) => V,
+	updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>
 ): [value: V, setValue: (value: V | ((value: V) => V)) => void] {
-  const store = useContext(reactContext)
-  if (!store) {
-    throw new Error('Context.Provider must be used before using useStoreContext()')
-  }
-  return useStore(store, getState, updateStore)
+	const store = useContext(reactContext)
+	if (!store) {
+		throw new Error('Context.Provider must be used before using useStoreContext()')
+	}
+	return useStore(store, getState, updateStore)
 }
