@@ -65,7 +65,7 @@
 		"@just-web/log": "^6.0.0",
 		"@just-web/states": "^6.0.0",
 		"@just-web/types": "^6.0.0",
-		"type-plus": "^5.0.0"
+		"type-plus": "^6.0.0"
 	},
 	"devDependencies": {
 		"@just-web/app": "^6.0.0",
