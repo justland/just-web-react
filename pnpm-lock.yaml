@@ -159,8 +159,8 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0(@types/node@18.11.9)(ts-node@10.9.1)
       '@storybook/testing-library':
-        specifier: ^0.0.13
-        version: 0.0.13(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.16.5
@@ -307,8 +307,8 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0(@types/node@18.11.9)(ts-node@10.9.1)
       '@storybook/testing-library':
-        specifier: ^0.0.13
-        version: 0.0.13(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.16.5
@@ -464,8 +464,8 @@ importers:
         specifier: ^0.10.0
         version: 0.10.0(@types/node@18.11.9)(ts-node@10.9.1)
       '@storybook/testing-library':
-        specifier: ^0.0.13
-        version: 0.0.13(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^0.1.0
+        version: 0.1.0
       '@tanstack/react-query':
         specifier: ^4.20.4
         version: 4.20.4(react-dom@18.2.0)(react@18.2.0)
@@ -5339,6 +5339,16 @@ packages:
       - react-dom
     dev: true
 
+  /@storybook/instrumenter@7.0.2:
+    resolution: {integrity: sha512-zr9/fuaYtGVUtcL8XgjA4Iq5jtzdcqQyOSH4XLXtz6JtSad3lkRagbJo2Vzbw7dO/4vzjfTMxEzvWjUuPxLOhA==}
+    dependencies:
+      '@storybook/channels': 7.0.2
+      '@storybook/client-logger': 7.0.2
+      '@storybook/core-events': 7.0.2
+      '@storybook/global': 5.0.0
+      '@storybook/preview-api': 7.0.2
+    dev: true
+
   /@storybook/manager-webpack4@6.5.13(eslint@8.28.0)(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2):
     resolution: {integrity: sha512-pURzS5W3XM0F7bCBWzpl7TRsuy+OXFwLXiWLaexuvo0POZe31Ueo2A1R4rx3MT5Iee8O9mYvG2XTmvK9MlLefQ==}
     peerDependencies:
@@ -5760,17 +5770,14 @@ packages:
       - ts-node
     dev: true
 
-  /@storybook/testing-library@0.0.13(react-dom@18.2.0)(react@18.2.0):
-    resolution: {integrity: sha512-vRMeIGer4EjJkTgI8sQyK9W431ekPWYCWL//OmSDJ64IT3h7FnW7Xg6p+eqM3oII98/O5pcya5049GxnjaPtxw==}
+  /@storybook/testing-library@0.1.0:
+    resolution: {integrity: sha512-g947f4LJZw3IluBhysMKLJXByAFiSxnGuooENqU+ZPt/GTrz1I9GDBlhmoTJahuFkVbwHvziAl/8riY2Re921g==}
     dependencies:
-      '@storybook/client-logger': 6.5.13
-      '@storybook/instrumenter': 6.5.13(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/client-logger': 7.0.2
+      '@storybook/instrumenter': 7.0.2
       '@testing-library/dom': 8.19.0
       '@testing-library/user-event': 13.5.0(@testing-library/dom@8.19.0)
       ts-dedent: 2.2.0
-    transitivePeerDependencies:
-      - react
-      - react-dom
     dev: true
 
   /@storybook/theming@6.5.13(react-dom@18.2.0)(react@18.2.0):
@@ -5867,7 +5874,7 @@ packages:
     resolution: {integrity: sha512-6YWYPPpxG3e/xOo6HIWwB/58HukkwIVTOaZ0VwdMVjhRUX/01E4FtQbck9GazOOj7MXHc5RBzMrU86iBJHbI+A==}
     engines: {node: '>=12'}
     dependencies:
-      '@babel/code-frame': 7.18.6
+      '@babel/code-frame': 7.21.4
       '@babel/runtime': 7.20.6
       '@types/aria-query': 4.2.2
       aria-query: 5.1.3
