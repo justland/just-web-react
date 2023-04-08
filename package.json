@@ -43,7 +43,7 @@
 		"plop": "^3.1.1",
 		"rimraf": "~3.0.2",
 		"turbo": "1.8.8",
-		"typedoc": "^0.23.21",
+		"typedoc": "^0.24.0",
 		"typedoc-plugin-extras": "^2.3.1",
 		"typedoc-plugin-resolve-crossmodule-references": "^0.3.2",
 		"typescript": "^5.0.0"
