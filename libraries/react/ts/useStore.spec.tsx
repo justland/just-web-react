@@ -5,7 +5,6 @@ import { useStore } from './index.js'
 
 test('store change with same value will not trigger render', async () => {
 	const store = createStore({ counter: 0 })
-
 	const values: number[] = []
 	const Counter = () => {
 		const [value] = useStore(store, s => s.counter)
@@ -19,7 +18,9 @@ test('store change with same value will not trigger render', async () => {
 
 	create(<Counter />)
 
-	act(() => store.update(s => s))
+	act(() => {
+		store.set(s => s)
+	})
 
 	expect(values).toEqual([0])
 })
