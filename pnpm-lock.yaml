@@ -60,10 +60,10 @@ importers:
     dependencies:
       '@just-web/commands':
         specifier: 7.0.0-beta.0
-        version: 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0)
+        version: 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
       '@just-web/keyboard':
         specifier: 7.0.0-beta.0
-        version: 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0)
+        version: 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
       '@just-web/os':
         specifier: 7.0.0-beta.0
         version: 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
@@ -72,7 +72,7 @@ importers:
         version: link:../../libraries/react
       '@just-web/states':
         specifier: ^6
-        version: 6.0.0(@just-web/types@7.0.0-beta.0)
+        version: 7.0.0-beta.0
       '@just-web/types':
         specifier: 7.0.0-beta.0
         version: 7.0.0-beta.0
@@ -105,56 +105,59 @@ importers:
         specifier: ~8.2.0
         version: 8.2.3(size-limit@8.2.3)
       '@storybook/addon-actions':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-backgrounds':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-console':
         specifier: ~1.2.3
-        version: 1.2.3(@storybook/addon-actions@7.0.0)
+        version: 1.2.3(@storybook/addon-actions@7.0.6)
       '@storybook/addon-docs':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-essentials':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-interactions':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-links':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addon-mdx-gfm':
+        specifier: 7.0.6
+        version: 7.0.6
       '@storybook/addon-measure':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-outline':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addon-storysource':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/addons':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)
-      '@storybook/builder-vite':
-        specifier: ^7.0.0
-        version: 7.0.0(typescript@5.0.2)(vite@4.0.0)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/channel-postmessage':
-        specifier: ^7.0.0
-        version: 7.0.2
+        specifier: ^7.0.6
+        version: 7.0.6
       '@storybook/channel-websocket':
-        specifier: ^7.0.0
-        version: 7.0.0
+        specifier: ^7.0.6
+        version: 7.0.6
       '@storybook/client-api':
-        specifier: ^7.0.0
-        version: 7.0.0
+        specifier: ^7.0.6
+        version: 7.0.6
       '@storybook/preview-web':
-        specifier: ^7.0.0
-        version: 7.0.0
+        specifier: ^7.0.6
+        version: 7.0.6
       '@storybook/react':
-        specifier: ^7.0.0
-        version: 7.0.0(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2)
+        specifier: ^7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2)
+      '@storybook/react-vite':
+        specifier: 7.0.6
+        version: 7.0.6(react-dom@18.2.0)(react@18.2.0)(typescript@5.0.2)(vite@4.0.0)
       '@storybook/test-runner':
         specifier: ^0.10.0
         version: 0.10.0(@types/node@18.11.9)(ts-node@10.9.1)
@@ -198,8 +201,8 @@ importers:
         specifier: ^7.31.11
         version: 7.31.11(eslint@8.28.0)
       eslint-plugin-storybook:
-        specifier: ^0.6.7
-        version: 0.6.7(eslint@8.28.0)(typescript@5.0.2)
+        specifier: ^0.6.11
+        version: 0.6.11(eslint@8.28.0)(typescript@5.0.2)
       jest-image-snapshot:
         specifier: ^6.0.0
         version: 6.0.0(jest@29.5.0)
@@ -227,6 +230,9 @@ importers:
       standard-log-color:
         specifier: ^12.0.0
         version: 12.0.0(standard-log@12.1.0)
+      storybook:
+        specifier: 7.0.6
+        version: 7.0.6
       storybook-dark-mode:
         specifier: ~3.0.0
         version: 3.0.0(react-dom@18.2.0)(react@18.2.0)
@@ -977,7 +983,7 @@ packages:
       '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/helper-skip-transparent-expression-wrappers': 7.20.0
-      '@babel/plugin-proposal-optional-chaining': 7.18.9(@babel/core@7.21.4)
+      '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.21.4)
     dev: true
 
   /@babel/plugin-proposal-async-generator-functions@7.20.1(@babel/core@7.21.4):
@@ -1002,7 +1008,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.4
-      '@babel/helper-create-class-features-plugin': 7.20.5(@babel/core@7.21.4)
+      '@babel/helper-create-class-features-plugin': 7.21.4(@babel/core@7.21.4)
       '@babel/helper-plugin-utils': 7.20.2
     transitivePeerDependencies:
       - supports-color
@@ -1099,7 +1105,7 @@ packages:
       '@babel/helper-compilation-targets': 7.21.4(@babel/core@7.21.4)
       '@babel/helper-plugin-utils': 7.20.2
       '@babel/plugin-syntax-object-rest-spread': 7.8.3(@babel/core@7.21.4)
-      '@babel/plugin-transform-parameters': 7.20.5(@babel/core@7.21.4)
+      '@babel/plugin-transform-parameters': 7.21.3(@babel/core@7.21.4)
     dev: true
 
   /@babel/plugin-proposal-optional-catch-binding@7.18.6(@babel/core@7.21.4):
@@ -1132,7 +1138,7 @@ packages:
       '@babel/core': ^7.0.0-0
     dependencies:
       '@babel/core': 7.21.4
-      '@babel/helper-create-class-features-plugin': 7.20.5(@babel/core@7.21.4)
+      '@babel/helper-create-class-features-plugin': 7.21.4(@babel/core@7.21.4)
       '@babel/helper-plugin-utils': 7.20.2
     transitivePeerDependencies:
       - supports-color
@@ -1593,7 +1599,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
-      '@babel/helper-replace-supers': 7.19.1
+      '@babel/helper-replace-supers': 7.20.7
     transitivePeerDependencies:
       - supports-color
     dev: true
@@ -3491,32 +3497,14 @@ packages:
         optional: true
     dependencies:
       '@just-web/app': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/commands': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0)
-      '@just-web/keyboard': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0)
+      '@just-web/commands': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
+      '@just-web/keyboard': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
       '@just-web/log': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
       '@just-web/os': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
       '@just-web/types': 7.0.0-beta.0
       mousetrap: 1.6.5
       type-plus: 6.6.0
     dev: true
-
-  /@just-web/commands@7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0):
-    resolution: {integrity: sha512-AQ42qasm/GdDQiMTfdV7St/xclGLz8zqtQJl//4zIzSXB+T6cgYGEZb87Z9P2R+MpgbVkjc3RKm7cjeUnwB8YQ==}
-    peerDependencies:
-      '@just-web/app': ^7.0.0-beta.0
-      '@just-web/keyboard': ^7.0.0-beta.0
-      '@just-web/log': ^7.0.0-beta.0
-      '@just-web/states': ^7.0.0-beta.0
-      '@just-web/types': ^7.0.0-beta.0
-    dependencies:
-      '@just-web/app': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/keyboard': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0)
-      '@just-web/log': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/states': 6.0.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/types': 7.0.0-beta.0
-      sentence-case: 3.0.4
-      tersify: 3.12.1
-      type-plus: 6.6.0
 
   /@just-web/commands@7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/keyboard@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0):
     resolution: {integrity: sha512-AQ42qasm/GdDQiMTfdV7St/xclGLz8zqtQJl//4zIzSXB+T6cgYGEZb87Z9P2R+MpgbVkjc3RKm7cjeUnwB8YQ==}
@@ -3535,28 +3523,11 @@ packages:
       sentence-case: 3.0.4
       tersify: 3.12.1
       type-plus: 6.6.0
-    dev: true
 
   /@just-web/id@6.0.2:
     resolution: {integrity: sha512-28Tw8bs5fGS1CMTESqlO1QWcx+C9rFfMgVnF1U6G0+L+V2xz2R2ZZFTE1BMMw+wZ4SmYXDu7/U95Aja6kwCYYQ==}
     dependencies:
       '@unional/gizmo': 1.1.0
-
-  /@just-web/keyboard@7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@6.0.0)(@just-web/types@7.0.0-beta.0):
-    resolution: {integrity: sha512-Fjo0hmXRHjYAEDA/I7DHiYGNw+lFpLjt38bQX1MWLr03zJTBIIpyfdxEFA8dPhaQli+g4Afj3AnPVcf+5ovu5w==}
-    peerDependencies:
-      '@just-web/app': ^7.0.0-beta.0
-      '@just-web/log': ^7.0.0-beta.0
-      '@just-web/os': ^7.0.0-beta.0
-      '@just-web/states': ^7.0.0-beta.0
-      '@just-web/types': ^7.0.0-beta.0
-    dependencies:
-      '@just-web/app': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/log': 7.0.0-beta.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/os': 7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0)
-      '@just-web/states': 6.0.0(@just-web/types@7.0.0-beta.0)
-      '@just-web/types': 7.0.0-beta.0
-      type-plus: 6.6.0
 
   /@just-web/keyboard@7.0.0-beta.0(@just-web/app@7.0.0-beta.0)(@just-web/log@7.0.0-beta.0)(@just-web/os@7.0.0-beta.0)(@just-web/states@7.0.0-beta.0)(@just-web/types@7.0.0-beta.0):
     resolution: {integrity: sha512-Fjo0hmXRHjYAEDA/I7DHiYGNw+lFpLjt38bQX1MWLr03zJTBIIpyfdxEFA8dPhaQli+g4Afj3AnPVcf+5ovu5w==}
@@ -3573,17 +3544,6 @@ packages:
       '@just-web/states': 7.0.0-beta.0
       '@just-web/types': 7.0.0-beta.0
       type-plus: 6.6.0
-    dev: true
-
-  /@just-web/log@6.0.2(@just-web/types@7.0.0-beta.0):
-    resolution: {integrity: sha512-RsYuWIlfWg+v3EswOm+RAGASQcJuPpQOxMdWk/BcQfRo3ihJ/xBVmU2cwPd2KVX/NdFUdtszAIcQFvSmw4S8Vw==}
-    peerDependencies:
-      '@just-web/types': ^6.0.2
-    dependencies:
-      '@just-func/types': 0.5.1
-      '@just-web/types': 7.0.0-beta.0
-      standard-log: 11.5.2
-      type-plus: 5.6.0
 
   /@just-web/log@7.0.0-beta.0(@just-web/types@7.0.0-beta.0):
     resolution: {integrity: sha512-5DElDRhfcZdGyochVDnO84rs1BFc0+Tn1r2bgW7eRYdeMt+yiIfkMV4QTlIaH+3tI26DF9RSi+a24oqNKwR9dQ==}
@@ -3639,7 +3599,7 @@ packages:
       eslint: 8.28.0
       eslint-config-prettier: 8.5.0(eslint@8.28.0)
       eslint-plugin-harmony: 7.1.1(@typescript-eslint/eslint-plugin@5.59.0)(eslint-config-prettier@8.5.0)(eslint@8.28.0)(typescript@4.9.3)
-      eslint-plugin-storybook: 0.6.7(eslint@8.28.0)(typescript@4.9.3)
+      eslint-plugin-storybook: 0.6.11(eslint@8.28.0)(typescript@4.9.3)
       eslint-plugin-yml: 1.2.0(eslint@8.28.0)
       jest: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
       jest-validate: 29.5.0
@@ -3661,16 +3621,6 @@ packages:
       - supports-color
       - ts-node
     dev: true
-
-  /@just-web/states@6.0.0(@just-web/types@7.0.0-beta.0):
-    resolution: {integrity: sha512-BendCw84hZjSnT+i3qKhmd4PDB4I0+aDG3uz/ovTfUB6L1l7neG+nsymHv/Hgs0L+xjGjTt8cainXAQgtkE50A==}
-    dependencies:
-      '@just-web/log': 6.0.2(@just-web/types@7.0.0-beta.0)
-      immer: /@unional/immer@9.0.0-beta.2
-      tersify: 3.12.1
-      type-plus: 5.6.0
-    transitivePeerDependencies:
-      - '@just-web/types'
 
   /@just-web/states@7.0.0-beta.0:
     resolution: {integrity: sha512-w5h9pr47xEzLy4csdft0DWUqCV+TR7TbHr9eVg4XM9mkq/ti8V7hNir/uerFCYaFPdU31qNf341fcme4D14d9w==}
@@ -4397,6 +4347,59 @@ packages:
 
   /@storybook/channels@7.0.2:
     resolution: {integrity: sha512-qkI8mFy9c8mxN2f01etayKhCaauL6RAsxRzbX1/pKj6UqhHWqqUbtHwymrv4hG5qDYjV1e9pd7ae5eNF8Kui0g==}
+    dev: true
+
+  /@storybook/channels@7.0.6:
+    resolution: {integrity: sha512-+34cVmrXZ3lb1s5tDK+OWd5HLtEPSUMas0VKFJ0k9LBpFlVl9aiCZBJRvSYmWL7beauUfa+HSmJgjlD6228ChQ==}
+    dev: true
+
+  /@storybook/cli@7.0.6:
+    resolution: {integrity: sha512-x9Ht+N7wGknX31lnDDgfH4Td46UCVqhr0H8pgYRUz+lmhxKv58f0M5kErFRTlUxEXz6/ORI6Cx4cTw7451huyw==}
+    hasBin: true
+    dependencies:
+      '@babel/core': 7.21.4
+      '@babel/preset-env': 7.21.4(@babel/core@7.21.4)
+      '@ndelangen/get-tarball': 3.0.7
+      '@storybook/codemod': 7.0.6
+      '@storybook/core-common': 7.0.6
+      '@storybook/core-server': 7.0.6
+      '@storybook/csf-tools': 7.0.6
+      '@storybook/node-logger': 7.0.6
+      '@storybook/telemetry': 7.0.6
+      '@storybook/types': 7.0.6
+      '@types/semver': 7.3.13
+      boxen: 5.1.2
+      chalk: 4.1.2
+      commander: 6.2.1
+      cross-spawn: 7.0.3
+      detect-indent: 6.1.0
+      envinfo: 7.8.1
+      execa: 5.1.1
+      express: 4.18.2
+      find-up: 5.0.0
+      fs-extra: 11.1.1
+      get-npm-tarball-url: 2.0.3
+      get-port: 5.1.1
+      giget: 1.1.2
+      globby: 11.1.0
+      jscodeshift: 0.14.0(@babel/preset-env@7.21.4)
+      leven: 3.1.0
+      prettier: 2.8.0
+      prompts: 2.4.2
+      puppeteer-core: 2.1.1
+      read-pkg-up: 7.0.1
+      semver: 7.5.0
+      shelljs: 0.8.5
+      simple-update-notifier: 1.1.0
+      strip-json-comments: 3.1.1
+      tempy: 1.0.1
+      ts-dedent: 2.2.0
+      util-deprecate: 1.0.2
+    transitivePeerDependencies:
+      - bufferutil
+      - encoding
+      - supports-color
+      - utf-8-validate
     dev: true
 
   /@storybook/client-api@7.0.0:
@@ -7815,14 +7818,30 @@ packages:
       string.prototype.matchall: 4.0.8
     dev: true
 
-  /eslint-plugin-storybook@0.6.7(eslint@8.28.0)(typescript@4.9.3):
-    resolution: {integrity: sha512-lcUsB+3PesKWXwwEHGSTCijKWDXuQ4ITVbnsSDMXRCR/cjGtHZIEcy2pp/Eh7nfWA/GZrDPpK97DsTWEzyN6Bw==}
+  /eslint-plugin-storybook@0.6.11(eslint@8.28.0)(typescript@4.9.3):
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
     engines: {node: 12.x || 14.x || >= 16}
     peerDependencies:
       eslint: '>=6'
     dependencies:
       '@storybook/csf': 0.0.1
-      '@typescript-eslint/experimental-utils': 5.45.0(eslint@8.28.0)(typescript@4.9.3)
+      '@typescript-eslint/utils': 5.59.0(eslint@8.28.0)(typescript@4.9.3)
+      eslint: 8.28.0
+      requireindex: 1.2.0
+      ts-dedent: 2.2.0
+    transitivePeerDependencies:
+      - supports-color
+      - typescript
+    dev: true
+
+  /eslint-plugin-storybook@0.6.11(eslint@8.28.0)(typescript@5.0.2):
+    resolution: {integrity: sha512-lIVmCqQgA0bhcuS1yWYBFrnPHBKPEQI+LHPDtlN81UE1/17onCqgwUW7Nyt7gS2OHjCAiOR4npjTGEoe0hssKw==}
+    engines: {node: 12.x || 14.x || >= 16}
+    peerDependencies:
+      eslint: '>=6'
+    dependencies:
+      '@storybook/csf': 0.0.1
+      '@typescript-eslint/utils': 5.59.0(eslint@8.28.0)(typescript@5.0.2)
       eslint: 8.28.0
       requireindex: 1.2.0
       ts-dedent: 2.2.0
@@ -8709,7 +8728,7 @@ packages:
       array-union: 2.1.0
       dir-glob: 3.0.1
       fast-glob: 3.2.12
-      ignore: 5.2.1
+      ignore: 5.2.4
       merge2: 1.4.1
       slash: 3.0.0
     dev: true
@@ -10640,6 +10659,36 @@ packages:
     hasBin: true
     dependencies:
       argparse: 2.0.1
+    dev: true
+
+  /jscodeshift@0.14.0(@babel/preset-env@7.21.4):
+    resolution: {integrity: sha512-7eCC1knD7bLUPuSCwXsMZUH51O8jIcoVyKtI6P0XM0IVzlGjckPy3FIwQlorzbN0Sg79oK+RlohN32Mqf/lrYA==}
+    hasBin: true
+    peerDependencies:
+      '@babel/preset-env': ^7.1.6
+    dependencies:
+      '@babel/core': 7.21.4
+      '@babel/parser': 7.21.4
+      '@babel/plugin-proposal-class-properties': 7.18.6(@babel/core@7.21.4)
+      '@babel/plugin-proposal-nullish-coalescing-operator': 7.18.6(@babel/core@7.21.4)
+      '@babel/plugin-proposal-optional-chaining': 7.21.0(@babel/core@7.21.4)
+      '@babel/plugin-transform-modules-commonjs': 7.21.2(@babel/core@7.21.4)
+      '@babel/preset-env': 7.21.4(@babel/core@7.21.4)
+      '@babel/preset-flow': 7.21.4(@babel/core@7.21.4)
+      '@babel/preset-typescript': 7.18.6(@babel/core@7.21.4)
+      '@babel/register': 7.21.0(@babel/core@7.21.4)
+      babel-core: 7.0.0-bridge.0(@babel/core@7.21.4)
+      chalk: 4.1.2
+      flow-parser: 0.204.0
+      graceful-fs: 4.2.11
+      micromatch: 4.0.5
+      neo-async: 2.6.2
+      node-dir: 0.1.17
+      recast: 0.21.5
+      temp: 0.8.4
+      write-file-atomic: 2.4.3
+    transitivePeerDependencies:
+      - supports-color
     dev: true
 
   /jsdom@21.0.0:
@@ -13668,15 +13717,6 @@ packages:
       unpartial: 1.0.4
     dev: true
 
-  /standard-log@11.5.2:
-    resolution: {integrity: sha512-ucM5UTaAJgN6RQVoDHoP0K6dqJEeVbm1+V4HJ57PcykZNnzWgaXFTCJMffFdRqL/4k+ctIrtWEQxzczu+9XjhQ==}
-    dependencies:
-      '@just-func/types': 0.5.1
-      iso-error: 6.0.1
-      ms: 2.1.3
-      type-plus: 6.6.0
-      upper-case: 2.0.2
-
   /standard-log@12.1.0:
     resolution: {integrity: sha512-h+eQpuGFqN4sYbU6CyXQmc5Uh9a2y5L7kJxacQSvoDj67pnhRg/3WI5f09UXGorW0wrQ1dFEpOeIDXCZ8YjqYA==}
     dependencies:
@@ -13706,7 +13746,7 @@ packages:
       react-dom:
         optional: true
     dependencies:
-      '@storybook/addons': 7.0.0(react-dom@18.2.0)(react@18.2.0)
+      '@storybook/addons': 7.0.6(react-dom@18.2.0)(react@18.2.0)
       '@storybook/api': 7.0.2(react-dom@18.2.0)(react@18.2.0)
       '@storybook/components': 7.0.0(react-dom@18.2.0)(react@18.2.0)
       '@storybook/core-events': 7.0.2
