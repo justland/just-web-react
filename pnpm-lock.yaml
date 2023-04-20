@@ -180,8 +180,8 @@ importers:
         specifier: ~5.14.5
         version: 5.14.5
       '@vitejs/plugin-react':
-        specifier: ^3.0.0
-        version: 3.0.0(vite@4.0.0)
+        specifier: ^4.0.0
+        version: 4.0.0(vite@4.0.0)
       '@vitest/coverage-c8':
         specifier: ^0.26.0
         version: 0.26.3(jsdom@21.0.0)
@@ -328,8 +328,8 @@ importers:
         specifier: ~5.14.5
         version: 5.14.5
       '@vitejs/plugin-react':
-        specifier: ^3.0.0
-        version: 3.0.0(vite@4.0.0)
+        specifier: ^4.0.0
+        version: 4.0.0(vite@4.0.0)
       '@vitest/coverage-c8':
         specifier: ^0.26.0
         version: 0.26.3(jsdom@21.0.0)
@@ -497,8 +497,8 @@ importers:
         specifier: ~5.14.5
         version: 5.14.5
       '@vitejs/plugin-react':
-        specifier: ^3.0.0
-        version: 3.0.0(vite@4.0.0)
+        specifier: ^4.0.0
+        version: 4.0.0(vite@4.0.0)
       '@vitest/coverage-c8':
         specifier: ^0.26.0
         version: 0.26.3(jsdom@21.0.0)
@@ -887,11 +887,6 @@ packages:
 
   /@babel/helper-validator-identifier@7.19.1:
     resolution: {integrity: sha512-awrNfaMtnHUr653GgGEs++LlAvW6w+DcPrOliSMXWCKo597CwL5Acf/wWdNkf/tfEQE3mjkeD1YOVZOUV/od1w==}
-    engines: {node: '>=6.9.0'}
-    dev: true
-
-  /@babel/helper-validator-option@7.18.6:
-    resolution: {integrity: sha512-XO7gESt5ouv/LRJdrVjkShckw6STTaB7l9BrpBaAHDeF5YZT+01PCwmR0SJHnkW6i8OwW/EVWRShfi4j2x+KQw==}
     engines: {node: '>=6.9.0'}
     dev: true
 
@@ -1618,23 +1613,23 @@ packages:
       '@babel/plugin-transform-react-jsx': 7.19.0(@babel/core@7.21.4)
     dev: true
 
-  /@babel/plugin-transform-react-jsx-self@7.18.6(@babel/core@7.20.5):
-    resolution: {integrity: sha512-A0LQGx4+4Jv7u/tWzoJF7alZwnBDQd6cGLh9P+Ttk4dpiL+J5p7NSNv/9tlEFFJDq3kjxOavWmbm6t0Gk+A3Ig==}
+  /@babel/plugin-transform-react-jsx-self@7.21.0(@babel/core@7.21.4):
+    resolution: {integrity: sha512-f/Eq+79JEu+KUANFks9UZCcvydOOGMgF7jBrcwjHa5jTZD8JivnhCJYvmlhR/WTXBWonDExPoW0eO/CR4QJirA==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.20.5
+      '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
     dev: true
 
-  /@babel/plugin-transform-react-jsx-source@7.19.6(@babel/core@7.20.5):
+  /@babel/plugin-transform-react-jsx-source@7.19.6(@babel/core@7.21.4):
     resolution: {integrity: sha512-RpAi004QyMNisst/pvSanoRdJ4q+jMCWyk9zdw/CyLB9j8RXEahodR6l2GyttDRyEVWZtbN+TpLiHJ3t34LbsQ==}
     engines: {node: '>=6.9.0'}
     peerDependencies:
       '@babel/core': ^7.0.0-0
     dependencies:
-      '@babel/core': 7.20.5
+      '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
     dev: true
 
@@ -1909,7 +1904,7 @@ packages:
     dependencies:
       '@babel/core': 7.21.4
       '@babel/helper-plugin-utils': 7.20.2
-      '@babel/helper-validator-option': 7.18.6
+      '@babel/helper-validator-option': 7.21.0
       '@babel/plugin-transform-typescript': 7.20.2(@babel/core@7.21.4)
     transitivePeerDependencies:
       - supports-color
@@ -5364,16 +5359,15 @@ packages:
   /@unional/immer@9.0.0-beta.2:
     resolution: {integrity: sha512-fJ4NxaKR4T/qfcSoPw8dFmKddmF7s2HqlUKSF0Xd1o1t6RZxQn7smhjJtFHfpr7gTQeoUBdZLiLt/8HMnzjGnQ==}
 
-  /@vitejs/plugin-react@3.0.0(vite@4.0.0):
-    resolution: {integrity: sha512-1mvyPc0xYW5G8CHQvJIJXLoMjl5Ct3q2g5Y2s6Ccfgwm45y48LBvsla7az+GkkAtYikWQ4Lxqcsq5RHLcZgtNQ==}
+  /@vitejs/plugin-react@4.0.0(vite@4.0.0):
+    resolution: {integrity: sha512-HX0XzMjL3hhOYm+0s95pb0Z7F8O81G7joUHgfDd/9J/ZZf5k4xX6QAMFkKsHFxaHlf6X7GD7+XuaZ66ULiJuhQ==}
     engines: {node: ^14.18.0 || >=16.0.0}
     peerDependencies:
-      vite: ^4.0.0
+      vite: ^4.2.0
     dependencies:
-      '@babel/core': 7.20.5
-      '@babel/plugin-transform-react-jsx-self': 7.18.6(@babel/core@7.20.5)
-      '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.20.5)
-      magic-string: 0.27.0
+      '@babel/core': 7.21.4
+      '@babel/plugin-transform-react-jsx-self': 7.21.0(@babel/core@7.21.4)
+      '@babel/plugin-transform-react-jsx-source': 7.19.6(@babel/core@7.21.4)
       react-refresh: 0.14.0
       vite: 4.0.0(@types/node@18.11.9)
     transitivePeerDependencies:
