@@ -1,6 +1,7 @@
 import { JustApp, justApp } from '@just-web/app'
 import type { Meta, StoryObj } from '@storybook/react'
 import { AppContextProvider, useAppContext } from './index.js'
+import { Context, createContext, useContext } from 'react'
 
 const meta: Meta<typeof AppContextProvider> = {
 	component: AppContextProvider
@@ -30,32 +31,41 @@ GetContext.parameters = {
 	visual: false
 }
 
-const DefaultType = () => {
-	const c = useAppContext()
+function AppInfo<C extends JustApp>({ context }: { context: Context<C> }) {
+	const app = useContext(context)
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
-			<p>App name: {c.name}</p>
-			<p>App id: {c.id}</p>
+			<p>App name: {app.name}</p>
+			<p>App id: {app.id}</p>
 		</div>
 	)
 }
+
+const App1Context = createContext<JustApp>(undefined as any)
+const App2Context = createContext<JustApp>(undefined as any)
+const App3Context = createContext<JustApp>(undefined as any)
 
 export const DefaultTypeToAppBaseContext: Story = {
 	loaders: [
 		async () => ({
 			app1: await justApp({ name: 'app1' }).create(),
-			app2: await justApp({ name: 'app2' }).create()
+			app2: await justApp({ name: 'app2' }).create(),
+			app3: await justApp({ name: 'app3' }).create()
 		})
 	],
-	render: (_, { loaded: { app1, app2 } }) => {
+	render: (_, { loaded: { app1, app2, app3 } }) => {
 		return (
-			<AppContextProvider value={app1}>
-				<AppContextProvider value={app2}>
-					<div className="flex">
-						<DefaultType />
-					</div>
-				</AppContextProvider>
-			</AppContextProvider>
+			<App1Context.Provider value={app1}>
+				<App2Context.Provider value={app2}>
+					<App3Context.Provider value={app3}>
+						<div className="flex gap-2">
+							<AppInfo context={App1Context} />
+							<AppInfo context={App2Context} />
+							<AppInfo context={App3Context} />
+						</div>
+					</App3Context.Provider>
+				</App2Context.Provider>
+			</App1Context.Provider>
 		)
 	}
 }
