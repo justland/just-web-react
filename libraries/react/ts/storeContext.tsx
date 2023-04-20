@@ -1,5 +1,5 @@
 import type { Store, Updater } from '@just-web/states'
-import { Context, createContext, useContext } from 'react'
+import { createContext, useContext, type Context } from 'react'
 import { useStore } from './useStore.js'
 
 /**
