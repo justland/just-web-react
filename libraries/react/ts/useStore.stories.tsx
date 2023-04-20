@@ -35,16 +35,6 @@ const UseStore: FC<{ name?: string; store: Store<{ counter: number }> }> = ({
 			>
 				{name} setValue
 			</button>
-			<button
-				onClick={() => {
-					console.info(`${name} onClick.store.update`)
-					store.set(s => {
-						s.counter++
-					})
-				}}
-			>
-				{name} store.update
-			</button>
 			{children}
 		</>
 	)
@@ -52,14 +42,12 @@ const UseStore: FC<{ name?: string; store: Store<{ counter: number }> }> = ({
 
 const UseEffect: VFC<{ store: Store<{ counter: number }> }> = ({ store }) => {
 	const [value, setValue] = useStore(store, s => s.counter)
-	useEffect(
-		() =>
-			store.update(s => {
-				console.info('useEffect store.update:', s.counter, value)
-				s.counter = value
-			}),
-		[value]
-	)
+	useEffect(() => {
+		store.set(s => {
+			console.info('useEffect store.set:', s.counter, value)
+			s.counter = value
+		})
+	}, [value])
 
 	console.count('render')
 	return (
@@ -70,15 +58,6 @@ const UseEffect: VFC<{ store: Store<{ counter: number }> }> = ({ store }) => {
 				change occurs within `useEffect()` and the store value is not tracked by React
 			</div>
 			<button onClick={() => setValue(v => v + 1)}>Invoke setValue</button>
-			<button
-				onClick={() =>
-					store.set(s => {
-						s.counter++
-					})
-				}
-			>
-				Invoke store.update
-			</button>
 		</>
 	)
 }
@@ -135,7 +114,7 @@ const Parent = ({ store }: { store: Store<{ counter: number }> }) => {
 			setTimerId(
 				setInterval(
 					() =>
-						store.update(s => {
+						store.set(s => {
 							s.counter = s.counter + 1
 						}),
 					1000
@@ -177,8 +156,8 @@ const ToggleStoreUpdate = ({ store }: { store: Store<{ counter: number }> }) => 
 		if (timer) {
 			const id = setInterval(
 				() =>
-					store.update(s => {
-						console.info(`timer store.update:`, s.counter, s.counter + 1)
+					store.set(s => {
+						console.info(`timer store.set:`, s.counter, s.counter + 1)
 						s.counter = s.counter + 1
 					}),
 				1000
@@ -221,7 +200,7 @@ export const StoreChangeTriggerRender = () => {
 	useEffect(() => {
 		const id = setInterval(
 			() =>
-				store.update(s => {
+				store.set(s => {
 					s.counter++
 				}),
 			300
