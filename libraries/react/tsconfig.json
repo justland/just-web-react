@@ -4,7 +4,7 @@
 		"outDir": ".nowhere",
 		"rootDir": "ts"
 	},
-	"include": ["ts", "typings"],
+	"include": ["ts", "types"],
 	"references": [
 		{
 			"path": "./tsconfig.node.json"
