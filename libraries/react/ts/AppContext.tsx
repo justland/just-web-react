@@ -1,9 +1,8 @@
-import type { LogContext } from '@just-web/log'
-import type { AppBaseContext } from '@just-web/types'
-import { createContext, ReactNode, useContext } from 'react'
-import type { ReactPluginContext } from './reactPlugin.js'
+import type { JustApp } from '@just-web/app'
+import { createContext, useContext, type ReactNode } from 'react'
+import type { ReactGizmo } from './react_gizmo.js'
 
-const AppContext = createContext<AppBaseContext & LogContext>(undefined as any)
+const AppContext = createContext<JustApp>(undefined as any)
 
 /**
  * AppContext provider.
@@ -15,7 +14,7 @@ const AppContext = createContext<AppBaseContext & LogContext>(undefined as any)
  * While in non-MFE application you can rely on global scope or module scope to share state/app,
  * it is recommend to use this so that you can use any plugin that relies on `AppContextProvider` as needed.
  */
-export function AppContextProvider<A extends AppBaseContext & LogContext & Partial<ReactPluginContext>>({
+export function AppContextProvider<A extends JustApp & Partial<ReactGizmo>>({
 	value,
 	children
 }: {
@@ -44,10 +43,9 @@ export function AppContextProvider<A extends AppBaseContext & LogContext & Parti
  * It does not perform additional check so it is possible that you get `undefined` error,
  * If the app did not load the plugin you need.
  */
-export function useAppContext<C extends Record<string | symbol, any> = AppBaseContext & LogContext>(): C &
-	AppBaseContext &
-	LogContext {
-	const app = useContext(AppContext) as unknown as C & AppBaseContext & LogContext
+export function useAppContext<C extends Record<string | symbol, any> = JustApp>(): C &
+	JustApp {
+	const app = useContext(AppContext) as unknown as C & JustApp
 	if (!app) {
 		throw new Error('AppContext.Provider must be used before using useAppContext()')
 	}

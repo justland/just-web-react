@@ -1,4 +1,5 @@
 import '@storybook/addon-console'
+import '../ts/styles.css'
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },

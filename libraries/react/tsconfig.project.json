@@ -3,5 +3,8 @@
 	"compilerOptions": {
 		"moduleResolution": "Node"
 	},
-	"include": ["vite.config.ts"]
+	"include": [
+		".storybook",
+		"vite.config.ts"
+	]
 }

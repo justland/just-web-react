@@ -1,14 +1,14 @@
-import type { PluginModule } from '@just-web/types'
-import { ComponentType, lazy } from 'react'
+import type { Gizmo } from '@just-web/app'
+import { type ComponentType, lazy } from 'react'
 
 export function lazyImport<
-	M extends { default: (...args: any[]) => PluginModule<any> },
+	M,
 	K extends keyof M,
 	R extends { start(): Promise<void> }
 >(
 	importPlugin: Promise<M>,
 	key: K,
-	extendPlugin: (plugin: M['default']) => R
+	extendPlugin: (plugin: M) => R
 ): M[K] extends ComponentType<any>
 	? {
 			[k in K]: React.LazyExoticComponent<M[K]>
@@ -22,7 +22,7 @@ export function lazyImport<
 	}
 	async function extendingApp() {
 		const m = await importPlugin
-		const extendedApp = extendPlugin(m.default)
+		const extendedApp = extendPlugin(m)
 		await extendedApp.start()
 		return [m, extendedApp] as const
 	}
