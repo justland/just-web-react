@@ -1,8 +1,8 @@
 import { createTestApp } from '@just-web/app'
 import { createStore } from '@just-web/states'
+import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
 import { createContext } from 'react'
 import reactPlugin, { createStoreContext } from './index.js'
-import { QueryClientProvider, QueryClient } from '@tanstack/react-query'
 
 describe('reactPlugin', () => {
 	describe('providers', () => {
