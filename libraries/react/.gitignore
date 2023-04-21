@@ -24,7 +24,9 @@ yarn-error.log*
 
 # project specfiic
 __snapshots__/*/__diff_output__
+cjs
 dist
 dts
+esm
 storybook-static
 *.tsbuildinfo

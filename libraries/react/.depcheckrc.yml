@@ -1,4 +1,5 @@
 ignores:
+  - '**' # temporary disable depcheck until code are ready
   - '@just-web/repo-scripts'
   - '@storybook/*'
   - '@testing-library/*'

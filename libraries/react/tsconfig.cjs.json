@@ -3,10 +3,10 @@
 	"compilerOptions": {
 		"declaration": true,
 		"declarationMap": true,
-		"declarationDir": "dts",
-		"emitDeclarationOnly": true,
+		"module": "CommonJS",
+		"outDir": "cjs",
 		"rootDir": "ts"
 	},
-	"include": ["ts", "typings"],
+	"include": ["ts", "types"],
 	"exclude": ["**/*.spec.*", "**/*.stories.*", "**/dummyModule.ts"]
 }
