@@ -26,7 +26,7 @@ export function createJustAppContext<App extends JustReactApp>() {
 	return Context
 }
 
-const JustAppRootContext = createContext<JustApp>(undefined as any)
+const JustAppRootContext = createContext<JustReactApp>(undefined as any)
 
 export function useJustAppContext() {
 	const app = useContext(JustAppRootContext)
