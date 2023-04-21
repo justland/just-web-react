@@ -16,7 +16,7 @@ export const PropsVsContext: Story = {
 	loaders: [
 		async () => ({
 			app1: await app1Activate(),
-			app2: await app1Activate({ name: 'app1-dup' })
+			app2: await app2Activate()
 		})
 	],
 	render(_, { loaded: { app1, app2 } }) {
@@ -33,8 +33,7 @@ export const PropsVsContext: Story = {
 	}
 }
 
-export const AppContext: Story = {
-	name: 'App specific context',
+export const AppSpecificContext: Story = {
 	loaders: [
 		async () => ({
 			app1: await app1Activate(),
@@ -46,7 +45,7 @@ export const AppContext: Story = {
 			<App1Context.Provider value={app1}>
 				<App2Context.Provider value={app2}>
 					<div className="flex gap-2">
-						<AppInfo title="App through context" />
+						<AppInfo title="Closest Just App Context" />
 						<App1Info />
 						<App2Info />
 					</div>

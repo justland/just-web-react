@@ -50,10 +50,10 @@
   "module": "./dist/just-web-react.js",
   "types": "./dts/index.d.ts",
   "files": [
-		"cjs",
+    "cjs",
     "dist",
-		"esm",
-		"testing",
+    "esm",
+    "testing",
     "ts",
     "!**/*.{spec,test,unit,accept,integrate,system}.*",
     "!**/*.stories.*"
@@ -80,17 +80,17 @@
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/log": "7.0.0-beta.0",
-    "@just-web/states": "7.0.0-beta.0",
-    "@just-web/types": "7.0.0-beta.0",
+    "@just-web/log": "7.0.0-beta.1",
+    "@just-web/states": "7.0.0-beta.1",
+    "@just-web/types": "7.0.0-beta.1",
     "@types/jest-image-snapshot": "^6.1.0",
     "type-plus": "^6.6.0"
   },
   "devDependencies": {
     "@headlessui/react": "^1.7.4",
-    "@just-web/app": "7.0.0-beta.0",
-    "@just-web/os": "7.0.0-beta.0",
-    "@just-web/preferences": "7.0.0-beta.0",
+    "@just-web/app": "7.0.0-beta.1",
+    "@just-web/os": "7.0.0-beta.1",
+    "@just-web/preferences": "7.0.0-beta.1",
     "@just-web/repo-scripts": "0.2.0-beta.0",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-actions": "^7.0.6",
