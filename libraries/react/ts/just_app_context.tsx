@@ -1,18 +1,38 @@
 import type { JustApp } from '@just-web/app'
-import { createContext, useContext } from 'react'
+import { createContext, useContext, type PropsWithChildren } from 'react'
 import type { ReactGizmo } from './react_gizmo.js'
 
-export function createJustAppContext<App extends JustApp>() {
-	return createContext<App>(undefined as any)
+export type JustReactApp = JustApp & ReactGizmo
+
+export function createJustAppContext<App extends JustReactApp>() {
+	const Context = createContext<App>(undefined as any)
+	const InnerProvider = Context.Provider
+	Context.Provider = function Provider({
+		value,
+		key,
+		children
+	}: PropsWithChildren<{
+		value: App
+		key?: string
+	}>) {
+		return (
+			<JustAppRootContext.Provider value={value}>
+				<InnerProvider value={value} key={key}>
+					{children}
+				</InnerProvider>
+			</JustAppRootContext.Provider>
+		)
+	} as any
+	return Context
 }
 
-const JustAppContext = createJustAppContext<JustApp>()
+const JustAppRootContext = createContext<JustApp>(undefined as any)
 
 export function useJustAppContext() {
-	return useContext(JustAppContext)
+	return useContext(JustAppRootContext)
 }
 
-export function JustAppProvider<App extends JustApp & ReactGizmo>({
+export function JustAppProvider<App extends JustReactApp>({
 	app,
 	children
 }: {
@@ -21,10 +41,13 @@ export function JustAppProvider<App extends JustApp & ReactGizmo>({
 }) {
 	const providers = Array.from(app.react.providers.entries() ?? [])
 	return (
-		<JustAppContext.Provider value={app}>
-			{providers.reduce((children, Component) => {
-				return <Component>{children}</Component>
-			}, children)}
-		</JustAppContext.Provider>
+		<JustAppRootContext.Provider value={app}>
+			{providers.reduce(
+				(children, Component) => (
+					<Component>{children}</Component>
+				),
+				children
+			)}
+		</JustAppRootContext.Provider>
 	)
 }
