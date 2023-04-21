@@ -25,27 +25,45 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "types": "./dts/index.d.ts",
-    "import": "./dist/just-web-react.js",
-    "require": "./dist/just-web-react.cjs",
-    "default": "./dist/just-web-react.cjs"
+    ".": {
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      },
+      "require": {
+        "types": "./cjs/index.d.ts",
+        "default": "./dist/just-web-react.cjs"
+      }
+    },
+    "./testing": {
+      "import": {
+        "types": "./esm/testing/index.d.ts",
+        "default": "./esm/testing/index.js"
+      },
+      "require": {
+        "types": "./cjs/testing/index.d.ts",
+        "default": "./cjs/testing/index.js"
+      }
+    }
   },
   "main": "./dist/just-web-react.cjs",
   "module": "./dist/just-web-react.js",
   "types": "./dts/index.d.ts",
   "files": [
+		"cjs",
     "dist",
-    "dts",
+		"esm",
+		"testing",
     "ts",
-    "!**/*.spec.*",
-    "!**/*.stories.*",
-    "!*/dummyModule.*"
+    "!**/*.{spec,test,unit,accept,integrate,system}.*",
+    "!**/*.stories.*"
   ],
   "scripts": {
-    "build": "run-p build:vite build:dts",
+    "build": "run-p build:esm build:cjs build:vite",
+    "build:cjs": "tsc -p tsconfig.cjs.json && ncp ../../config/package.cjs.json cjs/package.json",
+    "build:esm": "tsc",
     "build:storybook": "storybook build",
     "build:vite": "vite build",
-    "build:dts": "tsc -p tsconfig.dts.json",
     "coverage": "vitest run --coverage",
     "clean": "rimraf coverage dist dts *.tsbuildinfo",
     "depcheck": "depcheck",
@@ -119,6 +137,7 @@
     "is-ci": "^3.0.1",
     "jest-image-snapshot": "^6.1.0",
     "jsdom": "^21.0.0",
+    "ncp": "^2.0.0",
     "npm-run-all": "^4.1.5",
     "postcss": "^8.4.23",
     "postcss-loader": "^7.2.4",
@@ -132,6 +151,7 @@
     "storybook": "7.0.6",
     "storybook-dark-mode": "~3.0.0",
     "tailwindcss": "^3.3.1",
+    "tersify": "^3.12.1",
     "typescript": "^5.0.0",
     "vite": "^4.0.0",
     "vitest": "^0.26.0"

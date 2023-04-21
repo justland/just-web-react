@@ -1,7 +1,7 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"outDir": ".nowhere",
+		"outDir": "esm",
 		"rootDir": "ts"
 	},
 	"include": ["ts", "types"],
