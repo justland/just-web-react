@@ -1,10 +1,10 @@
-import type { JustApp } from '@just-web/app'
+import type { GizmoIncubator, JustApp } from '@just-web/app'
 import { createContext, useContext, type PropsWithChildren } from 'react'
 import type { ReactGizmo } from './react_gizmo.js'
 
 export type JustReactApp = JustApp & ReactGizmo
 
-export function createJustAppContext<App extends JustReactApp>() {
+export function createJustAppContext<App extends JustReactApp>(appIncubator?: GizmoIncubator<App>) {
 	const Context = createContext<App>(undefined as any)
 	const InnerProvider = Context.Provider
 	Context.Provider = function Provider({
