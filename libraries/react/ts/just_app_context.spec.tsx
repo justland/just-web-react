@@ -12,3 +12,4 @@ it('throws if AppContext.Provider does not exist in DOM tree', () => {
 	}
 	create(<Comp />)
 })
+

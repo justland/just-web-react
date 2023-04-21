@@ -25,6 +25,7 @@ export type JustApp1 = define.Infer<typeof app1>
 export type JustApp1x = JustReactApp & ValueGizmo<number>
 
 export const App1Context = createJustAppContext<JustApp1>()
+export const App1Context2 = createJustAppContext(app1)
 
 export async function activate() {
 	// note that you can also compose one app from another app.
