@@ -2,7 +2,7 @@ import { a } from 'assertron'
 import { create } from 'react-test-renderer'
 import { useJustAppContext } from './index.js'
 
-it('throws if AppContext.Provider does not exist in DOM tree', () => {
+it('throws if JustAppProvider does not exist in DOM tree', () => {
 	const Comp = () => {
 		a.throws(
 			() => useJustAppContext(),
