@@ -126,7 +126,7 @@
     "@just-web/app": "^7.0.0-beta",
     "@just-web/browser-keyboard": "^7.0.0-beta",
     "@just-web/commands": "^7.0.0-beta",
-    "@just-web/keyboard": "^7",
+    "@just-web/keyboard": "^7.0.0-beta",
     "@just-web/os": "^7",
     "@just-web/react": "workspace:^",
     "react": "^16 || ^17 || ^18",
