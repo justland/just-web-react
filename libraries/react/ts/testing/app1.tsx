@@ -1,12 +1,11 @@
 import { define, IdGizmoOptions } from '@just-web/app'
 import { justTestApp, LogTestGizmo } from '@just-web/app/testing'
-import { useContext } from 'react'
+import { LogTestGizmoOptions } from '@just-web/log/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { createJustAppContext, JustReactApp } from '../just_app_context.js'
+import { createJustAppContext, JustReactApp, useJustAppContext } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
-import { valueGizmoFn, type ValueGizmo, ValueGizmoOptions } from './value_gizmo.js'
-import { LogTestGizmoOptions } from '@just-web/log/testing'
+import { valueGizmoFn, ValueGizmoOptions, type ValueGizmo } from './value_gizmo.js'
 
 /**
  * Normally you would not create the `app`/`incubator` at load time.
@@ -45,7 +44,7 @@ export async function activate(
 }
 
 export function App1Info() {
-	const app = useContext(App1Context)
+	const app = useJustAppContext(App1Context)
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
 			<p className="text-xl">App 1 Info</p>
