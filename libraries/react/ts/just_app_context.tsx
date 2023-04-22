@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-unused-vars */
 import type { GizmoIncubator, JustApp } from '@just-web/app'
 import { createContext, useContext, type Context, type PropsWithChildren } from 'react'
+import type { NonUndefined } from 'type-plus'
 import type { ReactGizmo } from './react_gizmo.js'
 
 export type JustReactApp = JustApp & ReactGizmo
@@ -48,7 +49,7 @@ export function createJustAppContext<App extends JustReactApp>(appIncubator?: Gi
 }
 
 export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App
-export function useJustAppContext<App = JustReactApp>(): App
+export function useJustAppContext<App = JustReactApp>(): NonUndefined<App>
 export function useJustAppContext(context = JustAppRootContext) {
 	const app = useContext(context)
 	if (!app) throw new Error('A JustApp context provider must be used before using useJustAppContext()')
