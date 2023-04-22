@@ -1,5 +1,5 @@
 ---
-'@just-web/react': patch
+'@just-web/react': major
 ---
 
 Remove `reactPlugin`, `lazyImport`, `AppContextProvider` and `useAppContext` from `@just-web/react` package.

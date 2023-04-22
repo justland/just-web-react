@@ -1,8 +1,8 @@
-import { CommandContribution, CommandsContext, formatCommand, showCommandPalette } from '@just-web/commands'
-import { formatKeyBinding, KeyBindingContribution, KeyboardContext } from '@just-web/keyboard'
-import type { OSContext } from '@just-web/os'
-import { useAppContext } from '@just-web/react'
-import { ComponentType, ReactElement, useCallback, useEffect, useMemo, useState, VFC } from 'react'
+import { formatCommand, showCommandPalette, type CommandContribution, type CommandsGizmo } from '@just-web/commands'
+import { formatKeyBinding, type KeyBindingContribution, type KeyboardGizmo } from '@just-web/keyboard'
+import type { OSGizmo } from '@just-web/os'
+import { useJustAppContext } from '@just-web/react'
+import { useCallback, useEffect, useMemo, useState, type ComponentType, type ReactElement } from 'react'
 import CP from 'react-command-palette'
 import type { AnyFunction } from 'type-plus'
 import styles from './CommandPalette.module.css'
@@ -115,7 +115,7 @@ export type CommandPaletteProps = {
 	/**
 	 * a boolean which displays a loading indicator immediately after a command has been selected. When true the spinner is enabled when false the spinner is disabled. Useful when dynamically loading lists of a commands based upon user selections. Setting both showSpinnerOnSelect and closeOnSelect to false will keep the palette open and allow a new list of commands to be loaded, see the dynamic lists example.
 	 */
-	showSpinnerOnSeelct?: boolean
+	showSpinnerOnSelect?: boolean
 	/**
 	 * enables you to apply a sample or custom look-n-feel. Several themes are included with the command palette, Chrome, VS Code and Atom. The CommandPalette comes with the Atom theme enabled default.
 	 */
@@ -124,7 +124,7 @@ export type CommandPaletteProps = {
 	}
 }
 
-function getCommands(ctx: KeyboardContext & CommandsContext & OSContext) {
+function getCommands(ctx: KeyboardGizmo & CommandsGizmo & OSGizmo) {
 	const cmds = ctx.commands.contributions.get()
 	const kbs = ctx.keyboard.keyBindingContributions.get()
 	return Object.values(cmds)
@@ -142,16 +142,18 @@ function getCommands(ctx: KeyboardContext & CommandsContext & OSContext) {
 		})
 }
 
-const RenderCommand: VFC<{ name: string; key?: string }> = command => (
-	<div className={styles.suggestion}>
-		<span className={styles.name}>{command.name}</span>
-		{command.key && <span className={styles.key}>{command.key}</span>}
-	</div>
-)
+function RenderCommand(props: { name: string; key?: string }) {
+	return (
+		<div className={styles.suggestion}>
+			<span className={styles.name}>{props.name}</span>
+			{props.key && <span className={styles.key}>{props.key}</span>}
+		</div>
+	)
+}
 
 export const CommandPalette = (props: CommandPaletteProps) => {
 	const [open, setOpen] = useState<boolean>()
-	const app = useAppContext<CommandsContext & KeyboardContext & OSContext>()
+	const app = useJustAppContext<CommandsGizmo & KeyboardGizmo & OSGizmo>()
 
 	useEffect(() => app.commands.handlers.register(showCommandPalette.id, () => setOpen(true)), [])
 
