@@ -1,9 +1,12 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { JustAppProvider } from './just_app_context.js'
-import { App1Context, App1Info, app1, activate as app1Activate } from './testing/app1.js'
+import { createStoreContext, useStoreContext } from './store_context.js'
+import { App1Context, App1Info, activate as app1Activate } from './testing/app1.js'
 import { App2Context, App2Info, activate as app2Activate } from './testing/app2.js'
 import { AppInfo, AppInfoWithUseContext } from './testing/app_info.js'
+import { Card } from './testing/card.js'
 import { useJustTestAppContext } from './testing/just_test_app_context.js'
+import { createStore } from '@just-web/states'
 
 const meta: Meta<typeof JustAppProvider> = {
 	component: JustAppProvider,
@@ -94,5 +97,38 @@ function EmitLog() {
 	)
 }
 
-// TODO
-export const WithStoreContext: Story = {}
+const StoreContext = createStoreContext<{ value: number }>()
+
+export const WithStoreContext: Story = {
+	render(_, { loaded: { app1 } }) {
+		const store = createStore(app1)
+		return (
+			<StoreContext.Provider value={store}>
+				<Card>
+					<StoreDisplay />
+					<StoreChanger />
+				</Card>
+			</StoreContext.Provider>
+		)
+	}
+}
+
+function StoreDisplay() {
+	const [value] = useStoreContext(StoreContext, s => s.value)
+	return <div>Value: {value}</div>
+}
+
+function StoreChanger() {
+	const [, setValue] = useStoreContext(
+		StoreContext,
+		s => s.value,
+		(store, value) => {
+			store.value = value
+		}
+	)
+	return (
+		<button className="button" onClick={() => setValue(v => v + 1)}>
+			Increment
+		</button>
+	)
+}
