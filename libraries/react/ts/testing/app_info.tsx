@@ -3,6 +3,7 @@ import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
 import { useJustAppContext } from '../just_app_context.js'
 import { useContext } from 'react'
+import { Card } from './card.js'
 
 /**
  * AppInfo is a generic component not tied to any specific app.
@@ -15,7 +16,7 @@ export function AppInfo({ app, title }: { app?: JustApp; title?: string }) {
 		app = useJustAppContext()
 	}
 	return (
-		<div className="bg-slate-300 rounded-md p-3">
+		<Card>
 			{title && <p className="text-xl">{title}</p>}
 			<p>The app contains the following info:</p>
 			{mapKey(app, key => (
@@ -23,14 +24,14 @@ export function AppInfo({ app, title }: { app?: JustApp; title?: string }) {
 					{key}: {tersify(app![key], { maxLength: 50 })}
 				</p>
 			))}
-		</div>
+		</Card>
 	)
 }
 
 export function AppInfoWithUseContext({ context, title }: { context: React.Context<any>; title?: string }) {
 	const app = useContext(context)
 	return (
-		<div className="bg-slate-300 rounded-md p-3">
+		<Card>
 			{title && <p className="text-xl">{title}</p>}
 			<p>The app contains the following info:</p>
 			{mapKey(app, key => (
@@ -38,6 +39,6 @@ export function AppInfoWithUseContext({ context, title }: { context: React.Conte
 					{key}: {tersify(app![key], { maxLength: 50 })}
 				</p>
 			))}
-		</div>
+		</Card>
 	)
 }

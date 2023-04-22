@@ -1,6 +1,52 @@
 import { createStore, Store } from '@just-web/states'
-import { FC, useEffect, useState, VFC } from 'react'
+import { FC, PropsWithChildren, useEffect, useState, VFC } from 'react'
 import { useStore } from './store.js'
+import { Card } from './testing/card.js'
+import { StoryObj } from '@storybook/react'
+
+function WithUpdater({
+	name = 'Using updater in `useStore()`',
+	store,
+	children
+}: PropsWithChildren<{ name?: string; store: Store<{ counter: number }> }>) {
+	const [updateValue, setUpdateValue] = useState<{ count: number; value: number }>({ count: 0, value: 0 })
+
+	const [value, setValue] = useStore(
+		store,
+		s => s.counter,
+		(s, v) => {
+			s.counter = v
+			setUpdateValue(u => ({ count: u.count + 1, value: v }))
+		}
+	)
+	console.count(`${name} render`)
+	return (
+		<Card>
+			<p>{name}</p>
+			<p>
+				<code>store.get().counter</code>: {store.get().counter}
+			</p>
+			<p>
+				<code>const [value] = useStore(...); console.log(value)</code>: {value}
+			</p>
+			<p>
+				<code>useStore(,, updater)</code> receives: {updateValue.value} (count: {updateValue.count})
+			</p>
+			<button
+				className="rounded bg-slate-500 p-2"
+				onClick={() =>
+					setValue(v => {
+						console.info(`${name} onClick.setValue`, v, v + 1)
+						return v + 1
+					})
+				}
+			>
+				{name} setValue
+			</button>
+			{children}
+		</Card>
+	)
+}
 
 const UseStore: FC<{ name?: string; store: Store<{ counter: number }> }> = ({
 	name = 'UseStore',
@@ -40,7 +86,7 @@ const UseStore: FC<{ name?: string; store: Store<{ counter: number }> }> = ({
 	)
 }
 
-const UseEffect: VFC<{ store: Store<{ counter: number }> }> = ({ store }) => {
+function WithUseEffect({ store }: { store: Store<{ counter: number }> }) {
 	const [value, setValue] = useStore(store, s => s.counter)
 	useEffect(() => {
 		store.set(s => {
@@ -51,24 +97,52 @@ const UseEffect: VFC<{ store: Store<{ counter: number }> }> = ({ store }) => {
 
 	console.count('render')
 	return (
-		<>
-			<div>state value: {value}</div>
-			<div>
-				store value: {store.get().counter} This value is lack behind by one when using `setValue`, because
-				change occurs within `useEffect()` and the store value is not tracked by React
-			</div>
-			<button onClick={() => setValue(v => v + 1)}>Invoke setValue</button>
-		</>
+		<Card>
+			<p>
+				<code>store.get().counter</code>: {store.get().counter}
+				<p>
+					This value is lack behind by one when using `setValue`, because change occurs within `useEffect()`
+					and the store value is not tracked by React
+				</p>
+			</p>
+			<p>
+				<code>const [value] = useStore(...); console.log(value)</code>: {value}
+			</p>
+			<button className="rounded bg-slate-500 p-2" onClick={() => setValue(v => v + 1)}>
+				Invoke setValue
+			</button>
+		</Card>
 	)
 }
 
 export default {
-	component: UseStore
+	component: useStore
 }
 
-export const BasicUsage = () => <UseStore store={createStore({ counter: 0 })} />
+type Story = StoryObj<typeof useStore>
 
-export const UseEffectExplicitly = () => <UseEffect store={createStore({ counter: 0 })} />
+export const UpdateWithUpdater = () => <WithUpdater store={createStore({ counter: 0 })} />
+
+export const UpdateWithUseEffect: Story = {
+	decorators: [
+		Story => (
+			<div className="flex gap-1 flex-col">
+				<Card>
+					<p>
+						This story shows that using <code>setValue + useEffect</code>
+						the data is lag behind.
+					</p>
+					<p>
+						That is why using the <code>updater</code> inside <code>useStore(,,updater)</code>
+						is the better way to go
+					</p>
+				</Card>
+				<Story />
+			</div>
+		)
+	],
+	render: () => <WithUseEffect store={createStore({ counter: 0 })} />
+}
 
 const Child = ({ store }: { store: Store<{ counter: number }> }) => {
 	const [value, setValue] = useStore(
