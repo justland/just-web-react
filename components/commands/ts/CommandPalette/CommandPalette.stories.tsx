@@ -1,23 +1,29 @@
-import { createApp } from '@just-web/app'
-import browserKeyboardPlugin from '@just-web/browser-keyboard'
-import commandsPlugin, { CommandsContext, CommandsOptions } from '@just-web/commands'
-import keyboardPlugin, { KeyboardOptions } from '@just-web/keyboard'
-import { logLevels } from '@just-web/log'
-import { isMac, OSContext, OSTestOptions, osTestPlugin } from '@just-web/os'
-import { AppContextProvider, useAppContext } from '@just-web/react'
-import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { justTestApp } from '@just-web/app/testing'
+import { browserKeyboardGizmo } from '@just-web/browser-keyboard'
+import { CommandsGizmo, CommandsOptions, commandsGizmoFn } from '@just-web/commands'
+import { KeyboardOptions, keyboardGizmoFn } from '@just-web/keyboard'
+import { OSGizmo, isMac } from '@just-web/os'
+import { OSTestGizmoOptions, osTestGizmoFn } from '@just-web/os/testing'
+import { JustAppProvider, reactGizmo, useJustAppContext } from '@just-web/react'
+import { Meta, StoryObj } from '@storybook/react'
 import Mousetrap from 'mousetrap'
-import { createColorLogReporter } from 'standard-log-color'
-import plugin, { CommandPalette } from '../index.js'
+import { CommandPalette, reactCommandsGizmo } from '../index.js'
 
-type Story = ComponentStory<typeof CommandPalette> & { loaders?: Array<() => Promise<any>> }
+type Story = StoryObj<typeof CommandPalette>
 
-const shortcut = isMac() ? 'cmd+p' : 'ctrl+p'
+const shortcut = isMac() ? 'cmd+k' : 'ctrl+k'
 
-export default {
+const meta: Meta<typeof CommandPalette> = {
+	decorators: [
+		(Story, { loaded: { app } }) => (
+			<JustAppProvider app={app}>
+				<Story />
+			</JustAppProvider>
+		)
+	],
 	component: ({ ...args }) => {
-		const app = useAppContext<CommandsContext & OSContext>()
-		const shortcut = app.os.isMac() ? 'cmd+p' : 'ctrl+p'
+		const app = useJustAppContext<CommandsGizmo & OSGizmo>()
+		const shortcut = app.os.isMac() ? 'cmd+k' : 'ctrl+k'
 		return (
 			<>
 				<div>
@@ -33,15 +39,9 @@ export default {
 				<CommandPalette {...args} />
 			</>
 		)
-	},
-	decorators: [
-		(Story, { loaded: { app } }) => (
-			<AppContextProvider value={app}>
-				<Story />
-			</AppContextProvider>
-		)
-	]
-} as ComponentMeta<typeof CommandPalette>
+	}
+}
+export default meta
 
 const simpleCmd = { id: 'core.simpleCommand' }
 const keyedCmd = {
@@ -61,28 +61,24 @@ const macOnlyCmd = {
 	mac: 'cmd+o'
 }
 
-async function setupApp(options?: KeyboardOptions & CommandsOptions & OSTestOptions) {
-	const reporter = createColorLogReporter()
-	const app = createApp({
-		name: 'storybook',
-		log: { logLevel: logLevels.all, reporters: [reporter] }
-	})
-		.extend(keyboardPlugin(options))
-		.extend(commandsPlugin(options))
-		.extend(osTestPlugin(options))
-		.extend(browserKeyboardPlugin())
-		.extend(plugin())
-
-	await app.start()
+async function setupApp(options?: KeyboardOptions & CommandsOptions & OSTestGizmoOptions) {
+	const app = await justTestApp({ name: 'storybook' })
+		.with(keyboardGizmoFn(options?.keyboard))
+		.with(commandsGizmoFn(options?.commands))
+		.with(osTestGizmoFn(options))
+		.with(browserKeyboardGizmo)
+		.with(reactGizmo)
+		.with(reactCommandsGizmo)
+		.create()
 	return { app }
 }
 
-export const NoCommand = {
+export const NoCommand: Story = {
 	loaders: [async _ => setupApp()],
 	play: async _ => void Mousetrap.trigger(shortcut)
-} as Story
+}
 
-export const OneCommand = {
+export const OneCommand: Story = {
 	loaders: [
 		async _ =>
 			setupApp({
@@ -95,9 +91,9 @@ export const OneCommand = {
 			})
 	],
 	play: async _ => void Mousetrap.trigger(shortcut)
-} as Story
+}
 
-export const WithKey = {
+export const WithKey: Story = {
 	loaders: [
 		async _ =>
 			setupApp({
@@ -113,9 +109,9 @@ export const WithKey = {
 			}) as any
 	],
 	play: async _ => void Mousetrap.trigger(shortcut)
-} as Story
+}
 
-export const OverrideMacCommandInMac = {
+export const OverrideMacCommandInMac: Story = {
 	loaders: [
 		async _ =>
 			setupApp({
@@ -136,10 +132,10 @@ export const OverrideMacCommandInMac = {
 				}
 			})
 	],
-	play: async _ => void Mousetrap.trigger('command+p')
-} as Story
+	play: async _ => void Mousetrap.trigger('command+k')
+}
 
-export const OverrideMacCommandInWindow = {
+export const OverrideMacCommandInWindow: Story = {
 	loaders: [
 		async _ =>
 			setupApp({
@@ -160,5 +156,5 @@ export const OverrideMacCommandInWindow = {
 				}
 			})
 	],
-	play: async _ => void Mousetrap.trigger('ctrl+p')
-} as Story
+	play: async _ => void Mousetrap.trigger('ctrl+k')
+}
