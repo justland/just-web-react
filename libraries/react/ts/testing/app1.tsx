@@ -1,11 +1,10 @@
-import { define, IdGizmoOptions } from '@just-web/app'
-import { justTestApp, LogTestGizmo } from '@just-web/app/testing'
-import { LogTestGizmoOptions } from '@just-web/log/testing'
+import { define, type IdGizmoOptions } from '@just-web/app'
+import { justTestApp, type LogTestGizmo, type LogTestGizmoOptions } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { createJustAppContext, JustReactApp, useJustAppContext } from '../just_app_context.js'
+import { createJustAppContext, useJustAppContext, type JustReactApp } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
-import { valueGizmoFn, ValueGizmoOptions, type ValueGizmo } from './value_gizmo.js'
+import { valueGizmoFn, type ValueGizmo, type ValueGizmoOptions } from './value_gizmo.js'
 
 /**
  * Normally you would not create the `app`/`incubator` at load time.
