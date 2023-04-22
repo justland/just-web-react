@@ -154,7 +154,7 @@
     "vitest": "^0.26.0"
   },
   "peerDependencies": {
-    "@just-web/app": "^7",
+    "@just-web/app": "^7.0.0-beta",
     "@just-web/states": "^7",
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
