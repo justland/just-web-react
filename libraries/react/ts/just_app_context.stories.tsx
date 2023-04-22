@@ -1,9 +1,9 @@
 import type { Meta, StoryObj } from '@storybook/react'
 import { JustAppProvider } from './just_app_context.js'
-import { App1Context, App1Info, activate as app1Activate } from './testing/app1.js'
+import { App1Context, App1Info, app1, activate as app1Activate } from './testing/app1.js'
 import { App2Context, App2Info, activate as app2Activate } from './testing/app2.js'
 import { AppInfo, AppInfoWithUseContext } from './testing/app_info.js'
-import { useContext } from 'react'
+import { useJustTestAppContext } from './testing/just_test_app_context.js'
 
 const meta: Meta<typeof JustAppProvider> = {
 	component: JustAppProvider,
@@ -65,3 +65,34 @@ export const WithUseContext: Story = {
 		)
 	}
 }
+
+export const NoRenderWhenModifyState: Story = {
+	loaders: [
+		async () => ({
+			app1: await app1Activate({ log: { emitLog: true } })
+		})
+	],
+	render(_, { loaded: { app1 } }) {
+		return (
+			<App1Context.Provider value={app1}>
+				<EmitLog />
+			</App1Context.Provider>
+		)
+	}
+}
+
+function EmitLog() {
+	const app = useJustTestAppContext()
+	return (
+		<div className="bg-slate-300 rounded-md p-3">
+			<p>Write log will not trigger render</p>
+			<div>Number of logs: {app.log.reporter.logs.length} (this will not change)</div>
+			<button className="rounded bg-slate-500 p-1" onClick={() => app.log.warn('writing some log')}>
+				Click me
+			</button>
+		</div>
+	)
+}
+
+// TODO
+export const WithStoreContext: Story = {}
