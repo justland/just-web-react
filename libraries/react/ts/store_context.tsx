@@ -1,6 +1,6 @@
 import type { Store, Updater } from '@just-web/states'
 import { createContext, useContext, type Context } from 'react'
-import { useStore } from './useStore.js'
+import { useStore } from './store.js'
 
 /**
  * Creates a `Store<T>`context to be used in `useStoreContext()`
