@@ -48,7 +48,7 @@ export function createJustAppContext<App extends JustReactApp>(appIncubator?: Gi
 }
 
 export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App
-export function useJustAppContext(): JustReactApp
+export function useJustAppContext<App = JustReactApp>(): App
 export function useJustAppContext(context = JustAppRootContext) {
 	const app = useContext(context)
 	if (!app) throw new Error('A JustApp context provider must be used before using useJustAppContext()')
