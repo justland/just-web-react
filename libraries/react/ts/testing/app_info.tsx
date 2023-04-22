@@ -1,8 +1,7 @@
-import type { JustApp } from '@just-web/app'
 import { useContext } from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { useJustAppContext } from '../just_app_context.js'
+import { useJustAppContext, type JustReactApp } from '../just_app_context.js'
 import { Card } from './card.js'
 
 /**
@@ -11,7 +10,7 @@ import { Card } from './card.js'
  * Typically, generic component can get the app through props.
  * We can also use context to get the closest gizmo/app.
  */
-export function AppInfo({ app, title }: { app?: JustApp; title?: string }) {
+export function AppInfo({ app, title }: { app?: JustReactApp; title?: string }) {
 	if (!app) {
 		app = useJustAppContext()
 	}
