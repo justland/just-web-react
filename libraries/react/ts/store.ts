@@ -23,18 +23,18 @@ export function useStore<S extends Record<any, any>, V>(
 	})
 	return [
 		value,
-		useCallback(up => {
+		useCallback(value => {
 			if (updater) {
 				store.set(s =>
 					updater(
 						s,
-						isType<(value: V) => V>(up, u => typeof u === 'function') ? up(getState(s)) : up
+						isType<(value: V) => V>(value, u => typeof u === 'function') ? value(getState(s)) : value
 					)
 				)
 
 				return setValue(getState(store.get()))
 			}
-			return setValue(up)
+			return setValue(value)
 		}, [])
 	]
 }

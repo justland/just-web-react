@@ -2,25 +2,38 @@ import { createStore } from '@just-web/states'
 import { PropsWithChildren } from 'react'
 import Modal from 'react-modal'
 import { createStoreContext, useStoreContext } from './index.js'
+import { Card } from './testing/card.js'
 
 export default {
-	component: <div></div>
+	component: useStoreContext
 }
 
 // https://leewarrick.com/blog/the-problem-with-context/
 const CounterContext = createStoreContext<{ counter: number; message: string }>()
 
-const AppProvider = (props: PropsWithChildren<Record<string, unknown>>) => {
+export const UseContext = () => {
 	const store = createStore({ counter: 0, message: 'hello from context inside' })
-	return <CounterContext.Provider value={store} {...props} />
+	return (
+		<CounterContext.Provider value={store}>
+			<div className="flex flex-col gap-1">
+				<h2>No renders! 😆</h2>
+				<p>If there is render, the message below will change color</p>
+				<Message />
+				<Message />
+				<Message />
+				<CounterDisplay />
+				<CounterIncrement />
+			</div>
+		</CounterContext.Provider>
+	)
 }
 
-const CounterDisplay = () => {
+function CounterDisplay() {
 	const [counter] = useStoreContext(CounterContext, s => s.counter)
-	return <div>{counter}</div>
+	return <Card>Counter Display component: {counter}</Card>
 }
 
-const CounterIncrement = () => {
+function CounterIncrement() {
 	const [counter, setValue] = useStoreContext(
 		CounterContext,
 		s => s.counter,
@@ -29,10 +42,12 @@ const CounterIncrement = () => {
 		}
 	)
 	return (
-		<>
+		<Card>
 			<div>counter value within increment component: {counter}</div>
-			<button onClick={() => setValue(counter + 1)}>Invoke setValue</button>
-		</>
+			<button className="button" onClick={() => setValue(counter + 1)}>
+				Invoke setValue
+			</button>
+		</Card>
 	)
 }
 
@@ -51,29 +66,22 @@ function Message() {
 	)
 }
 
-export const UseContext = () => {
+export const SelfContainedModal = () => {
 	return (
-		<div>
-			<AppProvider>
-				<h2>No renders! 😆</h2>
-				<Message />
-				<Message />
-				<Message />
-				<CounterDisplay />
-				<CounterIncrement />
-			</AppProvider>
-		</div>
+		<ModalApp>
+			<SomeModal />
+		</ModalApp>
 	)
 }
 
 const ModalContext = createStoreContext<{ showModal: boolean }>()
 
-const ModalApp = (props: PropsWithChildren<Record<string, unknown>>) => {
+function ModalApp(props: PropsWithChildren<Record<string, unknown>>) {
 	const store = createStore({ showModal: false })
 	return <ModalContext.Provider value={store} {...props} />
 }
 
-const SomeModal = () => {
+function SomeModal() {
 	const [showModal, setShowModal] = useStoreContext(
 		ModalContext,
 		s => s.showModal,
@@ -87,18 +95,12 @@ const SomeModal = () => {
 				After opening the modal, move away to another story. When you come back, the modal is no longer
 				opened.
 			</div>
-			<button onClick={() => setShowModal(true)}>open modal</button>
+			<button className="button" onClick={() => setShowModal(true)}>
+				open modal
+			</button>
 			<Modal isOpen={showModal} onRequestClose={() => setShowModal(false)}>
 				<div>I am a modal</div>
 			</Modal>
 		</>
-	)
-}
-
-export const SelfContainedModal = () => {
-	return (
-		<ModalApp>
-			<SomeModal />
-		</ModalApp>
 	)
 }
