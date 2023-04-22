@@ -1,61 +1,65 @@
 {
-	"[typescript]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-	"[typescriptreact]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
-	},
-
-	"cSpell.ignorePaths": [
-		"package-lock.json",
-		"node_modules",
-		"vscode-extension",
-		".git/objects",
-		".vscode",
-		".vscode-insiders",
-		"__snapshots__",
-		"pnpm-lock.yaml"
-	],
-	"cSpell.words": [
-		"clsx",
-		"cmds",
-		"codeql",
-		"depcheckrc",
-		"filenamify",
-		"formatjs",
-		"immer",
-		"mdbook",
-		"miku",
-		"noreply",
-		"npmjs",
-		"pinst",
-		"pnpm",
-		"pnpmfile",
-		"rushx",
-		"ssim",
-		"tersified",
-		"tersify",
-		"tsbuildinfo",
-		"tsimporter",
-		"TTFB",
-		"unshift",
-		"vite",
-		"vmin"
-	],
-	"eslint.validate": ["yaml"],
-	"files.associations": {
-		"**/common/config/rush/*.json": "jsonc",
-		"*.scss": "postcss",
-		"common/git-hooks/*": "shell",
-		"rush.json": "jsonc"
-	},
-	"json.schemas": [
-		{
-			"fileMatch": ["tsconfig.*.json"],
-			"url": "http://json.schemastore.org/tsconfig"
-		}
-	],
-	"yaml.schemas": {
-		"https://json.schemastore.org/github-workflow.json": "/.github/workflows/*"
-	}
+    "[typescript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[typescriptreact]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "cSpell.ignorePaths": [
+        "package-lock.json",
+        "node_modules",
+        "vscode-extension",
+        ".git/objects",
+        ".vscode",
+        ".vscode-insiders",
+        "__snapshots__",
+        "pnpm-lock.yaml"
+    ],
+    "cSpell.words": [
+        "clsx",
+        "cmds",
+        "codeql",
+        "depcheckrc",
+        "filenamify",
+        "formatjs",
+        "immer",
+        "mdbook",
+        "miku",
+        "noreply",
+        "npmjs",
+        "pinst",
+        "pnpm",
+        "pnpmfile",
+        "rushx",
+        "ssim",
+        "tersified",
+        "tersify",
+        "tsbuildinfo",
+        "tsimporter",
+        "TTFB",
+        "unshift",
+        "vite",
+        "vmin"
+    ],
+    "eslint.validate": [
+        "yaml"
+    ],
+    "files.associations": {
+        "**/common/config/rush/*.json": "jsonc",
+        "*.css": "tailwindcss",
+        "*.scss": "postcss",
+        "common/git-hooks/*": "shell",
+        "rush.json": "jsonc"
+    },
+    "json.schemas": [
+        {
+            "fileMatch": [
+                "tsconfig.*.json"
+            ],
+            "url": "http://json.schemastore.org/tsconfig"
+        }
+    ],
+    "yaml.schemas": {
+        "https://json.schemastore.org/github-workflow.json": "/.github/workflows/*"
+    }
 }

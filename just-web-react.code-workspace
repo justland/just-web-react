@@ -13,6 +13,7 @@
   "settings": {
     "files.associations": {
       "**/common/config/rush/*.json": "jsonc",
+      "*.css": "tailwindcss",
       "*.scss": "postcss",
       "common/git-hooks/*": "shell",
       "rush.json": "jsonc"
