@@ -124,7 +124,7 @@
   },
   "peerDependencies": {
     "@just-web/app": "^7",
-    "@just-web/browser-keyboard": "^7",
+    "@just-web/browser-keyboard": "^7.0.0-beta",
     "@just-web/commands": "^7",
     "@just-web/keyboard": "^7",
     "@just-web/os": "^7",
