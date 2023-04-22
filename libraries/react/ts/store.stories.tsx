@@ -1,6 +1,6 @@
 import { createStore, Store } from '@just-web/states'
 import { FC, useEffect, useState, VFC } from 'react'
-import { useStore } from './useStore.js'
+import { useStore } from './store.js'
 
 const UseStore: FC<{ name?: string; store: Store<{ counter: number }> }> = ({
 	name = 'UseStore',
