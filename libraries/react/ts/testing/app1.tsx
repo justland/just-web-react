@@ -1,11 +1,12 @@
-import { define } from '@just-web/app'
-import { justTestApp } from '@just-web/app/testing'
+import { define, IdGizmoOptions } from '@just-web/app'
+import { justTestApp, LogTestGizmo } from '@just-web/app/testing'
 import { useContext } from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
 import { createJustAppContext, JustReactApp } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
-import { valueGizmoFn, type ValueGizmo } from './value_gizmo.js'
+import { valueGizmoFn, type ValueGizmo, ValueGizmoOptions } from './value_gizmo.js'
+import { LogTestGizmoOptions } from '@just-web/log/testing'
 
 /**
  * Normally you would not create the `app`/`incubator` at load time.
@@ -22,14 +23,19 @@ export const app1 = justTestApp({ name: 'app 1' })
 
 export type JustApp1 = define.Infer<typeof app1>
 
-export type JustApp1x = JustReactApp & ValueGizmo<number>
+export type JustApp1x = JustReactApp & ValueGizmo<number> & LogTestGizmo
 
 export const App1Context = createJustAppContext<JustApp1>()
 export const App1Context2 = createJustAppContext(app1)
 
-export async function activate() {
+export async function activate(
+	options?: Partial<IdGizmoOptions> & { log?: LogTestGizmoOptions; value?: ValueGizmoOptions<number> }
+) {
 	// note that you can also compose one app from another app.
-	const app = await app1.create()
+	const app = await justTestApp({ name: options?.name ?? 'app 1', log: options?.log })
+		.with(valueGizmoFn({ value: options?.value?.value ?? 100 }))
+		.with(reactGizmo)
+		.create()
 
 	app.react.providers.register(({ children }) => (
 		<App1Context.Provider value={app}>{children}</App1Context.Provider>
