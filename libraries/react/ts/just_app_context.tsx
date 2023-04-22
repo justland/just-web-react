@@ -1,9 +1,30 @@
+/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { GizmoIncubator, JustApp } from '@just-web/app'
-import { createContext, useContext, type PropsWithChildren } from 'react'
+import { createContext, useContext, type Context, type PropsWithChildren } from 'react'
 import type { ReactGizmo } from './react_gizmo.js'
 
 export type JustReactApp = JustApp & ReactGizmo
 
+const JustAppRootContext = createContext<JustReactApp>(undefined as any)
+
+/**
+ * Creates a context of a `JustReactApp` to be used in `useJustAppContext()`.
+ *
+ * Typically, you would specify the generic type `App` when callying this function.
+ *
+ * You can also call it and pass the `appIncubator` to infer the generic type `App`.
+ * However, that is not the typical usage.
+ *
+ * @example
+ * ```ts
+ * const App1Context = createJustAppContext<App1>()
+ *
+ * function App1Info() {
+ * 	const app = useContext(App1Context)
+ * 	// ...
+ * }
+ * ```
+ */
 export function createJustAppContext<App extends JustReactApp>(appIncubator?: GizmoIncubator<App>) {
 	const Context = createContext<App>(undefined as any)
 	const InnerProvider = Context.Provider
@@ -26,10 +47,10 @@ export function createJustAppContext<App extends JustReactApp>(appIncubator?: Gi
 	return Context
 }
 
-const JustAppRootContext = createContext<JustReactApp>(undefined as any)
-
-export function useJustAppContext() {
-	const app = useContext<JustReactApp>(JustAppRootContext)
+export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App
+export function useJustAppContext(): JustReactApp
+export function useJustAppContext(context = JustAppRootContext) {
+	const app = useContext(context)
 	if (!app) throw new Error('A JustApp context provider must be used before using useJustAppContext()')
 	return app
 }

@@ -1,8 +1,7 @@
 import { justTestApp } from '@just-web/app/testing'
-import { useContext } from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { JustReactApp, createJustAppContext } from '../just_app_context.js'
+import { JustReactApp, createJustAppContext, useJustAppContext } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
 import { valueGizmoFn, type ValueGizmo } from './value_gizmo.js'
 
@@ -39,7 +38,7 @@ export async function activate() {
 }
 
 export function App2Info() {
-	const app = useContext(App2Context)
+	const app = useJustAppContext(App2Context)
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
 			<p className="text-xl">App 2 Info</p>

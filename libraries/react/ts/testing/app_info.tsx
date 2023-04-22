@@ -1,8 +1,8 @@
 import type { JustApp } from '@just-web/app'
+import { useContext } from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
 import { useJustAppContext } from '../just_app_context.js'
-import { useContext } from 'react'
 import { Card } from './card.js'
 
 /**
@@ -33,6 +33,33 @@ export function AppInfoWithUseContext({ context, title }: { context: React.Conte
 	return (
 		<Card>
 			{title && <p className="text-xl">{title}</p>}
+			<p>
+				using <code>useContext()</code>
+			</p>
+			<p>The app contains the following info:</p>
+			{mapKey(app, key => (
+				<p>
+					{key}: {tersify(app![key], { maxLength: 50 })}
+				</p>
+			))}
+		</Card>
+	)
+}
+
+export function AppInfoWithUseJustAppContext({
+	context,
+	title
+}: {
+	context: React.Context<any>
+	title?: string
+}) {
+	const app = useJustAppContext(context)
+	return (
+		<Card>
+			{title && <p className="text-xl">{title}</p>}
+			<p>
+				using <code>useJustAppContext()</code>
+			</p>
 			<p>The app contains the following info:</p>
 			{mapKey(app, key => (
 				<p>
