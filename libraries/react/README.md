@@ -71,10 +71,10 @@ export function YourComponent() {
 
 ---
 
-For Micro Frontends (MFEs), the `JustAppProvider` may not be sufficient.
+For Micro Frontends (MFEs), just `JustAppProvider` and `useJustAppContext()` may not be sufficient.
 Especially if you have components from different MFEs intertwined together.
 
-In that case, you need:
+In that case, you will also need:
 
 - `createJustAppContext()`: to create a [React] context for each MFE.
 - `reactGizmo`: to register the specific [React] context for each MFE.
@@ -121,6 +121,24 @@ ReactDOM.render(
   </JustAppProvider>,
   document.getElementById('root')
 )
+```
+
+Inside your components,
+you can still use `useJustAppContext()` with the `JustAppContext` you have created to get your specific app.
+
+```tsx
+import { useJustAppContext } from '@just-web/react'
+import { MikuAppContext } from './miku_app'
+
+export function MikuSinging() {
+  const app = useJustAppContext(MikuAppContext)
+
+  return (
+    <div>
+      <MusicPlayer start={() => app.miku.sing()} />
+    </div>
+  )
+}
 ```
 
 Alternatively, you can use `<MikuAppContext.Provider>` or `<RinAppContext.Provider>` too,
@@ -171,7 +189,7 @@ const Component = () => {
 }
 ```
 
-It doesn't work well if we want to have a local store the live and die with the DOM.
+But it doesn't work well if we want to have a local store that live and die with the DOM.
 
 In [React], that's when you can use `createContext()` and `useContext()`.
 
@@ -199,10 +217,12 @@ const YourConsumer = () => {
     (s, v) => { s.counter = v }
   )
 
-  return <>
-    <div>counter: {counter}</div>
-    <button onClick={() => setCounter(counter + 1)}>Increment</button>
-  </>
+  return (
+    <>
+      <div>counter: {counter}</div>
+      <button onClick={() => setCounter(counter + 1)}>Increment</button>
+    </>
+  )
 }
 ```
 
