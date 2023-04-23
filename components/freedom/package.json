@@ -1,14 +1,14 @@
 {
   "name": "react-freedom",
   "version": "0.0.3",
-  "homepage": "https://github.com/justland/just-web-react/tree/main/components/react-commands",
+  "homepage": "https://github.com/justland/just-web-react/tree/main/components/freedom",
   "bugs": {
     "url": "https://github.com/justland/just-web-react/issues"
   },
   "repository": {
     "type": "git",
     "url": "https://github.com/justland/just-web-react.git",
-    "directory": "components/commands"
+    "directory": "components/freedom"
   },
   "license": "MIT",
   "author": {

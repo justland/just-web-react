@@ -17,7 +17,7 @@
 - b8337bb: Update dependencies.
 
   Moving some used dependencies to normal `dependencies`,
-  while keeping thme in `peerDependencies`.
+  while keeping theme in `peerDependencies`.
 
   They are `@just-web` plugins which should be installed by the app,
   so they should remain as `peerDependencies`.
