@@ -60,13 +60,13 @@ importers:
     dependencies:
       '@just-web/commands':
         specifier: 7.0.0-beta.4
-        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
+        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
       '@just-web/keyboard':
         specifier: 7.0.0-beta.4
-        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
+        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
       '@just-web/os':
         specifier: 7.0.0-beta.4
-        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
+        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/types@7.0.0-beta.5)
       '@just-web/react':
         specifier: workspace:^
         version: link:../../libraries/react
@@ -82,10 +82,10 @@ importers:
         version: 3.11.5
       '@just-web/app':
         specifier: 7.0.0-beta.4
-        version: 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
+        version: 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
       '@just-web/browser-keyboard':
-        specifier: 7.0.0-beta.4
-        version: 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/commands@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
+        specifier: 7.0.0-beta.5
+        version: 7.0.0-beta.5(@just-web/app@7.0.0-beta.4)(@just-web/commands@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
       '@just-web/repo-scripts':
         specifier: 0.2.0
         version: 0.2.0(@types/node@18.11.9)(esbuild@0.17.7)(ts-node@10.9.1)
@@ -3888,31 +3888,44 @@ packages:
       '@unional/gizmo': 1.1.1
       iso-error: 6.0.1
       type-plus: 6.6.0
+    dev: true
 
-  /@just-web/browser-keyboard@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/commands@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4):
-    resolution: {integrity: sha512-FJpiSp06uxTdOEQoT5Hr4A4c9S5/bEkVJBDF9w2F2btbbTlI1ZaROrli/v3wncewZU/G+WZyCZ7rW4VxKCJYQw==}
+  /@just-web/app@7.0.0-beta.4(@just-web/types@7.0.0-beta.5):
+    resolution: {integrity: sha512-03/J2S+tI+EGJIpS+0F54MeNoJ1uNWHo9XVlNKosASLx8P76SkQuPf8krqcVONwqbQ5fmC1+BCZdOnI+w6hbrQ==}
     peerDependencies:
-      '@just-web/app': ^7.0.0-beta.4
-      '@just-web/commands': ^7.0.0-beta.4
-      '@just-web/keyboard': ^7.0.0-beta.4
-      '@just-web/log': ^7.0.0-beta.4
-      '@just-web/os': ^7.0.0-beta.4
       '@just-web/types': ^7.0.0-beta.4
+    dependencies:
+      '@just-web/id': 6.0.2
+      '@just-web/log': 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
+      '@just-web/types': 7.0.0-beta.5
+      '@unional/gizmo': 1.1.1
+      iso-error: 6.0.1
+      type-plus: 6.6.0
+
+  /@just-web/browser-keyboard@7.0.0-beta.5(@just-web/app@7.0.0-beta.4)(@just-web/commands@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5):
+    resolution: {integrity: sha512-+C4HzzD1WuluI/KzSREeoD6LbZn5bhQwQLlRRo0BxNL6b1+SDoJVbv4O9PGHbipDko24gI0ldhzNAYWL+lwo8A==}
+    peerDependencies:
+      '@just-web/app': ^7.0.0-beta.5
+      '@just-web/commands': ^7.0.0-beta.5
+      '@just-web/keyboard': ^7.0.0-beta.5
+      '@just-web/log': ^7.0.0-beta.5
+      '@just-web/os': ^7.0.0-beta.5
+      '@just-web/types': ^7.0.0-beta.5
     peerDependenciesMeta:
       '@just-web/keyboard':
         optional: true
     dependencies:
-      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
-      '@just-web/commands': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
-      '@just-web/keyboard': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
-      '@just-web/log': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
-      '@just-web/os': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
-      '@just-web/types': 7.0.0-beta.4
+      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
+      '@just-web/commands': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
+      '@just-web/keyboard': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
+      '@just-web/log': 7.0.0-beta.5(@just-web/types@7.0.0-beta.5)
+      '@just-web/os': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/types@7.0.0-beta.5)
+      '@just-web/types': 7.0.0-beta.5
       mousetrap: 1.6.5
       type-plus: 6.6.0
     dev: true
 
-  /@just-web/commands@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4):
+  /@just-web/commands@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/keyboard@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5):
     resolution: {integrity: sha512-JaCrR3HgC8ZnM0ecZxrZ0CEsj8JgEeeRv/JcH4r4JdQb2n2Zu7p5dxeorOCiYiNV11jlq5c0QAmLkb/fRb7F9w==}
     peerDependencies:
       '@just-web/app': ^7.0.0-beta.4
@@ -3921,11 +3934,11 @@ packages:
       '@just-web/states': ^7.0.0-beta.4
       '@just-web/types': ^7.0.0-beta.4
     dependencies:
-      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
-      '@just-web/keyboard': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
-      '@just-web/log': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
+      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
+      '@just-web/keyboard': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5)
+      '@just-web/log': 7.0.0-beta.5(@just-web/types@7.0.0-beta.5)
       '@just-web/states': 7.0.0-beta.4
-      '@just-web/types': 7.0.0-beta.4
+      '@just-web/types': 7.0.0-beta.5
       sentence-case: 3.0.4
       tersify: 3.12.1
       type-plus: 6.6.0
@@ -3935,7 +3948,7 @@ packages:
     dependencies:
       '@unional/gizmo': 1.1.1
 
-  /@just-web/keyboard@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4):
+  /@just-web/keyboard@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/os@7.0.0-beta.4)(@just-web/states@7.0.0-beta.4)(@just-web/types@7.0.0-beta.5):
     resolution: {integrity: sha512-F5yyaIErMUma5p8IWRXGHCFNDkokfMv5jXdgIOBc6vQlqbRUR+H3hOH4ZMR16eO3yuxDbrMkA6gLGGzPGgVszA==}
     peerDependencies:
       '@just-web/app': ^7.0.0-beta.4
@@ -3944,11 +3957,11 @@ packages:
       '@just-web/states': ^7.0.0-beta.4
       '@just-web/types': ^7.0.0-beta.4
     dependencies:
-      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
-      '@just-web/log': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
-      '@just-web/os': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4)
+      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
+      '@just-web/log': 7.0.0-beta.5(@just-web/types@7.0.0-beta.5)
+      '@just-web/os': 7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/types@7.0.0-beta.5)
       '@just-web/states': 7.0.0-beta.4
-      '@just-web/types': 7.0.0-beta.4
+      '@just-web/types': 7.0.0-beta.5
       type-plus: 6.6.0
 
   /@just-web/log@7.0.0-beta.4(@just-web/types@7.0.0-beta.4):
@@ -3962,6 +3975,31 @@ packages:
       '@unional/gizmo': 1.1.1
       standard-log: 12.1.1
       type-plus: 6.6.0
+    dev: true
+
+  /@just-web/log@7.0.0-beta.4(@just-web/types@7.0.0-beta.5):
+    resolution: {integrity: sha512-jb4uFVdlGTAu3cYXHsuA0EIaBw/WGHtNsEU3sqy5xohchkb7ZyLkHaoioJvQLr9MIeHNYHh9Wm+G5Kk9oDUa1A==}
+    peerDependencies:
+      '@just-web/types': ^7.0.0-beta.4
+    dependencies:
+      '@just-func/types': 0.5.1
+      '@just-web/id': 6.0.2
+      '@just-web/types': 7.0.0-beta.5
+      '@unional/gizmo': 1.1.1
+      standard-log: 12.1.1
+      type-plus: 6.6.0
+
+  /@just-web/log@7.0.0-beta.5(@just-web/types@7.0.0-beta.5):
+    resolution: {integrity: sha512-2vjphc75gGVL6xX9OSjBKntkatVc7FQalyIj8hnIN2yRwNx+GKuxnGFjLzmKgziTKet4UVlgqLfXY94EOZ4UCQ==}
+    peerDependencies:
+      '@just-web/types': ^7.0.0-beta.5
+    dependencies:
+      '@just-func/types': 0.5.1
+      '@just-web/id': 6.0.2
+      '@just-web/types': 7.0.0-beta.5
+      '@unional/gizmo': 1.2.0
+      standard-log: 12.1.1
+      type-plus: 6.6.0
 
   /@just-web/os@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.4)(@just-web/types@7.0.0-beta.4):
     resolution: {integrity: sha512-zLU2HtIvR+Xx5DWrbQ9luWl0YK7IuzJfv3G/gPd0cNYKfDbeydDI9mfs0MNRbam09LiAwxh2l3w9rxt9WPjJtg==}
@@ -3973,6 +4011,19 @@ packages:
       '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
       '@just-web/log': 7.0.0-beta.4(@just-web/types@7.0.0-beta.4)
       '@just-web/types': 7.0.0-beta.4
+      platform: 1.3.6
+    dev: true
+
+  /@just-web/os@7.0.0-beta.4(@just-web/app@7.0.0-beta.4)(@just-web/log@7.0.0-beta.5)(@just-web/types@7.0.0-beta.5):
+    resolution: {integrity: sha512-zLU2HtIvR+Xx5DWrbQ9luWl0YK7IuzJfv3G/gPd0cNYKfDbeydDI9mfs0MNRbam09LiAwxh2l3w9rxt9WPjJtg==}
+    peerDependencies:
+      '@just-web/app': ^7.0.0-beta.4
+      '@just-web/log': ^7.0.0-beta.4
+      '@just-web/types': ^7.0.0-beta.4
+    dependencies:
+      '@just-web/app': 7.0.0-beta.4(@just-web/types@7.0.0-beta.5)
+      '@just-web/log': 7.0.0-beta.5(@just-web/types@7.0.0-beta.5)
+      '@just-web/types': 7.0.0-beta.5
       platform: 1.3.6
 
   /@just-web/repo-scripts@0.2.0(@types/node@18.11.9)(esbuild@0.17.7)(ts-node@10.9.1):
@@ -4020,6 +4071,13 @@ packages:
 
   /@just-web/types@7.0.0-beta.4:
     resolution: {integrity: sha512-wkhjvab/ppR8qrQ8BkZgna+WK6XAXzAD+x5NMT/7b5BLKtq5RWiH95jEwfV5A1WtMm1ekMZiGipJVHyy84xbfQ==}
+    dependencies:
+      standard-log: 12.1.1
+      type-plus: 6.6.0
+    dev: true
+
+  /@just-web/types@7.0.0-beta.5:
+    resolution: {integrity: sha512-UTbKU84A5oL5ohDWnzCHyKe71V44gImn83AcZjX3i86pYcQ1sWWgDNVRBzellITg67nBLycloYLXr1ZArjBYcg==}
     dependencies:
       standard-log: 12.1.1
       type-plus: 6.6.0
@@ -6991,6 +7049,10 @@ packages:
 
   /@unional/gizmo@1.1.1:
     resolution: {integrity: sha512-zfMY+WWDdQoUGhC4YPZTo2Td5SYz2D0kkXDBhFup5eVdxJLFB0NuXzI/kMIDLMVMLK3Vz8T44BJAN5zf9X0Yzw==}
+    engines: {node: '>= 14.16'}
+
+  /@unional/gizmo@1.2.0:
+    resolution: {integrity: sha512-nP8iHl/red9t5mkuNLrlDnvFldU/JlxoiIcGwvgEBrxjtZBjars+f7+/JpuMJdl7xTZium3NcWghMq+NKBEIdw==}
     engines: {node: '>= 14.16'}
 
   /@unional/immer@9.0.0-beta.2:
