@@ -3,7 +3,7 @@
 [![NPM version][npm-image]][npm-url]
 [![NPM downloads][downloads-image]][downloads-url]
 
-[@just-web/react] provides additional utilities when using [@just-web] with [React].
+[@just-web/react] provides the features needed to use [just-web] app with [React].
 
 ## Install <!-- omit in toc -->
 
@@ -21,38 +21,122 @@ pnpm install @just-web/react
 rush add -p @just-web/react
 ```
 
-## Features <!-- omit in toc -->
+## Usage
 
-- [lazyImport](#lazyimport)
-- [useStore](#usestore)
-- [useStoreContext](#usestorecontext)
-- [react.providers](#reactproviders)
+We will be focusing on how to use [just-web] app with [React] here.
 
-## lazyImport
+If you want to know more about [just-web] app, you can check out the documentation of [@just-web/app].
 
-[lazyImport()] imports a component module and get lazy load the component within.
+Following the example from [@just-web/app],
+let's make the sing-along app info a [React] app.
+
+Let's start with a simple example: a SPA.
+
+To create a [React] SPA, you need two things from [@just-web/react]:
+
+- `<JustAppProvider/>`: the [React] context provider for `JustApp`.
+- `useJustAppContext()`: the [React] context hook to get the `JustApp` instance.
 
 ```tsx
-const app = createTestApp()
+import { JustAppProvider } from '@just-web/react'
+import ReactDOM from 'react-dom'
+import { YourComponent } from './your_component'
+import { singAlongApp } from './sing_along_app'
 
-const MyComp = () => {
-  const CommandPalette = lazyImport(
-    () => app,
-    () => import('@just-web/react-commands'),
-    m => m.CommandPalette)
+void (async () => {
+  const app = await singAlongApp.with(reactGizmo).create()
 
-  return <Suspense fallback={<div>loading...</div>}>
-    <CommandPalette />
-  </Suspense>
+  ReactDOM.render(
+    <JustAppProvider app={app}>
+      <YourComponent />
+    </JustAppProvider>,
+    document.getElementById('root')
+  )
+})()
+
+// your_component.tsx
+import { useJustAppContext } from '@just-web/react'
+import type { SingAlongApp } from './sing_along_app'
+
+export function YourComponent() {
+  const app = useJustAppContext<SingAlongApp>()
+
+  return (
+    <div>
+      <MusicPlayer start={() => app.miku.sing()} />
+    </div>
+  )
 }
 ```
 
-## useStore
+---
 
-[useStore()] picks out a value in the `store` similar to `useState()`.
+For Micro Frontends (MFEs), the `JustAppProvider` may not be sufficient,
+if you have components from different MFEs intertwined together.
+
+In those case, you need:
+
+- `createJustAppContext()`: to create a [React] context for each MFE.
+- `reactGizmo`: to register the specific [React] context for each MFE.
+
+In the example below, we have two MFEs: `miku` and `rin`.
+
+Each of them is a MFE with its own `JustApp` instance.
+
+They need to add `reactGizmo`, and register their own [React] context.
+
+They are doing it differently to show two different ways of doing it.
 
 ```tsx
-import { createStore } from '@just-web/app'
+const MikuAppContext = createJustAppContext<MikuApp>()
+const mikuApp = await singAlongApp.with(reactGizmo)
+  .create(app => app.react.providers.register(({ children }) => (
+    <MikuAppContext.Provider value={app}>
+      {children}
+    </MikuAppContext.Provider>
+  )))
+
+const RinAppContext = createJustAppContext<RinApp>()
+const rinAppIncubator = singAlongApp.with(reactGizmo)
+  .init(app => app.react.providers.register(({ children }) => (
+    <RinAppContext.Provider value={app}>
+      {children}
+    </RinAppContext.Provider>
+  )))
+const rinApp = await rinAppIncubator.create()
+```
+
+Then, in the [React] app,
+you can use the `JustAppProvider` for both `mikuApp` and `rinApp`,
+and they will work together.
+
+```ts
+ReactDOM.render(
+  <JustAppProvider value={mikuApp}>
+    <MikuSinging />
+    <JustAppProvider value={rinApp}>
+      <MikuDancing />
+      <RinSinging />
+    </JustAppProvider>
+  </JustAppProvider>,
+  document.getElementById('root')
+)
+```
+
+Alternatively, you can use `<MikuAppContext.Provider>` or `<RinAppContext.Provider>` too,
+but typically there is no need to do so.
+
+The host app only need the `mikuApp`, `rinApp`, and the `JustAppProvider` and everything will work.
+
+## useStore
+
+[useStore()] Allows you to use `store` from `@just-web/states`.
+
+It is similar to `useState()` in [React],
+but work on a store instead of a local state.
+
+```tsx
+import { createStore } from '@just-web/states'
 import { useStore } from '@just-web/react'
 
 const store = createStore({ counter: 0 })
@@ -60,21 +144,15 @@ const store = createStore({ counter: 0 })
 const Component = () => {
   const [counter, setCounter] = useStore(
     store,
-    // getState
+    // get which part of the store to use as state
     s => s.counter,
-    // Optional: updateStore when state changes
+    // updateStore when state changes
     s=>{ s.counter = counter }
   )
 
   return <div>{counter}</div>
 }
 ```
-
-Note that `updateStore()` is optional.
-If you want to keep the state internal to the component and update the store on demand,
-you can use `useEffect()` to update the store yourself.
-
-But most of the time, supplying `updateStore()` is sufficient.
 
 ## useStoreContext
 
@@ -127,9 +205,14 @@ const YourConsumer = () => {
 }
 ```
 
-## react.providers
+## reactGizmo
 
-You can use `react.providers` to provide a set of providers to the app.
+As seen in the example above,
+`reactGizmo` provides a `react.providers` where you can register [React] context providers.
+
+You can use it to add other providers to the app.
+
+For example, i18n, theme, etc.
 
 ```tsx
 import { createApp } from '@just-web/app'
@@ -140,29 +223,29 @@ function YourApp() {
   app.react.providers.register(({ children }) => <YourProvider {...}>{children}</YourProvider>)
 
   return (
-    <AppContextProvider value={app}>
+    <JustAppProvider value={app}>
       ...
-    </AppContextProvider>
+    </JustAppProvider>
   )
 }
 ```
 
 The providers will be added to the app in the order they are registered,
-inside the `<AppContextProvider>`.
+inside the `<JustAppProvider>`.
 
-This allows any plugin to add their needed providers to the app,
+This allows any gizmo to add their needed providers to the app,
 without having the app to know about them.
 
-[@just-web]: https://github.com/justland/just-web
+[@just-web/app]: https://github.com/justland/just-web/tree/main/frameworks/app
 [@just-web/react]: https://github.com/justland/just-web/tree/main/frameworks/react
-[React]: https://reactjs.org/
-[useStore()]: https://github.com/justland/just-web/blob/main/libraries/react/src/useStore.ts
-[lazyImport()]: https://github.com/justland/just-web/blob/main/libraries/react/src/lazyImport.ts
-[createStoreContext()]: https://github.com/justland/just-web/blob/main/libraries/react/src/useStoreContext.ts
-[useStoreContext()]: https://github.com/justland/just-web/blob/main/libraries/react/src/useStoreContext.ts
-[Store]: https://github.com/justland/just-web/tree/main/frameworks/states/ts/store.ts
-[immer]: https://www.npmjs.com/package/immer
+[createStoreContext()]: https://github.com/justland/just-web/blob/main/libraries/react/src/store_context.ts
 [downloads-image]: https://img.shields.io/npm/dm/@just-web/react.svg?style=flat
 [downloads-url]: https://npmjs.org/package/@just-web/react
+[immer]: https://www.npmjs.com/package/immer
+[just-web]: https://github.com/justland/just-web
 [npm-image]: https://img.shields.io/npm/v/@just-web/react.svg?style=flat
 [npm-url]: https://npmjs.org/package/@just-web/react
+[React]: https://reactjs.org/
+[Store]: https://github.com/justland/just-web/tree/main/frameworks/states/ts/store.ts
+[useStore()]: https://github.com/justland/just-web/blob/main/libraries/react/src/store.ts
+[useStoreContext()]: https://github.com/justland/just-web/blob/main/libraries/react/src/store_context.ts
