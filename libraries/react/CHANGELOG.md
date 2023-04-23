@@ -1,5 +1,37 @@
 # @just-web/react
 
+## 8.0.0
+
+### Major Changes
+
+- b5965ae: Remove `reactPlugin`, `lazyImport`, `AppContextProvider` and `useAppContext` from `@just-web/react` package.
+
+  `reactPlugin` is replaced by `reactGizmo`,
+  `AppContextProvider` and `useAppContext` are replaced by `JustAppProvider`,
+  `useJustAppContext` and `createJustAppContext`.
+
+  They work in MFE environment where you will have multiple apps on the same page.
+
+### Minor Changes
+
+- 43a02a6: Add `justAppProvider`, `createJustAppContext()`, and `useJustAppContext()`.
+- c352f6b: Add `useJustTestAppContext()`
+  Add `JustReactTestApp` type
+
+  migrate `NoRenderWhenModifyState` story
+
+### Patch Changes
+
+- 4afc511: Relax the generic type of `JustAppProvider<App>` and `useJustAppContext<App>()`
+  from `JustReactApp` to `JustApp`.
+
+  This allows you to use the `JustAppProvider` and `useJustAppContext` without using `reactGizmo`.
+
+  Rename `JustAppProvider` props from `app` to `value`.
+  This make it consistent with the `React.Context.Provider` props.
+
+- 98ab7ec: Update type-plus
+
 ## 7.0.0
 
 ### Major Changes
@@ -47,28 +79,28 @@
   const FeatureBContext = createStoreContext<{ b: number }>()
 
   const FeatureA = () => {
-    const [a] = useStoreContext(FeatureAContext, (s) => s.a)
-    return <div>Feature A: {a}</div>
+  	const [a] = useStoreContext(FeatureAContext, s => s.a)
+  	return <div>Feature A: {a}</div>
   }
 
   const FeatureB = () => {
-    const [b] = useStoreContext(FeatureBContext, (s) => s.b)
-    return <div>Feature B: {b}</div>
+  	const [b] = useStoreContext(FeatureBContext, s => s.b)
+  	return <div>Feature B: {b}</div>
   }
 
   export function WithContexts() {
-    const app = createTestApp().extend(reactPlugin())
+  	const app = createTestApp().extend(reactPlugin())
 
-    // these are normaly registered by the features in their plugins
-    app.react.storeContexts.register(FeatureAContext, { a: 1 })
-    app.react.storeContexts.register(FeatureBContext, { b: 2 })
+  	// these are normaly registered by the features in their plugins
+  	app.react.storeContexts.register(FeatureAContext, { a: 1 })
+  	app.react.storeContexts.register(FeatureBContext, { b: 2 })
 
-    return (
-      <AppContextProvider value={app}>
-        <FeatureA />
-        <FeatureB />
-      </AppContextProvider>
-    )
+  	return (
+  		<AppContextProvider value={app}>
+  			<FeatureA />
+  			<FeatureB />
+  		</AppContextProvider>
+  	)
   }
   ```
 
