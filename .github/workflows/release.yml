@@ -15,6 +15,6 @@ jobs:
     needs: code
     secrets: inherit
 
-  docgen:
-      uses: justland/.github/.github/workflows/pnpm-docs.yml@main
-      needs: release
+  # docgen:
+  #     uses: justland/.github/.github/workflows/pnpm-docs.yml@main
+  #     needs: release

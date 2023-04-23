@@ -107,9 +107,5 @@
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",
     "react-dom": "^16 || ^17 || ^18"
-  },
-  "typedoc": {
-    "entryPoint": "./ts/index.tsx",
-    "readmeFile": "./README.md"
   }
 }
