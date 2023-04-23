@@ -53,6 +53,39 @@ export const AppSpecificContext: Story = {
 	}
 }
 
+export const ContextPerTree: Story = {
+	render(_, { loaded: { app1, app2 } }) {
+		return (
+			<App1Context.Provider value={app1}>
+				<div className="flex gap-2">
+					<AppInfo title="AppInfo under App1" />
+					<App2Context.Provider value={app2}>
+						<AppInfo title="AppInfo under App2" />
+						<App1Info title="App1Info under App2" />
+						<App2Info title="App2Info under App2" />
+					</App2Context.Provider>
+				</div>
+			</App1Context.Provider>
+		)
+	}
+}
+
+export const JustAppProviderUseSpecificContext: Story = {
+	render(_, { loaded: { app1, app2 } }) {
+		return (
+			<JustAppProvider value={app1}>
+				<div className="flex gap-2">
+					<App1Info title="App1Info under JAP with app1" />
+					<JustAppProvider value={app2}>
+						<App1Info title="App1Info under JAP with app2" />
+						<App2Info title="App2Info under JAP with app2" />
+					</JustAppProvider>
+				</div>
+			</JustAppProvider>
+		)
+	}
+}
+
 export const WithUseJustAppContext: Story = {
 	decorators: [
 		Story => (

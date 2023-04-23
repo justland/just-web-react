@@ -38,14 +38,14 @@ export async function activate(
 	app.react.providers.register(({ children }) => (
 		<App1Context.Provider value={app}>{children}</App1Context.Provider>
 	))
-
 	return app
 }
 
-export function App1Info() {
+export function App1Info({ title }: { title?: string }) {
 	const app = useJustAppContext(App1Context)
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
+			{title && <p className="text-xl">{title}</p>}
 			<p className="text-xl">App 1 Info</p>
 			<p>The app 1 contains the following info:</p>
 			{mapKey(app, key => (

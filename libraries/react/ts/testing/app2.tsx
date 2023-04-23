@@ -37,10 +37,11 @@ export async function activate() {
 	return app
 }
 
-export function App2Info() {
+export function App2Info({ title }: { title?: string }) {
 	const app = useJustAppContext(App2Context)
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
+			{title && <p className="text-xl">{title}</p>}
 			<p className="text-xl">App 2 Info</p>
 			<p>The app 2 contains the following info:</p>
 			{mapKey(app, key => (
