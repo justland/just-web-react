@@ -16,7 +16,7 @@ const shortcut = isMac() ? 'cmd+k' : 'ctrl+k'
 const meta: Meta<typeof CommandPalette> = {
 	decorators: [
 		(Story, { loaded: { app } }) => (
-			<JustAppProvider app={app}>
+			<JustAppProvider value={app}>
 				<Story />
 			</JustAppProvider>
 		)

@@ -25,8 +25,8 @@ type Story = StoryObj<typeof JustAppProvider>
 export const PropsVsContext: Story = {
 	render(_, { loaded: { app1, app2 } }) {
 		return (
-			<JustAppProvider app={app1}>
-				<JustAppProvider app={app2}>
+			<JustAppProvider value={app1}>
+				<JustAppProvider value={app2}>
 					<div className="flex gap-2">
 						<AppInfo title="App through props" app={app1} />
 						<AppInfo title="App through context" />

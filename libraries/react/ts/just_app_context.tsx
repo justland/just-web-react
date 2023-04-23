@@ -6,7 +6,7 @@ import type { ReactGizmo } from './react_gizmo.js'
 
 export type JustReactApp = JustApp & ReactGizmo
 
-const JustAppRootContext = createContext<JustReactApp>(undefined as any)
+const JustAppRootContext = createContext<JustApp & Partial<ReactGizmo>>(undefined as any)
 
 /**
  * Creates a context of a `JustReactApp` to be used in `useJustAppContext()`.
@@ -49,23 +49,23 @@ export function createJustAppContext<App extends JustReactApp>(appIncubator?: Gi
 }
 
 export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App
-export function useJustAppContext<App = JustReactApp>(): NonUndefined<App>
+export function useJustAppContext<App = JustApp>(): NonUndefined<App>
 export function useJustAppContext(context = JustAppRootContext) {
 	const app = useContext(context)
 	if (!app) throw new Error('A JustApp context provider must be used before using useJustAppContext()')
 	return app
 }
 
-export function JustAppProvider<App extends JustReactApp>({
-	app,
+export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
+	value,
 	children
 }: {
-	app: App
+	value: App
 	children: React.ReactNode
 }) {
-	const providers = Array.from(app.react.providers.entries() ?? [])
+	const providers = Array.from(value.react?.providers.entries() ?? [])
 	return (
-		<JustAppRootContext.Provider value={app}>
+		<JustAppRootContext.Provider value={value}>
 			{providers.reduce(
 				(children, Component) => (
 					<Component>{children}</Component>
