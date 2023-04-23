@@ -39,6 +39,7 @@
         "TTFB",
         "unshift",
         "vite",
+        "vitest",
         "vmin"
     ],
     "eslint.validate": [
