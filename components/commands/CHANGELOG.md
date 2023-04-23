@@ -1,5 +1,23 @@
 # @just-web/react-commands
 
+## 8.0.0
+
+### Major Changes
+
+- 8cf4ba9: add `reactCommandsGizmo`
+  remove `reactCommandsPlugin`
+  Update `<CommandPalette/>` for v7
+
+### Patch Changes
+
+- 98ab7ec: Update type-plus
+- Updated dependencies [4afc511]
+- Updated dependencies [43a02a6]
+- Updated dependencies [98ab7ec]
+- Updated dependencies [b5965ae]
+- Updated dependencies [c352f6b]
+  - @just-web/react@8.0.0
+
 ## 7.0.4
 
 ### Patch Changes
