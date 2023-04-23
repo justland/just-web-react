@@ -26,15 +26,12 @@ export type JustApp2 = JustReactApp & ValueGizmo<number>
 
 export const App2Context = createJustAppContext<JustApp2>()
 
-export async function activate() {
-	// note that you can also compose one app from another app.
-	const app = await app2.create()
-
-	app.react.providers.register(({ children }) => (
-		<App2Context.Provider value={app}>{children}</App2Context.Provider>
-	))
-
-	return app
+export function activate() {
+	return app2.create(app =>
+		app.react.providers.register(({ children }) => (
+			<App2Context.Provider value={app}>{children}</App2Context.Provider>
+		))
+	)
 }
 
 export function App2Info({ title }: { title?: string }) {

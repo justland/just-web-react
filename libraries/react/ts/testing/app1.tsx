@@ -1,4 +1,4 @@
-import { define, type IdGizmoOptions } from '@just-web/app'
+import { type IdGizmoOptions } from '@just-web/app'
 import { justTestApp, type LogTestGizmo, type LogTestGizmoOptions } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
@@ -19,26 +19,23 @@ export const app1 = justTestApp({ name: 'app 1' })
 	.with(valueGizmoFn({ value: 100 }))
 	.with(reactGizmo)
 
-export type JustApp1 = define.Infer<typeof app1>
-
-export type JustApp1x = JustReactApp & ValueGizmo<number> & LogTestGizmo
+export type JustApp1 = JustReactApp & ValueGizmo<number>& LogTestGizmo
 
 export const App1Context = createJustAppContext<JustApp1>()
 export const App1Context2 = createJustAppContext(app1)
 
-export async function activate(
+export function activate(
 	options?: Partial<IdGizmoOptions> & { log?: LogTestGizmoOptions; value?: ValueGizmoOptions<number> }
 ) {
 	// note that you can also compose one app from another app.
-	const app = await justTestApp({ name: options?.name ?? 'app 1', log: options?.log })
+	return justTestApp({ name: options?.name ?? 'app 1', log: options?.log })
 		.with(valueGizmoFn({ value: options?.value?.value ?? 100 }))
 		.with(reactGizmo)
-		.create()
-
-	app.react.providers.register(({ children }) => (
-		<App1Context.Provider value={app}>{children}</App1Context.Provider>
-	))
-	return app
+		.create(app =>
+			app.react.providers.register(({ children }) => (
+				<App1Context.Provider value={app}>{children}</App1Context.Provider>
+			))
+		)
 }
 
 export function App1Info({ title }: { title?: string }) {
