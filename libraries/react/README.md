@@ -71,10 +71,10 @@ export function YourComponent() {
 
 ---
 
-For Micro Frontends (MFEs), the `JustAppProvider` may not be sufficient,
-if you have components from different MFEs intertwined together.
+For Micro Frontends (MFEs), the `JustAppProvider` may not be sufficient.
+Especially if you have components from different MFEs intertwined together.
 
-In those case, you need:
+In that case, you need:
 
 - `createJustAppContext()`: to create a [React] context for each MFE.
 - `reactGizmo`: to register the specific [React] context for each MFE.
@@ -125,6 +125,7 @@ ReactDOM.render(
 
 Alternatively, you can use `<MikuAppContext.Provider>` or `<RinAppContext.Provider>` too,
 but typically there is no need to do so.
+In fact, you can keep them off your package exports.
 
 The host app only need the `mikuApp`, `rinApp`, and the `JustAppProvider` and everything will work.
 
