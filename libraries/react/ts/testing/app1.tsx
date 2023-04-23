@@ -2,8 +2,9 @@ import { type IdGizmoOptions } from '@just-web/app'
 import { justTestApp, type LogTestGizmo, type LogTestGizmoOptions } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { createJustAppContext, useJustAppContext, type JustReactApp } from '../just_app_context.js'
+import { createJustAppContext, useJustAppContext } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
+import { type JustReactTestApp } from './just_react_test_app.types.js'
 import { valueGizmoFn, type ValueGizmo, type ValueGizmoOptions } from './value_gizmo.js'
 
 /**
@@ -19,7 +20,7 @@ export const app1 = justTestApp({ name: 'app 1' })
 	.with(valueGizmoFn({ value: 100 }))
 	.with(reactGizmo)
 
-export type JustApp1 = JustReactApp & ValueGizmo<number>& LogTestGizmo
+export type JustApp1 = JustReactTestApp & ValueGizmo<number>& LogTestGizmo
 
 export const App1Context = createJustAppContext<JustApp1>()
 export const App1Context2 = createJustAppContext(app1)
