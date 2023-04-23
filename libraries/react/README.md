@@ -28,7 +28,7 @@ We will be focusing on how to use [just-web] app with [React] here.
 If you want to know more about [just-web] app, you can check out the documentation of [@just-web/app].
 
 Following the example from [@just-web/app],
-let's make the sing-along app info a [React] app.
+let's make the sing-along app into a [React] app.
 
 Let's start with a simple example: a SPA.
 
@@ -47,7 +47,7 @@ void (async () => {
   const app = await singAlongApp.with(reactGizmo).create()
 
   ReactDOM.render(
-    <JustAppProvider app={app}>
+    <JustAppProvider value={app}>
       <YourComponent />
     </JustAppProvider>,
     document.getElementById('root')
