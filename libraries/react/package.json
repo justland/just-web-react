@@ -88,7 +88,7 @@
     "@headlessui/react": "^1.7.4",
     "@just-web/app": "7.0.0",
     "@just-web/os": "7.0.0",
-    "@just-web/repo-scripts": "0.2.0",
+    "@just-web/repo-scripts": "0.2.1",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-actions": "^7.0.6",
     "@storybook/addon-backgrounds": "^7.0.6",
