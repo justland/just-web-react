@@ -61,7 +61,7 @@
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/commands": "7.0.0",
+    "@just-web/commands": "7.1.2",
     "@just-web/keyboard": "7.0.0",
     "@just-web/os": "7.0.0",
     "@just-web/react": "workspace:^",
