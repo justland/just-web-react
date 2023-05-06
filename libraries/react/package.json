@@ -81,7 +81,7 @@
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/states": "7.0.0",
+    "@just-web/states": "7.1.2",
     "type-plus": "^6.6.0"
   },
   "devDependencies": {
