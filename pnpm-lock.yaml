@@ -51,10 +51,10 @@ importers:
     dependencies:
       '@just-web/commands':
         specifier: 7.0.0
-        version: 7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.0.0)(@just-web/states@7.0.0)
+        version: 7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.1.2)(@just-web/states@7.1.2)
       '@just-web/keyboard':
-        specifier: 7.0.0
-        version: 7.0.0(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.0.0)
+        specifier: 7.1.2
+        version: 7.1.2(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.1.2)
       '@just-web/os':
         specifier: 7.0.0
         version: 7.0.0(@just-web/app@7.0.0)
@@ -76,7 +76,7 @@ importers:
         version: 7.0.0
       '@just-web/browser-keyboard':
         specifier: 7.0.0
-        version: 7.0.0(@just-web/app@7.0.0)(@just-web/commands@7.0.0)(@just-web/keyboard@7.0.0)(@just-web/os@7.0.0)
+        version: 7.0.0(@just-web/app@7.0.0)(@just-web/commands@7.0.0)(@just-web/keyboard@7.1.2)(@just-web/os@7.0.0)
       '@just-web/repo-scripts':
         specifier: 0.2.0
         version: 0.2.0(@types/node@18.11.9)(esbuild@0.17.18)(ts-node@10.9.1)
@@ -526,9 +526,6 @@ importers:
       jsdom:
         specifier: ^21.0.0
         version: 21.0.0
-      ncp:
-        specifier: ^2.0.0
-        version: 2.0.0
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -3604,7 +3601,7 @@ packages:
       iso-error: 6.0.1
       type-plus: 6.6.0
 
-  /@just-web/browser-keyboard@7.0.0(@just-web/app@7.0.0)(@just-web/commands@7.0.0)(@just-web/keyboard@7.0.0)(@just-web/os@7.0.0):
+  /@just-web/browser-keyboard@7.0.0(@just-web/app@7.0.0)(@just-web/commands@7.0.0)(@just-web/keyboard@7.1.2)(@just-web/os@7.0.0):
     resolution: {integrity: sha512-ZYjWhxVYoDU/n99prdOMEEJ3LFLyt21r99ImwSuRjY+Op8qe4xtnqyVSurz2lBEyeF3dXqjCl1JwifIipV+96g==}
     peerDependencies:
       '@just-web/app': ^7.0.0
@@ -3616,14 +3613,14 @@ packages:
         optional: true
     dependencies:
       '@just-web/app': 7.0.0
-      '@just-web/commands': 7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.0.0)(@just-web/states@7.0.0)
-      '@just-web/keyboard': 7.0.0(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.0.0)
+      '@just-web/commands': 7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.1.2)(@just-web/states@7.1.2)
+      '@just-web/keyboard': 7.1.2(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.1.2)
       '@just-web/os': 7.0.0(@just-web/app@7.0.0)
       mousetrap: 1.6.5
       type-plus: 6.6.0
     dev: true
 
-  /@just-web/commands@7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.0.0)(@just-web/states@7.0.0):
+  /@just-web/commands@7.0.0(@just-web/app@7.0.0)(@just-web/keyboard@7.1.2)(@just-web/states@7.1.2):
     resolution: {integrity: sha512-2cC7IQXOYoPRXVJEn4iBnCFdm/QIXZGX8/e7RlXng+2CFx75fuCV+rncfdnj7IuOe2TGVHF1Be/99lqPRwIoZQ==}
     peerDependencies:
       '@just-web/app': ^7.0.0
@@ -3631,8 +3628,8 @@ packages:
       '@just-web/states': ^7.0.0
     dependencies:
       '@just-web/app': 7.0.0
-      '@just-web/keyboard': 7.0.0(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.0.0)
-      '@just-web/states': 7.0.0
+      '@just-web/keyboard': 7.1.2(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.1.2)
+      '@just-web/states': 7.1.2
       sentence-case: 3.0.4
       tersify: 3.12.1
       type-plus: 6.6.0
@@ -3642,17 +3639,17 @@ packages:
     dependencies:
       '@unional/gizmo': 1.2.0
 
-  /@just-web/keyboard@7.0.0(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.0.0):
-    resolution: {integrity: sha512-nd0fw2REl5VnKBYboUqPV2LVOfzZslRkIbpY9Du32jLbBTA986YtkJPfNYhEzH+VIGldnTuP0B0outgd+CCtZQ==}
+  /@just-web/keyboard@7.1.2(@just-web/app@7.0.0)(@just-web/os@7.0.0)(@just-web/states@7.1.2):
+    resolution: {integrity: sha512-Qcj0ozxBHKpVyjHImdQuSriJ7A2Ij5Oo4qHJftAwkw5iyUHmIyBoKfNdPIYhWNs0VvQWrHcUBdIvV+QqavAkwg==}
     peerDependencies:
-      '@just-web/app': ^7.0.0
-      '@just-web/os': ^7.0.0
-      '@just-web/states': ^7.0.0
+      '@just-web/app': ^7.1.2
+      '@just-web/os': ^7.1.2
+      '@just-web/states': ^7.1.2
     dependencies:
       '@just-web/app': 7.0.0
       '@just-web/os': 7.0.0(@just-web/app@7.0.0)
-      '@just-web/states': 7.0.0
-      type-plus: 6.6.0
+      '@just-web/states': 7.1.2
+      type-plus: 6.7.0
 
   /@just-web/log@7.0.0:
     resolution: {integrity: sha512-rWRL9ntClpr8RnSNYqH2pkbhcQ/hXyjD5zql2uOED3QOGcVpfKRqWEs4pkRkE+0k77axjnkW4q/AjiuHYfzKGg==}
@@ -3661,7 +3658,7 @@ packages:
       '@just-web/id': 6.0.2
       '@unional/gizmo': 1.2.0
       standard-log: 12.1.1
-      type-plus: 6.6.0
+      type-plus: 6.7.0
 
   /@just-web/os@7.0.0(@just-web/app@7.0.0):
     resolution: {integrity: sha512-uVzJD/mAlX1y2E0S+Eh/17vyEiD0xWCiWM40gblkOYvHpkTa9hERJfhPP6eFaXD0VObPO6/iI+elqaKAKv6Keg==}
@@ -3713,6 +3710,14 @@ packages:
       immer: /@unional/immer@9.0.0-beta.2
       tersify: 3.12.1
       type-plus: 6.6.0
+    dev: false
+
+  /@just-web/states@7.1.2:
+    resolution: {integrity: sha512-Q4T1n7QQH8u29lfkNde+d9iWrHvEHCStop0sdi1xt9INoqYjVZp6Ir6NwxLFf2CamK3/U8CrQFpc0LZVPmxu8g==}
+    dependencies:
+      immer: /@unional/immer@9.0.0-beta.2
+      tersify: 3.12.1
+      type-plus: 6.7.0
 
   /@manypkg/find-root@1.1.0:
     resolution: {integrity: sha512-mki5uBvhHzO8kYYix/WRy2WX8S3B5wdVSc9D6KcU5lQNglP2yt58/VfLuAK49glRXChosY8ap2oJ1qgma3GUVA==}
@@ -14050,11 +14055,6 @@ packages:
     resolution: {integrity: sha512-OWND8ei3VtNC9h7V60qff3SVobHr996CTwgxubgyQYEpg290h9J0buyECNNJexkFm5sOajh5G116RYA1c8ZMSw==}
     dev: true
 
-  /ncp@2.0.0:
-    resolution: {integrity: sha512-zIdGUrPRFTUELUvr3Gmc7KZ2Sw/h1PiVM0Af/oHB6zgnV1ikqSfRk+TOufi79aHYCW3NiOXmr1BP5nWbzojLaA==}
-    hasBin: true
-    dev: true
-
   /negotiator@0.6.3:
     resolution: {integrity: sha512-+EUsqGPLsM+j/zdChZjsnX51g4XrHFOIXwfnCVPGlQk/k5giakcKsuxCObBRu6DSm9opw/O6slWbJdghQM4bBg==}
     engines: {node: '>= 0.6'}
@@ -16728,7 +16728,7 @@ packages:
       '@just-func/types': 0.5.1
       iso-error: 6.0.1
       ms: 2.1.3
-      type-plus: 6.6.0
+      type-plus: 6.7.0
       upper-case: 2.0.2
 
   /statuses@2.0.1:
@@ -17610,6 +17610,12 @@ packages:
 
   /type-plus@6.6.0:
     resolution: {integrity: sha512-mTi2ZIx9+Uh9vh2Xr/ydjpfbwl8iDADTAty5JNZ1fo5qIzEqWVMT0YnCqnESQk5mEc6g7Xg5fC95X6HSntzhlw==}
+    dependencies:
+      tersify: 3.12.1
+      unpartial: 1.0.4
+
+  /type-plus@6.7.0:
+    resolution: {integrity: sha512-aHQ+U55rc5l0aYar7kh0A61byC71lTqQstuNzqdkdqPCmGiHzRFo8uXclXJJL4N+6W0LXnms1YA8G4XggBk12w==}
     dependencies:
       tersify: 3.12.1
       unpartial: 1.0.4

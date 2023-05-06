@@ -62,7 +62,7 @@
   },
   "dependencies": {
     "@just-web/commands": "7.0.0",
-    "@just-web/keyboard": "7.0.0",
+    "@just-web/keyboard": "7.1.2",
     "@just-web/os": "7.0.0",
     "@just-web/react": "workspace:^",
     "react-command-palette": "~0.22.0",
