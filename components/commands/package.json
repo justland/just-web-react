@@ -71,7 +71,7 @@
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.11.5",
     "@just-web/app": "7.0.0",
-    "@just-web/browser-keyboard": "7.0.0",
+    "@just-web/browser-keyboard": "7.1.2",
     "@just-web/repo-scripts": "0.2.0",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-actions": "^7.0.6",
