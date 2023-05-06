@@ -1,5 +1,17 @@
 # @just-web/react
 
+## 9.0.0
+
+### Major Changes
+
+- 4406716: Rename `entries()` to `values()`.
+
+  It was not consistent with `Array.entries()`.
+
+### Patch Changes
+
+- 4406716: Update `@just-web` and `type-plus`
+
 ## 8.0.0
 
 ### Major Changes
