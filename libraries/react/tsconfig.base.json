@@ -4,8 +4,7 @@
     "jsx": "react-jsx",
     "module": "ESNext",
     "skipLibCheck": true,
-    "target": "ESNext",
-		"rootDir": "ts"
+    "target": "ESNext"
   },
 	"include": ["ts", "types"]
 }
