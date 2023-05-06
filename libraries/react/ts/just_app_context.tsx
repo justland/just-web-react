@@ -1,4 +1,3 @@
-/* eslint-disable @typescript-eslint/no-unused-vars */
 import type { GizmoIncubator, JustApp } from '@just-web/app'
 import { createContext, useContext, type Context, type PropsWithChildren } from 'react'
 import type { NonUndefined } from 'type-plus'
