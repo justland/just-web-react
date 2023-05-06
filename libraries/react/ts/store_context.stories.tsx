@@ -1,5 +1,5 @@
 import { createStore } from '@just-web/states'
-import { PropsWithChildren } from 'react'
+import type { PropsWithChildren } from 'react'
 import Modal from 'react-modal'
 import { createStoreContext, useStoreContext } from './index.js'
 import { Card } from './testing/card.js'

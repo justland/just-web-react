@@ -1,10 +1,7 @@
 {
-	"extends": "./tsconfig.base.json",
-	"compilerOptions": {
-		"moduleResolution": "Node"
-	},
-	"include": [
-		".storybook",
-		"vite.config.ts"
-	]
+  "extends": "./tsconfig.base.json",
+  "include": [
+    ".storybook",
+    "vite.config.ts"
+  ]
 }

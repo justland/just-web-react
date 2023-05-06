@@ -23,7 +23,7 @@ module.exports = {
 		},
 		{
 			extends: ['plugin:storybook/recommended'],
-			files: ['*.stories.@(tsx|mdx)'],
+			files: ['*.stories.tsx', '*.mdx'],
 			rules: {
 				'no-console': 'off',
 				'import/no-anonymous-default-export': 'off'

@@ -1,5 +1,4 @@
-import { type IdGizmoOptions } from '@just-web/app'
-import { justTestApp, type LogTestGizmo, type LogTestGizmoOptions } from '@just-web/app/testing'
+import { type JustAppTestOptions, justTestApp, type LogTestGizmo } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
 import { createJustAppContext, useJustAppContext } from '../just_app_context.js'
@@ -20,13 +19,17 @@ export const app1 = justTestApp({ name: 'app 1' })
 	.with(valueGizmoFn({ value: 100 }))
 	.with(reactGizmo)
 
-export type JustApp1 = JustReactTestApp & ValueGizmo<number>& LogTestGizmo
+export type JustApp1 = JustReactTestApp & ValueGizmo<number> & LogTestGizmo
 
 export const App1Context = createJustAppContext<JustApp1>()
 export const App1Context2 = createJustAppContext(app1)
 
 export function activate(
-	options?: Partial<IdGizmoOptions> & { log?: LogTestGizmoOptions; value?: ValueGizmoOptions<number> }
+	options?:
+		| (JustAppTestOptions & {
+				value?: ValueGizmoOptions<number> | undefined
+		  })
+		| undefined
 ) {
 	// note that you can also compose one app from another app.
 	return justTestApp({ name: options?.name ?? 'app 1', log: options?.log })

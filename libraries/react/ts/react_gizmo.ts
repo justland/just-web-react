@@ -10,15 +10,8 @@ export const reactGizmo = define({
 					register(Component: JSXElementConstructor<{ children: ReactNode }>) {
 						components.push(Component)
 					},
-					entries(): Iterable<JSXElementConstructor<{ children: ReactNode }>> {
-						return {
-							*[Symbol.iterator]() {
-								for (let i = 0; i < components.length; i++) {
-									yield components[i]
-								}
-								return components.length
-							}
-						}
+					values(): IterableIterator<JSXElementConstructor<{ children: ReactNode }>> {
+						return components.values()
 					}
 				}
 			}

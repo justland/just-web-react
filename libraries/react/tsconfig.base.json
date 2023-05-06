@@ -1,16 +1,11 @@
 {
-	"compilerOptions": {
-		"composite": true,
-		"declaration": true,
-		"declarationMap": true,
-		"forceConsistentCasingInFileNames": true,
-		"jsx": "react-jsx",
-		"module": "ESNext",
-		"moduleResolution": "NodeNext",
-		"resolveJsonModule": true,
-		"skipLibCheck": true,
-		"strict": true,
-		"target": "ESNext",
-		"useDefineForClassFields": true
-	}
+  "extends": "@repobuddy/typescript/tsconfig/monorepo",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "target": "ESNext",
+		"rootDir": "ts"
+  },
+	"include": ["ts", "types"]
 }

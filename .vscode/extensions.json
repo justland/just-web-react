@@ -17,7 +17,8 @@
 		"unional.vscode-sort-package-json",
 		"webben.browserslist",
 		"yzhang.markdown-all-in-one",
-		"redhat.vscode-yaml"
+		"redhat.vscode-yaml",
+		"nick-lvov-dev.typescript-explicit-types"
 	],
 	// List of extensions recommended by VS Code that should not be recommended for users of this workspace.
 	"unwantedRecommendations": []

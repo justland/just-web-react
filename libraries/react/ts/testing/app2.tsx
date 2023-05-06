@@ -1,7 +1,7 @@
 import { justTestApp } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { JustReactApp, createJustAppContext, useJustAppContext } from '../just_app_context.js'
+import { createJustAppContext, useJustAppContext, type JustReactApp } from '../just_app_context.js'
 import { reactGizmo } from '../react_gizmo.js'
 import { valueGizmoFn, type ValueGizmo } from './value_gizmo.js'
 

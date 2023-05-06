@@ -2,9 +2,8 @@
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"outDir": "esm",
-		"rootDir": "ts"
+    "verbatimModuleSyntax": true
 	},
-	"include": ["ts", "types"],
 	"references": [
 		{
 			"path": "./tsconfig.project.json"

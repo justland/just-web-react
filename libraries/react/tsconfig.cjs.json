@@ -1,12 +1,8 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"declaration": true,
-		"declarationMap": true,
 		"module": "CommonJS",
 		"outDir": "cjs",
-		"rootDir": "ts"
-	},
-	"include": ["ts", "types"],
-	"exclude": ["**/*.spec.*", "**/*.stories.*", "**/dummyModule.ts"]
+    "verbatimModuleSyntax": false
+	}
 }

@@ -5,6 +5,7 @@ ignores:
   - '@size-limit/*'
   - '@types/*'
   - '@vitest/coverage-c8'
+  - eslint*
   - jest-image-snapshot
   - rimraf # depcheck doesn't recognize rimraf as a dependency
   - size-limit

@@ -26,7 +26,7 @@ const JustAppRootContext = createContext<JustApp & Partial<ReactGizmo>>(undefine
  * }
  * ```
  */
-export function createJustAppContext<App extends JustReactApp>(appIncubator?: GizmoIncubator<App>) {
+export function createJustAppContext<App extends JustReactApp>(_appIncubator?: GizmoIncubator<App>) {
 	const Context = createContext<App>(undefined as any)
 	const InnerProvider = Context.Provider
 	Context.Provider = function Provider({
@@ -63,7 +63,7 @@ export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
 	value: App
 	children: React.ReactNode
 }) {
-	const providers = Array.from(value.react?.providers.entries() ?? [])
+	const providers = Array.from(value.react?.providers.values() ?? [])
 	return (
 		<JustAppRootContext.Provider value={value}>
 			{providers.reduce(
