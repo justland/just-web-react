@@ -198,8 +198,8 @@ importers:
         specifier: ~5.0.0
         version: 5.0.0
       rollup-plugin-node-externals:
-        specifier: ^5.0.2
-        version: 5.0.2(rollup@3.21.5)
+        specifier: ^6.0.0
+        version: 6.0.0(rollup@3.21.5)
       size-limit:
         specifier: ~8.2.0
         version: 8.2.3
@@ -334,8 +334,8 @@ importers:
         specifier: ~5.0.0
         version: 5.0.0
       rollup-plugin-node-externals:
-        specifier: ^5.0.2
-        version: 5.0.2(rollup@3.21.5)
+        specifier: ^6.0.0
+        version: 6.0.0(rollup@3.21.5)
       size-limit:
         specifier: ~8.2.0
         version: 8.2.3
@@ -536,8 +536,8 @@ importers:
         specifier: ~5.0.0
         version: 5.0.0
       rollup-plugin-node-externals:
-        specifier: ^5.0.2
-        version: 5.0.2(rollup@3.21.5)
+        specifier: ^6.0.0
+        version: 6.0.0(rollup@3.21.5)
       size-limit:
         specifier: ~8.2.0
         version: 8.2.3
@@ -16053,11 +16053,11 @@ packages:
       glob: 10.2.2
     dev: true
 
-  /rollup-plugin-node-externals@5.0.2(rollup@3.21.5):
-    resolution: {integrity: sha512-UGAPdPjD0PPk4hNcHLnqwqsfNc/u0vaAjWnjkyS6j2jIMB4LLi1pW3TE01eaytJKZactNik2t8AQC33esS9GKw==}
-    engines: {node: '>=14.0.0'}
+  /rollup-plugin-node-externals@6.0.0(rollup@3.21.5):
+    resolution: {integrity: sha512-T3JivXptrPQfz3hWOCLK6cFsHFMKRCipPPHXhqmY2CUuiHcT5EKfuS1uVm8WwBF7L2XYtkantmLyunuLbrY71A==}
+    engines: {node: '>=16.0.0'}
     peerDependencies:
-      rollup: ^2.60.0 || ^3.0.0
+      rollup: ^3.0.0
     dependencies:
       rollup: 3.21.5
     dev: true
