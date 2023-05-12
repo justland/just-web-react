@@ -1,5 +1,5 @@
 {
-  "extends": "@repobuddy/typescript/tsconfig/monorepo",
+  "extends": "@repobuddy/typescript/tsconfig/legacy/monorepo",
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "ESNext",
