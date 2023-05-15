@@ -105,8 +105,8 @@ importers:
         specifier: ^7.0.6
         version: 7.0.6(react-dom@17.0.0)(react@17.0.0)
       '@storybook/addon-mdx-gfm':
-        specifier: 7.0.11
-        version: 7.0.11
+        specifier: 7.0.12
+        version: 7.0.12
       '@storybook/addon-measure':
         specifier: ^7.0.6
         version: 7.0.6(react-dom@17.0.0)(react@17.0.0)
@@ -5083,10 +5083,10 @@ packages:
       ts-dedent: 2.2.0
     dev: true
 
-  /@storybook/addon-mdx-gfm@7.0.11:
-    resolution: {integrity: sha512-Lp41YFkQT9TPibC1RQkHoWjgfyTGZcCXGjsWv/ZCToj7SvyJuuyjQlAFi+EMQcC+Dz4MqagbcciOCeMU3LZg5g==}
+  /@storybook/addon-mdx-gfm@7.0.12:
+    resolution: {integrity: sha512-shl4LVrwwjw9H0IB9VzrOjtuvA28SrOKMsvwj06skQgH9aHJMA2SmgPnQIBoQmgUM+x+6g2vaSz9Z82iAo8ESw==}
     dependencies:
-      '@storybook/node-logger': 7.0.11
+      '@storybook/node-logger': 7.0.12
       remark-gfm: 3.0.1
       ts-dedent: 2.2.0
     transitivePeerDependencies:
@@ -6191,15 +6191,6 @@ packages:
 
   /@storybook/mdx2-csf@1.0.0:
     resolution: {integrity: sha512-dBAnEL4HfxxJmv7LdEYUoZlQbWj9APZNIbOaq0tgF8XkxiIbzqvgB0jhL/9UOrysSDbQWBiCRTu2wOVxedGfmw==}
-    dev: true
-
-  /@storybook/node-logger@7.0.11:
-    resolution: {integrity: sha512-N28h8aU5QglfaaM/wjpk0e7AAX8f1KBQXKArnRePHeK9M5L6w/BQQ5BcRAhcvQKZ6eOpHyADaRMHqxCxkY8qmw==}
-    dependencies:
-      '@types/npmlog': 4.1.4
-      chalk: 4.1.2
-      npmlog: 5.0.1
-      pretty-hrtime: 1.0.3
     dev: true
 
   /@storybook/node-logger@7.0.12:
