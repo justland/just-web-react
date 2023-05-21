@@ -126,7 +126,7 @@
     "@vitest/coverage-c8": "^0.31.0",
     "assertron": "^11.0.1",
     "autoprefixer": "^10.4.14",
-    "delay": "^5.0.0",
+    "delay": "^6.0.0",
     "depcheck": "~1.4.3",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-storybook": "^0.6.11",
