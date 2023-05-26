@@ -49,7 +49,7 @@
   },
   "main": "./dist/just-web-react.cjs",
   "module": "./dist/just-web-react.js",
-  "types": "./cjs/testing/index.d.ts",
+  "types": "./cjs/index.d.ts",
   "files": [
     "cjs",
     "dist",
