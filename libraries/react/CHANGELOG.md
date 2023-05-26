@@ -1,5 +1,11 @@
 # @just-web/react
 
+## 9.0.1
+
+### Patch Changes
+
+- 6af95aa: Fix types for CJS consumption
+
 ## 9.0.0
 
 ### Major Changes
