@@ -597,6 +597,9 @@ importers:
       '@types/react':
         specifier: ^17
         version: 17.0.52
+      assertron:
+        specifier: ^11.0.1
+        version: 11.0.1
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
