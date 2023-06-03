@@ -20,3 +20,5 @@ export const reactIntlGizmoFn = define((options: FormatJSGizmoOptions) => ({
 		]
 	}
 }))
+
+export type ReactIntlGizmo = define.Infer<typeof reactIntlGizmoFn>
