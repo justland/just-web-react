@@ -74,11 +74,11 @@
     "verify": "npm-run-all -p build lint coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/formatjs": "^1.0.0",
+    "@just-web/formatjs": "^1.0.2",
     "react-intl": "^6.4.2"
   },
   "devDependencies": {
-    "@just-web/app": "^7.1.4",
+    "@just-web/app": "^7.1.5",
     "@just-web/react": "workspace:^",
     "@repobuddy/jest": "^3.3.0",
     "@repobuddy/typescript": "^1.2.0",
