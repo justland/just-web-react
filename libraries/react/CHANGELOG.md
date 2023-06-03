@@ -1,5 +1,12 @@
 # @just-web/react
 
+## 9.0.2
+
+### Patch Changes
+
+- 8dfabf6: Update type-plus
+- 389e84c: Update `just-web`
+
 ## 9.0.1
 
 ### Patch Changes

@@ -1,5 +1,15 @@
 # @just-web/react-commands
 
+## 9.0.2
+
+### Patch Changes
+
+- 8dfabf6: Update type-plus
+- 389e84c: Update `just-web`
+- Updated dependencies [8dfabf6]
+- Updated dependencies [389e84c]
+  - @just-web/react@9.0.2
+
 ## 9.0.1
 
 ### Patch Changes
