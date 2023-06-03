@@ -568,9 +568,6 @@ importers:
       '@just-web/formatjs':
         specifier: ^1.0.0
         version: 1.0.0(@just-web/app@7.1.4)(typescript@5.0.4)
-      react-dom:
-        specifier: ^16 || ^17 || ^18
-        version: 17.0.0(react@17.0.0)
       react-intl:
         specifier: ^6.4.2
         version: 6.4.2(react@17.0.0)(typescript@5.0.4)
