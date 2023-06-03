@@ -14,6 +14,7 @@
     "nuke": "pnpm --no-bail --filter=* nuke && pnpm --no-bail nuke:local",
     "nuke:local": "rimraf node_modules",
     "react": "pnpm --filter=@just-web/react",
+    "react-intl": "pnpm --filter=@just-web/react-intl",
     "release": "pnpm build && changeset publish",
     "sb": "turbo run sb --parallel",
     "size": "turbo run size",

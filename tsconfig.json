@@ -9,6 +9,9 @@
 		},
 		{
 			"path": "libraries/react"
-		}
+		},
+    {
+      "path": "libraries/react-intl"
+    }
 	]
 }
