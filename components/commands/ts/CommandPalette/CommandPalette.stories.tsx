@@ -1,11 +1,11 @@
 import { justTestApp } from '@just-web/app/testing'
 import { browserKeyboardGizmo } from '@just-web/browser-keyboard'
-import { CommandsGizmo, CommandsOptions, commandsGizmoFn } from '@just-web/commands'
-import { KeyboardOptions, keyboardGizmoFn } from '@just-web/keyboard'
-import { OSGizmo, isMac } from '@just-web/os'
-import { OSTestGizmoOptions, osTestGizmoFn } from '@just-web/os/testing'
+import { commandsGizmoFn, type CommandsGizmo, type CommandsGizmoOptions } from '@just-web/commands'
+import { keyboardGizmoFn, type KeyboardGizmoOptions } from '@just-web/keyboard'
+import { isMac, type OSGizmo } from '@just-web/os'
+import { osTestGizmoFn, type OSTestGizmoOptions } from '@just-web/os/testing'
 import { JustAppProvider, reactGizmo, useJustAppContext } from '@just-web/react'
-import { Meta, StoryObj } from '@storybook/react'
+import type { Meta, StoryObj } from '@storybook/react'
 import Mousetrap from 'mousetrap'
 import { CommandPalette, reactCommandsGizmo } from '../index.js'
 
@@ -61,11 +61,15 @@ const macOnlyCmd = {
 	mac: 'cmd+o'
 }
 
-async function setupApp(options?: KeyboardOptions & CommandsOptions & OSTestGizmoOptions) {
+async function setupApp(
+	options?: { keyboard?: KeyboardGizmoOptions } & { commands?: CommandsGizmoOptions } & {
+		os?: OSTestGizmoOptions
+	}
+) {
 	const app = await justTestApp({ name: 'storybook' })
 		.with(keyboardGizmoFn(options?.keyboard))
 		.with(commandsGizmoFn(options?.commands))
-		.with(osTestGizmoFn(options))
+		.with(osTestGizmoFn(options?.os))
 		.with(browserKeyboardGizmo)
 		.with(reactGizmo)
 		.with(reactCommandsGizmo)
