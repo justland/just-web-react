@@ -67,7 +67,7 @@
   "devDependencies": {
     "@formatjs/ts-transformer": "^3.11.5",
     "@just-web/app": "^7.1.5",
-    "@just-web/browser-keyboard": "^7.2.1",
+    "@just-web/browser-keyboard": "^8.0.0",
     "@just-web/commands": "^7.2.1",
     "@just-web/keyboard": "^7.2.1",
     "@just-web/os": "^7.2.1",
@@ -121,7 +121,7 @@
   },
   "peerDependencies": {
     "@just-web/app": "^7.0.0",
-    "@just-web/browser-keyboard": "^7.0.0",
+    "@just-web/browser-keyboard": "^8.0.0",
     "@just-web/commands": "^7.0.0",
     "@just-web/keyboard": "^7.0.0",
     "@just-web/os": "^7.0.0",
