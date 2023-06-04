@@ -26,6 +26,7 @@
     "postpack": "pinst --enable"
   },
   "devDependencies": {
+    "@changesets/assemble-release-plan": "^5.2.3",
     "@changesets/cli": "^2.25.2",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
@@ -45,6 +46,9 @@
   "pnpm": {
     "overrides": {
       "@types/react": "^17"
+    },
+    "patchedDependencies": {
+      "@changesets/assemble-release-plan@5.2.3": "patches/@changesets__assemble-release-plan@5.2.3.patch"
     }
   }
 }
