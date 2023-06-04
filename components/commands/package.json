@@ -61,10 +61,6 @@
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {
-    "@just-web/commands": "^7.2.1",
-    "@just-web/keyboard": "^7.2.1",
-    "@just-web/os": "^7.2.1",
-    "@just-web/react": "workspace:^",
     "react-command-palette": "~0.22.0",
     "type-plus": "^7.0.1"
   },
@@ -72,6 +68,10 @@
     "@formatjs/ts-transformer": "^3.11.5",
     "@just-web/app": "^7.1.5",
     "@just-web/browser-keyboard": "^7.2.1",
+    "@just-web/commands": "^7.2.1",
+    "@just-web/keyboard": "^7.2.1",
+    "@just-web/os": "^7.2.1",
+    "@just-web/react": "workspace:^",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-actions": "^7.0.18",
     "@storybook/addon-backgrounds": "^7.0.18",
