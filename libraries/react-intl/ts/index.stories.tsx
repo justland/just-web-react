@@ -27,6 +27,6 @@ export const WithUseIntl: StoryObj = {
 	],
 	render() {
 		const intl = useIntl()
-		return <div>{intl.formatMessage({ defaultMessage: 'hello' })}</div>
+		return <div>{intl.formatMessage({ defaultMessage: 'hello', id: 'm3HSJL' })}</div>
 	}
 }
