@@ -1,5 +1,16 @@
 # @just-web/react-commands
 
+## 9.0.3
+
+### Patch Changes
+
+- d0dc295: Update just-web
+- ae7a462: Move just-web packages to peerDeps.
+  They need to be supplied by the host application,
+  thus they are peerDeps and not deps.
+- Updated dependencies [d0dc295]
+  - @just-web/react@9.0.3
+
 ## 9.0.2
 
 ### Patch Changes

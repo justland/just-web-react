@@ -1,5 +1,11 @@
 # @just-web/react
 
+## 9.0.3
+
+### Patch Changes
+
+- d0dc295: Update just-web
+
 ## 9.0.2
 
 ### Patch Changes
