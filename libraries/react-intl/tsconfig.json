@@ -1,18 +1,15 @@
 {
-  "extends": "@repobuddy/typescript/tsconfig/monorepo",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "outDir": "esm",
-    "rootDir": "ts",
-    "jsx": "react-jsx",
     "verbatimModuleSyntax": true
   },
-  "include": [
-    "ts",
-    "types"
-  ],
   "references": [
     {
       "path": "../../libraries/react"
+    },
+    {
+      "path": "./tsconfig.project.json"
     }
   ]
 }

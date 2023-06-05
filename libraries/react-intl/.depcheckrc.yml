@@ -1,11 +1,13 @@
 ignores:
   - '@repobuddy/*'
   - '@size-limit/*'
+  - '@storybook/*'
   - '@types/*'
   - eslint*
   - 'jest-*'
   - repobuddy
   - rimraf # https://github.com/depcheck/depcheck/issues/776
   - size-limit
+  - storybook-dark-mode
   - ts-jest
   - tslib

@@ -1,0 +1,11 @@
+{
+  "extends": "./tsconfig.base.json",
+  "compilerOptions": {
+    "moduleResolution": "bundler",
+    "rootDir": "."
+  },
+  "include": [
+    ".storybook",
+    "vite.config.ts"
+  ]
+}

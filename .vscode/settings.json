@@ -15,6 +15,9 @@
         "__snapshots__",
         "pnpm-lock.yaml"
     ],
+    "cSpell.ignoreRegExpList": [
+      "id: '\\w{6}'"
+    ],
     "cSpell.words": [
         "clsx",
         "cmds",
