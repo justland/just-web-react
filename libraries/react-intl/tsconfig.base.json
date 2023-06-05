@@ -3,8 +3,14 @@
   "compilerOptions": {
     "jsx": "react-jsx",
     "module": "ESNext",
+    "rootDir": "ts",
     "skipLibCheck": true,
     "target": "ESNext"
   },
-	"include": ["ts", "types"]
+	"include": ["ts", "types"],
+  "references": [
+    {
+      "path": "../../libraries/react"
+    }
+  ]
 }
