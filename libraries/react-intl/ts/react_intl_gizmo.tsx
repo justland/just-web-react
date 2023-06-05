@@ -18,7 +18,7 @@ export const reactIntlGizmoFn = define(function <T = string>(options?: ReactIntl
 				},
 				() =>
 					ctx.react.providers.register(({ children }) => (
-						<RawIntlProvider value={formatjs.intl as unknown as IntlShape}>{children}</RawIntlProvider>
+						<RawIntlProvider value={formatjs.intl as IntlShape}>{children}</RawIntlProvider>
 					))
 			]
 		}
