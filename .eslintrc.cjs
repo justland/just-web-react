@@ -7,5 +7,6 @@ module.exports = {
 	rules: {
 		'yml/quotes': ['error', { prefer: 'single' }]
 	},
+	plugins: ['formatjs'],
 	root: true
 }

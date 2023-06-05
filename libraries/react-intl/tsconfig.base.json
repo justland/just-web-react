@@ -1,0 +1,10 @@
+{
+  "extends": "@repobuddy/typescript/tsconfig/legacy/monorepo",
+  "compilerOptions": {
+    "jsx": "react-jsx",
+    "module": "ESNext",
+    "skipLibCheck": true,
+    "target": "ESNext"
+  },
+	"include": ["ts", "types"]
+}

@@ -2,6 +2,7 @@ module.exports = {
 	env: {
 		jest: true
 	},
+	plugins: ['formatjs'],
 	overrides: [
 		{
 			extends: ['plugin:harmony/ts-prettier'],
