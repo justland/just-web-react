@@ -36,7 +36,7 @@ importers:
         version: 8.8.0(eslint@8.28.0)
       eslint-plugin-formatjs:
         specifier: ^4.10.1
-        version: 4.10.1(eslint@8.28.0)(ts-jest@29.1.0)
+        version: 4.10.1(eslint@8.28.0)
       eslint-plugin-harmony:
         specifier: ^7.1.1
         version: 7.1.1(@typescript-eslint/eslint-plugin@5.59.2)(eslint-config-prettier@8.8.0)(eslint@8.28.0)(typescript@5.0.2)
@@ -76,7 +76,7 @@ importers:
     devDependencies:
       '@formatjs/ts-transformer':
         specifier: ^3.11.5
-        version: 3.11.5(ts-jest@29.1.0)
+        version: 3.11.5
       '@just-web/app':
         specifier: ^7.1.5
         version: 7.1.5
@@ -587,9 +587,6 @@ importers:
         specifier: ^6.4.2
         version: 6.4.2(react@17.0.0)(typescript@5.0.4)
     devDependencies:
-      '@formatjs/ts-transformer':
-        specifier: ^3.11.5
-        version: 3.11.5(ts-jest@29.1.0)
       '@just-web/app':
         specifier: ^7.1.5
         version: 7.1.5
@@ -695,18 +692,12 @@ importers:
       assertron:
         specifier: ^11.0.1
         version: 11.0.1
-      babel-plugin-formatjs:
-        specifier: ^10.5.1
-        version: 10.5.1(ts-jest@29.1.0)
       cross-env:
         specifier: ^7.0.3
         version: 7.0.3
       depcheck:
         specifier: ~1.4.3
         version: 1.4.3
-      eslint-plugin-formatjs:
-        specifier: ^4.10.1
-        version: 4.10.1(eslint@8.28.0)(ts-jest@29.1.0)
       jest:
         specifier: ^29.5.0
         version: 29.5.0(@types/node@18.11.9)(ts-node@10.9.1)
@@ -4091,7 +4082,7 @@ packages:
       typescript: 5.0.4
     dev: false
 
-  /@formatjs/ts-transformer@3.11.5(ts-jest@29.1.0):
+  /@formatjs/ts-transformer@3.11.5:
     resolution: {integrity: sha512-cAmvKzgPqdetAr/RsxoXYhfNhMf5tERlXzJTsQw+j6tddPwIAbihACQx6KaajyJJ4aNssiziWNmcaHtjTqrrVw==}
     peerDependencies:
       ts-jest: '>=27'
@@ -4104,12 +4095,11 @@ packages:
       '@types/node': 16.18.3
       chalk: 4.1.2
       json-stable-stringify: 1.0.2
-      ts-jest: 29.1.0(@babel/core@7.21.8)(esbuild@0.17.18)(jest@29.5.0)(typescript@5.0.4)
       tslib: 2.4.1
       typescript: 4.9.3
     dev: true
 
-  /@formatjs/ts-transformer@3.13.1(ts-jest@29.1.0):
+  /@formatjs/ts-transformer@3.13.1:
     resolution: {integrity: sha512-U5BuLqFx5wre5Q0NrZhBh7itMJZISYuZGoj8HdN/UO1EKaTL2HQjE1G040GjTpY0k+AAyaHK3b8WPqgHLvIaIQ==}
     peerDependencies:
       ts-jest: '>=27'
@@ -4122,7 +4112,6 @@ packages:
       '@types/node': 16.18.3
       chalk: 4.1.2
       json-stable-stringify: 1.0.2
-      ts-jest: 29.1.0(@babel/core@7.21.8)(esbuild@0.17.18)(jest@29.5.0)(typescript@5.0.4)
       tslib: 2.5.0
       typescript: 5.0.4
     dev: true
@@ -8104,12 +8093,6 @@ packages:
       '@babel/types': 7.21.5
     dev: true
 
-  /@types/babel__helper-plugin-utils@7.10.0:
-    resolution: {integrity: sha512-60YtHzhQ9HAkToHVV+TB4VLzBn9lrfgrsOjiJMtbv/c1jPdekBxaByd6DMsGBzROXWoIL6U3lEFvvbu69RkUoA==}
-    dependencies:
-      '@types/babel__core': 7.20.0
-    dev: true
-
   /@types/babel__template@7.4.1:
     resolution: {integrity: sha512-azBFKemX6kMg5Io+/rdGT0dkGreboUVR0Cdm3fz9QJWpaQGJRQXl7C+6hOTCZcMll7KFyEQpgbYI2lHdsS4U7g==}
     dependencies:
@@ -9548,25 +9531,6 @@ packages:
       slash: 3.0.0
     transitivePeerDependencies:
       - supports-color
-    dev: true
-
-  /babel-plugin-formatjs@10.5.1(ts-jest@29.1.0):
-    resolution: {integrity: sha512-IkwrKjl2Zg6br2wuayPIsaPF92RzGgh5WdQj+A/9zokpYeIF7sscZGwwHmeTSoPnIAAENvjRMm/escMQkp+eKg==}
-    dependencies:
-      '@babel/core': 7.21.8
-      '@babel/helper-plugin-utils': 7.20.2
-      '@babel/plugin-syntax-jsx': 7.21.4(@babel/core@7.21.8)
-      '@babel/traverse': 7.21.5
-      '@babel/types': 7.21.5
-      '@formatjs/icu-messageformat-parser': 2.4.0
-      '@formatjs/ts-transformer': 3.13.1(ts-jest@29.1.0)
-      '@types/babel__core': 7.20.0
-      '@types/babel__helper-plugin-utils': 7.10.0
-      '@types/babel__traverse': 7.18.5
-      tslib: 2.5.0
-    transitivePeerDependencies:
-      - supports-color
-      - ts-jest
     dev: true
 
   /babel-plugin-istanbul@6.1.1:
@@ -11340,13 +11304,13 @@ packages:
       eslint: 8.28.0
     dev: true
 
-  /eslint-plugin-formatjs@4.10.1(eslint@8.28.0)(ts-jest@29.1.0):
+  /eslint-plugin-formatjs@4.10.1(eslint@8.28.0):
     resolution: {integrity: sha512-sD3GGdfDQqiaW8TgbUD4lrUR+raIgusPzW+0v+iN36QzkHvpg5L0UZGFQE9GWtgnWfXAndb57UpgB0i/CF2G7w==}
     peerDependencies:
       eslint: 7 || 8
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.4.0
-      '@formatjs/ts-transformer': 3.13.1(ts-jest@29.1.0)
+      '@formatjs/ts-transformer': 3.13.1
       '@types/eslint': 8.37.0
       '@types/picomatch': 2.3.0
       '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.0.4)
