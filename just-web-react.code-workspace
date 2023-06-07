@@ -18,6 +18,7 @@
       "common/git-hooks/*": "shell",
       "rush.json": "jsonc"
     },
+    "liveServer.settings.multiRootWorkspaceName": "just-web-react",
     "tsimporter.filesToExclude": [
       "cjs",
       "esm",

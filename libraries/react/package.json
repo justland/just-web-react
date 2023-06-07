@@ -73,6 +73,7 @@
     "nuke": "rimraf node_modules",
     "preview": "vite preview",
     "sb": "storybook dev -p 6006",
+    "sb:build": "storybook build",
     "sb:test": "test-storybook --url http://localhost:6006",
     "size": "size-limit",
     "test": "vitest run",
