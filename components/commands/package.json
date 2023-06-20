@@ -92,7 +92,7 @@
     "@storybook/react": "^7.0.18",
     "@storybook/react-vite": "7.0.22",
     "@storybook/test-runner": "^0.11.0",
-    "@storybook/testing-library": "^0.1.0",
+    "@storybook/testing-library": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/mousetrap": "~1.6.11",
     "@types/node": "^18.0.0",
