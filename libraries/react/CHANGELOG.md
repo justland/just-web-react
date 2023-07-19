@@ -1,5 +1,13 @@
 # @just-web/react
 
+## 9.0.4
+
+### Patch Changes
+
+- 6a0df6d: Change to use `react` instead of `react-jsx`.
+
+  Due to this issue: https://github.com/facebook/react/issues/25857
+
 ## 9.0.3
 
 ### Patch Changes
