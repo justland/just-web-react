@@ -1,3 +1,4 @@
+import React from 'react'
 import type { HtmlHTMLAttributes, PropsWithChildren } from 'react'
 
 export function Card(props: PropsWithChildren<HtmlHTMLAttributes<any>>) {

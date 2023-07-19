@@ -3,7 +3,7 @@
 		"allowSyntheticDefaultImports": true,
 		"composite": true,
 		"forceConsistentCasingInFileNames": true,
-		"jsx": "react-jsx",
+		"jsx": "react",
 		"module": "ESNext",
 		"moduleResolution": "NodeNext",
 		"plugins": [

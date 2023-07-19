@@ -1,3 +1,4 @@
+import React from 'react'
 import { createStore, type Store } from '@just-web/states'
 import type { StoryObj } from '@storybook/react'
 import { useEffect, useState, type PropsWithChildren } from 'react'

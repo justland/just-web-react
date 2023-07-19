@@ -1,3 +1,4 @@
+import React from 'react'
 import { formatCommand, showCommandPalette, type CommandContribution, type CommandsGizmo } from '@just-web/commands'
 import { formatKeyBinding, type KeyBindingContribution, type KeyboardGizmo } from '@just-web/keyboard'
 import type { OSGizmo } from '@just-web/os'

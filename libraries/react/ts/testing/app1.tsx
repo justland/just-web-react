@@ -1,3 +1,4 @@
+import React from 'react'
 import { type JustAppTestOptions, justTestApp, type LogTestGizmo } from '@just-web/app/testing'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'

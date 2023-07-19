@@ -1,3 +1,4 @@
+import React from 'react'
 import { define, type GizmoBase } from '@just-web/app'
 
 export const dummyGizmoFn: (options?: { a: number }) => GizmoBase<{

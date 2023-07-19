@@ -1,3 +1,4 @@
+import React from 'react'
 import { createStore } from '@just-web/states'
 import type { PropsWithChildren } from 'react'
 import Modal from 'react-modal'

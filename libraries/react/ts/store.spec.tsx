@@ -1,3 +1,4 @@
+import React from 'react'
 import { createStore } from '@just-web/states'
 import { act, create } from 'react-test-renderer'
 import { expect, test } from 'vitest'

@@ -1,3 +1,4 @@
+import React from 'react'
 import type { Meta, StoryObj } from '@storybook/react'
 import { createContext } from 'react'
 import { JustAppProvider } from './just_app_context.js'

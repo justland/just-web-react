@@ -1,3 +1,4 @@
+import React from 'react'
 import { define, incubate } from '@just-web/app'
 import { formatJSGizmoFn, type FormatJSGizmo, type FormatJSGizmoOptions } from '@just-web/formatjs'
 import type { ReactGizmo } from '@just-web/react'

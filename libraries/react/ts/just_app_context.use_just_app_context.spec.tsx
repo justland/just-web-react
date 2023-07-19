@@ -1,3 +1,4 @@
+import React from 'react'
 import { a } from 'assertron'
 import { create } from 'react-test-renderer'
 import { useJustAppContext } from './index.js'

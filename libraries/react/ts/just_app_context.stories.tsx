@@ -1,3 +1,4 @@
+import React from 'react'
 import { createStore } from '@just-web/states'
 import type { Meta, StoryObj } from '@storybook/react'
 import { JustAppProvider } from './just_app_context.js'
