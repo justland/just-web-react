@@ -12,7 +12,7 @@ module.exports = {
   typescript: {
     check: false
   },
-  docs: {
-    autodocs: true
-  }
+  // docs: {
+  //   autodocs: true
+  // }
 };
