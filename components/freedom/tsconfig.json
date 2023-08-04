@@ -2,7 +2,7 @@
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"outDir": ".nowhere",
-		"rootDir": "ts"
+    "verbatimModuleSyntax": true
 	},
 	"include": ["ts", "types"],
 	"references": [

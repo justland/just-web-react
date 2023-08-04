@@ -35,7 +35,7 @@
     "!**/*.stories.*"
   ],
   "scripts": {
-    "build": "run-p build:vite build:dts",
+    "build": "run-p build:vite build:dts test:type",
     "build:storybook": "storybook build",
     "build:vite": "vite build",
     "build:dts": "tsc -p tsconfig.dts.json",
@@ -51,7 +51,7 @@
     "size": "size-limit",
     "test": "vitest run",
     "test:watch": "vitest",
-    "test:tsc": "tsc --noEmit",
+    "test:type": "tsc --noEmit",
     "verify": "npm-run-all -p lint build coverage depcheck -p size"
   },
   "dependencies": {

@@ -1,13 +1,13 @@
 import {
-	ForwardedRef,
-	KeyboardEventHandler,
-	ReactNode,
 	createContext,
 	forwardRef,
 	useContext,
 	useEffect,
 	useRef,
-	type PropsWithChildren
+	type ForwardedRef,
+	type KeyboardEventHandler,
+	type PropsWithChildren,
+	type ReactNode
 } from 'react'
 
 type TerminalContext = {

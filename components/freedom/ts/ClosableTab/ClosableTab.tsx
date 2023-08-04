@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react'
-import { ComponentType, Fragment } from 'react'
+import { Fragment, type ComponentType } from 'react'
 
 type ExtractProps<T> = T extends ComponentType<infer P> ? P : T
 
