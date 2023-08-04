@@ -242,6 +242,9 @@ importers:
       react:
         specifier: ^18.0.0
         version: 18.2.0
+      type-plus:
+        specifier: ^7.0.1
+        version: 7.0.1
     devDependencies:
       '@size-limit/preset-small-lib':
         specifier: ~8.2.0

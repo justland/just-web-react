@@ -56,7 +56,8 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4",
-    "react": "^18.0.0"
+    "react": "^18.0.0",
+    "type-plus": "^7.0.1"
   },
   "devDependencies": {
     "@size-limit/preset-small-lib": "~8.2.0",

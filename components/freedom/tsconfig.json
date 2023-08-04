@@ -7,7 +7,7 @@
 	"include": ["ts", "types"],
 	"references": [
 		{
-			"path": "./tsconfig.node.json"
+			"path": "./tsconfig.project.json"
 		},
 		{
 			"path": "../../libraries/react"

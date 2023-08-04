@@ -1,8 +1,9 @@
 import { createContext, type PropsWithChildren } from 'react'
+import type { AnyFunction } from 'type-plus'
 
 export interface TerminalContainerProps
 	extends PropsWithChildren<{
-		commands: Record<string | symbol, string | JSX.Element | Function>
+		commands: Record<string | symbol, string | JSX.Element | AnyFunction>
 	}> {}
 
 export function TerminalContainer({ children }: PropsWithChildren<Record<string, unknown>>) {
