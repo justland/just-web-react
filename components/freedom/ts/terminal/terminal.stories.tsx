@@ -5,7 +5,7 @@ const meta: Meta<typeof Terminal> = {
 	decorators: [
 		Story => {
 			return (
-				<div className="h-full bg-gray-100">
+				<div className="h-80 bg-gray-100">
 					<Story />
 				</div>
 			)
@@ -18,4 +18,15 @@ export default meta
 
 type Story = StoryObj<typeof Terminal>
 
-export const BasicExample: Story = {}
+export const BasicExample: Story = {
+	render: () => {
+		return (
+			<>
+				<Terminal className="h-full" onSubmit={text => `echo: ${text}`}>
+					<Terminal.Body />
+				</Terminal>
+			</>
+		)
+	}
+}
+

@@ -1,0 +1,31 @@
+{
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../headlessui"
+		},
+		{
+			"path": "../react-terminal"
+		},
+		{
+			"path": "../react-terminal-ui"
+		},
+		{
+			"path": "../terminal-in-react"
+		},
+		{
+			"path": "../primereact"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"**/common/config/rush/*.json": "jsonc",
+			"*.css": "tailwindcss",
+			"*.scss": "postcss",
+			"common/git-hooks/*": "shell",
+			"rush.json": "jsonc"
+		}
+	}
+}

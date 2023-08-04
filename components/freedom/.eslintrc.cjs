@@ -2,6 +2,9 @@ module.exports = {
 	env: {
 		jest: true
 	},
+	parserOptions: {
+		sourceType: 'module'
+	},
 	overrides: [
 		{
 			extends: ['plugin:harmony/ts-prettier', 'plugin:react/recommended', 'plugin:react/jsx-runtime'],

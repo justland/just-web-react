@@ -5,8 +5,10 @@ ignores:
   - '@size-limit/*'
   - '@types/*'
   - '@vitest/coverage-c8'
+  - autoprefixer # tailwind
   - eslint*
   - jest-image-snapshot
   - rimraf # depcheck doesn't recognize rimraf as a dependency
   - size-limit
   - storybook-dark-mode
+  - tailwindcss # tailwind
