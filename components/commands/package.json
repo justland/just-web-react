@@ -91,7 +91,7 @@
     "@storybook/preview-web": "^7.0.18",
     "@storybook/react": "^7.0.18",
     "@storybook/react-vite": "7.2.1",
-    "@storybook/test-runner": "^0.12.0",
+    "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "^0.2.0",
     "@testing-library/jest-dom": "^5.16.5",
     "@types/mousetrap": "~1.6.11",
