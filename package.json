@@ -46,7 +46,7 @@
   "packageManager": "pnpm@8.6.11",
   "pnpm": {
     "overrides": {
-      "@types/react": "^17"
+      "@types/react": "^16"
     },
     "patchedDependencies": {
       "@changesets/assemble-release-plan@5.2.3": "patches/@changesets__assemble-release-plan@5.2.3.patch"

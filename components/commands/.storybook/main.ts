@@ -8,10 +8,6 @@ const config: StorybookConfig = {
 		'@storybook/addon-interactions',
 		// '@storybook/addon-storysource',
 		// 'storybook-dark-mode',
-		{
-			name: '@storybook/addon-styling',
-			options: {}
-		}
 	],
 	docs: {
 		autodocs: 'tag'
