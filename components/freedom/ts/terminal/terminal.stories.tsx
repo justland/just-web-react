@@ -12,7 +12,7 @@ const meta: Meta<typeof Terminal> = {
 			)
 		}
 	],
-	component: Terminal
+	component: Terminal as any
 }
 
 export default meta

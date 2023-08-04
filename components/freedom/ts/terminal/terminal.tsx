@@ -43,6 +43,8 @@ export const TerminalContainer = forwardRef<HTMLInputElement, TerminalContainerP
 	)
 })
 
+TerminalContainer.displayName = 'Terminal'
+
 export interface TerminalBodyProps {
 	className?: string
 }

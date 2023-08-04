@@ -11,7 +11,8 @@ pull_request_rules:
       - author=renovate[bot]
       - and:
         - head~=^(?!major-)
-        - -title~=update dependency @types\/node
+        - -title~=@types\/node
+        - -title~=react
     actions:
       merge:
         method: squash
