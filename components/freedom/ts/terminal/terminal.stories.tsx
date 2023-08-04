@@ -1,4 +1,5 @@
 import type { Meta, StoryObj } from '@storybook/react'
+import { useSimpleTerminal } from './terminal.hooks.js'
 import { Terminal } from './terminal.js'
 
 const meta: Meta<typeof Terminal> = {
@@ -20,13 +21,17 @@ type Story = StoryObj<typeof Terminal>
 
 export const BasicExample: Story = {
 	render: () => {
+		const { register, onParse } = useSimpleTerminal()
+		onParse(text => {
+			return `echo ${text}`
+		})
+
 		return (
 			<>
-				<Terminal className="h-full" onSubmit={text => `echo: ${text}`}>
+				<Terminal className="h-full" {...register()}>
 					<Terminal.Body />
 				</Terminal>
 			</>
 		)
 	}
 }
-

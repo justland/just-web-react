@@ -1,81 +1,83 @@
 import {
-	SetStateAction,
+	ForwardedRef,
+	KeyboardEventHandler,
+	ReactNode,
 	createContext,
+	forwardRef,
 	useContext,
 	useEffect,
 	useRef,
-	useState,
-	type Dispatch,
 	type PropsWithChildren
 } from 'react'
 
-const TerminalContext = createContext<{
-	history: Array<string | JSX.Element>
+type TerminalContext = {
 	className?: string
-	setHistory: Dispatch<SetStateAction<Array<string | JSX.Element>>>
-	caretPosition: number
-	setCaretPosition: Dispatch<SetStateAction<number>>
 	prompt: string
 	currentText: string
-	setCurrentText: Dispatch<SetStateAction<string>>
-	onSubmit(text: string): Promise<void | string | JSX.Element> | void | string | JSX.Element
-}>(null as any)
+	history: Array<ReactNode>
+	ref: ForwardedRef<HTMLInputElement>
+	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
+}
+
+const TerminalContext = createContext<TerminalContext>(null as any)
 
 export interface TerminalContainerProps
 	extends PropsWithChildren<{
 		className?: string
 		prompt?: string
-		onSubmit(text: string): Promise<void | string | JSX.Element> | void | string | JSX.Element
+		currentText: string
+		history: Array<ReactNode>
+		onKeyDown?: KeyboardEventHandler<HTMLInputElement>
 	}> {}
 
-export function TerminalContainer({ className, prompt = '>', children, onSubmit }: TerminalContainerProps) {
-	const [history, setHistory] = useState<Array<string | JSX.Element>>([])
-	const [caretPosition, setCaretPosition] = useState(0)
-	const [currentText, setCurrentText] = useState('')
+export const TerminalContainer = forwardRef<HTMLInputElement, TerminalContainerProps>((props, ref) => {
+	const { children, ...rest } = props
 	return (
 		<TerminalContext.Provider
 			value={{
-				className,
-				history,
-				setHistory,
-				caretPosition,
-				setCaretPosition,
-				currentText,
-				setCurrentText,
-				prompt,
-				onSubmit
+				prompt: '>',
+				...rest,
+				ref: ref!
 			}}
 		>
 			{children}
 		</TerminalContext.Provider>
 	)
-}
+})
 
 export interface TerminalBodyProps {
 	className?: string
 }
 
+function useForwardedRef<T>(ref: ForwardedRef<T>) {
+	const innerRef = useRef<T>(null)
+
+	useEffect(() => {
+		if (!ref) return
+		if (typeof ref === 'function') {
+			ref(innerRef.current)
+		} else {
+			ref.current = innerRef.current
+		}
+	})
+
+	return innerRef
+}
+
 export function TerminalBody() {
-	const { prompt, history, setHistory, className, currentText, onSubmit } = useContext(TerminalContext)
-	const input = useRef<HTMLInputElement>(null)
-	const onInputKeyDown = async (e: React.KeyboardEvent<HTMLInputElement>) => {
-		if (e.key === 'Enter') {
-			const result = await onSubmit(input.current?.value ?? '')
-			if (result) {
-				setHistory(v => [...v, result])
-			}
-		}
-	}
+	const { prompt, history, className, currentText, ref, onKeyDown } = useContext(TerminalContext)
+
+	const innerRef = useForwardedRef(ref)
 
 	useEffect(() => {
-		input.current?.focus()
-	}, [])
+		innerRef?.current?.focus()
+	}, [ref])
 
 	useEffect(() => {
-		if (input.current) {
-			input.current.value = currentText
+		if (currentText && innerRef?.current) {
+			innerRef.current.value = currentText
 		}
-	}, [currentText])
+	}, [currentText, innerRef])
 
 	return (
 		<div className={className}>
@@ -84,7 +86,7 @@ export function TerminalBody() {
 			))}
 			<div key="input">
 				<span>{prompt}</span>
-				<input ref={input} onKeyDown={e => onInputKeyDown(e)}></input>
+				<input ref={innerRef} onKeyDown={onKeyDown}></input>
 			</div>
 		</div>
 	)
