@@ -13,7 +13,6 @@ import {
 type TerminalContext = {
 	className?: string
 	prompt: string
-	currentText: string
 	history: Array<ReactNode>
 	ref: ForwardedRef<HTMLInputElement>
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
@@ -25,7 +24,6 @@ export interface TerminalContainerProps
 	extends PropsWithChildren<{
 		className?: string
 		prompt?: string
-		currentText: string
 		history: Array<ReactNode>
 		onKeyDown?: KeyboardEventHandler<HTMLInputElement>
 	}> {}
@@ -65,19 +63,13 @@ function useForwardedRef<T>(ref: ForwardedRef<T>) {
 }
 
 export function TerminalBody() {
-	const { prompt, history, className, currentText, ref, onKeyDown } = useContext(TerminalContext)
+	const { prompt, history, className, ref, onKeyDown } = useContext(TerminalContext)
 
 	const innerRef = useForwardedRef(ref)
 
 	useEffect(() => {
 		innerRef?.current?.focus()
 	}, [ref])
-
-	useEffect(() => {
-		if (currentText && innerRef?.current) {
-			innerRef.current.value = currentText
-		}
-	}, [currentText, innerRef])
 
 	return (
 		<div className={className}>

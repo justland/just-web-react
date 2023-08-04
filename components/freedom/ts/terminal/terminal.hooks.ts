@@ -3,7 +3,6 @@ import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactN
 export function useSimpleTerminal() {
 	const ref = useRef<HTMLInputElement>(null)
 	const [history, setHistory] = useState<Array<ReactNode>>([])
-	const [currentText, setCurrentLine] = useState('')
 
 	let parseFn: (text: string) => Promise<ReactNode> | ReactNode
 	return {
@@ -16,10 +15,10 @@ export function useSimpleTerminal() {
 						if (result) {
 							setHistory(h => [...h, result])
 						}
+						if (ref.current) ref.current.value = ''
 					}
 				},
-				history,
-				currentText
+				history
 			}
 		},
 		getValue() {
