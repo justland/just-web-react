@@ -240,6 +240,9 @@ importers:
       '@testing-library/jest-dom':
         specifier: ^5.16.5
         version: 5.16.5
+      '@testing-library/react':
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@16.14.0)(react@16.14.0)
       '@types/jest':
         specifier: ^29.2.3
         version: 29.2.3
@@ -255,9 +258,6 @@ importers:
       '@types/react-dom':
         specifier: ^16.9.19
         version: 16.9.19
-      '@types/testing-library__jest-dom':
-        specifier: ~5.14.5
-        version: 5.14.5
       '@vitejs/plugin-react':
         specifier: ^4.0.0
         version: 4.0.0(vite@4.3.1)
@@ -279,6 +279,9 @@ importers:
       jest-image-snapshot:
         specifier: ^6.2.0
         version: 6.2.0(jest@28.1.3)
+      jsdom:
+        specifier: ^22.0.0
+        version: 22.0.0
       npm-run-all:
         specifier: ^4.1.5
         version: 4.1.5
@@ -407,8 +410,8 @@ importers:
         specifier: ^5.16.5
         version: 5.16.5
       '@testing-library/react':
-        specifier: ^14.0.0
-        version: 14.0.0(react-dom@16.14.0)(react@16.14.0)
+        specifier: ^12.1.5
+        version: 12.1.5(react-dom@16.14.0)(react@16.14.0)
       '@types/is-ci':
         specifier: ^3.0.0
         version: 3.0.0
@@ -433,9 +436,6 @@ importers:
       '@types/react-test-renderer':
         specifier: ^18.0.0
         version: 18.0.0
-      '@types/testing-library__jest-dom':
-        specifier: ~5.14.5
-        version: 5.14.5
       '@vitejs/plugin-react':
         specifier: ^4.0.0
         version: 4.0.0(vite@4.3.1)
@@ -8762,6 +8762,20 @@ packages:
       use-sync-external-store: 1.2.0(react@16.14.0)
     dev: true
 
+  /@testing-library/dom@8.20.1:
+    resolution: {integrity: sha512-/DiOQ5xBxgdYRC8LNk7U+RWat0S3qRLeIw3ZIkMQ9kkVlRmwD/Eg8k8CqIpD6GW7u20JIUOfMKbxtiLutpjQ4g==}
+    engines: {node: '>=12'}
+    dependencies:
+      '@babel/code-frame': 7.22.5
+      '@babel/runtime': 7.22.6
+      '@types/aria-query': 5.0.1
+      aria-query: 5.1.3
+      chalk: 4.1.2
+      dom-accessibility-api: 0.5.14
+      lz-string: 1.5.0
+      pretty-format: 27.5.1
+    dev: true
+
   /@testing-library/dom@9.0.0:
     resolution: {integrity: sha512-+/TLgKNFsYUshOY/zXsQOk+PlFQK+eyJ9T13IDVNJEi+M+Un7xlJK+FZKkbGSnf0+7E1G6PlDhkSYQ/GFiruBQ==}
     engines: {node: '>=14'}
@@ -8791,16 +8805,16 @@ packages:
       redent: 3.0.0
     dev: true
 
-  /@testing-library/react@14.0.0(react-dom@16.14.0)(react@16.14.0):
-    resolution: {integrity: sha512-S04gSNJbYE30TlIMLTzv6QCTzt9AqIF5y6s6SzVFILNcNvbV/jU96GeiTPillGQo+Ny64M/5PV7klNYYgv5Dfg==}
-    engines: {node: '>=14'}
+  /@testing-library/react@12.1.5(react-dom@16.14.0)(react@16.14.0):
+    resolution: {integrity: sha512-OfTXCJUFgjd/digLUuPxa0+/3ZxsQmE7ub9kcbW/wi96Bh3o/p5vrETcBGfP17NWPGqeYYl5LTRpwyGoMC4ysg==}
+    engines: {node: '>=12'}
     peerDependencies:
-      react: ^18.0.0
-      react-dom: ^18.0.0
+      react: <18.0.0
+      react-dom: <18.0.0
     dependencies:
-      '@babel/runtime': 7.20.6
-      '@testing-library/dom': 9.0.0
-      '@types/react-dom': 18.0.9
+      '@babel/runtime': 7.22.6
+      '@testing-library/dom': 8.20.1
+      '@types/react-dom': 16.9.19
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
     dev: true

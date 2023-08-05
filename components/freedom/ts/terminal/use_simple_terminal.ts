@@ -1,8 +1,15 @@
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 
-export function useSimpleTerminal() {
+export interface useSimpleTerminalProps {
+	initial: Array<ReactNode>
+}
+
+/**
+ * A hook for a simple terminal.
+ */
+export function useSimpleTerminal(props?: useSimpleTerminalProps) {
 	const ref = useRef<HTMLInputElement>(null)
-	const [history, setHistory] = useState<Array<ReactNode>>([])
+	const [history, setHistory] = useState<Array<ReactNode>>(props?.initial ?? [])
 
 	let parseFn: (text: string) => Promise<ReactNode> | ReactNode
 	return {

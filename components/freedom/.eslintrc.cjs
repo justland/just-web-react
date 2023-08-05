@@ -27,10 +27,11 @@ module.exports = {
 		},
 		{
 			extends: ['plugin:storybook/recommended'],
-			files: ['*.stories.mdx', '*.mdx'],
+			files: ['*.stories.tsx', '*.mdx'],
 			rules: {
 				'no-console': 'off',
-				'import/no-anonymous-default-export': 'off'
+				'import/no-anonymous-default-export': 'off',
+				'react/jsx-key': 'off'
 			}
 		}
 	]
