@@ -44,16 +44,19 @@
     "depcheck": "depcheck",
     "dev": "vite",
     "lint": "eslint --ext=ts,tsx,js,yaml,yml .",
-    "nuke": "rimraf node_modules",
+    "nuke": "run-s clean nuke:local",
+    "nuke:local": "rimraf node_modules",
     "preview": "vite preview",
     "sb": "storybook dev -p 6008",
+    "sb:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008\"",
     "sb:test": "test-storybook --url http://localhost:6008",
+    "sb:update": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008 -u\"",
     "size": "size-limit",
     "test": "vitest run",
     "test:watch": "vitest",
     "test:type": "tsc --noEmit",
     "w": "vitest",
-    "verify": "npm-run-all -p lint build coverage depcheck -p size"
+    "verify": "npm-run-all -p lint depcheck build coverage sb:ci -p size"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4"
@@ -80,6 +83,7 @@
     "@vitejs/plugin-react": "^4.0.0",
     "@vitest/coverage-c8": "^0.31.0",
     "autoprefixer": "^10.4.14",
+    "concurrently": "^8.2.0",
     "depcheck": "~1.4.3",
     "eslint-plugin-react": "^7.31.11",
     "eslint-plugin-storybook": "^0.6.13",
@@ -96,7 +100,8 @@
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.0",
     "vite": "^4.3.1",
-    "vitest": "^0.31.0"
+    "vitest": "^0.31.0",
+    "wait-on": "^7.0.1"
   },
   "peerDependencies": {
     "react": "^16 || ^17 || ^18",

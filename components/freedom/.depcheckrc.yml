@@ -1,8 +1,8 @@
 ignores:
   - '@just-web/repo-scripts'
+  - '@size-limit/*'
   - '@storybook/*'
   - '@testing-library/*'
-  - '@size-limit/*'
   - '@types/*'
   - '@vitest/coverage-c8'
   - autoprefixer # tailwind
@@ -12,3 +12,4 @@ ignores:
   - size-limit
   - storybook-dark-mode
   - tailwindcss # tailwind
+  - wait-on # sb:ci
