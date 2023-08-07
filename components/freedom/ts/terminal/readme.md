@@ -47,14 +47,16 @@ It also serves as the namespace of other terminal components so that they can be
 
 A single terminal widget. Each terminal widget handles a specific shell application.
 
-In terms of layout, `TerminalWidget` contains `TerminalOutput` and `TerminalInput`:
+In terms of layout, `TerminalWidget` contains `TerminalOutput` and `TerminalPrompt`:
 
 ```ts
 function TerminalWidget() {
   return (
     <>
       <TerminalOutput />
-      <TerminalInput />
+      <TerminalPrompt>
+        <TerminalInput />
+      </TerminalPrompt>
     </>
   )
 }
@@ -69,7 +71,7 @@ function App() {
       <div className="your-style">
         <div>Some other content</div>
         <Terminal.Output className="your-style"/>
-        <Terminal.Input className="your-style"/>
+        <Terminal.Prompt className="your-style"/>
       </div>
     </Terminal>
   )
@@ -96,6 +98,13 @@ function App() {
   )
 }
 ```
+
+### `TerminalPrompt`
+
+> 🚧 `<TerminalPrompt/>`
+> 🚧 `<Terminal.Prompt/>` (alias)
+
+`TerminalPrompt` renders the shell prompt and input.
 
 ### `TerminalInput`
 

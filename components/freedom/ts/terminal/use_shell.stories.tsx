@@ -48,7 +48,7 @@ export const FormatEachLine: Story = {
 				<Terminal.Output>
 					{({ output }) => output.map(line => <div className="outline">{line}</div>)}
 				</Terminal.Output>
-				<Terminal.Input />
+				<Terminal.Prompt />
 			</Terminal>
 		)
 	}
@@ -65,7 +65,7 @@ export const WithCustomLayout: Story = {
 				<div>Status: connected</div>
 				<div className="overflow-auto">
 					<Terminal.Output />
-					<Terminal.Input />
+					<Terminal.Prompt />
 				</div>
 			</Terminal>
 		)
@@ -77,14 +77,42 @@ export const ParseInput: Story = {
 		const { register, onParse } = useShell()
 		onParse(text => `echo ${text}`)
 
-		return <Terminal data-testid="terminal" className="h-full" {...register()} />
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play() {
 		await userEvent.keyboard('hello world{enter}')
 	}
 }
 
-export const TODOInputSpanFullWidth: Story = {
+export const CustomStringPrompt: Story = {
+	render() {
+		const { register } = useShell({ prompt: '>>>' })
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	}
+}
+
+export const CustomReactPrompt: Story = {
+	render() {
+		const { register } = useShell({
+			prompt: ({ output }) => (
+				<>
+					<div>cyberuni</div>
+					<div className="flex">
+						<span className="px-4 bg-slate-300">$</span>
+						<span className="flex-grow bg-indigo-300">
+							{output || <Terminal.Input className="w-full bg-indigo-300 outline-none" />}
+						</span>
+					</div>
+				</>
+			)
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	}
+}
+
+export const InputSpanFullWidth: Story = {
 	render() {
 		const { register } = useShell({
 			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()]
@@ -93,7 +121,9 @@ export const TODOInputSpanFullWidth: Story = {
 		return (
 			<Terminal className="h-full overflow-auto" {...register()}>
 				<Terminal.Output />
-				<Terminal.Input className="outline-none" />
+				<Terminal.Prompt className="flex">
+					<Terminal.Input className="w-full outline-none" />
+				</Terminal.Prompt>
 			</Terminal>
 		)
 	}

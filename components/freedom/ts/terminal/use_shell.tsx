@@ -8,9 +8,14 @@ import {
 import { resolvePrompt } from './terminal.js'
 
 export interface useSimpleTerminalProps {
-	initial: Array<ReactNode>
+	initial?: Array<ReactNode>
 	echoInput?: boolean
-	prompt?: string | JSXElementConstructor<{ children: ReactNode }>
+	prompt?:
+		| string
+		| JSXElementConstructor<{
+				output?: ReactNode
+				children?: ReactNode
+		  }>
 }
 
 /**
@@ -33,11 +38,12 @@ export function useShell(props?: useSimpleTerminalProps) {
 					if (e.key === 'Enter') {
 						if (echoInput) {
 							// eslint-disable-next-line react/jsx-key
-							setOutput(h => [...h, <Prompt>{ref.current?.value}</Prompt>])
+							setOutput(h => [...h, <Prompt output={ref.current?.value} />])
 						}
-						const result = await parseFn?.(ref.current?.value ?? '')
-						if (result) {
-							setOutput(h => [...h, result])
+
+						if (parseFn) {
+							const result = await parseFn(ref.current?.value ?? '')
+							setOutput(h => [...h, result ? result : <div>&nbsp;</div>])
 						}
 						if (ref.current) ref.current.value = ''
 					}
