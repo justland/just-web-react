@@ -40,7 +40,7 @@ export const TerminalWidget = forwardRef<HTMLInputElement, TerminalContainerProp
 		<TerminalWidgetContext.Provider
 			value={{
 				...rest,
-				Prompt: resolvePrompt({ prompt }),
+				Prompt: resolvePrompt(prompt),
 				ref
 			}}
 		>
@@ -71,7 +71,7 @@ export function TerminalOutput({ className, children }: TerminalOutputProps) {
 	)
 }
 
-export function resolvePrompt({ prompt }: { prompt: PromptNode }) {
+export function resolvePrompt(prompt: PromptNode) {
 	if (typeof prompt === 'function') return prompt
 
 	return function Prompt({

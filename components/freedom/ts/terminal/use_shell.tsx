@@ -1,9 +1,4 @@
-import {
-	useRef,
-	useState,
-	type KeyboardEvent as ReactKeyboardEvent,
-	type ReactNode
-} from 'react'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
 export interface useShellProps {
@@ -21,7 +16,7 @@ export function useShell(props?: useShellProps) {
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
 
-	const Prompt = resolvePrompt({ prompt })
+	const Prompt = resolvePrompt(prompt)
 	let parseFn: (text: string) => Promise<ReactNode> | ReactNode = text => text
 	return {
 		register() {
