@@ -3,6 +3,7 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent } from '@storybook/testing-library'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
+import { useState } from 'react'
 
 const meta: Meta<typeof Terminal> = {
 	decorators: [
@@ -132,6 +133,20 @@ export const InputSpanFullWidth: Story = {
 export const DisableEchoPrompt: Story = {
 	render() {
 		const { register } = useShell({ echoPrompt: false })
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
+	}
+}
+
+export const ChangePrompt: Story = {
+	render() {
+		const [prompt, setPrompt] = useState('>')
+		const { register, onParse } = useShell({ prompt })
+
+		onParse(() => setPrompt('$'))
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
