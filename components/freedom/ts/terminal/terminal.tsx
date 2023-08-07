@@ -10,14 +10,17 @@ import {
 } from 'react'
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
+export interface PromptProps {
+	children?: ReactNode | undefined
+	className?: string | undefined
+	output?: ReactNode | undefined
+}
+
+export type PromptNode = string | JSXElementConstructor<PromptProps>
+
 export const TerminalWidgetContext = createContext<{
 	className?: string
-	Prompt:
-		| string
-		| JSXElementConstructor<{
-				className?: string | undefined
-				children: ReactNode
-		  }>
+	Prompt: PromptNode
 	output: Array<ReactNode>
 	ref: ForwardedRef<HTMLInputElement>
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
@@ -26,12 +29,7 @@ export const TerminalWidgetContext = createContext<{
 export interface TerminalContainerProps {
 	children?: ReactNode
 	className?: string
-	prompt:
-		| string
-		| JSXElementConstructor<{
-				output?: ReactNode
-				children?: ReactNode
-		  }>
+	prompt: PromptNode
 	output: Array<ReactNode>
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
 }
@@ -73,16 +71,7 @@ export function TerminalOutput({ className, children }: TerminalOutputProps) {
 	)
 }
 
-export function resolvePrompt({
-	prompt
-}: {
-	prompt:
-		| string
-		| JSXElementConstructor<{
-				output?: ReactNode
-				children?: ReactNode
-		  }>
-}) {
+export function resolvePrompt({ prompt }: { prompt: PromptNode }) {
 	if (typeof prompt === 'function') return prompt
 
 	return function Prompt({
@@ -103,7 +92,12 @@ export function resolvePrompt({
 	}
 }
 
-export function TerminalPrompt({ className, children }: { className?: string; children?: ReactNode }) {
+export interface TerminalPromptProps {
+	className?: string
+	children?: ReactNode
+}
+
+export function TerminalPrompt({ className, children }: TerminalPromptProps) {
 	const { Prompt } = useContext(TerminalWidgetContext)
 	return <Prompt className={className}>{children || <TerminalInput />}</Prompt>
 }

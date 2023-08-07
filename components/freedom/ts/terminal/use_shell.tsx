@@ -1,27 +1,21 @@
 import {
 	useRef,
 	useState,
-	type JSXElementConstructor,
 	type KeyboardEvent as ReactKeyboardEvent,
 	type ReactNode
 } from 'react'
-import { resolvePrompt } from './terminal.js'
+import { resolvePrompt, type PromptNode } from './terminal.js'
 
-export interface useSimpleTerminalProps {
+export interface useShellProps {
 	initial?: Array<ReactNode>
 	echoInput?: boolean
-	prompt?:
-		| string
-		| JSXElementConstructor<{
-				output?: ReactNode
-				children?: ReactNode
-		  }>
+	prompt?: PromptNode
 }
 
 /**
  * A hook for a shell emulator.
  */
-export function useShell(props?: useSimpleTerminalProps) {
+export function useShell(props?: useShellProps) {
 	const { initial = [], echoInput = true, prompt = '>' } = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
