@@ -59,7 +59,7 @@ export const TerminalWidget = forwardRef<HTMLInputElement, TerminalContainerProp
 	)
 })
 
-TerminalWidget.displayName = 'Terminal'
+TerminalWidget.displayName = 'TerminalWidget'
 
 export interface TerminalOutputProps {
 	className?: string
