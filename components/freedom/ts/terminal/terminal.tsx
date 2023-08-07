@@ -3,89 +3,100 @@ import {
 	forwardRef,
 	useContext,
 	useEffect,
-	useRef,
 	type ForwardedRef,
+	type JSXElementConstructor,
 	type KeyboardEventHandler,
-	type PropsWithChildren,
 	type ReactNode
 } from 'react'
+import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
-type TerminalContext = {
+export const TerminalWidgetContext = createContext<{
 	className?: string
-	prompt: string
-	history: Array<ReactNode>
+	Prompt: string | JSXElementConstructor<{ children: ReactNode }>
+	output: Array<ReactNode>
 	ref: ForwardedRef<HTMLInputElement>
+	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
+}>(null as any)
+
+export interface TerminalContainerProps {
+	children?: ReactNode
+	className?: string
+	prompt: string | JSXElementConstructor<{ children: ReactNode }>
+	output: Array<ReactNode>
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
 }
 
-const TerminalContext = createContext<TerminalContext>(null as any)
-
-export interface TerminalContainerProps
-	extends PropsWithChildren<{
-		className?: string
-		prompt?: string
-		history: Array<ReactNode>
-		onKeyDown?: KeyboardEventHandler<HTMLInputElement>
-	}> {}
-
-export const TerminalContainer = forwardRef<HTMLInputElement, TerminalContainerProps>((props, ref) => {
-	const { children, ...rest } = props
+export const TerminalWidget = forwardRef<HTMLInputElement, TerminalContainerProps>((props, ref) => {
+	const { children, className, prompt, ...rest } = props
 	return (
-		<TerminalContext.Provider
+		<TerminalWidgetContext.Provider
 			value={{
-				prompt: '>',
 				...rest,
-				ref: ref!
+				Prompt: resolvePrompt({ prompt }),
+				ref
 			}}
 		>
-			{children}
-		</TerminalContext.Provider>
+			<div className={className}>
+				{children || (
+					<>
+						<TerminalOutput />
+						<TerminalInput />
+					</>
+				)}
+			</div>
+		</TerminalWidgetContext.Provider>
 	)
 })
 
-TerminalContainer.displayName = 'Terminal'
+TerminalWidget.displayName = 'Terminal'
 
-export interface TerminalBodyProps {
+export interface TerminalOutputProps {
 	className?: string
+	children?: ReactNode | ((bag: { output: Array<ReactNode> }) => ReactNode)
 }
 
-function useForwardedRef<T>(ref: ForwardedRef<T>) {
-	const innerRef = useRef<T>(null)
-
-	useEffect(() => {
-		if (!ref) return
-		if (typeof ref === 'function') {
-			ref(innerRef.current)
-		} else {
-			ref.current = innerRef.current
-		}
-	})
-
-	return innerRef
+export function TerminalOutput({ className, children }: TerminalOutputProps) {
+	const { output } = useContext(TerminalWidgetContext)
+	const resolvedChildren = typeof children === 'function' ? children({ output }) : children
+	return (
+		<div className={className}>{resolvedChildren || output.map((line, i) => <div key={i}>{line}</div>)}</div>
+	)
 }
 
-export function TerminalBody() {
-	const { prompt, history, className, ref, onKeyDown } = useContext(TerminalContext)
+export function resolvePrompt({
+	prompt
+}: {
+	prompt: string | JSXElementConstructor<{ children: ReactNode }>
+}) {
+	if (typeof prompt === 'function') return prompt
 
+	return function Prompt({ children }: { children: ReactNode }) {
+		return (
+			<>
+				<span>{prompt}</span>
+				<span>{children}</span>
+			</>
+		)
+	}
+}
+
+export function TerminalInput({ className }: { className?: string }) {
+	const { Prompt, ref, output, onKeyDown } = useContext(TerminalWidgetContext)
 	const innerRef = useForwardedRef(ref)
 
 	useEffect(() => {
 		innerRef?.current?.focus()
-	}, [ref])
+	}, [ref, output])
 
+	const input = <input ref={innerRef} className={className} onKeyDown={onKeyDown}></input>
 	return (
-		<div className={className}>
-			{history.map((line, i) => (
-				<div key={i}>{line}</div>
-			))}
-			<div key="input">
-				<span>{prompt}</span>
-				<input ref={innerRef} onKeyDown={onKeyDown}></input>
-			</div>
+		<div key="input">
+			<Prompt>{input}</Prompt>
 		</div>
 	)
 }
 
-export const Terminal = Object.assign(TerminalContainer, {
-	Body: TerminalBody
+export const Terminal = Object.assign(TerminalWidget, {
+	Output: TerminalOutput,
+	Input: TerminalInput
 })
