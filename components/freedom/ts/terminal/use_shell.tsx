@@ -1,7 +1,7 @@
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
-export interface useShellProps {
+export interface UseShellProps {
 	initial?: Array<ReactNode>
 	echoInput?: boolean
 	prompt?: PromptNode
@@ -10,7 +10,7 @@ export interface useShellProps {
 /**
  * A hook for a shell emulator.
  */
-export function useShell(props?: useShellProps) {
+export function useShell(props?: UseShellProps) {
 	const { initial = [], echoInput = true, prompt = '>' } = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
