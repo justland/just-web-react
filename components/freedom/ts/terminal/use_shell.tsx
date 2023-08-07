@@ -1,6 +1,10 @@
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
+export interface CommandParser {
+	(props: { input: string }): Promise<ReactNode> | ReactNode
+}
+
 export interface UseShellProps {
 	/**
 	 * The initial output to be presented on the terminal.
@@ -24,7 +28,9 @@ export interface UseShellProps {
 	 * - no `commands` are provided.
 	 * - no `command` is identified to process the command.
 	 */
-	onParse?: (text: string) => Promise<ReactNode> | ReactNode
+	onParse?: CommandParser
+
+	commands?: Record<string, string | CommandParser>
 }
 
 /**
@@ -35,7 +41,8 @@ export function useShell(props?: UseShellProps) {
 		initial = [],
 		echoPrompt = true,
 		prompt = '>',
-		onParse = (text: string) => (text ? `Unknown command: ${text.split(' ')[0]}` : '')
+		commands = {},
+		onParse = ({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : '')
 	} = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
@@ -60,7 +67,11 @@ export function useShell(props?: UseShellProps) {
 							})
 						}
 
-						const result = await onParse(ref.current.value ?? '')
+						const input = ref.current.value
+
+						const command = lookupCommand(commands, input) ?? onParse
+
+						const result = await executeCommand(command, input)
 						setOutput(h => [...h, result ? result : <div>&nbsp;</div>])
 						ref.current.value = ''
 					}
@@ -69,4 +80,19 @@ export function useShell(props?: UseShellProps) {
 			}
 		}
 	}
+}
+
+function lookupCommand(commands: Record<string, string | CommandParser>, input: string) {
+	for (const [command, parser] of Object.entries(commands)) {
+		if (input.startsWith(command)) {
+			return parser
+		}
+	}
+}
+
+async function executeCommand(command: string | CommandParser, input: string) {
+	if (typeof command === 'string') {
+		return Promise.resolve(command)
+	}
+	return command({ input })
 }

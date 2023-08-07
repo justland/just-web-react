@@ -1,9 +1,9 @@
 import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent } from '@storybook/testing-library'
+import { useState } from 'react'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
-import { useState } from 'react'
 
 const meta: Meta<typeof Terminal> = {
 	decorators: [
@@ -149,8 +149,8 @@ export const ChangePrompt: Story = {
 export const ParseInput: Story = {
 	render() {
 		const { register } = useShell({
-			onParse(text) {
-				return `echo ${text}`
+			onParse({ input }) {
+				return `echo ${input}`
 			}
 		})
 
@@ -164,8 +164,8 @@ export const ParseInput: Story = {
 export const ParseInputAsync: Story = {
 	render() {
 		const { register } = useShell({
-			async onParse(text) {
-				return `echo ${text}`
+			async onParse({ input }) {
+				return `echo ${input}`
 			}
 		})
 
@@ -173,5 +173,35 @@ export const ParseInputAsync: Story = {
 	},
 	async play() {
 		await userEvent.keyboard('hello world{enter}')
+	}
+}
+
+export const UnknownCommand: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: ({ input }) => `miku ${input}`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
+	}
+}
+
+export const StringCommand: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				help: `tried to help`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('help{enter}')
 	}
 }
