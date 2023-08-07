@@ -11,9 +11,12 @@ import {
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
 export interface PromptNodeProps {
+	/**
+	 * Children of the prompt is either the `<TerminalInput>`,
+	 * or `ReactNode` when the prompt is used in the output.
+	 */
 	children?: ReactNode | undefined
 	className?: string | undefined
-	output?: ReactNode | undefined
 }
 
 export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
@@ -74,11 +77,11 @@ export function TerminalOutput({ className, children }: TerminalOutputProps) {
 export function resolvePrompt(prompt: PromptNode) {
 	if (typeof prompt === 'function') return prompt
 
-	return function Prompt({ className, output, children }: PromptNodeProps) {
+	return function Prompt({ className, children }: PromptNodeProps) {
 		return (
 			<div className={className}>
 				{prompt}
-				{output || children}
+				{children || <TerminalInput />}
 			</div>
 		)
 	}
@@ -91,7 +94,7 @@ export interface TerminalPromptProps {
 
 export function TerminalPrompt({ className, children }: TerminalPromptProps) {
 	const { Prompt } = useContext(TerminalWidgetContext)
-	return <Prompt className={className}>{children || <TerminalInput />}</Prompt>
+	return <Prompt className={className}>{children}</Prompt>
 }
 
 export function TerminalInput({ className }: { className?: string | undefined }) {

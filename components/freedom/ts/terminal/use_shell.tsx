@@ -2,8 +2,21 @@ import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactN
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
 export interface UseShellProps {
+	/**
+	 * The initial output to be presented on the terminal.
+	 */
 	initial?: Array<ReactNode>
+	/**
+	 * Whether to echo the prompt in the output.
+	 * Default to `true`.
+	 */
 	echoPrompt?: boolean
+	/**
+	 * The prompt to be presented on the terminal.
+	 * Default to `>`.
+	 *
+	 * It can be a React component accepting `PromptNodeProps`.
+	 */
 	prompt?: PromptNode
 }
 
@@ -17,7 +30,8 @@ export function useShell(props?: UseShellProps) {
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
 
 	const Prompt = resolvePrompt(prompt)
-	let parseFn: (text: string) => Promise<ReactNode> | ReactNode = text => text
+	let parseFn: (text: string) => Promise<ReactNode> | ReactNode = text =>
+		text ? `Unknown command: ${text.split(' ')[0]}` : ''
 	return {
 		register() {
 			return {
@@ -31,7 +45,7 @@ export function useShell(props?: UseShellProps) {
 							setOutput(h => {
 								if (!ref.current) return h
 
-								const entry = <Prompt output={ref.current.value} />
+								const entry = <Prompt>{ref.current.value}</Prompt>
 								return [...h, entry]
 							})
 						}

@@ -96,13 +96,13 @@ export const CustomStringPrompt: Story = {
 export const CustomReactPrompt: Story = {
 	render() {
 		const { register } = useShell({
-			prompt: ({ output }) => (
+			prompt: ({ children }) => (
 				<>
 					<div>cyberuni</div>
 					<div className="flex">
 						<span className="px-4 bg-slate-300">$</span>
 						<span className="flex-grow bg-indigo-300">
-							{output || <Terminal.Input className="w-full bg-indigo-300 outline-none" />}
+							{children || <Terminal.Input className="w-full bg-indigo-300 outline-none" />}
 						</span>
 					</div>
 				</>
@@ -154,3 +154,5 @@ export const ChangePrompt: Story = {
 		await userEvent.keyboard('change prompt{enter}')
 	}
 }
+
+// async parse
