@@ -75,8 +75,11 @@ export const WithCustomLayout: Story = {
 
 export const ParseInput: Story = {
 	render() {
-		const { register, onParse } = useShell()
-		onParse(text => `echo ${text}`)
+		const { register } = useShell({
+			onParse(text) {
+				return `echo ${text}`
+			}
+		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
@@ -144,9 +147,12 @@ export const DisableEchoPrompt: Story = {
 export const ChangePrompt: Story = {
 	render() {
 		const [prompt, setPrompt] = useState('>')
-		const { register, onParse } = useShell({ prompt })
-
-		onParse(() => setPrompt('$'))
+		const { register } = useShell({
+			prompt,
+			onParse() {
+				setPrompt('$')
+			}
+		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
