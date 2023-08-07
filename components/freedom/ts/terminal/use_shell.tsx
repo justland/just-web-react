@@ -113,5 +113,14 @@ async function executeCommand(
 }
 
 function matchCommandName(commands: CommandsMap, input: string) {
-	return Object.keys(commands).find(k => k.startsWith(input))
+	const keys = Object.keys(commands).sort((a, b) => (a > b ? 1 : -1))
+	for (let i = 0; i <= keys.length; i++) {
+		const key = keys[i]
+		if (key === input) {
+			return keys.at((i + 1) % keys.length)
+		}
+		if (key.startsWith(input)) {
+			return key
+		}
+	}
 }
