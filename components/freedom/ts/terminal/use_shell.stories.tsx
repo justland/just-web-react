@@ -73,21 +73,6 @@ export const WithCustomLayout: Story = {
 	}
 }
 
-export const ParseInput: Story = {
-	render() {
-		const { register } = useShell({
-			onParse(text) {
-				return `echo ${text}`
-			}
-		})
-
-		return <Terminal className="h-full overflow-auto" {...register()} />
-	},
-	async play() {
-		await userEvent.keyboard('hello world{enter}')
-	}
-}
-
 export const CustomStringPrompt: Story = {
 	render() {
 		const { register } = useShell({ prompt: '>>>' })
@@ -161,4 +146,32 @@ export const ChangePrompt: Story = {
 	}
 }
 
-// async parse
+export const ParseInput: Story = {
+	render() {
+		const { register } = useShell({
+			onParse(text) {
+				return `echo ${text}`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
+	}
+}
+
+export const ParseInputAsync: Story = {
+	render() {
+		const { register } = useShell({
+			async onParse(text) {
+				return `echo ${text}`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
+	}
+}
