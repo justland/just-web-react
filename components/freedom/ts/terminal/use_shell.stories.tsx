@@ -205,3 +205,48 @@ export const StringCommand: Story = {
 		await userEvent.keyboard('help{enter}')
 	}
 }
+
+export const FunctionCommand: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: ({ input }) => `received '${input}'`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('miku sing{enter}')
+	}
+}
+
+export const ReactNodeCommand: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('miku sing{enter}')
+	}
+}
+
+export const AutoComplete: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('m{tab}')
+	}
+}

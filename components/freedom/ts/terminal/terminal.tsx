@@ -107,7 +107,7 @@ export function TerminalInput({ className }: { className?: string | undefined })
 		}
 	}, [ref])
 
-	return <input ref={innerRef} className={className} onKeyDown={onKeyDown}></input>
+	return <input ref={innerRef} className={className} onKeyDown={onKeyDown} />
 }
 
 export const Terminal = Object.assign(TerminalWidget, {

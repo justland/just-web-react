@@ -5,6 +5,10 @@ export interface CommandParser {
 	(props: { input: string }): Promise<ReactNode> | ReactNode
 }
 
+export interface CommandsMap {
+	[k: string]: string | CommandParser
+}
+
 export interface UseShellProps {
 	/**
 	 * The initial output to be presented on the terminal.
@@ -30,7 +34,7 @@ export interface UseShellProps {
 	 */
 	onParse?: CommandParser
 
-	commands?: Record<string, string | CommandParser>
+	commands?: CommandsMap
 }
 
 /**
@@ -57,7 +61,9 @@ export function useShell(props?: UseShellProps) {
 				async onKeyDown(e: ReactKeyboardEvent<HTMLElement>) {
 					if (!ref.current) return
 
+					const input = ref.current.value
 					if (e.key === 'Enter') {
+						e.preventDefault()
 						if (echoPrompt) {
 							setOutput(h => {
 								if (!ref.current) return h
@@ -67,13 +73,16 @@ export function useShell(props?: UseShellProps) {
 							})
 						}
 
-						const input = ref.current.value
-
 						const command = lookupCommand(commands, input) ?? onParse
 
 						const result = await executeCommand(command, input)
 						setOutput(h => [...h, result ? result : <div>&nbsp;</div>])
 						ref.current.value = ''
+					} else if (e.key === 'Tab') {
+						e.preventDefault()
+
+						const name = matchCommandName(commands, input)
+						if (name) ref.current.value = name
 					}
 				},
 				output
@@ -82,7 +91,7 @@ export function useShell(props?: UseShellProps) {
 	}
 }
 
-function lookupCommand(commands: Record<string, string | CommandParser>, input: string) {
+function lookupCommand(commands: CommandsMap, input: string) {
 	for (const [command, parser] of Object.entries(commands)) {
 		if (input.startsWith(command)) {
 			return parser
@@ -95,4 +104,8 @@ async function executeCommand(command: string | CommandParser, input: string) {
 		return Promise.resolve(command)
 	}
 	return command({ input })
+}
+
+function matchCommandName(commands: CommandsMap, input: string) {
+	return Object.keys(commands).find(k => k.startsWith(input))
 }
