@@ -3,7 +3,7 @@ import { resolvePrompt, type PromptNode } from './terminal.js'
 
 export interface UseShellProps {
 	initial?: Array<ReactNode>
-	echoInput?: boolean
+	echoPrompt?: boolean
 	prompt?: PromptNode
 }
 
@@ -11,7 +11,7 @@ export interface UseShellProps {
  * A hook for a shell emulator.
  */
 export function useShell(props?: UseShellProps) {
-	const { initial = [], echoInput = true, prompt = '>' } = props ?? {}
+	const { initial = [], echoPrompt = true, prompt = '>' } = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
@@ -25,7 +25,7 @@ export function useShell(props?: UseShellProps) {
 				prompt: Prompt,
 				async onKeyDown(e: ReactKeyboardEvent<HTMLElement>) {
 					if (e.key === 'Enter') {
-						if (echoInput) {
+						if (echoPrompt) {
 							// eslint-disable-next-line react/jsx-key
 							setOutput(h => [...h, <Prompt output={ref.current?.value} />])
 						}

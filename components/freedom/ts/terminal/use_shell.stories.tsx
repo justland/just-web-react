@@ -128,3 +128,14 @@ export const InputSpanFullWidth: Story = {
 		)
 	}
 }
+
+export const DisableEchoPrompt: Story = {
+	render() {
+		const { register } = useShell({ echoPrompt: false })
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
+	}
+}
