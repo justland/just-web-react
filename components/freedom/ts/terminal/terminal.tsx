@@ -85,7 +85,9 @@ export function TerminalInput({ className }: { className?: string }) {
 	const innerRef = useForwardedRef(ref)
 
 	useEffect(() => {
-		innerRef?.current?.focus()
+		if (innerRef.current) {
+			innerRef.current.focus()
+		}
 	}, [ref, output])
 
 	const input = <input ref={innerRef} className={className} onKeyDown={onKeyDown}></input>

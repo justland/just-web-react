@@ -1,5 +1,6 @@
 import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
+import { userEvent } from '@storybook/testing-library'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
 
@@ -30,8 +31,7 @@ export const BasicExample: Story = {
 
 export const WithInitialNodes: Story = {
 	render() {
-		const { register, onParse } = useShell({ initial: [<b>Bold text</b>, <i>Italic text</i>] })
-		onParse(text => `echo ${text}`)
+		const { register } = useShell({ initial: [<b>Bold text</b>, <i>Italic text</i>] })
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	}
@@ -69,6 +69,18 @@ export const WithCustomLayout: Story = {
 				</div>
 			</Terminal>
 		)
+	}
+}
+
+export const ParseInput: Story = {
+	render() {
+		const { register, onParse } = useShell()
+		onParse(text => `echo ${text}`)
+
+		return <Terminal data-testid="terminal" className="h-full" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('hello world{enter}')
 	}
 }
 
