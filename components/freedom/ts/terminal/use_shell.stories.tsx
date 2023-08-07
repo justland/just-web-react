@@ -2,6 +2,7 @@ import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent } from '@storybook/testing-library'
 import { useState } from 'react'
+import { list } from './list_commands.js'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
 
@@ -221,6 +222,21 @@ export const FunctionCommand: Story = {
 	}
 }
 
+export const CommandReturnsArray: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				chatty: ({ input }) => [`received '${input}'`, `start '${input}'`, `end '${input}'`]
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('chatty{enter}')
+	}
+}
+
 export const ReactNodeCommand: Story = {
 	render() {
 		const { register } = useShell({
@@ -248,5 +264,27 @@ export const AutoComplete: Story = {
 	},
 	async play() {
 		await userEvent.keyboard('m{tab}')
+	}
+}
+
+export const ListCommandsByEmptyPrompt: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				str: 'str cmd',
+				fn: () => 'fn cmd',
+				miku: {
+					type: 'command',
+					description: 'tell miku to do something',
+					parse: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+				},
+				list
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('list{enter}')
 	}
 }

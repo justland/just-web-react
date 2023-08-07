@@ -1,13 +1,6 @@
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
+import type { Command, CommandParser, CommandsMap } from './shell.types.js'
 import { resolvePrompt, type PromptNode } from './terminal.js'
-
-export interface CommandParser {
-	(props: { input: string }): Promise<ReactNode> | ReactNode
-}
-
-export interface CommandsMap {
-	[k: string]: string | CommandParser
-}
 
 export interface UseShellProps {
 	/**
@@ -36,6 +29,8 @@ export interface UseShellProps {
 
 	commands?: CommandsMap
 }
+
+const EMPTY_LINE = <div>&nbsp;</div>
 
 /**
  * A hook for a shell emulator.
@@ -75,8 +70,12 @@ export function useShell(props?: UseShellProps) {
 
 						const command = lookupCommand(commands, input) ?? onParse
 
-						const result = await executeCommand(command, input)
-						setOutput(h => [...h, result ? result : <div>&nbsp;</div>])
+						const result = await executeCommand.bind({ commands })(command, input)
+						setOutput(h => {
+							if (!result) return [...h, EMPTY_LINE]
+							if (Array.isArray(result)) return [...h, ...result]
+							return [...h, result]
+						})
 						ref.current.value = ''
 					} else if (e.key === 'Tab') {
 						e.preventDefault()
@@ -99,11 +98,18 @@ function lookupCommand(commands: CommandsMap, input: string) {
 	}
 }
 
-async function executeCommand(command: string | CommandParser, input: string) {
+async function executeCommand(
+	this: { commands: CommandsMap },
+	command: string | CommandParser | Command,
+	input: string
+) {
 	if (typeof command === 'string') {
-		return Promise.resolve(command)
+		return command
 	}
-	return command({ input })
+	if (typeof command === 'function') {
+		return command.bind(this)({ input })
+	}
+	return command.parse.bind(this)({ input })
 }
 
 function matchCommandName(commands: CommandsMap, input: string) {

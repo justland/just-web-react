@@ -17,7 +17,8 @@ module.exports = {
 			},
 			rules: {
 				'@typescript-eslint/require-await': 'off',
-				'harmony/ts-member-delimiter-style': 'off'
+				'harmony/ts-member-delimiter-style': 'off',
+				'no-use-before-define': 'off',
 			},
 			settings: {
 				react: {
