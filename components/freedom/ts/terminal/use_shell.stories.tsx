@@ -151,6 +151,6 @@ export const ChangePrompt: Story = {
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play() {
-		await userEvent.keyboard('hello world{enter}')
+		await userEvent.keyboard('change prompt{enter}')
 	}
 }

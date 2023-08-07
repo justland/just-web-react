@@ -24,17 +24,23 @@ export function useShell(props?: UseShellProps) {
 				ref,
 				prompt: Prompt,
 				async onKeyDown(e: ReactKeyboardEvent<HTMLElement>) {
+					if (!ref.current) return
+
 					if (e.key === 'Enter') {
 						if (echoPrompt) {
-							// eslint-disable-next-line react/jsx-key
-							setOutput(h => [...h, <Prompt output={ref.current?.value} />])
+							setOutput(h => {
+								if (!ref.current) return h
+
+								const entry = <Prompt output={ref.current.value} />
+								return [...h, entry]
+							})
 						}
 
 						if (parseFn) {
-							const result = await parseFn(ref.current?.value ?? '')
+							const result = await parseFn(ref.current.value ?? '')
 							setOutput(h => [...h, result ? result : <div>&nbsp;</div>])
 						}
-						if (ref.current) ref.current.value = ''
+						ref.current.value = ''
 					}
 				},
 				output
