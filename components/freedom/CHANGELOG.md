@@ -1,5 +1,12 @@
 # react-freedom
 
+## 0.1.1
+
+### Patch Changes
+
+- 03799b8: Fix TerminalWidgetProps name
+- fcba196: Add `TerminalInputProps`
+
 ## 0.1.0
 
 ### Minor Changes
