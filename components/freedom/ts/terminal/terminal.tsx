@@ -16,7 +16,6 @@ export interface PromptNodeProps {
 	 * or `ReactNode` when the prompt is used in the output.
 	 */
 	children?: ReactNode | undefined
-	className?: string | undefined
 }
 
 export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
@@ -51,7 +50,7 @@ export const TerminalWidget = forwardRef<HTMLInputElement, TerminalWidgetProps>(
 				{children || (
 					<>
 						<TerminalOutput />
-						<TerminalPrompt />
+						<TerminalPromptArea />
 					</>
 				)}
 			</div>
@@ -77,24 +76,25 @@ export function TerminalOutput({ className, children }: TerminalOutputProps) {
 export function resolvePrompt(prompt: PromptNode) {
 	if (typeof prompt === 'function') return prompt
 
-	return function Prompt({ className, children }: PromptNodeProps) {
+	return function Prompt({ children }: PromptNodeProps) {
+		const resolvedChildren =
+			typeof children === 'string' ? <span>{children}</span> : children || <TerminalInput />
 		return (
-			<div className={className}>
-				{prompt}
-				{children || <TerminalInput />}
+			<div>
+				<span>{prompt}</span>
+				{resolvedChildren}
 			</div>
 		)
 	}
 }
 
 export interface TerminalPromptProps {
-	className?: string | undefined
-	children?: ReactNode | undefined
+	input?: ReactNode | undefined
 }
 
-export function TerminalPrompt({ className, children }: TerminalPromptProps) {
+export function TerminalPromptArea({ input }: TerminalPromptProps) {
 	const { Prompt } = useContext(TerminalWidgetContext)
-	return <Prompt className={className}>{children}</Prompt>
+	return <Prompt>{input}</Prompt>
 }
 
 export interface TerminalInputProps {
@@ -117,7 +117,7 @@ export function TerminalInput({ className }: TerminalInputProps) {
 export const Terminal = Object.assign(TerminalWidget, {
 	Input: TerminalInput,
 	Output: TerminalOutput,
-	Prompt: TerminalPrompt,
+	PromptArea: TerminalPromptArea,
 	Widget: TerminalWidget,
 	WidgetContext: TerminalWidgetContext
 })

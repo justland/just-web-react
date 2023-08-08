@@ -52,7 +52,7 @@ export const FormatEachLine: Story = {
 				<Terminal.Output>
 					{({ output }) => output.map(line => <div className="outline">{line}</div>)}
 				</Terminal.Output>
-				<Terminal.Prompt />
+				<Terminal.PromptArea />
 			</Terminal>
 		)
 	}
@@ -69,7 +69,7 @@ export const WithCustomLayout: Story = {
 				<div>Status: connected</div>
 				<div className="overflow-auto">
 					<Terminal.Output />
-					<Terminal.Prompt />
+					<Terminal.PromptArea />
 				</div>
 			</Terminal>
 		)
@@ -107,15 +107,19 @@ export const CustomReactPrompt: Story = {
 export const InputSpanFullWidth: Story = {
 	render() {
 		const { register } = useShell({
-			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()]
+			initial: [faker.lorem.paragraph()],
+			prompt: ({ children }) => (
+				<div className="flex gap-2">
+					<span>&gt;</span>
+					{children}
+				</div>
+			)
 		})
 
 		return (
 			<Terminal className="h-full overflow-auto" {...register()}>
 				<Terminal.Output />
-				<Terminal.Prompt className="flex">
-					<Terminal.Input className="w-full outline-none" />
-				</Terminal.Prompt>
+				<Terminal.PromptArea input={<Terminal.Input className="w-full outline-none" />} />
 			</Terminal>
 		)
 	}
@@ -168,7 +172,7 @@ export const ParseInputAsync: Story = {
 	render() {
 		const { register } = useShell({
 			async onParse({ input }) {
-				return `echo ${input}`
+				return `async-echo ${input}`
 			}
 		})
 
