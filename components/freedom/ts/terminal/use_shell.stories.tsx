@@ -2,7 +2,7 @@ import { faker } from '@faker-js/faker'
 import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent } from '@storybook/testing-library'
 import { useState } from 'react'
-import { list } from './list_commands.js'
+import { listCommand } from './list_commands.js'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
 
@@ -277,7 +277,7 @@ export const ListCommandsByEmptyPrompt: Story = {
 					description: 'tell miku to do something',
 					run: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
 				},
-				list
+				list: listCommand
 			}
 		})
 

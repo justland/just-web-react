@@ -1,6 +1,6 @@
 import type { Command } from './shell.types.js'
 
-export const list: Command = {
+export const listCommand: Command = {
 	description: 'list all commands',
 	run() {
 		return Object.keys(this.commands)
