@@ -6,6 +6,8 @@ import { listCommand } from './list_commands.js'
 import { Terminal } from './terminal.js'
 import { useShell } from './use_shell.js'
 
+faker.seed(1234)
+
 const meta: Meta<typeof Terminal> = {
 	decorators: [
 		Story => {

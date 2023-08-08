@@ -8,6 +8,7 @@ ignores:
   - autoprefixer # tailwind
   - eslint*
   - jest-image-snapshot
+  - nyc # used by @storybook/addon-coverage
   - rimraf # depcheck doesn't recognize rimraf as a dependency
   - size-limit
   - storybook-dark-mode
