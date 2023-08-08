@@ -1,5 +1,11 @@
 # react-freedom
 
+## 0.1.0
+
+### Minor Changes
+
+- e659316: Add `Terminal`
+
 ## 0.0.3
 
 ### Patch Changes
