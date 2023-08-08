@@ -97,7 +97,11 @@ export function TerminalPrompt({ className, children }: TerminalPromptProps) {
 	return <Prompt className={className}>{children}</Prompt>
 }
 
-export function TerminalInput({ className }: { className?: string | undefined }) {
+export interface TerminalInputProps {
+	className?: string | undefined
+}
+
+export function TerminalInput({ className }: TerminalInputProps) {
 	const { ref, onKeyDown } = useContext(TerminalWidgetContext)
 	const innerRef = useForwardedRef(ref)
 
