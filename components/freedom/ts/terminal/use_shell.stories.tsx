@@ -289,3 +289,18 @@ export const ListCommandsByEmptyPrompt: Story = {
 		await userEvent.keyboard('list{enter}')
 	}
 }
+
+export const History: Story = {
+	render() {
+		const { register } = useShell()
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play() {
+		await userEvent.keyboard('command 1{enter}')
+		await userEvent.keyboard('command 2{enter}')
+		await userEvent.keyboard('command 3{enter}')
+		await userEvent.keyboard('command 4{enter}')
+		await userEvent.keyboard('command 5{enter}')
+		await userEvent.keyboard('{arrowup}')
+	}
+}

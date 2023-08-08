@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
+import { useEffect, useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
 import type { CommandParser, CommandTypes, CommandsMap } from './shell.types.js'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
@@ -45,7 +45,13 @@ export function useShell(props?: UseShellProps) {
 	} = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
+	const [history, setHistory] = useState<Array<string>>([])
+	const [historyIndex, setHistoryIndex] = useState(-1)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
+
+	useEffect(() => {
+		setHistoryIndex(-1)
+	}, [history])
 
 	const Prompt = resolvePrompt(prompt)
 	return {
@@ -59,6 +65,7 @@ export function useShell(props?: UseShellProps) {
 					const input = ref.current.value
 					if (e.key === 'Enter') {
 						e.preventDefault()
+						setHistory(h => [...h, input])
 						if (echoPrompt) {
 							setOutput(h => {
 								if (!ref.current) return h
@@ -76,12 +83,19 @@ export function useShell(props?: UseShellProps) {
 							if (Array.isArray(result)) return [...h, ...result]
 							return [...h, result]
 						})
-						ref.current.value = ''
 					} else if (e.key === 'Tab') {
 						e.preventDefault()
 
 						const name = matchCommandName(commands, input)
 						if (name) ref.current.value = name
+					} else if (e.key === 'ArrowUp') {
+						e.preventDefault()
+
+						if (history.length) {
+							// setHistoryIndex(i => (i - 1) % history.length)
+							const entry = history.at(historyIndex)!
+							ref.current.value = entry
+						}
 					}
 				},
 				output
