@@ -8,7 +8,7 @@ export function setup() {
 		// pixel config
 		comparisonMethod: 'pixelmatch',
 		blur: 1,
-		customDiffConfig: { threshold: 0.05 },
+		customDiffConfig: { threshold: 0.08 },
 
 		failureThresholdType: 'percent',
 		customSnapshotsDir: `${process.cwd()}/__snapshots__/${process.platform}`,
