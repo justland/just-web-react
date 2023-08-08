@@ -29,7 +29,7 @@ export const TerminalWidgetContext = createContext<{
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
 }>(null as any)
 
-export interface TerminalContainerProps {
+export interface TerminalWidgetProps {
 	children?: ReactNode | undefined
 	className?: string | undefined
 	prompt: PromptNode
@@ -37,7 +37,7 @@ export interface TerminalContainerProps {
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
 }
 
-export const TerminalWidget = forwardRef<HTMLInputElement, TerminalContainerProps>((props, ref) => {
+export const TerminalWidget = forwardRef<HTMLInputElement, TerminalWidgetProps>((props, ref) => {
 	const { children, className, prompt, ...rest } = props
 	return (
 		<TerminalWidgetContext.Provider
