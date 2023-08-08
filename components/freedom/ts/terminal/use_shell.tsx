@@ -1,5 +1,5 @@
 import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
-import type { Command, CommandParser, CommandsMap } from './shell.types.js'
+import type { CommandParser, CommandTypes, CommandsMap } from './shell.types.js'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
 export interface UseShellProps {
@@ -98,18 +98,14 @@ function lookupCommand(commands: CommandsMap, input: string) {
 	}
 }
 
-async function executeCommand(
-	this: { commands: CommandsMap },
-	command: string | CommandParser | Command,
-	input: string
-) {
+async function executeCommand(this: { commands: CommandsMap }, command: CommandTypes, input: string) {
 	if (typeof command === 'string') {
 		return command
 	}
 	if (typeof command === 'function') {
 		return command.bind(this)({ input })
 	}
-	return command.parse.bind(this)({ input })
+	return command.run.bind(this)({ input })
 }
 
 function matchCommandName(commands: CommandsMap, input: string) {

@@ -274,9 +274,8 @@ export const ListCommandsByEmptyPrompt: Story = {
 				str: 'str cmd',
 				fn: () => 'fn cmd',
 				miku: {
-					type: 'command',
 					description: 'tell miku to do something',
-					parse: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+					run: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
 				},
 				list
 			}
