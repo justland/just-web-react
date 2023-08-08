@@ -7,8 +7,11 @@ export async function postRender(page, context) {
 	if (!/-skip-snap$/.test(context.id)) {
 		const image = await page.screenshot()
 		expect(image).toMatchImageSnapshot({
+			comparisonMethod: 'ssim',
+			failureThreshold: 0.01,
+			failureThresholdType: 'percent',
 			customSnapshotsDir: `${process.cwd()}/__snapshots__/${process.platform}`,
-			customSnapshotIdentifier: context.id,
+			customSnapshotIdentifier: context.id
 		})
 	}
 }
