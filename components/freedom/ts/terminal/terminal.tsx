@@ -22,6 +22,7 @@ export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
 
 export const TerminalWidgetContext = createContext<{
 	className?: string | undefined
+	disabled?: boolean
 	Prompt: PromptNode
 	output: Array<ReactNode>
 	ref: ForwardedRef<HTMLInputElement>
@@ -31,8 +32,9 @@ export const TerminalWidgetContext = createContext<{
 export interface TerminalWidgetProps {
 	children?: ReactNode | undefined
 	className?: string | undefined
+	disabled?: boolean
 	prompt: PromptNode
-	output: Array<ReactNode>,
+	output: Array<ReactNode>
 	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
 }
 
@@ -103,7 +105,7 @@ export interface TerminalInputProps {
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { ref, onKeyDown } = useContext(TerminalWidgetContext)
+	const { disabled, ref, onKeyDown } = useContext(TerminalWidgetContext)
 	const innerRef = useForwardedRef(ref)
 
 	useEffect(() => {
@@ -112,13 +114,7 @@ export function TerminalInput({ className }: TerminalInputProps) {
 		}
 	}, [ref])
 
-	return (
-		<input
-			ref={innerRef}
-			className={className}
-			onKeyDown={onKeyDown}
-		/>
-	)
+	return <input disabled={disabled} ref={innerRef} className={className} onKeyDown={onKeyDown} />
 }
 
 export const Terminal = Object.assign(TerminalWidget, {
