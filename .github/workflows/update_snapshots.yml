@@ -13,7 +13,8 @@ on:
 jobs:
   update_snapshots:
     uses: justland/.github/.github/workflows/pnpm-update-snapshots.yml@main
+    if: ${{ inputs.update_snapshots == true }}
     with:
       os: '["ubuntu-latest"]'
       node_version: '[18]'
-      update_snapshots: ${{ inputs.update_snapshots == true }}
+      update_snapshots: true
