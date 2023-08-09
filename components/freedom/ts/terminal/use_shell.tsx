@@ -1,4 +1,4 @@
-import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode } from 'react'
+import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode, useEffect } from 'react'
 import type { CommandParser, CommandTypes, CommandsMap } from './shell.types.js'
 import { resolvePrompt, type PromptNode } from './terminal.js'
 
@@ -46,6 +46,14 @@ export function useShell(props?: UseShellProps) {
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
+	const [typedInput, setTypedInput] = useState('')
+	const [completion, setCompletion] = useState('')
+
+	useEffect(() => {
+		if (ref.current && completion) {
+			ref.current.value = completion
+		}
+	}, [ref, completion])
 
 	const Prompt = resolvePrompt(prompt)
 	return {
@@ -76,12 +84,18 @@ export function useShell(props?: UseShellProps) {
 							if (Array.isArray(result)) return [...h, ...result]
 							return [...h, result]
 						})
-						ref.current.value = ''
+						setCompletion('')
 					} else if (e.key === 'Tab') {
-						e.preventDefault()
+						if (!input) return
 
-						const name = matchCommandName(commands, input)
-						if (name) ref.current.value = name
+						const baseValue = input === completion ? typedInput : input
+
+						const name = matchCommandName(commands, baseValue, completion)
+						e.preventDefault()
+						if (name && name !== input) {
+							if (input !== name) setTypedInput(input)
+							setCompletion(name)
+						}
 					}
 				},
 				output
@@ -108,15 +122,13 @@ async function executeCommand(this: { commands: CommandsMap }, command: CommandT
 	return command.run.bind(this)({ input })
 }
 
-function matchCommandName(commands: CommandsMap, input: string) {
-	const keys = Object.keys(commands).sort((a, b) => (a > b ? 1 : -1))
-	for (let i = 0; i <= keys.length; i++) {
-		const key = keys[i]
-		if (key === input) {
-			return keys.at((i + 1) % keys.length)
-		}
-		if (key.startsWith(input)) {
-			return key
-		}
-	}
+function matchCommandName(commands: CommandsMap, input: string, current: string) {
+	if (!input) return undefined
+	const keys = Object.keys(commands)
+		.filter(x => x.startsWith(input))
+		.sort((a, b) => (a > b ? 1 : -1))
+
+	const currentIndex = keys.indexOf(current)
+	if (currentIndex === -1) return keys[0]
+	return keys[(currentIndex + 1) % keys.length]
 }

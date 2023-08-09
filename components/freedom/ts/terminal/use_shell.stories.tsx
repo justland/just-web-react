@@ -18,7 +18,7 @@ const meta: Meta<typeof Terminal> = {
 			)
 		}
 	],
-	component: Terminal as any
+	component: Terminal
 }
 
 export default meta
@@ -279,6 +279,7 @@ export const ListCommandsByEmptyPrompt: Story = {
 			commands: {
 				str: 'str cmd',
 				fn: () => 'fn cmd',
+				foo: 'foo',
 				miku: {
 					description: 'tell miku to do something',
 					run: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
