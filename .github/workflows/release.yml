@@ -16,6 +16,7 @@ jobs:
     with:
       os: '["ubuntu-latest"]'
       node_version: '[18]'
+      pnpm_version: '8.6.12'
       update_snapshots: ${{ inputs.update_snapshots }}
   code:
     uses: justland/.github/.github/workflows/pnpm-verify.yml@main
@@ -23,6 +24,7 @@ jobs:
     with:
       os: '["ubuntu-latest"]'
       node-version: '[18]'
+      pnpm-version: '8.6.12'
 
   release:
     uses: justland/.github/.github/workflows/pnpm-release-changeset.yml@main
