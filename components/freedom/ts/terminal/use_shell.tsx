@@ -46,12 +46,11 @@ export function useShell(props?: UseShellProps) {
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
-	const [typedInput, setTypedInput] = useState('')
-	const [completion, setCompletion] = useState('')
+	const [completion, setCompletion] = useState({ typed: '', value: '' })
 
 	useEffect(() => {
 		if (ref.current && completion) {
-			ref.current.value = completion
+			ref.current.value = completion.value
 		}
 	}, [ref, completion])
 
@@ -84,17 +83,16 @@ export function useShell(props?: UseShellProps) {
 							if (Array.isArray(result)) return [...h, ...result]
 							return [...h, result]
 						})
-						setCompletion('')
+						setCompletion({ typed: '', value: '' })
 					} else if (e.key === 'Tab') {
 						if (!input) return
-
-						const baseValue = input === completion ? typedInput : input
-
-						const name = matchCommandName(commands, baseValue, completion)
 						e.preventDefault()
-						if (name && name !== input) {
-							if (input !== name) setTypedInput(input)
-							setCompletion(name)
+
+						const typed = input === completion.value ? completion.typed : input
+						const current = input === completion.value ? completion.value : ''
+						const value = matchCommandName(commands, typed, current)
+						if (value) {
+							setCompletion({ typed, value })
 						}
 					}
 				},

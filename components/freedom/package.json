@@ -73,6 +73,7 @@
     "@storybook/addon-links": "^7.2.1",
     "@storybook/addon-styling": "^1.3.5",
     "@storybook/blocks": "^7.2.1",
+    "@storybook/jest": "^0.1.0",
     "@storybook/react": "^7.2.1",
     "@storybook/react-vite": "^7.2.1",
     "@storybook/test-runner": "^0.13.0",
