@@ -1,25 +1,11 @@
 name: pull-request
 on:
-  workflow_dispatch:
-    inputs:
-      update_snapshots:
-        description: "Update snapshots"
-        type: boolean
-        required: false
-        default: false
   pull_request:
     types: [opened, synchronize]
 
 jobs:
-  update_snapshots:
-    uses: justland/.github/.github/workflows/pnpm-update-snapshots.yml@main
-    with:
-      os: '["ubuntu-latest"]'
-      node_version: '[18]'
-      update_snapshots: ${{ inputs.update_snapshots }}
   code:
     uses: justland/.github/.github/workflows/pnpm-verify.yml@main
-    if: ${{ inputs.update_snapshots == false }}
     with:
       os: '["ubuntu-latest"]'
       node-version: '[18]'
