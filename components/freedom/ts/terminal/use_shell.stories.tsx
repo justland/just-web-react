@@ -1,6 +1,7 @@
 import { faker } from '@faker-js/faker'
+import { expect } from '@storybook/jest'
 import type { Meta, StoryObj } from '@storybook/react'
-import { userEvent } from '@storybook/testing-library'
+import { userEvent, within } from '@storybook/testing-library'
 import { useState } from 'react'
 import { listCommand } from './list_commands.js'
 import { Terminal } from './terminal.js'
@@ -262,14 +263,84 @@ export const AutoComplete: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+				miku: 'miku'
 			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
+	async play({ canvasElement }) {
 		await userEvent.keyboard('m{tab}')
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		expect(input.value).toBe('miku')
+	}
+}
+
+export const TabAwayIfPromptIsEmpty: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: 'miku'
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		input.focus()
+		expect(input).toEqual(document.activeElement)
+		await userEvent.keyboard('{tab}')
+		expect(input).not.toEqual(document.activeElement)
+	}
+}
+
+export const CompleteCycleThroughMatches: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				mika: 'mika',
+				miku: 'miku',
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		await userEvent.keyboard('m{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+		await userEvent.keyboard('{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('miku')
+		await userEvent.keyboard('{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+	}
+}
+
+
+export const ReCompleteAfterBackspace: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				mika: 'mika',
+				miku: 'miku',
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		await userEvent.keyboard('m{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+		await userEvent.keyboard('{backspace}{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+		await userEvent.keyboard('{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('miku')
+		await userEvent.keyboard('{tab}')
+		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
 	}
 }
 

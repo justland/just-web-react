@@ -24,7 +24,7 @@ export default defineConfig({
 	},
 	resolve: {
 		alias: {
-			'@storybook/jest': 'vitest'
+			// '@storybook/jest': 'vitest'
 		}
 	},
 	test: {
