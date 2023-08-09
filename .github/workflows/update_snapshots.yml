@@ -1,19 +1,12 @@
 name: update_snapshots
 on:
   workflow_dispatch:
-    inputs:
-      update_snapshots:
-        description: "Update snapshots"
-        type: boolean
-        required: false
-        default: true
   pull_request:
     types: [opened, synchronize]
 
 jobs:
   update_snapshots:
     uses: justland/.github/.github/workflows/pnpm-update-snapshots.yml@main
-    if: ${{ inputs.update_snapshots == true }}
     with:
       os: '["ubuntu-latest"]'
       node_version: '[18]'
