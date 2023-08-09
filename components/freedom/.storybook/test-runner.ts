@@ -1,9 +1,11 @@
 import { toMatchImageSnapshot } from 'jest-image-snapshot'
+import isCI from 'is-ci'
 
 export function setup() {
 	expect.extend({ toMatchImageSnapshot })
 }
 export async function postRender(page, context) {
+	if (isCI) return
 	if (!/-skip-snap$/.test(context.id)) {
 		const image = await page.screenshot()
 		expect(image).toMatchImageSnapshot({

@@ -291,6 +291,9 @@ importers:
       eslint-plugin-storybook:
         specifier: ^0.6.13
         version: 0.6.13(eslint@8.46.0)(typescript@5.0.2)
+      is-ci:
+        specifier: ^3.0.1
+        version: 3.0.1
       jest-image-snapshot:
         specifier: ^6.2.0
         version: 6.2.0(jest@28.1.3)
