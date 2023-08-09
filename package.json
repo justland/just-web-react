@@ -19,6 +19,7 @@
     "sb": "turbo run sb --parallel",
     "size": "turbo run size",
     "test": "turbo run test",
+    "update_snapshots": "turbo run update_snapshots",
     "verify": "turbo run lint build coverage depcheck size",
     "version": "changeset version",
     "prepare": "husky install",

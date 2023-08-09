@@ -26,6 +26,9 @@
 		},
 		"test": {
 			"dependsOn": ["^build"]
-		}
+		},
+    "update_snapshots": {
+      "dependsOn": ["^build"]
+    }
 	}
 }

@@ -89,11 +89,11 @@ export function resolvePrompt(prompt: PromptNode) {
 	}
 }
 
-export interface TerminalPromptProps {
+export interface TerminalPromptAreaProps {
 	input?: ReactNode | undefined
 }
 
-export function TerminalPromptArea({ input }: TerminalPromptProps) {
+export function TerminalPromptArea({ input }: TerminalPromptAreaProps) {
 	const { Prompt } = useContext(TerminalWidgetContext)
 	return <Prompt>{input}</Prompt>
 }
