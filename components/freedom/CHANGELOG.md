@@ -1,5 +1,11 @@
 # react-freedom
 
+## 0.2.1
+
+### Patch Changes
+
+- 4315fb8: `react-freedom`: Add Terminal disabled support.
+
 ## 0.2.0
 
 ### Minor Changes
