@@ -1,0 +1,13 @@
+name: update_snapshots
+on:
+  workflow_dispatch:
+  pull_request:
+    types: [opened, synchronize]
+
+jobs:
+  update_snapshots:
+    uses: justland/.github/.github/workflows/pnpm-update-snapshots.yml@main
+    with:
+      os: '["ubuntu-latest"]'
+      node_version: '[18]'
+      update_snapshots: true
