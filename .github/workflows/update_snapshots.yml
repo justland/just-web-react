@@ -16,4 +16,4 @@ jobs:
     with:
       os: '["ubuntu-latest"]'
       node_version: '[18]'
-      update_snapshots: ${{ inputs.update_snapshots }}
+      update_snapshots: ${{ inputs.update_snapshots == true }}
