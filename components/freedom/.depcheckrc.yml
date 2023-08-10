@@ -1,16 +1,15 @@
 ignores:
   - '@just-web/repo-scripts'
+  - '@repobuddy/typescript' # for build:cjs
   - '@size-limit/*'
   - '@storybook/*'
   - '@testing-library/*'
   - '@types/*'
-  - '@vitest/coverage-c8'
   - autoprefixer # tailwind
   - eslint*
   - jest-image-snapshot
   - nyc # used by @storybook/addon-coverage
   - rimraf # depcheck doesn't recognize rimraf as a dependency
   - size-limit
-  - storybook-dark-mode
   - tailwindcss # tailwind
   - wait-on # sb:ci

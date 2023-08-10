@@ -36,7 +36,7 @@ export const BasicExample: Story = {
 
 export const WithInitialNodes: Story = {
 	render() {
-		const { register } = useShell({ initial: [<b>Bold text</b>, <i>Italic text</i>] })
+		const { register } = useShell({ initial: ['simple text', <b>Bold text</b>] })
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	}
@@ -302,7 +302,7 @@ export const CompleteCycleThroughMatches: Story = {
 		const { register } = useShell({
 			commands: {
 				mika: 'mika',
-				miku: 'miku',
+				miku: 'miku'
 			}
 		})
 
@@ -319,13 +319,12 @@ export const CompleteCycleThroughMatches: Story = {
 	}
 }
 
-
 export const ReCompleteAfterBackspace: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
 				mika: 'mika',
-				miku: 'miku',
+				miku: 'miku'
 			}
 		})
 

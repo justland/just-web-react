@@ -26,7 +26,7 @@ export const TerminalWidgetContext = createContext<{
 	Prompt: PromptNode
 	output: Array<ReactNode>
 	ref: ForwardedRef<HTMLInputElement>
-	onKeyDown?: KeyboardEventHandler<HTMLInputElement>
+	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
 }>(null as any)
 
 export interface TerminalWidgetProps {

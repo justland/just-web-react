@@ -6,7 +6,6 @@ on:
 jobs:
   code:
     uses: justland/.github/.github/workflows/pnpm-verify.yml@main
-    if: ${{ inputs.update_snapshots == false }}
     with:
       os: '["ubuntu-latest"]'
       node-version: '[18]'

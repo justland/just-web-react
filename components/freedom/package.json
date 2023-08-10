@@ -19,47 +19,58 @@
   "sideEffects": false,
   "type": "module",
   "exports": {
-    "types": "./dts/index.d.ts",
-    "import": "./dist/react-freedom.js",
-    "require": "./dist/react-freedom.cjs",
-    "default": "./dist/react-freedom.cjs"
+    ".": {
+      "import": {
+        "types": "./esm/index.d.ts",
+        "default": "./esm/index.js"
+      },
+      "require": {
+        "types": "./cjs/index.d.ts",
+        "default": "./cjs/index.js"
+      },
+      "default": "./esm/index.js"
+    },
+    "./testing": {
+      "import": {
+        "types": "./esm/testing/index.d.ts",
+        "default": "./esm/testing/index.js"
+      },
+      "require": {
+        "types": "./cjs/testing/index.d.ts",
+        "default": "./cjs/testing/index.js"
+      },
+      "default": "./esm/testing/index.js"
+    },
+    "./package.json": "./package.json"
   },
-  "main": "./dist/react-freedom.cjs",
-  "module": "./dist/react-freedom.js",
-  "types": "./dts/index.d.ts",
+  "main": "./cjs/index.js",
+  "module": "./esm/index.js",
+  "types": "./cjs/index.d.ts",
   "files": [
-    "dist",
-    "dts",
+    "cjs",
+    "esm",
+    "testing",
     "ts",
-    "!**/*.spec.*",
+    "!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
     "!**/*.stories.*"
   ],
   "scripts": {
-    "build": "run-p build:vite build:dts test:type",
-    "build:storybook": "storybook build",
-    "build:vite": "vite build",
-    "build:dts": "tsc -p tsconfig.dts.json",
-    "coverage": "run-p coverage:vitest sb:ci",
-    "coverage:vitest": "vitest run --coverage",
-    "clean": "rimraf coverage dist dts --glob *.tsbuildinfo",
+    "build": "run-p build:cjs build:esm",
+    "build:docs": "storybook build",
+    "build:cjs": "buddy ts build cjs",
+    "build:esm": "tsc -p tsconfig.esm.json",
+    "coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --coverage --url http://localhost:6008\"",
+    "clean": "rimraf coverage cjs dist dts esm --glob *.tsbuildinfo",
     "depcheck": "depcheck",
     "dev": "vite",
     "lint": "eslint --ext=ts,tsx,js,yaml,yml .",
     "nuke": "run-s clean nuke:local",
     "nuke:local": "rimraf node_modules",
-    "preview": "vite preview",
     "sb": "storybook dev -p 6008",
-    "sb:coverage": "test-storybook --coverage --url http://localhost:6008",
-    "sb:ci": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --coverage --url http://localhost:6008\"",
-    "sb:test": "test-storybook --url http://localhost:6008",
-    "sb:update": "test-storybook --url http://localhost:6008 -u",
-    "sb:ci:update": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008 -u\"",
+    "sb:update": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008 -u\"",
     "size": "size-limit",
-    "test": "vitest run",
-    "test:watch": "vitest",
-    "test:type": "tsc --noEmit",
-    "update_snapshots": "pnpm sb:ci:update",
-    "w": "vitest",
+    "test": "test-storybook --url http://localhost:6008",
+    "update_snapshots": "pnpm sb:update",
     "verify": "npm-run-all -p lint depcheck build coverage -p size"
   },
   "dependencies": {
@@ -67,6 +78,7 @@
   },
   "devDependencies": {
     "@faker-js/faker": "^8.0.2",
+    "@repobuddy/typescript": "^1.2.0",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-console": "~2.0.0",
     "@storybook/addon-coverage": "^0.0.9",
@@ -86,9 +98,6 @@
     "@types/jest-image-snapshot": "^6.1.0",
     "@types/node": "^18.0.0",
     "@types/react": "^16.14.43",
-    "@types/react-dom": "^16.9.19",
-    "@vitejs/plugin-react": "^4.0.0",
-    "@vitest/coverage-c8": "^0.31.0",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
     "depcheck": "~1.4.3",
@@ -96,20 +105,17 @@
     "eslint-plugin-storybook": "^0.6.13",
     "is-ci": "^3.0.1",
     "jest-image-snapshot": "^6.2.0",
-    "jsdom": "^22.0.0",
     "npm-run-all": "^4.1.5",
     "nyc": "^15.1.0",
     "postcss": "^8.4.23",
     "react": "^16.14.0",
     "react-dom": "^16.14.0",
+    "repobuddy": "^1.0.2",
     "rimraf": "~5.0.0",
-    "rollup-plugin-node-externals": "^6.0.0",
     "size-limit": "~8.2.0",
     "storybook": "^7.2.1",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.0",
-    "vite": "^4.3.1",
-    "vitest": "^0.31.0",
     "wait-on": "^7.0.1"
   },
   "peerDependencies": {
