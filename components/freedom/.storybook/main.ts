@@ -18,7 +18,6 @@ const config: StorybookConfig = {
 			}
 		},
 		// '@storybook/addon-storysource',
-		// 'storybook-dark-mode',
 		{
 			name: '@storybook/addon-styling',
 			options: {}

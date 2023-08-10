@@ -2,8 +2,6 @@ import '@storybook/addon-console'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
 
-
-/* TODO: update import to your tailwind styles file. If you're using Angular, inject this through your angular.json config instead */
 import '../ts/index.css'
 
 const preview: Preview = {

@@ -30,17 +30,6 @@
       },
       "default": "./esm/index.js"
     },
-    "./testing": {
-      "import": {
-        "types": "./esm/testing/index.d.ts",
-        "default": "./esm/testing/index.js"
-      },
-      "require": {
-        "types": "./cjs/testing/index.d.ts",
-        "default": "./cjs/testing/index.js"
-      },
-      "default": "./esm/testing/index.js"
-    },
     "./package.json": "./package.json"
   },
   "main": "./cjs/index.js",
@@ -49,7 +38,6 @@
   "files": [
     "cjs",
     "esm",
-    "testing",
     "ts",
     "!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
     "!**/*.stories.*"
@@ -59,19 +47,25 @@
     "build:docs": "storybook build",
     "build:cjs": "buddy ts build cjs",
     "build:esm": "tsc -p tsconfig.esm.json",
-    "coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --coverage --url http://localhost:6008\"",
     "clean": "rimraf coverage cjs dist dts esm --glob *.tsbuildinfo",
+    "coverage": "run-p test:coverage sb:ci:coverage",
     "depcheck": "depcheck",
     "dev": "vite",
     "lint": "eslint --ext=ts,tsx,js,yaml,yml .",
     "nuke": "run-s clean nuke:local",
     "nuke:local": "rimraf node_modules",
     "sb": "storybook dev -p 6008",
-    "sb:update": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008 -u\"",
+    "sb:ci:coverage": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --coverage --url http://localhost:6008\"",
+    "sb:ci:update": "concurrently -k -s first -n \"SB,TEST\" -c \"magenta,blue\" \"storybook dev -p 6008 --no-open\" \"wait-on tcp:6008 && test-storybook --url http://localhost:6008 -u\"",
+    "sb:coverage": "test-storybook --coverage --url http://localhost:6008",
+    "sb:test": "test-storybook --url http://localhost:6008",
+    "sb:update": "test-storybook --url http://localhost:6008 -u",
     "size": "size-limit",
-    "test": "test-storybook --url http://localhost:6008",
+    "test": "vitest run",
+    "test:coverage": "vitest run --coverage",
     "update_snapshots": "pnpm sb:update",
-    "verify": "npm-run-all -p lint depcheck build coverage -p size"
+    "verify": "npm-run-all -p lint depcheck build coverage -p size",
+    "w": "vitest"
   },
   "dependencies": {
     "@headlessui/react": "^1.7.4"
@@ -92,12 +86,12 @@
     "@storybook/react-vite": "^7.2.1",
     "@storybook/test-runner": "^0.13.0",
     "@storybook/testing-library": "^0.2.0",
-    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "^12.1.5",
-    "@types/jest": "^29.2.3",
+    "@testing-library/react-hooks": "^8.0.1",
     "@types/jest-image-snapshot": "^6.1.0",
     "@types/node": "^18.0.0",
     "@types/react": "^16.14.43",
+    "@vitest/coverage-c8": "^0.31.0",
     "autoprefixer": "^10.4.14",
     "concurrently": "^8.2.0",
     "depcheck": "~1.4.3",
@@ -116,6 +110,8 @@
     "storybook": "^7.2.1",
     "tailwindcss": "^3.3.1",
     "typescript": "^5.0.0",
+    "vite": "^4.3.1",
+    "vitest": "^0.31.0",
     "wait-on": "^7.0.1"
   },
   "peerDependencies": {

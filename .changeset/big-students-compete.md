@@ -2,9 +2,10 @@
 'react-freedom': major
 ---
 
-1.0 release with cjs and esm instead of bundled code.
+`react-freedom` first major release.
 
-The `Editor` is removed from public api as it is not ready.
-Added `testing` with `testHook`. It is experimental and may not be needed.
+The package is changed to do dual CJS and ESM packages.
+
+`Editor` is removed from public api as it is not ready.
 
 Export `useForwardedRef` hook.
