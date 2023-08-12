@@ -364,3 +364,24 @@ export const ListCommandsByEmptyPrompt: Story = {
 		await userEvent.keyboard('list{enter}')
 	}
 }
+
+export const HandleKeyDown: Story = {
+	render() {
+		const [typed, setTyped] = useState('')
+		const { register } = useShell({
+			onKeyDown(e) {
+				setTyped(v => v + e.key)
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+				<div>Typed: {typed}</div>
+			</>
+		)
+	},
+	// async play() {
+	// 	await userEvent.keyboard('type something{enter}')
+	// }
+}
