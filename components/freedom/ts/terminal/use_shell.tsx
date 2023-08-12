@@ -26,7 +26,13 @@ export interface UseShellProps {
 	 * - no `command` is identified to process the command.
 	 */
 	onParse?: CommandParser
-
+	/**
+	 * Handles `keydown` events on the terminal.
+	 *
+	 * This is called before `onParse`.
+	 * If `e.preventDefault()` is called, the handling will stop.
+	 */
+	onKeyDown?: (e: ReactKeyboardEvent<HTMLInputElement>) => void
 	commands?: CommandsMap
 }
 
@@ -41,7 +47,8 @@ export function useShell(props?: UseShellProps) {
 		echoPrompt = true,
 		prompt = '>',
 		commands = {},
-		onParse = ({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : '')
+		onParse = ({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : ''),
+		onKeyDown
 	} = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
@@ -60,10 +67,13 @@ export function useShell(props?: UseShellProps) {
 			return {
 				ref,
 				prompt: Prompt,
-				async onKeyDown(e: ReactKeyboardEvent<HTMLElement>) {
+				async onKeyDown(e: ReactKeyboardEvent<HTMLInputElement>) {
 					if (!ref.current) return
 
 					const input = ref.current.value
+					if (onKeyDown) {
+						onKeyDown(e)
+					}
 					if (e.key === 'Enter') {
 						e.preventDefault()
 						if (echoPrompt) {
