@@ -60,6 +60,7 @@
     "sb:coverage": "test-storybook --coverage --url http://localhost:6008",
     "sb:test": "test-storybook --url http://localhost:6008",
     "sb:update": "test-storybook --url http://localhost:6008 -u",
+    "sb:watch": "test-storybook --url http://localhost:6008 --watch",
     "size": "size-limit",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
