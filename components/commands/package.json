@@ -82,7 +82,7 @@
     "@storybook/react": "^7.2.1",
     "@storybook/react-vite": "^7.2.1",
     "@storybook/testing-library": "^0.2.0",
-    "@testing-library/jest-dom": "^5.16.5",
+    "@testing-library/jest-dom": "^6.0.0",
     "@types/jest-image-snapshot": "^6.1.0",
     "@types/mousetrap": "~1.6.11",
     "@types/node": "^18.0.0",
