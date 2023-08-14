@@ -1,6 +1,6 @@
 # react-freedom
 
-[react-freedom](https://npmjs.com/package/react-freedom) provides headless React components for building web applications.
+[react-freedom](https://npmjs.com/package/react-freedom) provides headless React components with maximum flexibility for building web applications.
 
 ## Install <!-- omit in toc -->
 

@@ -47,16 +47,14 @@ It also serves as the namespace of other terminal components so that they can be
 
 A single terminal widget. Each terminal widget handles a specific shell application.
 
-In terms of layout, `TerminalWidget` contains `TerminalOutput` and `TerminalPrompt`:
+In terms of layout, `TerminalWidget` contains `TerminalOutputArea` and `TerminalPromptArea`:
 
 ```ts
 function TerminalWidget() {
   return (
     <>
-      <TerminalOutput />
-      <TerminalPrompt>
-        <TerminalInput />
-      </TerminalPrompt>
+      <Terminal.OutputArea />
+      <Terminal.PromptArea />
     </>
   )
 }
@@ -70,41 +68,41 @@ function App() {
     <Terminal>
       <div className="your-style">
         <div>Some other content</div>
-        <Terminal.Output className="your-style"/>
-        <Terminal.Prompt className="your-style"/>
+        <Terminal.OutputArea className="your-style"/>
+        <Terminal.PromptArea className="your-style"/>
       </div>
     </Terminal>
   )
 }
 ```
 
-### `TerminalOutput`
+### `TerminalOutputArea`
 
-> 🚧 `<TerminalOutput/>`
-> 🚧 `<Terminal.Output/>` (alias)
+> 🚧 `<TerminalOutputArea/>`
+> 🚧 `<Terminal.OutputArea/>` (alias)
 
-`TerminalOutput` renders the output of the shell.
+`TerminalOutputArea` renders the output of the shell.
 
-You can render each output entry by overrideing the children of the `TerminalOutput` component:
+You can render each output entry by overrideing the children of the `TerminalOutputArea` component:
 
 ```ts
 function App() {
   return (
     <Terminal>
-      <Terminal.Output>
-        {({ output})} => output.map((line => <div className="your-style">{line}</div>))
-      </Terminal.Output>
+      <Terminal.OutputArea>
+        {({ output })} => output.map((line => <div className="your-style">{line}</div>))
+      </Terminal.OutputArea>
     </Terminal>
   )
 }
 ```
 
-### `TerminalPrompt`
+### `TerminalPromptArea`
 
-> 🚧 `<TerminalPrompt/>`
-> 🚧 `<Terminal.Prompt/>` (alias)
+> 🚧 `<TerminalPromptArea />`
+> 🚧 `<Terminal.PromptArea />` (alias)
 
-`TerminalPrompt` renders the shell prompt and input.
+`TerminalPromptArea` renders the shell prompt and input.
 
 ### `TerminalInput`
 
@@ -115,24 +113,25 @@ function App() {
 
 The `Prompt` is provided by the shell (from `useShell()`).
 
+## Hooks
+
+> 🚧 `useShell()`
+
+The `useShell()` hook provides a basic shell to interact with the terminal.
+This hook provides a basic shell to interact with the terminal.
+
+## Others
+
 - 💡 `TerminalApp`: The overall terminal application.
   - Allows you to manage tabs and panes. Arrange and navigate between them.
   - Defines general styles and themes that will be applied to each pane.
 - 💡 `TerminalAppContext`:
-- 🚧 `Terminal`
-- `TerminalProvider`
 - 💡 `TerminalWindow`
 - 💡 `TerminalTabBar`
 - 💡 `TerminalTabPanel`
 - 💡 `TerminalPane`
 - 💡 `TerminalPtyProvider`
 - 💡 `TerminalStatusBar`
-- 🚧 `TerminalWidget`: A single terminal widget.
-  - Each terminal widget handles a specific shell application.
-- 🚧 `TerminalWidgetContext`: The React Context provided by the `TerminalWidget`.
-  - You can use this to build your custom terminal components if desired.
-- 🚧 `TerminalOutput`: Component showing the shell output.
-- 🚧 `TerminalInput`: The component showing the shell prompt and input.
 
 > ❌ `useTerminalManager()`
 
@@ -143,13 +142,6 @@ not the terminal itself.
 
 NOTE: yes, the name `useTerminalManager` is a bad name.
 If there is a better name, please let us know.
-
-## Hooks
-
-> 🚧 `useShell()`
-
-The `useShell()` hook provides a basic shell to interact with the terminal.
-This hook provides a basic shell to interact with the terminal.
 
 ## References
 
