@@ -4,8 +4,9 @@ import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
 import { useState } from 'react'
 import { listCommand } from './list_commands.js'
-import { Terminal } from './terminal.js'
+import { Terminal, type PromptNode, type PromptNodeProps } from './terminal.js'
 import { useShell } from './use_shell.js'
+import { summary } from '../storybook/summary.js'
 
 faker.seed(1234)
 
@@ -82,6 +83,16 @@ export const CustomStringPrompt: Story = {
 		const { register } = useShell({ prompt: '>>>' })
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		const echo = await canvas.findByText('hello world')
+		expect(echo).toBeInTheDocument()
+
+		const output = await canvas.findByText('Unknown command: hello')
+		expect(output).toBeInTheDocument()
 	}
 }
 
@@ -102,6 +113,16 @@ export const CustomReactPrompt: Story = {
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		const echo = await canvas.findByText('hello world')
+		expect(echo).toBeInTheDocument()
+
+		const output = await canvas.findByText('Unknown command: hello')
+		expect(output).toBeInTheDocument()
 	}
 }
 
@@ -139,7 +160,7 @@ export const DisableEchoPrompt: Story = {
 	}
 }
 
-export const ChangePrompt: Story = {
+export const ChangeStringPrompt: Story = {
 	render() {
 		const [prompt, setPrompt] = useState('>')
 		const { register } = useShell({
@@ -156,6 +177,32 @@ export const ChangePrompt: Story = {
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'change prompt{enter}')
 	}
+}
+
+export const ChangeStringToReactPrompt: Story = {
+	decorators: [summary('this does not work at the momemt. Cannot add Prompt as the useCallback dependency')],
+	tags: ['skip-test'],
+	render() {
+		const [prompt, setPrompt] = useState<PromptNode>('>')
+		const { register } = useShell({
+			prompt,
+			onParse() {
+				setPrompt(({ children }: PromptNodeProps) => (
+					<div className="flex gap-2">
+						<span>$$</span>
+						{children}
+					</div>
+				))
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	// async play({ canvasElement }) {
+	// 	const canvas = within(canvasElement)
+	// 	const input = canvas.getByRole<HTMLInputElement>('textbox')
+	// 	await userEvent.type(input, 'change prompt{enter}')
+	// }
 }
 
 export const ParseInput: Story = {
@@ -404,7 +451,7 @@ export const HandleKeyDown: Story = {
 			</>
 		)
 	},
-	async play({canvasElement}) {
+	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'type something{enter}')

@@ -92,20 +92,20 @@ export const TerminalWidget = memo(
 )
 
 export function usePrompt(Prompt: PromptNode) {
-	return useCallback(
-		({ children }: PromptNodeProps) => {
-			if (typeof Prompt === 'string') {
+	if (typeof Prompt === 'string') {
+		return useCallback(
+			({ children }: PromptNodeProps) => {
 				return (
 					<div>
 						<span>{Prompt}</span>
-						{children || <TerminalInput />}
+						{children}
 					</div>
 				)
-			}
-			return <Prompt>{children || <TerminalInput />}</Prompt>
-		},
-		[Prompt]
-	)
+			},
+			[Prompt]
+		)
+	}
+	return useCallback(({ children }: PromptNodeProps) => <Prompt>{children}</Prompt>, [])
 }
 
 export interface TerminalOutputAreaProps {

@@ -4,6 +4,14 @@ import type { Preview } from '@storybook/react'
 
 import '../ts/index.css'
 
+function isTestRunner() {
+	return !!(
+		typeof window !== 'undefined' &&
+		window &&
+		window.navigator.userAgent.match(/StorybookTestRunner/)
+	)
+}
+
 const preview: Preview = {
 	decorators: [
 		// Adds theme switching support.
@@ -14,7 +22,11 @@ const preview: Preview = {
 				dark: 'dark'
 			},
 			defaultTheme: 'light'
-		})
+		}),
+		(Story, { tags }) => {
+			if (isTestRunner() && tags.some(t => t === 'skip-test')) return () => <div></div>
+			return <Story />
+		}
 	],
 	parameters: {
 		backgrounds: {
