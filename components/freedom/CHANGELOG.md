@@ -1,5 +1,12 @@
 # react-freedom
 
+## 1.0.1
+
+### Patch Changes
+
+- 2b9f775: Fix react prompt.
+  It was not accepting and process input.
+
 ## 1.0.0
 
 ### Major Changes
