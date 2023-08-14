@@ -1,5 +1,23 @@
 # react-freedom
 
+## 1.0.0
+
+### Major Changes
+
+- 84df640: `react-freedom` first major release.
+
+  The package is changed to do dual CJS and ESM packages.
+
+  `Editor` is removed from public api as it is not ready.
+
+  Export `useForwardedRef` hook.
+
+  Renamed `<TerminalOutput />` to `<TerminalOutputArea />`
+
+### Patch Changes
+
+- 3452c37: Expose `onChange` along with `onKeyDown`
+
 ## 0.2.1
 
 ### Patch Changes
