@@ -50,9 +50,9 @@ export const FormatEachLine: Story = {
 
 		return (
 			<Terminal className="h-full overflow-auto" {...register()}>
-				<Terminal.Output>
+				<Terminal.OutputArea>
 					{({ output }) => output.map(line => <div className="outline">{line}</div>)}
-				</Terminal.Output>
+				</Terminal.OutputArea>
 				<Terminal.PromptArea />
 			</Terminal>
 		)
@@ -69,7 +69,7 @@ export const WithCustomLayout: Story = {
 			<Terminal className="h-full flex flex-col" {...register()}>
 				<div>Status: connected</div>
 				<div className="overflow-auto">
-					<Terminal.Output />
+					<Terminal.OutputArea />
 					<Terminal.PromptArea />
 				</div>
 			</Terminal>
@@ -119,7 +119,7 @@ export const InputSpanFullWidth: Story = {
 
 		return (
 			<Terminal className="h-full overflow-auto" {...register()}>
-				<Terminal.Output />
+				<Terminal.OutputArea />
 				<Terminal.PromptArea input={<Terminal.Input className="w-full outline-none" />} />
 			</Terminal>
 		)
@@ -132,8 +132,10 @@ export const DisableEchoPrompt: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('hello world{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
 	}
 }
 
@@ -149,8 +151,10 @@ export const ChangePrompt: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('change prompt{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'change prompt{enter}')
 	}
 }
 
@@ -164,8 +168,10 @@ export const ParseInput: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('hello world{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
 	}
 }
 
@@ -179,8 +185,10 @@ export const ParseInputAsync: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('hello world{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
 	}
 }
 
@@ -194,8 +202,10 @@ export const UnknownCommand: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('hello world{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
 	}
 }
 
@@ -209,8 +219,10 @@ export const StringCommand: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('help{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'help{enter}')
 	}
 }
 
@@ -224,8 +236,10 @@ export const FunctionCommand: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('miku sing{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'miku sing{enter}')
 	}
 }
 
@@ -239,8 +253,10 @@ export const CommandReturnsArray: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('chatty{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'chatty{enter}')
 	}
 }
 
@@ -254,8 +270,10 @@ export const ReactNodeCommand: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('miku sing{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'miku sing{enter}')
 	}
 }
 
@@ -270,9 +288,9 @@ export const AutoComplete: Story = {
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
-		await userEvent.keyboard('m{tab}')
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'm{tab}')
 		expect(input.value).toBe('miku')
 	}
 }
@@ -310,12 +328,13 @@ export const CompleteCycleThroughMatches: Story = {
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
-		await userEvent.keyboard('m{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
-		await userEvent.keyboard('{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('miku')
-		await userEvent.keyboard('{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'm{tab}')
+		expect(input.value).toEqual('mika')
+		await userEvent.type(input, '{tab}')
+		expect(input.value).toEqual('miku')
+		await userEvent.type(input, '{tab}')
+		expect(input.value).toEqual('mika')
 	}
 }
 
@@ -332,14 +351,15 @@ export const ReCompleteAfterBackspace: Story = {
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
-		await userEvent.keyboard('m{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
-		await userEvent.keyboard('{backspace}{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
-		await userEvent.keyboard('{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('miku')
-		await userEvent.keyboard('{tab}')
-		expect(canvas.getByRole<HTMLInputElement>('textbox').value).toEqual('mika')
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'm{tab}')
+		expect(input.value).toEqual('mika')
+		await userEvent.type(input, '{backspace}{tab}')
+		expect(input.value).toEqual('mika')
+		await userEvent.type(input, '{tab}')
+		expect(input.value).toEqual('miku')
+		await userEvent.type(input, '{tab}')
+		expect(input.value).toEqual('mika')
 	}
 }
 
@@ -360,8 +380,10 @@ export const ListCommandsByEmptyPrompt: Story = {
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
-	async play() {
-		await userEvent.keyboard('list{enter}')
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'list{enter}')
 	}
 }
 
@@ -370,6 +392,7 @@ export const HandleKeyDown: Story = {
 		const [typed, setTyped] = useState('')
 		const { register } = useShell({
 			onKeyDown(e) {
+				e.persist()
 				setTyped(v => v + e.key)
 			}
 		})
@@ -381,7 +404,9 @@ export const HandleKeyDown: Story = {
 			</>
 		)
 	},
-	// async play() {
-	// 	await userEvent.keyboard('type something{enter}')
-	// }
+	async play({canvasElement}) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'type something{enter}')
+	}
 }
