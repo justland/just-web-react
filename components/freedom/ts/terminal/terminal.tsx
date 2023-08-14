@@ -4,13 +4,12 @@ import {
 	memo,
 	useCallback,
 	useContext,
+	useEffect,
 	type ChangeEventHandler,
 	type JSXElementConstructor,
 	type KeyboardEventHandler,
 	type ReactNode,
-	type RefObject,
-	useRef,
-	useEffect
+	type RefObject
 } from 'react'
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
