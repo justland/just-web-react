@@ -1,12 +1,16 @@
 import {
 	createContext,
 	forwardRef,
+	memo,
+	useCallback,
 	useContext,
-	useEffect,
-	type ForwardedRef,
+	type ChangeEventHandler,
 	type JSXElementConstructor,
 	type KeyboardEventHandler,
-	type ReactNode
+	type ReactNode,
+	type RefObject,
+	useRef,
+	useEffect
 } from 'react'
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
@@ -20,55 +24,97 @@ export interface PromptNodeProps {
 
 export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
 
-export const TerminalWidgetContext = createContext<{
-	className?: string | undefined
+export type TerminalWidgetContextProps = {
 	disabled?: boolean
+	inputRef?: RefObject<HTMLInputElement> | undefined
+	output: Array<ReactNode>
+	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
+	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
 	Prompt: PromptNode
-	output: Array<ReactNode>
-	ref: ForwardedRef<HTMLInputElement>
-	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
-}>(null as any)
-
-export interface TerminalWidgetProps {
-	children?: ReactNode | undefined
-	className?: string | undefined
-	disabled?: boolean
-	prompt: PromptNode
-	output: Array<ReactNode>
-	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
 }
 
-export const TerminalWidget = forwardRef<HTMLInputElement, TerminalWidgetProps>((props, ref) => {
-	const { children, className, prompt, ...rest } = props
+export const TerminalWidgetContext = createContext<TerminalWidgetContextProps>(null as any)
 
-	return (
-		<TerminalWidgetContext.Provider
-			value={{
-				...rest,
-				Prompt: resolvePrompt(prompt),
-				ref
-			}}
-		>
-			<div className={className}>
-				{children || (
-					<>
-						<TerminalOutput />
-						<TerminalPromptArea />
-					</>
-				)}
-			</div>
-		</TerminalWidgetContext.Provider>
+export interface TerminalWidgetProps {
+	/**
+	 * Provide your own terminal layout and customization.
+	 *
+	 * You should at least provide a `<TerminalOutputArea />` and `<TerminalPromptArea />`.
+	 */
+	children?: ReactNode | undefined
+	/**
+	 * Class name of the terminal.
+	 */
+	className?: string | undefined
+	/**
+	 * Indicate the terminal is in disabled state.
+	 */
+	disabled?: boolean
+	/**
+	 * Event handler for the termanal input's `onChange` event.
+	 */
+	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
+	/**
+	 * Event handler for the termanal input's `onKeyDown` event.
+	 */
+	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
+	/**
+	 * Output value to be rendered by the Terminal.
+	 */
+	output: Array<ReactNode>
+	prompt: PromptNode
+}
+
+export const TerminalWidget = memo(
+	forwardRef<HTMLInputElement, TerminalWidgetProps>((props, ref) => {
+		const { children, className, prompt, output, ...rest } = props
+
+		const Prompt = usePrompt(prompt)
+		const inputRef = useForwardedRef(ref)
+
+		useEffect(() => {
+			if (inputRef.current) {
+				inputRef.current.focus()
+			}
+		}, [inputRef])
+		return (
+			<TerminalWidgetContext.Provider value={{ ...rest, output, Prompt, inputRef }}>
+				<div className={className}>
+					{children || (
+						<>
+							<TerminalOutputArea />
+							<TerminalPromptArea />
+						</>
+					)}
+				</div>
+			</TerminalWidgetContext.Provider>
+		)
+	})
+)
+
+export function usePrompt(Prompt: PromptNode) {
+	return useCallback(
+		({ children }: PromptNodeProps) => {
+			if (typeof Prompt === 'string') {
+				return (
+					<div>
+						<span>{Prompt}</span>
+						{children || <TerminalInput />}
+					</div>
+				)
+			}
+			return <Prompt>{children || <TerminalInput />}</Prompt>
+		},
+		[Prompt]
 	)
-})
+}
 
-TerminalWidget.displayName = 'TerminalWidget'
-
-export interface TerminalOutputProps {
+export interface TerminalOutputAreaProps {
 	className?: string
 	children?: ReactNode | ((bag: { output: Array<ReactNode> }) => ReactNode)
 }
 
-export function TerminalOutput({ className, children }: TerminalOutputProps) {
+export function TerminalOutputArea({ className, children }: TerminalOutputAreaProps) {
 	const { output } = useContext(TerminalWidgetContext)
 	const resolvedChildren = typeof children === 'function' ? children({ output }) : children
 	return (
@@ -76,28 +122,18 @@ export function TerminalOutput({ className, children }: TerminalOutputProps) {
 	)
 }
 
-export function resolvePrompt(prompt: PromptNode) {
-	if (typeof prompt === 'function') return prompt
-
-	return function Prompt({ children }: PromptNodeProps) {
-		const resolvedChildren =
-			typeof children === 'string' ? <span>{children}</span> : children || <TerminalInput />
-		return (
-			<div>
-				<span>{prompt}</span>
-				{resolvedChildren}
-			</div>
-		)
-	}
-}
-
 export interface TerminalPromptAreaProps {
+	className?: string | undefined
 	input?: ReactNode | undefined
 }
 
-export function TerminalPromptArea({ input }: TerminalPromptAreaProps) {
+export function TerminalPromptArea({ className, input }: TerminalPromptAreaProps) {
 	const { Prompt } = useContext(TerminalWidgetContext)
-	return <Prompt>{input}</Prompt>
+	return (
+		<div className={className}>
+			<Prompt>{input || <TerminalInput />}</Prompt>
+		</div>
+	)
 }
 
 export interface TerminalInputProps {
@@ -105,22 +141,24 @@ export interface TerminalInputProps {
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { disabled, ref, onKeyDown } = useContext(TerminalWidgetContext)
-	const innerRef = useForwardedRef(ref)
+	const { inputRef, disabled, onChange, onKeyDown } = useContext(TerminalWidgetContext)
 
-	useEffect(() => {
-		if (innerRef.current) {
-			innerRef.current.focus()
-		}
-	}, [ref])
-
-	return <input disabled={disabled} ref={innerRef} className={className} onKeyDown={onKeyDown} />
+	return (
+		<input
+			autoComplete="off"
+			onChange={onChange}
+			onKeyDown={onKeyDown}
+			className={className}
+			ref={inputRef}
+			disabled={disabled}
+		/>
+	)
 }
 
 export const Terminal = Object.assign(TerminalWidget, {
-	Input: TerminalInput,
-	Output: TerminalOutput,
-	PromptArea: TerminalPromptArea,
 	Widget: TerminalWidget,
+	Input: TerminalInput,
+	OutputArea: TerminalOutputArea,
+	PromptArea: TerminalPromptArea,
 	WidgetContext: TerminalWidgetContext
 })

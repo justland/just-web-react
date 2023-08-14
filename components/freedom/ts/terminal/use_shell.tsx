@@ -1,6 +1,13 @@
-import { useRef, useState, type KeyboardEvent as ReactKeyboardEvent, type ReactNode, useEffect } from 'react'
+import {
+	useEffect,
+	useRef,
+	useState,
+	type KeyboardEvent as ReactKeyboardEvent,
+	type ReactNode,
+	type ChangeEvent
+} from 'react'
 import type { CommandParser, CommandTypes, CommandsMap } from './shell.types.js'
-import { resolvePrompt, type PromptNode } from './terminal.js'
+import { usePrompt, type PromptNode } from './terminal.js'
 
 export interface UseShellProps {
 	/**
@@ -53,6 +60,7 @@ export function useShell(props?: UseShellProps) {
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
+	const [currentInput, setCurrentInput] = useState('')
 	const [completion, setCompletion] = useState({ typed: '', value: '' })
 
 	useEffect(() => {
@@ -61,16 +69,18 @@ export function useShell(props?: UseShellProps) {
 		}
 	}, [ref, completion])
 
-	const Prompt = resolvePrompt(prompt)
+	const Prompt = usePrompt(prompt)
 	return {
 		register() {
 			return {
 				ref,
-				prompt: Prompt,
+				prompt,
+				onChange(e: ChangeEvent<HTMLInputElement>) {
+					setCurrentInput(e.target.value)
+				},
 				async onKeyDown(e: ReactKeyboardEvent<HTMLInputElement>) {
 					if (!ref.current) return
 
-					const input = ref.current.value
 					if (onKeyDown) {
 						onKeyDown(e)
 					}
@@ -80,14 +90,14 @@ export function useShell(props?: UseShellProps) {
 							setOutput(h => {
 								if (!ref.current) return h
 
-								const entry = <Prompt>{ref.current.value}</Prompt>
+								const entry = <Prompt>{currentInput}</Prompt>
 								return [...h, entry]
 							})
 						}
 
-						const command = lookupCommand(commands, input) ?? onParse
+						const command = lookupCommand(commands, currentInput) ?? onParse
 
-						const result = await executeCommand.bind({ commands })(command, input)
+						const result = await executeCommand.bind({ commands })(command, currentInput)
 						setOutput(h => {
 							if (!result) return [...h, EMPTY_LINE]
 							if (Array.isArray(result)) return [...h, ...result]
@@ -95,13 +105,13 @@ export function useShell(props?: UseShellProps) {
 						})
 						setCompletion({ typed: '', value: '' })
 					} else if (e.key === 'Tab') {
-						if (!input) return
+						if (!currentInput) return
 						e.preventDefault()
 
-						const typed = input === completion.value ? completion.typed : input
-						const current = input === completion.value ? completion.value : ''
-						const value = matchCommandName(commands, typed, current)
+						const typed = currentInput === completion.value ? completion.typed : currentInput
+						const value = matchCommandName(commands, typed, currentInput)
 						if (value) {
+							setCurrentInput(value)
 							setCompletion({ typed, value })
 						}
 					}
@@ -137,6 +147,7 @@ function matchCommandName(commands: CommandsMap, input: string, current: string)
 		.sort((a, b) => (a > b ? 1 : -1))
 
 	const currentIndex = keys.indexOf(current)
+	console.log('keys', keys, `${current}'`, currentIndex)
 	if (currentIndex === -1) return keys[0]
 	return keys[(currentIndex + 1) % keys.length]
 }
