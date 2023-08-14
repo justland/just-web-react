@@ -1,3 +1,4 @@
+import React from 'react'
 import '@storybook/addon-console'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
@@ -24,7 +25,7 @@ const preview: Preview = {
 			defaultTheme: 'light'
 		}),
 		(Story, { tags }) => {
-			if (isTestRunner() && tags.some(t => t === 'skip-test')) return () => <div></div>
+			if (isTestRunner() && tags.some(t => t === 'skip-test')) return <div></div>
 			return <Story />
 		}
 	],
