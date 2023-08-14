@@ -147,7 +147,6 @@ function matchCommandName(commands: CommandsMap, input: string, current: string)
 		.sort((a, b) => (a > b ? 1 : -1))
 
 	const currentIndex = keys.indexOf(current)
-	console.log('keys', keys, `${current}'`, currentIndex)
 	if (currentIndex === -1) return keys[0]
 	return keys[(currentIndex + 1) % keys.length]
 }
