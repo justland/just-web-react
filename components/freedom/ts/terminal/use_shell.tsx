@@ -2,11 +2,11 @@ import {
 	useEffect,
 	useRef,
 	useState,
+	type ChangeEvent,
 	type KeyboardEvent as ReactKeyboardEvent,
-	type ReactNode,
-	type ChangeEvent
+	type ReactNode
 } from 'react'
-import type { CommandParser, CommandTypes, CommandsMap } from './shell.types.js'
+import type { CommandTypes, CommandsMap } from './shell.types.js'
 import { usePrompt, type PromptNode } from './terminal.js'
 
 export interface UseShellProps {
@@ -32,7 +32,7 @@ export interface UseShellProps {
 	 * - no `commands` are provided.
 	 * - no `command` is identified to process the command.
 	 */
-	onParse?: CommandParser
+	onParse?: (props: { input: string }) => Promise<ReactNode> | ReactNode
 	/**
 	 * Handles `keydown` events on the terminal.
 	 *
@@ -43,17 +43,15 @@ export interface UseShellProps {
 	commands?: CommandsMap
 }
 
-const EMPTY_LINE = <div>&nbsp;</div>
-
 /**
  * A hook for a shell emulator.
  */
 export function useShell(props?: UseShellProps) {
-	const { initial = [], echoPrompt = true, prompt = '>', commands = {}, onParse, onKeyDown } = props ?? {}
+	const { initial = [], echoPrompt = true, prompt = '>', commands, onParse, onKeyDown } = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
-	const [currentInput, setCurrentInput] = useState('')
+	const [input, setInput] = useState('')
 	const [completion, setCompletion] = useState({ typed: '', value: '' })
 
 	useEffect(() => {
@@ -65,54 +63,71 @@ export function useShell(props?: UseShellProps) {
 	const Prompt = usePrompt(prompt)
 	return {
 		setOutput,
+		input,
 		register() {
 			return {
 				ref,
 				prompt,
 				onChange(e: ChangeEvent<HTMLInputElement>) {
-					setCurrentInput(e.target.value)
+					setInput(e.target.value)
 				},
 				async onKeyDown(e: ReactKeyboardEvent<HTMLInputElement>) {
 					if (!ref.current) return
 
+					if (e.key === 'Enter' && echoPrompt) {
+						setOutput(h => {
+							const entry = <Prompt>{input}</Prompt>
+							return [...h, entry]
+						})
+					}
+
 					if (onKeyDown) {
 						onKeyDown(e)
 					}
+
+					if (e.isPropagationStopped()) return
+
 					if (e.key === 'Enter') {
 						e.preventDefault()
-						if (echoPrompt) {
-							setOutput(h => {
-								if (!ref.current) return h
+						setCompletion({ typed: '', value: '' })
 
-								const entry = <Prompt>{currentInput}</Prompt>
-								return [...h, entry]
-							})
+						let command: CommandTypes | undefined
+						if (commands) {
+							command = lookupCommand(commands, input)
+
+							if (command) {
+								const result = await executeCommand.bind({ commands })(command, input)
+								if (result) {
+									setOutput(h => {
+										if (Array.isArray(result)) return [...h, ...result]
+										return [...h, result]
+									})
+								}
+								return
+							}
 						}
 
 						if (onParse) {
-							onParse.bind({ commands })({ input: currentInput })
+							const result = await onParse({ input })
+							if (result) {
+								setOutput(h => {
+									if (Array.isArray(result)) return [...h, ...result]
+									return [...h, result]
+								})
+							}
 							return
 						}
-
-						const command =
-							lookupCommand(commands, currentInput) ??
-							(({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : ''))
-
-						const result = await executeCommand.bind({ commands })(command, currentInput)
-						setOutput(h => {
-							if (!result) return [...h, EMPTY_LINE]
-							if (Array.isArray(result)) return [...h, ...result]
-							return [...h, result]
-						})
-						setCompletion({ typed: '', value: '' })
-					} else if (e.key === 'Tab') {
-						if (!currentInput) return
+						if (commands && !command && !onParse) {
+							setOutput(h => [...h, `Unknown command: ${input}`])
+						}
+					} else if (commands && e.key === 'Tab') {
+						if (!input) return
 						e.preventDefault()
 
-						const typed = currentInput === completion.value ? completion.typed : currentInput
-						const value = matchCommandName(commands, typed, currentInput)
+						const typed = input === completion.value ? completion.typed : input
+						const value = matchCommandName(commands, typed, input)
 						if (value) {
-							setCurrentInput(value)
+							setInput(value)
 							setCompletion({ typed, value })
 						}
 					}

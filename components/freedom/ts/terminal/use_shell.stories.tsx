@@ -80,7 +80,12 @@ export const WithCustomLayout: Story = {
 
 export const CustomStringPrompt: Story = {
 	render() {
-		const { register } = useShell({ prompt: '>>>' })
+		const { register, setOutput } = useShell({
+			prompt: '>>>',
+			onParse({ input }) {
+				setOutput(h => [...h, `echo: ${input}`])
+			}
+		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
@@ -88,17 +93,14 @@ export const CustomStringPrompt: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-		const echo = await canvas.findByText('hello world')
+		const echo = await canvas.findByText('echo: hello world')
 		expect(echo).toBeInTheDocument()
-
-		const output = await canvas.findByText('Unknown command: hello')
-		expect(output).toBeInTheDocument()
 	}
 }
 
 export const CustomReactPrompt: Story = {
 	render() {
-		const { register } = useShell({
+		const { register, setOutput } = useShell({
 			prompt: ({ children }) => (
 				<>
 					<div>cyberuni</div>
@@ -109,7 +111,10 @@ export const CustomReactPrompt: Story = {
 						</span>
 					</div>
 				</>
-			)
+			),
+			onParse({ input }) {
+				setOutput(h => [...h, `echo: ${input}`])
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -118,11 +123,8 @@ export const CustomReactPrompt: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-		const echo = await canvas.findByText('hello world')
+		const echo = await canvas.findByText('echo: hello world')
 		expect(echo).toBeInTheDocument()
-
-		const output = await canvas.findByText('Unknown command: hello')
-		expect(output).toBeInTheDocument()
 	}
 }
 
@@ -149,7 +151,12 @@ export const InputSpanFullWidth: Story = {
 
 export const DisableEchoPrompt: Story = {
 	render() {
-		const { register } = useShell({ echoPrompt: false })
+		const { register, setOutput } = useShell({
+			echoPrompt: false,
+			onParse({ input }) {
+				setOutput(o => [...o, `echo: ${input}`])
+			}
+		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
@@ -157,6 +164,8 @@ export const DisableEchoPrompt: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
+		const text = canvas.getByText('echo: hello world')
+		expect(text).toBeInTheDocument()
 	}
 }
 
@@ -458,6 +467,31 @@ export const HandleKeyDown: Story = {
 	}
 }
 
+export const OnParseSuppressUnknownCommand: Story = {
+	render() {
+		const { register } = useShell({
+			commands: {
+				miku: ({ input }) => `miku ${input}`
+			},
+			onParse() {}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'luka sing{enter}')
+		expect(canvas.getByText('luka sing')).toBeInTheDocument()
+
+		expect(canvas.queryByText(`Unknown command: luka sing`)).toBeNull()
+	}
+}
+
 export const UpdateOutput: Story = {
 	render() {
 		const { register, setOutput } = useShell({
@@ -477,5 +511,70 @@ export const UpdateOutput: Story = {
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
 		expect(canvas.getByText('echoing with setOutput: hello world')).toBeInTheDocument()
+	}
+}
+
+export const AccessInput: Story = {
+	render() {
+		const { register, setOutput, input } = useShell({
+			onKeyDown(e) {
+				if (e.key === 'Enter') {
+					setOutput(v => [...v, `onKeyDown: ${input}`])
+				}
+			},
+			onParse({ input }) {
+				setOutput(v => [...v, `onParse: ${input}`])
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		expect(canvas.getByText('onKeyDown: hello world')).toBeInTheDocument()
+		expect(canvas.getByText('onParse: hello world')).toBeInTheDocument()
+	}
+}
+
+export const StopPropagation: Story = {
+	render() {
+		const { register, setOutput, input } = useShell({
+			onKeyDown(e) {
+				if (e.key === 'Enter') {
+					setOutput(v => [...v, `onKeyDown: ${input}`])
+					e.stopPropagation()
+				}
+			},
+			onParse({ input }) {
+				setOutput(v => [...v, `onParse: ${input}`])
+			},
+			commands: {
+				miku: 'command: miku'
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		expect(canvas.getByText('onKeyDown: hello world')).toBeInTheDocument()
+		expect(canvas.queryByText('onParse: hello world')).toBeNull()
+
+		await userEvent.clear(input)
+		await userEvent.type(input, 'miku sing{enter}')
+		expect(canvas.getByText('onKeyDown: miku sing')).toBeInTheDocument()
+		expect(canvas.queryByText('command: miku')).toBeNull()
 	}
 }
