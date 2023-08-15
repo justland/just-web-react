@@ -49,14 +49,7 @@ const EMPTY_LINE = <div>&nbsp;</div>
  * A hook for a shell emulator.
  */
 export function useShell(props?: UseShellProps) {
-	const {
-		initial = [],
-		echoPrompt = true,
-		prompt = '>',
-		commands = {},
-		onParse = ({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : ''),
-		onKeyDown
-	} = props ?? {}
+	const { initial = [], echoPrompt = true, prompt = '>', commands = {}, onParse, onKeyDown } = props ?? {}
 
 	const ref = useRef<HTMLInputElement>(null)
 	const [output, setOutput] = useState<Array<ReactNode>>(initial)
@@ -71,6 +64,7 @@ export function useShell(props?: UseShellProps) {
 
 	const Prompt = usePrompt(prompt)
 	return {
+		setOutput,
 		register() {
 			return {
 				ref,
@@ -95,7 +89,14 @@ export function useShell(props?: UseShellProps) {
 							})
 						}
 
-						const command = lookupCommand(commands, currentInput) ?? onParse
+						if (onParse) {
+							onParse.bind({ commands })({ input: currentInput })
+							return
+						}
+
+						const command =
+							lookupCommand(commands, currentInput) ??
+							(({ input }: { input: string }) => (input ? `Unknown command: ${input.split(' ')[0]}` : ''))
 
 						const result = await executeCommand.bind({ commands })(command, currentInput)
 						setOutput(h => {

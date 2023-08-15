@@ -197,7 +197,7 @@ export const ChangeStringToReactPrompt: Story = {
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
-	},
+	}
 	// async play({ canvasElement }) {
 	// 	const canvas = within(canvasElement)
 	// 	const input = canvas.getByRole<HTMLInputElement>('textbox')
@@ -455,5 +455,27 @@ export const HandleKeyDown: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'type something{enter}')
+	}
+}
+
+export const UpdateOutput: Story = {
+	render() {
+		const { register, setOutput } = useShell({
+			onParse({ input }) {
+				setOutput(v => [...v, `echoing with setOutput: ${input}`])
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		expect(canvas.getByText('echoing with setOutput: hello world')).toBeInTheDocument()
 	}
 }
