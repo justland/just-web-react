@@ -5,6 +5,7 @@ import {
 	useCallback,
 	useContext,
 	useEffect,
+	useRef,
 	type ChangeEventHandler,
 	type JSXElementConstructor,
 	type KeyboardEventHandler,
@@ -76,20 +77,41 @@ export const TerminalWidget = memo(
 				inputRef.current.focus()
 			}
 		}, [inputRef])
+
 		return (
 			<TerminalWidgetContext.Provider value={{ ...rest, output, Prompt, inputRef }}>
-				<div className={className}>
-					{children || (
-						<>
-							<TerminalOutputArea />
-							<TerminalPromptArea />
-						</>
-					)}
-				</div>
+				<TerminalWidgetContainer className={className}>{children}</TerminalWidgetContainer>
 			</TerminalWidgetContext.Provider>
 		)
 	})
 )
+
+interface TerminalWidgetContainerProps {
+	children?: ReactNode | undefined
+	className?: string | undefined
+}
+
+function TerminalWidgetContainer({ children, className }: TerminalWidgetContainerProps) {
+	const { output } = useContext(TerminalWidgetContext)
+	const containerRef = useRef<HTMLDivElement>(null)
+
+	useEffect(() => {
+		if (containerRef.current) {
+			containerRef.current.scrollTop = containerRef.current.scrollHeight
+		}
+	}, [containerRef, output])
+
+	return (
+		<div className={className} ref={containerRef}>
+			{children || (
+				<>
+					<TerminalOutputArea />
+					<TerminalPromptArea />
+				</>
+			)}
+		</div>
+	)
+}
 
 export function usePrompt(Prompt: PromptNode) {
 	if (typeof Prompt === 'string') {

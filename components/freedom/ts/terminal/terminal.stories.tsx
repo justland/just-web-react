@@ -1,7 +1,7 @@
 import { expect } from '@storybook/jest'
 import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
-import { useState } from 'react'
+import { useState, type ReactNode } from 'react'
 import { summary } from '../storybook/summary.js'
 import { Terminal } from './terminal.js'
 
@@ -61,11 +61,9 @@ export const OnChange: Story = {
 export const OnKeyDown: Story = {
 	decorators: [
 		summary(
-			<>
-				<p>
-					<code>onKeyDown</code> captures the keydown event from the input
-				</p>
-			</>
+			<p>
+				<code>onKeyDown</code> captures the keydown event from the input
+			</p>
 		)
 	],
 	render() {
@@ -99,12 +97,10 @@ export const OnKeyDown: Story = {
 export const KeyDownAndChange: Story = {
 	decorators: [
 		summary(
-			<>
-				<p>
-					This story ensure using both <code>onKeyDown</code> and <code>onChange</code> saving to two
-					different states work.
-				</p>
-			</>
+			<p>
+				This story ensure using both <code>onKeyDown</code> and <code>onChange</code> saving to two different
+				states work.
+			</p>
 		)
 	],
 	render() {
@@ -146,6 +142,7 @@ export const KeyDownAndChange: Story = {
 }
 
 export const Disabled: Story = {
+	decorators: [summary(<p>When disabled, the input element will be disabled.</p>)],
 	render() {
 		const [disabled, setDisabled] = useState(true)
 
@@ -191,5 +188,52 @@ export const TerminalClassName: Story = {
 				<Terminal className="h-full bg-stone-400 py-2" prompt="$" output={[]} />
 			</div>
 		)
+	}
+}
+
+export const ScrollToBottom: Story = {
+	decorators: [
+		summary(
+			<p>
+				<code>Terminal</code> will automatically scroll to the bottom.
+			</p>
+		)
+	],
+	render() {
+		const [output, setOutput] = useState<ReactNode[]>([])
+
+		return (
+			<div className="flex flex-col gap-2">
+				<div className="flex gap-1">
+					<button
+						className="rounded px-2 py-1 bg-slate-200"
+						onClick={() => {
+							const entry = (
+								<div>
+									<p>Multiline 1</p>
+									<p>Multiline 2</p>
+									<p>Multiline 3</p>
+									<p>Multiline 4</p>
+								</div>
+							)
+							setOutput(v => [...v, entry])
+						}}
+					>
+						Add output
+					</button>
+				</div>
+				<div className="h-80 bg-gray-100 w-80">
+					<Terminal prompt="$" output={output} className="h-full overflow-auto" />
+				</div>
+			</div>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const button = canvas.getByRole('button')
+		await userEvent.click(button)
+		await userEvent.click(button)
+		await userEvent.click(button)
+		await userEvent.click(button)
 	}
 }
