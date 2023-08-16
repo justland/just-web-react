@@ -1,5 +1,11 @@
 # react-freedom
 
+## 1.1.1
+
+### Patch Changes
+
+- e43bb05: Scroll to bottom automatically.
+
 ## 1.1.0
 
 ### Minor Changes
