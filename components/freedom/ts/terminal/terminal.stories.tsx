@@ -36,7 +36,6 @@ export const OnChange: Story = {
 					prompt="$"
 					output={[]}
 					onChange={e => {
-						console.log('onChange triggered')
 						setInputText(e.target.value)
 					}}
 				/>
@@ -47,7 +46,6 @@ export const OnChange: Story = {
 		)
 	},
 	async play({ canvasElement }) {
-		console.log('play started')
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello')

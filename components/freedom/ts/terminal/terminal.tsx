@@ -139,7 +139,9 @@ export function TerminalOutputArea({ className, children }: TerminalOutputAreaPr
 	const { output } = useContext(TerminalWidgetContext)
 	const resolvedChildren = typeof children === 'function' ? children({ output }) : children
 	return (
-		<div className={className}>{resolvedChildren || output.map((line, i) => <div key={i}>{line}</div>)}</div>
+		<div className={className} role="log" aria-label="Terminal output">
+			{resolvedChildren || output.map((line, i) => <div key={i}>{line}</div>)}
+		</div>
 	)
 }
 
@@ -166,6 +168,7 @@ export function TerminalInput({ className }: TerminalInputProps) {
 
 	return (
 		<input
+			aria-label="Terminal input"
 			autoComplete="off"
 			onChange={onChange}
 			onKeyDown={onKeyDown}
