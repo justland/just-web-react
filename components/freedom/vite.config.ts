@@ -6,6 +6,7 @@ export default defineConfig({
 	test: {
 		globals: true,
 		environment: 'jsdom',
-		root: 'ts'
+		exclude: ['**/{node_modules,cjs,esm,coverage}/**'],
+		// root: 'ts'
 	}
 })
