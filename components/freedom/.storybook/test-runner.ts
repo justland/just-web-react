@@ -1,12 +1,14 @@
-import { toMatchImageSnapshot } from 'jest-image-snapshot'
+import { getStoryContext } from '@storybook/test-runner'
 import isCI from 'is-ci'
+import { toMatchImageSnapshot } from 'jest-image-snapshot'
 
 export function setup() {
 	expect.extend({ toMatchImageSnapshot })
 }
 export async function postRender(page, context) {
 	if (isCI) return
-	if (!/-skip-snap$/.test(context.id)) {
+	const storyContext = await getStoryContext(page, context)
+	if (storyContext.tags.indexOf('skip-snapshot') === -1) {
 		const image = await page.screenshot()
 		expect(image).toMatchImageSnapshot({
 			comparisonMethod: 'ssim',

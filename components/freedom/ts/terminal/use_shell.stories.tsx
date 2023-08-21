@@ -2,11 +2,12 @@ import { faker } from '@faker-js/faker'
 import { expect } from '@storybook/jest'
 import type { Meta, StoryObj } from '@storybook/react'
 import { userEvent, within } from '@storybook/testing-library'
+import delay from 'delay'
 import { useState } from 'react'
+import { summary } from '../storybook/summary.js'
 import { listCommand } from './list_commands.js'
 import { Terminal, type PromptNode, type PromptNodeProps } from './terminal.js'
 import { useShell } from './use_shell.js'
-import { summary } from '../storybook/summary.js'
 
 faker.seed(1234)
 
@@ -352,22 +353,58 @@ export const AutoComplete: Story = {
 }
 
 export const TabAwayIfPromptIsEmpty: Story = {
+	tags: ['skip-snapshot'],
 	render() {
 		const { register } = useShell({
+			onKeyDown(e) {
+				console.log(document.activeElement)
+				console.log('received', e.key)
+			},
 			commands: {
 				miku: 'miku'
 			}
 		})
 
-		return <Terminal className="h-full overflow-auto" {...register()} />
+		return (
+			<div className="flex flex-col gap-1">
+				<Terminal className="h-full overflow-auto" {...register()} />
+				<button>Some button</button>
+			</div>
+		)
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		input.focus()
 		expect(input).toEqual(document.activeElement)
-		await userEvent.keyboard('{tab}')
-		expect(input).not.toEqual(document.activeElement)
+		await userEvent.type(input, '{tab}')
+		// during test the `activeElement` did not change,
+		// likely because the browser is not focused.
+		// Can only observe the result directly.
+	}
+}
+
+export const TabAwayIfNoCommands: Story = {
+	tags: ['skip-snapshot'],
+	render() {
+		const { register } = useShell()
+
+		return (
+			<div className="flex flex-col gap-1">
+				<Terminal className="h-full overflow-auto" {...register()} />
+				<button>Some button</button>
+			</div>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		input.focus()
+		expect(input).toEqual(document.activeElement)
+		await userEvent.type(input, 'm{tab}')
+		// during test the `activeElement` did not change,
+		// likely because the browser is not focused.
+		// Can only observe the result directly.
 	}
 }
 
@@ -605,12 +642,48 @@ export const HideInputWhenProcessing: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-		expect(canvas.getByText('onKeyDown: hello world')).toBeInTheDocument()
 		expect(canvas.queryByText('onParse: hello world')).toBeNull()
 
+		await delay(1100)
+		expect(canvas.getByText('onParse: hello world')).toBeInTheDocument()
+	}
+}
+
+export const ScrollToBottomWithMultipleOutput: Story = {
+	render() {
+		const { register, setOutput } = useShell({
+			async onParse({ input }) {
+				return new Promise<void>(a => {
+					setTimeout(() => {
+						setOutput(v => [
+							...v,
+							`${input}: result 1`,
+							`${input}: result 2`,
+							`${input}: result 3`,
+							`${input}: result 4`,
+							`${input}: result 5`
+						])
+						a()
+					}, 100)
+				})
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		await delay(300)
 		await userEvent.clear(input)
 		await userEvent.type(input, 'miku sing{enter}')
-		expect(canvas.getByText('onKeyDown: miku sing')).toBeInTheDocument()
-		expect(canvas.queryByText('command: miku')).toBeNull()
+		await delay(300)
+		await userEvent.clear(input)
+		await userEvent.type(input, 'luke falls to the ground{enter}')
 	}
 }

@@ -9,6 +9,7 @@ import {
 	useState,
 	type ChangeEventHandler,
 	type Dispatch,
+	type HTMLAttributes,
 	type JSXElementConstructor,
 	type KeyboardEvent,
 	type ReactNode,
@@ -23,6 +24,8 @@ export interface PromptNodeProps {
 	 * or `ReactNode` when the prompt is used in the output.
 	 */
 	children?: ReactNode | undefined
+	className?: string | undefined
+	style?: HTMLAttributes<HTMLElement>['style']
 }
 
 export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
@@ -33,7 +36,7 @@ export type TerminalWidgetContextProps = {
 	output: Array<ReactNode>
 	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
 	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined
-	Prompt: PromptNode
+	Prompt: JSXElementConstructor<PromptNodeProps>
 	processing: boolean
 	setProcessing: Dispatch<SetStateAction<boolean>>
 }
@@ -119,9 +122,9 @@ function TerminalWidgetContainer({ children, className }: TerminalWidgetContaine
 export function usePrompt(Prompt: PromptNode) {
 	if (typeof Prompt === 'string') {
 		return useCallback(
-			({ children }: PromptNodeProps) => {
+			({ children, ...rest }: PromptNodeProps) => {
 				return (
-					<div>
+					<div {...rest}>
 						<span>{Prompt}</span>
 						{children}
 					</div>
@@ -158,9 +161,9 @@ export function TerminalPromptArea({ className, input }: TerminalPromptAreaProps
 	const style = processing ? { display: 'none' } : undefined
 
 	return (
-		<div className={className} style={style}>
-			<Prompt>{input || <TerminalInput />}</Prompt>
-		</div>
+		<Prompt className={className} style={style}>
+			{input || <TerminalInput />}
+		</Prompt>
 	)
 }
 
@@ -169,13 +172,14 @@ export interface TerminalInputProps {
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { inputRef, disabled, onChange, onKeyDown, setProcessing } = useContext(TerminalWidgetContext)
+	const { inputRef, disabled, processing, onChange, onKeyDown, setProcessing } =
+		useContext(TerminalWidgetContext)
 
 	useEffect(() => {
 		if (inputRef.current) {
 			inputRef.current.focus()
 		}
-	}, [inputRef])
+	}, [inputRef, processing])
 
 	return (
 		<input
