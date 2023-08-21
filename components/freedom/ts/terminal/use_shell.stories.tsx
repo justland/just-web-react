@@ -578,3 +578,39 @@ export const StopPropagation: Story = {
 		expect(canvas.queryByText('command: miku')).toBeNull()
 	}
 }
+
+export const HideInputWhenProcessing: Story = {
+	render() {
+		const { register, setOutput } = useShell({
+			async onParse({ input }) {
+				return new Promise<void>(a => {
+					setTimeout(() => {
+						setOutput(v => [...v, `onParse: ${input}`])
+						a()
+					}, 1000)
+				})
+			},
+			commands: {
+				miku: 'command: miku'
+			}
+		})
+
+		return (
+			<>
+				<Terminal className="h-full overflow-auto" {...register()} />
+			</>
+		)
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		expect(canvas.getByText('onKeyDown: hello world')).toBeInTheDocument()
+		expect(canvas.queryByText('onParse: hello world')).toBeNull()
+
+		await userEvent.clear(input)
+		await userEvent.type(input, 'miku sing{enter}')
+		expect(canvas.getByText('onKeyDown: miku sing')).toBeInTheDocument()
+		expect(canvas.queryByText('command: miku')).toBeNull()
+	}
+}

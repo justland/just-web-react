@@ -6,11 +6,14 @@ import {
 	useContext,
 	useEffect,
 	useRef,
+	useState,
 	type ChangeEventHandler,
+	type Dispatch,
 	type JSXElementConstructor,
-	type KeyboardEventHandler,
+	type KeyboardEvent,
 	type ReactNode,
-	type RefObject
+	type RefObject,
+	type SetStateAction
 } from 'react'
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
@@ -26,11 +29,13 @@ export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
 
 export type TerminalWidgetContextProps = {
 	disabled?: boolean
-	inputRef?: RefObject<HTMLInputElement> | undefined
+	inputRef: RefObject<HTMLInputElement>
 	output: Array<ReactNode>
 	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
-	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
+	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined
 	Prompt: PromptNode
+	processing: boolean
+	setProcessing: Dispatch<SetStateAction<boolean>>
 }
 
 export const TerminalWidgetContext = createContext<TerminalWidgetContextProps>(null as any)
@@ -48,6 +53,7 @@ export interface TerminalWidgetProps {
 	className?: string | undefined
 	/**
 	 * Indicate the terminal is in disabled state.
+	 *
 	 */
 	disabled?: boolean
 	/**
@@ -57,7 +63,7 @@ export interface TerminalWidgetProps {
 	/**
 	 * Event handler for the termanal input's `onKeyDown` event.
 	 */
-	onKeyDown?: KeyboardEventHandler<HTMLInputElement> | undefined
+	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined
 	/**
 	 * Output value to be rendered by the Terminal.
 	 */
@@ -71,15 +77,12 @@ export const TerminalWidget = memo(
 
 		const Prompt = usePrompt(prompt)
 		const inputRef = useForwardedRef(ref)
-
-		useEffect(() => {
-			if (inputRef.current) {
-				inputRef.current.focus()
-			}
-		}, [inputRef])
+		const [processing, setProcessing] = useState(false)
 
 		return (
-			<TerminalWidgetContext.Provider value={{ ...rest, output, Prompt, inputRef }}>
+			<TerminalWidgetContext.Provider
+				value={{ ...rest, output, Prompt, inputRef, processing, setProcessing }}
+			>
 				<TerminalWidgetContainer className={className}>{children}</TerminalWidgetContainer>
 			</TerminalWidgetContext.Provider>
 		)
@@ -151,9 +154,11 @@ export interface TerminalPromptAreaProps {
 }
 
 export function TerminalPromptArea({ className, input }: TerminalPromptAreaProps) {
-	const { Prompt } = useContext(TerminalWidgetContext)
+	const { Prompt, processing } = useContext(TerminalWidgetContext)
+	const style = processing ? { display: 'none' } : undefined
+
 	return (
-		<div className={className}>
+		<div className={className} style={style}>
 			<Prompt>{input || <TerminalInput />}</Prompt>
 		</div>
 	)
@@ -164,14 +169,26 @@ export interface TerminalInputProps {
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { inputRef, disabled, onChange, onKeyDown } = useContext(TerminalWidgetContext)
+	const { inputRef, disabled, onChange, onKeyDown, setProcessing } = useContext(TerminalWidgetContext)
+
+	useEffect(() => {
+		if (inputRef.current) {
+			inputRef.current.focus()
+		}
+	}, [inputRef])
 
 	return (
 		<input
 			aria-label="Terminal input"
 			autoComplete="off"
 			onChange={onChange}
-			onKeyDown={onKeyDown}
+			onKeyDown={async e => {
+				if (onKeyDown) {
+					setProcessing(true)
+					await onKeyDown(e)
+					setProcessing(false)
+				}
+			}}
 			className={className}
 			ref={inputRef}
 			disabled={disabled}
