@@ -1,5 +1,15 @@
 # react-freedom
 
+## 1.1.2
+
+### Patch Changes
+
+- 3bffce4: Hide prompt when processing keydown asynchronously.
+- dd21afa: Add `aria-label` to input and output.
+- 86baf57: Fix scroll to bottom.
+
+  The `Prompt` will receive the `className` and `style` props.
+
 ## 1.1.1
 
 ### Patch Changes
