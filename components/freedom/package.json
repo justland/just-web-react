@@ -75,7 +75,7 @@
     "@faker-js/faker": "^8.0.2",
     "@playwright/test": "^1.37.0",
     "@repobuddy/typescript": "^1.2.0",
-    "@size-limit/preset-small-lib": "~8.2.0",
+    "@size-limit/preset-small-lib": "~9.0.0",
     "@storybook/addon-a11y": "^7.3.2",
     "@storybook/addon-console": "~2.0.0",
     "@storybook/addon-coverage": "^0.0.9",
