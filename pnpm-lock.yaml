@@ -97,7 +97,7 @@ importers:
         version: link:../../libraries/react
       '@size-limit/preset-small-lib':
         specifier: ~8.2.0
-        version: 8.2.3(size-limit@8.2.3)
+        version: 8.2.3(size-limit@9.0.0)
       '@storybook/addon-console':
         specifier: ~2.0.0
         version: 2.0.0(@storybook/addon-actions@7.3.2)
@@ -186,8 +186,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(rollup@3.28.0)
       size-limit:
-        specifier: ~8.2.0
-        version: 8.2.3
+        specifier: ~9.0.0
+        version: 9.0.0
       storybook:
         specifier: ^7.2.1
         version: 7.2.1
@@ -218,7 +218,7 @@ importers:
         version: 1.2.0
       '@size-limit/preset-small-lib':
         specifier: ~8.2.0
-        version: 8.2.3(size-limit@8.2.3)
+        version: 8.2.3(size-limit@9.0.0)
       '@storybook/addon-a11y':
         specifier: ^7.3.2
         version: 7.3.2(@types/react@16.14.43)(react-dom@16.14.0)(react@16.14.0)
@@ -322,8 +322,8 @@ importers:
         specifier: ~5.0.0
         version: 5.0.0
       size-limit:
-        specifier: ~8.2.0
-        version: 8.2.3
+        specifier: ~9.0.0
+        version: 9.0.0
       storybook:
         specifier: ^7.2.1
         version: 7.2.1
@@ -366,7 +366,7 @@ importers:
         version: 1.2.0
       '@size-limit/preset-small-lib':
         specifier: ~8.2.0
-        version: 8.2.3(size-limit@8.2.3)
+        version: 8.2.3(size-limit@9.0.0)
       '@storybook/addon-actions':
         specifier: ^7.0.6
         version: 7.0.6(react-dom@16.14.0)(react@16.14.0)
@@ -524,8 +524,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(rollup@3.28.0)
       size-limit:
-        specifier: ~8.2.0
-        version: 8.2.3
+        specifier: ~9.0.0
+        version: 9.0.0
       storybook:
         specifier: 7.4.0
         version: 7.4.0
@@ -571,7 +571,7 @@ importers:
         version: 1.2.0
       '@size-limit/preset-small-lib':
         specifier: ~8.2.0
-        version: 8.2.3(size-limit@8.2.3)
+        version: 8.2.3(size-limit@9.0.0)
       '@storybook/addon-actions':
         specifier: ^7.0.6
         version: 7.0.18(react-dom@18.2.0)(react@18.2.0)
@@ -690,8 +690,8 @@ importers:
         specifier: ^6.0.0
         version: 6.0.0(rollup@3.28.0)
       size-limit:
-        specifier: ~8.2.0
-        version: 8.2.3
+        specifier: ~9.0.0
+        version: 9.0.0
       storybook:
         specifier: 7.4.0
         version: 7.4.0
@@ -5727,7 +5727,7 @@ packages:
       '@sinonjs/commons': 1.8.6
     dev: true
 
-  /@size-limit/esbuild@8.2.3(size-limit@8.2.3):
+  /@size-limit/esbuild@8.2.3(size-limit@9.0.0):
     resolution: {integrity: sha512-jqbg23dnheXNQg1YVItUiEViALwsFycaHpv94pldWakwEHqPApcIEH6WqbI3utdyQ9hYJzyhwT9BkcJIyzD2tg==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
@@ -5735,27 +5735,27 @@ packages:
     dependencies:
       esbuild: 0.17.7
       nanoid: 3.3.4
-      size-limit: 8.2.3
+      size-limit: 9.0.0
     dev: true
 
-  /@size-limit/file@8.2.3(size-limit@8.2.3):
+  /@size-limit/file@8.2.3(size-limit@9.0.0):
     resolution: {integrity: sha512-2H6XENiKr/45epwvvIGvYkZTr/pm5Pq4R1xR0aiVbElTrf4TiFQrd0p+U8vnaq68Y0Z//KQvflqhE+SdE7DLRQ==}
     engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
     peerDependencies:
       size-limit: 8.2.3
     dependencies:
       semver: 7.3.8
-      size-limit: 8.2.3
+      size-limit: 9.0.0
     dev: true
 
-  /@size-limit/preset-small-lib@8.2.3(size-limit@8.2.3):
+  /@size-limit/preset-small-lib@8.2.3(size-limit@9.0.0):
     resolution: {integrity: sha512-F2PhXWITMUkc3pzFSYBbwjcjinv5NFQAZ6mS976p36wej/IfMrzuqYXxfhxqD+zooPJFNNp1UnxogTDQHmocaQ==}
     peerDependencies:
       size-limit: 8.2.3
     dependencies:
-      '@size-limit/esbuild': 8.2.3(size-limit@8.2.3)
-      '@size-limit/file': 8.2.3(size-limit@8.2.3)
-      size-limit: 8.2.3
+      '@size-limit/esbuild': 8.2.3(size-limit@9.0.0)
+      '@size-limit/file': 8.2.3(size-limit@9.0.0)
+      size-limit: 9.0.0
     dev: true
 
   /@storybook/addon-a11y@7.3.2(@types/react@16.14.43)(react-dom@16.14.0)(react@16.14.0):
@@ -5913,7 +5913,7 @@ packages:
       react: 16.14.0
       react-dom: 16.14.0(react@16.14.0)
       react-inspector: 6.0.2(react@16.14.0)
-      telejson: 7.1.0
+      telejson: 7.2.0
       ts-dedent: 2.2.0
       uuid: 9.0.0
     transitivePeerDependencies:
@@ -8302,10 +8302,10 @@ packages:
       - supports-color
     dev: true
 
-  /@storybook/expect@27.5.2-0:
-    resolution: {integrity: sha512-cP99mhWN/JeCp7VSIiymvj5tmuMY050iFohvp8Zq+kewKsBSZ6/qpTJAGCCZk6pneTcp4S0Fm5BSqyxzbyJ3gw==}
+  /@storybook/expect@28.1.3-5:
+    resolution: {integrity: sha512-lS1oJnY1qTAxnH87C765NdfvGhksA6hBcbUVI5CHiSbNsEtr456wtg/z+dT9XlPriq1D5t2SgfNL9dBAoIGyIA==}
     dependencies:
-      '@types/jest': 29.5.1
+      '@types/jest': 28.1.3
     dev: true
 
   /@storybook/global@5.0.0:
@@ -8400,7 +8400,7 @@ packages:
   /@storybook/jest@0.2.0:
     resolution: {integrity: sha512-z0S+tMWEfV5rK4drIaPaDcOdnJ02Rs/A8gfLnrZXrlYZiDWC7CvPIhpJDwBYnR6MZ3udn8lOD8V/fbTbSEV7Rg==}
     dependencies:
-      '@storybook/expect': 27.5.2-0
+      '@storybook/expect': 28.1.3-5
       '@testing-library/jest-dom': 5.16.5
       '@types/jest': 28.1.3
       jest-mock: 27.5.1
@@ -17171,6 +17171,11 @@ packages:
     engines: {node: '>=10'}
     dev: true
 
+  /lilconfig@2.1.0:
+    resolution: {integrity: sha512-utWOt/GHzuUxnLKxB6dk81RoOeoNeHgbrXiuGk4yyF5qlRz+iIVWu56E2fqGHFrXz0QNUhLB/8nKqvRH66JKGQ==}
+    engines: {node: '>=10'}
+    dev: true
+
   /lines-and-columns@1.2.4:
     resolution: {integrity: sha512-7ylylesZQ/PV29jhEDl3Ufjo6ZX7gCqJr5F7PKrqc93v7fzSymt1BpwEU8nAUXs8qzzvqhbjhK5QZg6Mt/HkBg==}
     dev: true
@@ -20266,15 +20271,15 @@ packages:
     resolution: {integrity: sha512-bLGGlR1QxBcynn2d5YmDX4MGjlZvy2MRBDRNHLJ8VI6l6+9FUiyTFNJ0IveOSP0bcXgVDPRcfGqA0pjaqUpfVg==}
     dev: true
 
-  /size-limit@8.2.3:
-    resolution: {integrity: sha512-05dCPH21ZKOHRSjMHdCzg88VUbHiI+UegSMqXo1U6+qHoM6jwb8WYMNPi/RPNhOLIlQCZGEry2O/h599C/o28A==}
-    engines: {node: ^14.0.0 || ^16.0.0 || >=18.0.0}
+  /size-limit@9.0.0:
+    resolution: {integrity: sha512-DrA7o2DeRN3s+vwCA9nn7Ck9Y4pn9t0GNUwQRpKqBtBmNkl6LA2s/NlNCdtKHrEkRTeYA1ZQ65mnYveo9rUqgA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
     hasBin: true
     dependencies:
       bytes-iec: 3.1.1
       chokidar: 3.5.3
       globby: 11.1.0
-      lilconfig: 2.0.6
+      lilconfig: 2.1.0
       nanospinner: 1.1.0
       picocolors: 1.0.0
     dev: true
