@@ -1,5 +1,5 @@
 ---
-'react-freedom': major
+'react-freedom': patch
 ---
 
-Focus prompt when clicked
+Terminal: focus prompt when clicked.
