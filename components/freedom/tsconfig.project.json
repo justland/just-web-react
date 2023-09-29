@@ -7,7 +7,7 @@
     "moduleResolution": "Node16"
   },
   "include": [
-    ".storybook",
+    ".storybook/*",
     "vite.config.ts"
   ]
 }

@@ -1,4 +1,3 @@
-import React from 'react'
 import '@storybook/addon-console'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
