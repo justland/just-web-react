@@ -98,17 +98,28 @@ interface TerminalWidgetContainerProps {
 }
 
 function TerminalWidgetContainer({ children, className }: TerminalWidgetContainerProps) {
-	const { output } = useContext(TerminalWidgetContext)
+	const { output, inputRef } = useContext(TerminalWidgetContext)
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
 		if (containerRef.current) {
+			// containerRef.current.scrollIntoView({
+			// 	behavior: 'smooth',
+			// 	block: 'end',
+			// 	inline: 'nearest'
+			// })
 			containerRef.current.scrollTop = containerRef.current.scrollHeight
 		}
 	}, [containerRef, output])
 
 	return (
-		<div className={className} ref={containerRef}>
+		<div
+			className={className}
+			ref={containerRef}
+			onMouseUp={() => {
+				if (!window.getSelection()?.toString()) inputRef.current?.focus()
+			}}
+		>
 			{children || (
 				<>
 					<TerminalOutputArea />

@@ -17,6 +17,9 @@
 		},
 		{
 			"path": "../primereact"
+		},
+		{
+			"path": "../vscode"
 		}
 	],
 	"settings": {
