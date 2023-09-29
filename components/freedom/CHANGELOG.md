@@ -1,5 +1,11 @@
 # react-freedom
 
+## 1.1.3
+
+### Patch Changes
+
+- ec8a77e: Terminal: focus prompt when clicked.
+
 ## 1.1.2
 
 ### Patch Changes
