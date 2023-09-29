@@ -9,3 +9,4 @@ jobs:
     with:
       os: '["ubuntu-latest"]'
       node-version: '[18]'
+      pnpm-version: 8.8.0
