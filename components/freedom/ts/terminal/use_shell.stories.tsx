@@ -249,6 +249,25 @@ export const ParseInputAsync: Story = {
 	}
 }
 
+
+export const InputClearedAfterParse: Story = {
+	render() {
+		const { register } = useShell({
+			onParse({ input }) {
+				return `echo ${input}`
+			}
+		})
+
+		return <Terminal className="h-full overflow-auto" {...register()} />
+	},
+	async play({ canvasElement }) {
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello world{enter}')
+		await userEvent.type(input, '{enter}')
+	}
+}
+
 export const UnknownCommand: Story = {
 	render() {
 		const { register } = useShell({

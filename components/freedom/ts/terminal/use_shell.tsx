@@ -87,7 +87,7 @@ export function useShell(props?: UseShellProps) {
 
 					if (e.isPropagationStopped()) return
 
-					if (e.key === 'Enter') {
+					if (e.key === 'Enter' && input) {
 						e.preventDefault()
 						setCompletion({ typed: '', value: '' })
 
@@ -115,6 +115,7 @@ export function useShell(props?: UseShellProps) {
 									return [...h, result]
 								})
 							}
+							setInput('')
 							return
 						}
 						if (commands && !command && !onParse) {
