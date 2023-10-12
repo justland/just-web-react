@@ -11306,18 +11306,11 @@ packages:
       '@types/estree': 1.0.2
     dev: true
 
-  /@types/eslint@8.44.2:
-    resolution: {integrity: sha512-sdPRb9K6iL5XZOmBubg8yiFp5yS/JdUDQsq5e6h95km91MCYMuvp7mh1fjPEYUhvHepKpZOjnEaMBR4PxjWDzg==}
-    dependencies:
-      '@types/estree': 1.0.1
-      '@types/json-schema': 7.0.11
-    dev: true
-
   /@types/eslint@8.44.4:
     resolution: {integrity: sha512-lOzjyfY/D9QR4hY9oblZ76B90MYTB3RrQ4z2vBIJKj9ROCRqdkYl2gSUx1x1a4IWPjKJZLL4Aw1Zfay7eMnmnA==}
     dependencies:
-      '@types/estree': 1.0.2
-      '@types/json-schema': 7.0.13
+      '@types/estree': 1.0.1
+      '@types/json-schema': 7.0.11
     dev: true
 
   /@types/estree@0.0.51:
@@ -14991,7 +14984,7 @@ packages:
     dependencies:
       '@formatjs/icu-messageformat-parser': 2.6.0
       '@formatjs/ts-transformer': 3.13.3
-      '@types/eslint': 8.44.2
+      '@types/eslint': 8.44.4
       '@types/picomatch': 2.3.0
       '@typescript-eslint/typescript-estree': 5.59.0(typescript@5.0.4)
       emoji-regex: 10.2.1
