@@ -72,7 +72,7 @@
     "@just-web/keyboard": "^7.2.1",
     "@just-web/os": "^7.2.1",
     "@just-web/react": "workspace:^",
-    "@size-limit/preset-small-lib": "~8.2.0",
+    "@size-limit/preset-small-lib": "~11.1.0",
     "@storybook/addon-console": "~2.0.0",
     "@storybook/addon-essentials": "^7.2.1",
     "@storybook/addon-interactions": "^7.2.1",
