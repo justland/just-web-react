@@ -90,7 +90,7 @@
     "@just-web/app": "^7.1.5",
     "@just-web/os": "^7.2.1",
     "@repobuddy/typescript": "^1.2.0",
-    "@size-limit/preset-small-lib": "~8.2.0",
+    "@size-limit/preset-small-lib": "~11.1.0",
     "@storybook/addon-actions": "^7.0.6",
     "@storybook/addon-backgrounds": "^7.0.6",
     "@storybook/addon-console": "~2.0.0",
