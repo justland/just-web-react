@@ -1,0 +1,7 @@
+{
+  "components": [
+    "./libraries/react/ts/testing/app_info.tsx"
+  ],
+  "projectId": "2vsSgLB9taa8fMxdnRBRUG0BDN0",
+  "projectName": "comp-lib"
+}

@@ -26,6 +26,7 @@
         "filenamify",
         "formatjs",
         "immer",
+        "locofy",
         "luka",
         "mdbook",
         "mika",
