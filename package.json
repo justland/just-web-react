@@ -27,7 +27,7 @@
     "postpack": "pinst --enable"
   },
   "devDependencies": {
-    "@changesets/assemble-release-plan": "^5.2.3",
+    "@changesets/assemble-release-plan": "^6.0.0",
     "@changesets/cli": "^2.25.2",
     "@commitlint/cli": "^17.3.0",
     "@commitlint/config-conventional": "^17.3.0",
