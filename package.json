@@ -29,8 +29,8 @@
   "devDependencies": {
     "@changesets/assemble-release-plan": "^5.2.3",
     "@changesets/cli": "^2.25.2",
-    "@commitlint/cli": "^17.3.0",
-    "@commitlint/config-conventional": "^17.3.0",
+    "@commitlint/cli": "^20.0.0",
+    "@commitlint/config-conventional": "^20.0.0",
     "eslint": "^8.28.0",
     "eslint-config-prettier": "^9.0.0",
     "eslint-plugin-formatjs": "^4.10.3",
