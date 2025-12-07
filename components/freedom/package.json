@@ -65,7 +65,7 @@
     "@headlessui/react": "^1.7.4"
   },
   "devDependencies": {
-    "@faker-js/faker": "^8.0.2",
+    "@faker-js/faker": "^10.0.0",
     "@repobuddy/typescript": "^1.2.0",
     "@size-limit/preset-small-lib": "~8.2.0",
     "@storybook/addon-a11y": "^7.3.2",
