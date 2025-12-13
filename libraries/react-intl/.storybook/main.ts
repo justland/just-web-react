@@ -1,5 +1,5 @@
-import { mergeConfig } from 'vite'
-import type { StorybookConfig } from '@storybook/react-vite'
+import type { StorybookConfig } from '@storybook/react-vite';
+import { mergeConfig } from 'vite';
 
 const config: StorybookConfig = {
 	stories: ['../ts/**/*.stories.mdx', '../ts/**/*.stories.@(js|jsx|ts|tsx)'],
@@ -12,30 +12,30 @@ const config: StorybookConfig = {
 		{
 			name: '@storybook/addon-styling',
 			options: {
-				postCss: true
-			}
-		}
+				postCss: true,
+			},
+		},
 	],
 	framework: {
 		name: '@storybook/react-vite',
-		options: {}
+		options: {},
 	},
 	features: {
-		storyStoreV7: true
+		storyStoreV7: true,
 	},
 	typescript: {
-		check: false
+		check: false,
 	},
 	docs: {
-		autodocs: true
+		autodocs: true,
 	},
 	viteFinal(config) {
 		return mergeConfig(config, {
 			build: {
-				target: 'esnext'
-			}
-		})
-	}
-}
+				target: 'esnext',
+			},
+		});
+	},
+};
 
-export default config
+export default config;

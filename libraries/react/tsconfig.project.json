@@ -1,10 +1,7 @@
 {
-  "extends": "./tsconfig.base.json",
-  "compilerOptions": {
-    "moduleResolution": "bundler",
-  },
-  "include": [
-    ".storybook",
-    "vite.config.ts"
-  ]
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"moduleResolution": "bundler"
+	},
+	"include": [".storybook", "vite.config.ts"]
 }

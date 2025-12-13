@@ -1,11 +1,11 @@
 {
-  "extends": "./tsconfig.esm.json",
-  "references": [
-    {
-      "path": "./tsconfig.project.json"
-    },
-    {
-      "path": "../../libraries/react"
-    }
-  ]
+	"extends": "./tsconfig.esm.json",
+	"references": [
+		{
+			"path": "./tsconfig.project.json"
+		},
+		{
+			"path": "../../libraries/react"
+		}
+	]
 }

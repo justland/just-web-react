@@ -1,0 +1,74 @@
+{
+	"$schema": "./node_modules/@biomejs/biome/configuration_schema.json",
+	"extends": ["@repobuddy/biome/recommended"],
+	"vcs": {
+		"enabled": true,
+		"clientKind": "git",
+		"useIgnoreFile": true,
+		"defaultBranch": "main"
+	},
+	"files": {
+		"includes": [
+			"**",
+			"!**/*.css",
+			"!**/node_modules",
+			"!**/dist",
+			"!**/build",
+			"!**/coverage",
+			"!**/.next",
+			"!**/lib",
+			"!**/cjs",
+			"!**/esm",
+			"!**/dts"
+		]
+	},
+
+	"formatter": {
+		"useEditorconfig": true
+	},
+	"assist": { "actions": { "source": { "organizeImports": "on", "useSortedAttributes": "on" } } },
+	"linter": {
+		"enabled": true,
+		"rules": {
+			"recommended": true,
+			"suspicious": {
+				"noExplicitAny": "off"
+			},
+			"style": {
+				"useImportType": "error"
+			},
+			"correctness": {
+				"useExhaustiveDependencies": "warn"
+			}
+		}
+	},
+	"css": {
+		"parser": {
+			"tailwindDirectives": true
+		}
+	},
+	"javascript": {
+		"formatter": {
+			"quoteStyle": "single",
+			"semicolons": "always",
+			"trailingCommas": "es5"
+		},
+		"jsxRuntime": "reactClassic",
+		"globals": ["jest", "vitest", "expect", "describe", "it", "test", "beforeEach", "afterEach"]
+	},
+	"overrides": [
+		{
+			"includes": ["**/*.stories.tsx", "**/*.stories.ts", "**/*.mdx"],
+			"linter": {
+				"rules": {
+					"suspicious": {
+						"noConsole": { "level": "off", "options": { "allow": ["log"] } }
+					},
+					"style": {
+						"noDefaultExport": "off"
+					}
+				}
+			}
+		}
+	]
+}

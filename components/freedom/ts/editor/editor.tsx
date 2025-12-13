@@ -1,17 +1,21 @@
-import { Tab } from '@headlessui/react'
-import { Fragment } from 'react'
+import { Tab } from '@headlessui/react';
+import { Fragment } from 'react';
 
 export function Editor() {
 	return (
 		<Tab.Group>
 			<Tab.List>
 				<Tab as={Fragment}>
-					<div role="tab" onClick={() => console.info('outer')}>
+					{/** biome-ignore lint/a11y/useFocusableInteractive: TODO */}
+					{/** biome-ignore lint/a11y/useKeyWithClickEvents: TODO */}
+					<div onClick={() => console.info('outer')} role="tab">
 						text
+						{/** biome-ignore lint/a11y/noStaticElementInteractions: TODO */}
+						{/** biome-ignore lint/a11y/useKeyWithClickEvents: TODO */}
 						<div
-							onClick={e => {
-								e.preventDefault()
-								console.info('closing')
+							onClick={(e) => {
+								e.preventDefault();
+								console.info('closing');
 							}}
 						>
 							[x]
@@ -23,5 +27,5 @@ export function Editor() {
 				<Tab.Panel>hello</Tab.Panel>
 			</Tab.Panels>
 		</Tab.Group>
-	)
+	);
 }

@@ -1,75 +1,111 @@
 {
-    "[typescript]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+  "[javascript]": {
+    "editor.codeActionsOnSave": {
+      "source.organizeImports.biome": "explicit",
+      "source.fixAll.biome": "explicit"
     },
-    "[typescriptreact]": {
-        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[javascriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
     },
-    "cSpell.ignorePaths": [
-        "package-lock.json",
-        "node_modules",
-        "vscode-extension",
-        ".git/objects",
-        ".vscode",
-        ".vscode-insiders",
-        "__snapshots__",
-        "pnpm-lock.yaml"
-    ],
-    "cSpell.ignoreRegExpList": [
-      "id: '\\w{6}'"
-    ],
-    "cSpell.words": [
-        "clsx",
-        "cmds",
-        "codeql",
-        "depcheckrc",
-        "filenamify",
-        "formatjs",
-        "immer",
-        "luka",
-        "mdbook",
-        "mika",
-        "miku",
-        "noreply",
-        "npmjs",
-        "pinst",
-        "pnpm",
-        "pnpmfile",
-        "repobuddy",
-        "rushx",
-        "ssim",
-        "tersified",
-        "tersify",
-        "testid",
-        "tsbuildinfo",
-        "tsimporter",
-        "TTFB",
-        "twind",
-        "unshift",
-        "vite",
-        "vitest",
-        "vmin"
-    ],
-    "eslint.validate": [
-        "yaml"
-    ],
-    "files.associations": {
-        "**/common/config/rush/*.json": "jsonc",
-        "*.css": "tailwindcss",
-        "*.scss": "postcss",
-        "common/git-hooks/*": "shell",
-        "rush.json": "jsonc"
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[json]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
     },
-    "json.schemas": [
-        {
-            "fileMatch": [
-                "tsconfig.*.json"
-            ],
-            "url": "http://json.schemastore.org/tsconfig"
-        }
-    ],
-    "yaml.schemas": {
-        "https://json.schemastore.org/github-workflow.json": "/.github/workflows/*"
+    "editor.suggest.insertMode": "replace"
+  },
+  "[jsonc]": {
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true,
+    "editor.quickSuggestions": {
+      "strings": true
     },
-    "liveServer.settings.port": 5501
+    "editor.suggest.insertMode": "replace"
+  },
+  "[typescript]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "[typescriptreact]": {
+    "editor.codeActionsOnSave": {
+      "source.fixAll.biome": "explicit",
+      "source.organizeImports.biome": "explicit"
+    },
+    "editor.defaultFormatter": "biomejs.biome",
+    "editor.formatOnSave": true
+  },
+  "cSpell.ignorePaths": [
+    "package-lock.json",
+    "node_modules",
+    "vscode-extension",
+    ".git/objects",
+    ".vscode",
+    ".vscode-insiders",
+    "__snapshots__",
+    "pnpm-lock.yaml"
+  ],
+  "cSpell.ignoreRegExpList": ["id: '\\w{6}'"],
+  "cSpell.words": [
+    "clsx",
+    "cmds",
+    "codeql",
+    "depcheckrc",
+    "filenamify",
+    "formatjs",
+    "immer",
+    "luka",
+    "mdbook",
+    "mika",
+    "miku",
+    "noreply",
+    "npmjs",
+    "pinst",
+    "pnpm",
+    "pnpmfile",
+    "repobuddy",
+    "rushx",
+    "ssim",
+    "tersified",
+    "tersify",
+    "testid",
+    "tsbuildinfo",
+    "tsimporter",
+    "TTFB",
+    "twind",
+    "unshift",
+    "vite",
+    "vitest",
+    "vmin"
+  ],
+  "eslint.validate": ["yaml"],
+  "files.associations": {
+    "*.css": "tailwindcss",
+    "*.scss": "postcss",
+    "**/common/config/rush/*.json": "jsonc",
+    "common/git-hooks/*": "shell",
+    "rush.json": "jsonc"
+  },
+  "json.schemas": [
+    {
+      "fileMatch": ["tsconfig.*.json"],
+      "url": "http://json.schemastore.org/tsconfig"
+    }
+  ],
+  "liveServer.settings.port": 5501,
+  "yaml.schemas": {
+    "https://json.schemastore.org/github-workflow.json": "/.github/workflows/*"
+  }
 }
