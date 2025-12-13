@@ -1,2 +1,2 @@
-export * from './app_info.js'
-export * from './card.js'
+export * from './app_info.js';
+export * from './card.js';

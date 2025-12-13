@@ -1,8 +1,0 @@
-!.depcheckrc.yml
-!.storybook
-build
-dist
-dts
-node_modules
-out*
-storybook-static

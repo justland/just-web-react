@@ -1,1 +1,1 @@
-export * from 'react-intl'
+export * from 'react-intl';

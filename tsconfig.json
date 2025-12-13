@@ -10,8 +10,8 @@
 		{
 			"path": "libraries/react"
 		},
-    {
-      "path": "libraries/react-intl"
-    }
+		{
+			"path": "libraries/react-intl"
+		}
 	]
 }

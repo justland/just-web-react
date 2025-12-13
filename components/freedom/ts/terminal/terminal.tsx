@@ -1,47 +1,47 @@
 import {
+	type ChangeEventHandler,
 	createContext,
+	type Dispatch,
 	forwardRef,
+	type HTMLAttributes,
+	type JSXElementConstructor,
+	type KeyboardEvent,
 	memo,
+	type ReactNode,
+	type RefObject,
+	type SetStateAction,
 	useCallback,
 	useContext,
 	useEffect,
 	useRef,
 	useState,
-	type ChangeEventHandler,
-	type Dispatch,
-	type HTMLAttributes,
-	type JSXElementConstructor,
-	type KeyboardEvent,
-	type ReactNode,
-	type RefObject,
-	type SetStateAction
-} from 'react'
-import { useForwardedRef } from '../utils/use_forwarded_ref.js'
+} from 'react';
+import { useForwardedRef } from '../utils/use_forwarded_ref.js';
 
 export interface PromptNodeProps {
 	/**
 	 * Children of the prompt is either the `<TerminalInput>`,
 	 * or `ReactNode` when the prompt is used in the output.
 	 */
-	children?: ReactNode | undefined
-	className?: string | undefined
-	style?: HTMLAttributes<HTMLElement>['style']
+	children?: ReactNode | undefined;
+	className?: string | undefined;
+	style?: HTMLAttributes<HTMLElement>['style'];
 }
 
-export type PromptNode = string | JSXElementConstructor<PromptNodeProps>
+export type PromptNode = string | JSXElementConstructor<PromptNodeProps>;
 
 export type TerminalWidgetContextProps = {
-	disabled?: boolean
-	inputRef: RefObject<HTMLInputElement>
-	output: Array<ReactNode>
-	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
-	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined
-	Prompt: JSXElementConstructor<PromptNodeProps>
-	processing: boolean
-	setProcessing: Dispatch<SetStateAction<boolean>>
-}
+	disabled?: boolean;
+	inputRef: RefObject<HTMLInputElement>;
+	output: Array<ReactNode>;
+	onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
+	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined;
+	Prompt: JSXElementConstructor<PromptNodeProps>;
+	processing: boolean;
+	setProcessing: Dispatch<SetStateAction<boolean>>;
+};
 
-export const TerminalWidgetContext = createContext<TerminalWidgetContextProps>(null as any)
+export const TerminalWidgetContext = createContext<TerminalWidgetContextProps>(null as any);
 
 export interface TerminalWidgetProps {
 	/**
@@ -49,57 +49,55 @@ export interface TerminalWidgetProps {
 	 *
 	 * You should at least provide a `<TerminalOutputArea />` and `<TerminalPromptArea />`.
 	 */
-	children?: ReactNode | undefined
+	children?: ReactNode | undefined;
 	/**
 	 * Class name of the terminal.
 	 */
-	className?: string | undefined
+	className?: string | undefined;
 	/**
 	 * Indicate the terminal is in disabled state.
 	 *
 	 */
-	disabled?: boolean
+	disabled?: boolean;
 	/**
 	 * Event handler for the termanal input's `onChange` event.
 	 */
-	onChange?: ChangeEventHandler<HTMLInputElement> | undefined
+	onChange?: ChangeEventHandler<HTMLInputElement> | undefined;
 	/**
 	 * Event handler for the termanal input's `onKeyDown` event.
 	 */
-	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined
+	onKeyDown?: ((event: KeyboardEvent<HTMLInputElement>) => void | Promise<void>) | undefined;
 	/**
 	 * Output value to be rendered by the Terminal.
 	 */
-	output: Array<ReactNode>
-	prompt: PromptNode
+	output: Array<ReactNode>;
+	prompt: PromptNode;
 }
 
 export const TerminalWidget = memo(
 	forwardRef<HTMLInputElement, TerminalWidgetProps>((props, ref) => {
-		const { children, className, prompt, output, ...rest } = props
+		const { children, className, prompt, output, ...rest } = props;
 
-		const Prompt = usePrompt(prompt)
-		const inputRef = useForwardedRef(ref)
-		const [processing, setProcessing] = useState(false)
+		const Prompt = usePrompt(prompt);
+		const inputRef = useForwardedRef(ref);
+		const [processing, setProcessing] = useState(false);
 
 		return (
-			<TerminalWidgetContext.Provider
-				value={{ ...rest, output, Prompt, inputRef, processing, setProcessing }}
-			>
+			<TerminalWidgetContext.Provider value={{ ...rest, output, Prompt, inputRef, processing, setProcessing }}>
 				<TerminalWidgetContainer className={className}>{children}</TerminalWidgetContainer>
 			</TerminalWidgetContext.Provider>
-		)
+		);
 	})
-)
+);
 
 interface TerminalWidgetContainerProps {
-	children?: ReactNode | undefined
-	className?: string | undefined
+	children?: ReactNode | undefined;
+	className?: string | undefined;
 }
 
 function TerminalWidgetContainer({ children, className }: TerminalWidgetContainerProps) {
-	const { output, inputRef } = useContext(TerminalWidgetContext)
-	const containerRef = useRef<HTMLDivElement>(null)
+	const { output, inputRef } = useContext(TerminalWidgetContext);
+	const containerRef = useRef<HTMLDivElement>(null);
 
 	useEffect(() => {
 		if (containerRef.current) {
@@ -108,17 +106,18 @@ function TerminalWidgetContainer({ children, className }: TerminalWidgetContaine
 			// 	block: 'end',
 			// 	inline: 'nearest'
 			// })
-			containerRef.current.scrollTop = containerRef.current.scrollHeight
+			containerRef.current.scrollTop = containerRef.current.scrollHeight;
 		}
-	}, [containerRef, output])
+	}, [containerRef, output]);
 
 	return (
+		// biome-ignore lint/a11y/noStaticElementInteractions: TODO
 		<div
 			className={className}
-			ref={containerRef}
 			onMouseUp={() => {
-				if (!window.getSelection()?.toString()) inputRef.current?.focus()
+				if (!window.getSelection()?.toString()) inputRef.current?.focus();
 			}}
+			ref={containerRef}
 		>
 			{children || (
 				<>
@@ -127,88 +126,87 @@ function TerminalWidgetContainer({ children, className }: TerminalWidgetContaine
 				</>
 			)}
 		</div>
-	)
+	);
 }
 
 export function usePrompt(Prompt: PromptNode) {
-	if (typeof Prompt === 'string') {
-		return useCallback(
-			({ children, ...rest }: PromptNodeProps) => {
+	return useCallback(
+		({ children, ...rest }: PromptNodeProps) => {
+			if (typeof Prompt === 'string') {
 				return (
 					<div {...rest}>
 						<span>{Prompt}</span>
 						{children}
 					</div>
-				)
-			},
-			[Prompt]
-		)
-	}
-	return useCallback(({ children }: PromptNodeProps) => <Prompt>{children}</Prompt>, [])
+				);
+			}
+			return <Prompt>{children}</Prompt>;
+		},
+		[Prompt]
+	);
 }
 
 export interface TerminalOutputAreaProps {
-	className?: string
-	children?: ReactNode | ((bag: { output: Array<ReactNode> }) => ReactNode)
+	className?: string;
+	children?: ReactNode | ((bag: { output: Array<ReactNode> }) => ReactNode);
 }
 
 export function TerminalOutputArea({ className, children }: TerminalOutputAreaProps) {
-	const { output } = useContext(TerminalWidgetContext)
-	const resolvedChildren = typeof children === 'function' ? children({ output }) : children
+	const { output } = useContext(TerminalWidgetContext);
+	const resolvedChildren = typeof children === 'function' ? children({ output }) : children;
 	return (
-		<div className={className} role="log" aria-label="Terminal output">
-			{resolvedChildren || output.map((line, i) => <div key={i}>{line}</div>)}
+		<div aria-label="Terminal output" className={className} role="log">
+			{resolvedChildren || output.map((line) => (line ? <div key={line.toString()}>{line}</div> : null))}
 		</div>
-	)
+	);
 }
 
 export interface TerminalPromptAreaProps {
-	className?: string | undefined
-	input?: ReactNode | undefined
+	className?: string | undefined;
+	input?: ReactNode | undefined;
 }
 
 export function TerminalPromptArea({ className, input }: TerminalPromptAreaProps) {
-	const { Prompt, processing } = useContext(TerminalWidgetContext)
-	const style = processing ? { display: 'none' } : undefined
+	const { Prompt, processing } = useContext(TerminalWidgetContext);
+	const style = processing ? { display: 'none' } : undefined;
 
 	return (
 		<Prompt className={className} style={style}>
 			{input || <TerminalInput />}
 		</Prompt>
-	)
+	);
 }
 
 export interface TerminalInputProps {
-	className?: string | undefined
+	className?: string | undefined;
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { inputRef, disabled, processing, onChange, onKeyDown, setProcessing } =
-		useContext(TerminalWidgetContext)
+	const { inputRef, disabled, processing, onChange, onKeyDown, setProcessing } = useContext(TerminalWidgetContext);
 
 	useEffect(() => {
 		if (inputRef.current) {
-			inputRef.current.focus()
+			inputRef.current.focus();
 		}
-	}, [inputRef, processing])
+	}, [inputRef, processing]);
 
 	return (
 		<input
 			aria-label="Terminal input"
 			autoComplete="off"
+			className={className}
+			disabled={disabled}
 			onChange={onChange}
-			onKeyDown={async e => {
+			onKeyDown={async (e) => {
 				if (onKeyDown) {
-					setProcessing(true)
-					await onKeyDown(e)
-					setProcessing(false)
+					setProcessing(true);
+					await onKeyDown(e);
+					setProcessing(false);
 				}
 			}}
-			className={className}
 			ref={inputRef}
-			disabled={disabled}
 		/>
-	)
+	);
 }
 
 export const Terminal = Object.assign(TerminalWidget, {
@@ -216,5 +214,5 @@ export const Terminal = Object.assign(TerminalWidget, {
 	Input: TerminalInput,
 	OutputArea: TerminalOutputArea,
 	PromptArea: TerminalPromptArea,
-	WidgetContext: TerminalWidgetContext
-})
+	WidgetContext: TerminalWidgetContext,
+});
