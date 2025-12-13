@@ -27,8 +27,8 @@
 		"test": {
 			"dependsOn": ["^build"]
 		},
-    "update_snapshots": {
-      "dependsOn": ["^build"]
-    }
+		"update_snapshots": {
+			"dependsOn": ["^build"]
+		}
 	}
 }

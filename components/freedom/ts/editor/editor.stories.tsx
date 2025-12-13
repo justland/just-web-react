@@ -1,7 +1,7 @@
-import { Editor } from './editor.js'
+import { Editor } from './editor.js';
 
 export default {
-	component: Editor
-}
+	component: Editor,
+};
 
-export const Playground = {}
+export const Playground = {};

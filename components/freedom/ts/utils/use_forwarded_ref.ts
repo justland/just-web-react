@@ -1,16 +1,16 @@
-import { useEffect, useRef, type ForwardedRef } from 'react'
+import { type ForwardedRef, useEffect, useRef } from 'react';
 
 export function useForwardedRef<T>(ref: ForwardedRef<T>) {
-	const innerRef = useRef<T>(null)
+	const innerRef = useRef<T>(null);
 
 	useEffect(() => {
-		if (!ref) return
+		if (!ref) return;
 		if (typeof ref === 'function') {
-			ref(innerRef.current)
+			ref(innerRef.current);
 		} else {
-			ref.current = innerRef.current
+			ref.current = innerRef.current;
 		}
-	})
+	});
 
-	return innerRef
+	return innerRef;
 }

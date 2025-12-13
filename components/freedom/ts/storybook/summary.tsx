@@ -1,4 +1,4 @@
-import type { ReactNode } from 'react'
+import type { ReactNode } from 'react';
 
 export function summary(node: ReactNode) {
 	return function StorySummary(Story: any) {
@@ -7,6 +7,6 @@ export function summary(node: ReactNode) {
 				<div className="p-1 rounded bg-slate-300 dark:text-gray-200 dark:bg-gray-800">{node}</div>
 				<Story />
 			</div>
-		)
-	}
+		);
+	};
 }

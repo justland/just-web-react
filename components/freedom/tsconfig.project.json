@@ -1,13 +1,10 @@
 {
-  "compilerOptions": {
-    "composite": true,
-    "esModuleInterop": true,
-    "jsx": "react-jsx",
-    "module": "Node16",
-    "moduleResolution": "Node16"
-  },
-  "include": [
-    ".storybook/*",
-    "vite.config.ts"
-  ]
+	"compilerOptions": {
+		"composite": true,
+		"esModuleInterop": true,
+		"jsx": "react-jsx",
+		"module": "Node16",
+		"moduleResolution": "Node16"
+	},
+	"include": [".storybook/*", "vite.config.ts"]
 }

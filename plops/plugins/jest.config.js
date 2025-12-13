@@ -2,8 +2,8 @@ module.exports = {
 	preset: 'ts-jest',
 	globals: {
 		'ts-jest': {
-			isolatedModules: true
-		}
+			isolatedModules: true,
+		},
 	},
 	roots: ['<rootDir>/ts'],
 	testEnvironment: 'jsdom',
@@ -13,6 +13,6 @@ module.exports = {
 		'jest-watch-typeahead/filename',
 		'jest-watch-typeahead/testname',
 		['jest-watch-toggle-config', { setting: 'verbose' }],
-		['jest-watch-toggle-config', { setting: 'collectCoverage' }]
-	]
-}
+		['jest-watch-toggle-config', { setting: 'collectCoverage' }],
+	],
+};

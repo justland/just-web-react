@@ -1,3 +1,3 @@
-import type { JSXElementConstructor } from 'react'
+import type { JSXElementConstructor } from 'react';
 
-export type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>
+export type ReactTag = keyof JSX.IntrinsicElements | JSXElementConstructor<any>;

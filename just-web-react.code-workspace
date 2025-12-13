@@ -1,29 +1,25 @@
 {
-  "folders": [
-    {
-      "path": "."
-    },
-    {
-      "path": "../just-web"
-    },
-    {
-      "path": "../.github"
-    }
-  ],
-  "settings": {
-    "files.associations": {
-      "**/common/config/rush/*.json": "jsonc",
-      "*.css": "tailwindcss",
-      "*.scss": "postcss",
-      "common/git-hooks/*": "shell",
-      "rush.json": "jsonc"
-    },
-    "liveServer.settings.multiRootWorkspaceName": "just-web-react",
-    "tsimporter.filesToExclude": [
-      "cjs",
-      "esm",
-      "dist"
-    ],
-    "typescript.tsdk": "just-web-react\\node_modules\\typescript\\lib"
-  }
+	"folders": [
+		{
+			"path": "."
+		},
+		{
+			"path": "../just-web"
+		},
+		{
+			"path": "../.github"
+		}
+	],
+	"settings": {
+		"files.associations": {
+			"**/common/config/rush/*.json": "jsonc",
+			"*.css": "tailwindcss",
+			"*.scss": "postcss",
+			"common/git-hooks/*": "shell",
+			"rush.json": "jsonc"
+		},
+		"liveServer.settings.multiRootWorkspaceName": "just-web-react",
+		"tsimporter.filesToExclude": ["cjs", "esm", "dist"],
+		"typescript.tsdk": "just-web-react\\node_modules\\typescript\\lib"
+	}
 }
