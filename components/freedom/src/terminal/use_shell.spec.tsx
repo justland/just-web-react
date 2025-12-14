@@ -1,4 +1,5 @@
 import { renderHook } from '@testing-library/react-hooks'
+import { expect, it } from 'vitest'
 import { useShell } from '../index.js'
 
 it('provides an empty history to begin', () => {

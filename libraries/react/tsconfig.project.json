@@ -3,5 +3,5 @@
 	"compilerOptions": {
 		"moduleResolution": "bundler"
 	},
-	"include": [".storybook", "vite.config.ts"]
+	"include": [".storybook", "vitest.config.ts"]
 }

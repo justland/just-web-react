@@ -45,7 +45,6 @@
 		"check": "biome check",
 		"coverage": "vitest run --coverage",
 		"clean": "rimraf coverage dist dts --glob *.tsbuildinfo",
-		"depcheck": "depcheck",
 		"dev": "vite",
 		"nuke": "rimraf node_modules",
 		"preview": "vite preview",
@@ -55,7 +54,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:tsc": "tsc --noEmit",
-		"verify": "npm-run-all -p check build coverage depcheck -p size"
+		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
 		"react-command-palette": "~0.22.0",
@@ -69,6 +68,7 @@
 		"@just-web/keyboard": "^7.2.1",
 		"@just-web/os": "^7.2.1",
 		"@just-web/react": "workspace:^",
+		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook/addon-console": "~2.0.0",
 		"@storybook/addon-essentials": "^7.2.1",
@@ -86,8 +86,10 @@
 		"@types/react": "^16.14.43",
 		"@types/react-dom": "^16.9.19",
 		"@types/testing-library__jest-dom": "~5.14.5",
-		"@vitejs/plugin-react": "^4.0.0",
-		"@vitest/coverage-c8": "^0.31.4",
+		"@vitejs/plugin-react": "catalog:",
+		"@vitest/browser": "catalog:",
+		"@vitest/coverage-v8": "catalog:",
+		"@vitest/browser-playwright": "catalog:",
 		"depcheck": "~1.4.3",
 		"jest-image-snapshot": "^6.2.0",
 		"jsdom": "^22.0.0",
@@ -101,8 +103,8 @@
 		"storybook": "^7.2.1",
 		"tsdown": "^0.17.4",
 		"typescript": "^5.0.0",
-		"vite": "^4.4.9",
-		"vitest": "^0.31.4"
+		"vite": "catalog:",
+		"vitest": "catalog:"
 	},
 	"peerDependencies": {
 		"@just-web/app": "^7.0.0",

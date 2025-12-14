@@ -4,8 +4,7 @@
 		"composite": true,
 		"jsx": "react-jsx",
 		"module": "ESNext",
-		"moduleResolution": "NodeNext",
-		"rootDir": "src",
+		"moduleResolution": "bundler",
 		"target": "ESNext"
 	},
 	"include": ["src", "types"]
