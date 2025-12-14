@@ -1,5 +1,5 @@
 import { Tab } from '@headlessui/react'
-import { Fragment } from 'react'
+import React, { Fragment } from 'react'
 
 export function Editor() {
 	return (

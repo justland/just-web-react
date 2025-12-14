@@ -1,4 +1,5 @@
 import type { ReactNode } from 'react'
+import React from 'react'
 
 export function summary(node: ReactNode) {
 	return function StorySummary(Story: any) {
