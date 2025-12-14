@@ -1,8 +1,8 @@
-import React, { useContext } from 'react';
-import { tersify } from 'tersify';
-import { mapKey } from 'type-plus';
-import { type JustReactApp, useJustAppContext } from '../just_app_context.js';
-import { Card } from './card.js';
+import React, { useContext } from 'react'
+import { tersify } from 'tersify'
+import { mapKey } from 'type-plus'
+import { type JustReactApp, useJustAppContext } from '../just_app_context.js'
+import { Card } from './card.js'
 
 /**
  * AppInfo is a generic component not tied to any specific app.
@@ -11,8 +11,8 @@ import { Card } from './card.js';
  * We can also use context to get the closest gizmo/app.
  */
 export function AppInfo({ app, title }: { app?: JustReactApp; title?: string }) {
-	const appFromContext = useJustAppContext<JustReactApp>();
-	if (!app) app = appFromContext;
+	const appFromContext = useJustAppContext<JustReactApp>()
+	if (!app) app = appFromContext
 
 	return (
 		<Card>
@@ -24,11 +24,11 @@ export function AppInfo({ app, title }: { app?: JustReactApp; title?: string }) 
 				</p>
 			))}
 		</Card>
-	);
+	)
 }
 
 export function AppInfoWithUseContext({ context, title }: { context: React.Context<any>; title?: string }) {
-	const app = useContext(context)!;
+	const app = useContext(context)!
 	return (
 		<Card>
 			{title && <p className="text-xl">{title}</p>}
@@ -42,11 +42,11 @@ export function AppInfoWithUseContext({ context, title }: { context: React.Conte
 				</p>
 			))}
 		</Card>
-	);
+	)
 }
 
 export function AppInfoWithUseJustAppContext({ context, title }: { context: React.Context<any>; title?: string }) {
-	const app = useJustAppContext(context);
+	const app = useJustAppContext(context)
 	return (
 		<Card>
 			{title && <p className="text-xl">{title}</p>}
@@ -60,5 +60,5 @@ export function AppInfoWithUseJustAppContext({ context, title }: { context: Reac
 				</p>
 			))}
 		</Card>
-	);
+	)
 }

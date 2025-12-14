@@ -1,4 +1,4 @@
-import { configureToMatchImageSnapshot } from 'jest-image-snapshot';
+import { configureToMatchImageSnapshot } from 'jest-image-snapshot'
 
 module.exports = {
 	setup() {
@@ -7,16 +7,16 @@ module.exports = {
 			failureThreshold: 0.01,
 			failureThresholdType: 'percent',
 			noColors: true,
-		});
-		expect.extend({ toMatchImageSnapshot });
+		})
+		expect.extend({ toMatchImageSnapshot })
 	},
 	async postRender(page, context) {
 		if (!/-skip-snap$/.test(context.id)) {
-			const image = await page.screenshot();
+			const image = await page.screenshot()
 			expect(image).toMatchImageSnapshot({
 				customSnapshotsDir: `${process.cwd()}/__snapshots__/${process.platform}`,
 				customSnapshotIdentifier: context.id,
-			});
+			})
 		}
 	},
-};
+}

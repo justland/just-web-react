@@ -1,6 +1,6 @@
 export default function (
 	/** @type {import('plop').NodePlopAPI} */
-	plop
+	plop,
 ) {
 	plop.setGenerator('plugin', {
 		description: 'Create a new plugin project',
@@ -58,5 +58,5 @@ export default function (
 				templateFile: 'plop-templates/plugins/.depcheckrc.yml',
 			},
 		],
-	});
+	})
 }

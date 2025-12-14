@@ -48,11 +48,6 @@
 		}
 	},
 	"javascript": {
-		"formatter": {
-			"quoteStyle": "single",
-			"semicolons": "always",
-			"trailingCommas": "es5"
-		},
 		"jsxRuntime": "reactClassic",
 		"globals": ["jest", "vitest", "expect", "describe", "it", "test", "beforeEach", "afterEach"]
 	},

@@ -1,5 +1,5 @@
-import { Tab } from '@headlessui/react';
-import { Fragment } from 'react';
+import { Tab } from '@headlessui/react'
+import { Fragment } from 'react'
 
 export function Editor() {
 	return (
@@ -14,8 +14,8 @@ export function Editor() {
 						{/** biome-ignore lint/a11y/useKeyWithClickEvents: TODO */}
 						<div
 							onClick={(e) => {
-								e.preventDefault();
-								console.info('closing');
+								e.preventDefault()
+								console.info('closing')
 							}}
 						>
 							[x]
@@ -27,5 +27,5 @@ export function Editor() {
 				<Tab.Panel>hello</Tab.Panel>
 			</Tab.Panels>
 		</Tab.Group>
-	);
+	)
 }

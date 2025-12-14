@@ -1,13 +1,13 @@
-import type { Store, Updater } from '@just-web/states';
-import { type Context, createContext, useContext } from 'react';
-import { useStore } from './store.js';
+import type { Store, Updater } from '@just-web/states'
+import { type Context, createContext, useContext } from 'react'
+import { useStore } from './store.js'
 
 /**
  * Creates a `Store<T>`context to be used in `useStoreContext()`
  * @type T Type of the store value.
  */
 export function createStoreContext<T extends Record<any, any>>() {
-	return createContext<Store<T>>(undefined as any);
+	return createContext<Store<T>>(undefined as any)
 }
 
 /**
@@ -19,11 +19,11 @@ export function createStoreContext<T extends Record<any, any>>() {
 export function useStoreContext<S extends Record<any, any>, V>(
 	reactContext: Context<Store<S>>,
 	getState: (s: S) => V,
-	updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>
+	updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>,
 ): [value: V, setValue: (value: V | ((value: V) => V)) => void] {
-	const store = useContext(reactContext);
+	const store = useContext(reactContext)
 	if (!store) {
-		throw new Error('Context.Provider must be used before using useStoreContext()');
+		throw new Error('Context.Provider must be used before using useStoreContext()')
 	}
-	return useStore(store, getState, updateStore);
+	return useStore(store, getState, updateStore)
 }

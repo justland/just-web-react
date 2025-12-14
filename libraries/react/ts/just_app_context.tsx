@@ -1,11 +1,11 @@
-import type { GizmoIncubator, JustApp } from '@just-web/app';
-import React, { type Context, createContext, type PropsWithChildren, useContext } from 'react';
-import type { NonUndefined } from 'type-plus';
-import type { ReactGizmo } from './react_gizmo.js';
+import type { GizmoIncubator, JustApp } from '@just-web/app'
+import React, { type Context, createContext, type PropsWithChildren, useContext } from 'react'
+import type { NonUndefined } from 'type-plus'
+import type { ReactGizmo } from './react_gizmo.js'
 
-export type JustReactApp = JustApp & ReactGizmo;
+export type JustReactApp = JustApp & ReactGizmo
 
-const JustAppRootContext = createContext<JustApp & Partial<ReactGizmo>>(undefined as any);
+const JustAppRootContext = createContext<JustApp & Partial<ReactGizmo>>(undefined as any)
 
 /**
  * Creates a context of a `JustReactApp` to be used in `useJustAppContext()`.
@@ -26,15 +26,15 @@ const JustAppRootContext = createContext<JustApp & Partial<ReactGizmo>>(undefine
  * ```
  */
 export function createJustAppContext<App extends JustReactApp>(_appIncubator?: GizmoIncubator<App>) {
-	const Context = createContext<App>(undefined as any);
-	const InnerProvider = Context.Provider;
+	const Context = createContext<App>(undefined as any)
+	const InnerProvider = Context.Provider
 	Context.Provider = function Provider({
 		value,
 		key,
 		children,
 	}: PropsWithChildren<{
-		value: App;
-		key?: string;
+		value: App
+		key?: string
 	}>) {
 		return (
 			<JustAppRootContext.Provider value={value}>
@@ -42,25 +42,25 @@ export function createJustAppContext<App extends JustReactApp>(_appIncubator?: G
 					{children}
 				</InnerProvider>
 			</JustAppRootContext.Provider>
-		);
-	} as any;
-	return Context;
+		)
+	} as any
+	return Context
 }
 
-export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App;
-export function useJustAppContext<App = JustApp>(): NonUndefined<App>;
+export function useJustAppContext<App extends JustReactApp>(context: Context<App>): App
+export function useJustAppContext<App = JustApp>(): NonUndefined<App>
 export function useJustAppContext(context = JustAppRootContext) {
-	return useContext(context);
+	return useContext(context)
 }
 
 export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
 	value,
 	children,
 }: {
-	value: App;
-	children: React.ReactNode;
+	value: App
+	children: React.ReactNode
 }) {
-	const providers = Array.from(value.react?.providers.values() ?? []);
+	const providers = Array.from(value.react?.providers.values() ?? [])
 	return (
 		<JustAppRootContext.Provider value={value}>
 			{providers.reduce(
@@ -68,8 +68,8 @@ export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
 					// biome-ignore lint/correctness/useJsxKeyInIterable: TODO
 					<Component>{children}</Component>
 				),
-				children
+				children,
 			)}
 		</JustAppRootContext.Provider>
-	);
+	)
 }

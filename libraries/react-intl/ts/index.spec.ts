@@ -1,6 +1,6 @@
-import { justTestApp } from '@just-web/app/testing';
-import { reactGizmo } from '@just-web/react';
-import { createIntlCache, reactIntlGizmoFn } from './index.js';
+import { justTestApp } from '@just-web/app/testing'
+import { reactGizmo } from '@just-web/react'
+import { createIntlCache, reactIntlGizmoFn } from './index.js'
 
 it('exports createIntlCache() to provide cache support', async () => {
 	await justTestApp()
@@ -9,7 +9,7 @@ it('exports createIntlCache() to provide cache support', async () => {
 			reactIntlGizmoFn({
 				config: { locale: 'en' },
 				cache: createIntlCache(),
-			})
+			}),
 		)
-		.create();
-});
+		.create()
+})
