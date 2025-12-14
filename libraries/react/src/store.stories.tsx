@@ -1,5 +1,5 @@
 import { createStore, type Store } from '@just-web/states'
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react-vite'
 import React, { type PropsWithChildren, useEffect, useState } from 'react'
 import { useStore } from './store.js'
 import { Card } from './testing/card.js'
