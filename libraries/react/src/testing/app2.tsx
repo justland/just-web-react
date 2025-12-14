@@ -15,7 +15,7 @@ import { type ValueGizmo, valueGizmoFn } from './value_gizmo.js'
  *
  * Doing it at load time is possible, but not recommended.
  */
-export const app2 = justTestApp({ name: 'app 2' })
+const app2 = justTestApp({ name: 'app 2' })
 	.with(valueGizmoFn({ value: 50 }))
 	.with(reactGizmo)
 
@@ -23,7 +23,7 @@ export const app2 = justTestApp({ name: 'app 2' })
  * Define the app type based on what the app needs,
  * and how it is composed in runtime.
  */
-export type JustApp2 = JustReactApp & ValueGizmo<number>
+type JustApp2 = JustReactApp & ValueGizmo<number>
 
 export const App2Context = createJustAppContext<JustApp2>()
 

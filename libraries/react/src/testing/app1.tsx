@@ -16,11 +16,11 @@ import { type ValueGizmo, type ValueGizmoOptions, valueGizmoFn } from './value_g
  *
  * Doing it at load time is possible, but not recommended.
  */
-export const app1 = justTestApp({ name: 'app 1' })
+const app1 = justTestApp({ name: 'app 1' })
 	.with(valueGizmoFn({ value: 100 }))
 	.with(reactGizmo)
 
-export type JustApp1 = JustReactTestApp & ValueGizmo<number> & LogTestGizmo
+type JustApp1 = JustReactTestApp & ValueGizmo<number> & LogTestGizmo
 
 export const App1Context = createJustAppContext<JustApp1>()
 export const App1Context2 = createJustAppContext(app1)
