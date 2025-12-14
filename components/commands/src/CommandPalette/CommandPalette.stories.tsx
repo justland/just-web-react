@@ -4,10 +4,10 @@ import { type CommandsGizmo, type CommandsGizmoOptions, commandsGizmoFn } from '
 import { type KeyboardGizmoOptions, keyboardGizmoFn } from '@just-web/keyboard'
 import { isMac, type OSGizmo } from '@just-web/os'
 import { type OSTestGizmoOptions, osTestGizmoFn } from '@just-web/os/testing'
-import { JustAppProvider, reactGizmo, useJustAppContext } from '@just-web/react'
 import type { Meta, StoryObj } from '@storybook/react'
 import Mousetrap from 'mousetrap'
 import React from 'react'
+import { JustAppProvider, reactGizmo, useJustAppContext } from '../../../../libraries/react/src/index.js'
 import { CommandPalette, reactCommandsGizmo } from '../index.js'
 
 type Story = StoryObj<typeof CommandPalette>

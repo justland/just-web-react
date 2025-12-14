@@ -2,7 +2,7 @@ import '@storybook/addon-console'
 import { withThemeByClassName } from '@storybook/addon-styling'
 import type { Preview } from '@storybook/react'
 
-import '../ts/index.css'
+import '../src/index.css'
 
 function isTestRunner() {
 	return !!(typeof window !== 'undefined' && window && window.navigator.userAgent.match(/StorybookTestRunner/))

@@ -10,7 +10,7 @@ export default defineConfig({
 	plugins: [react({ exclude: [/\.spec\.tsx?$/, /\.stories\.tsx?$/] }), { ...externals(), enforce: 'pre' }],
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'ts/index.tsx'),
+			entry: resolve(__dirname, 'src/index.tsx'),
 			formats: ['es', 'cjs'],
 			fileName: 'just-web-react-commands',
 		},

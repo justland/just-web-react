@@ -3,7 +3,7 @@
 	"compilerOptions": {
 		"jsx": "react",
 		"outDir": "esm",
-		"rootDir": "ts",
+		"rootDir": "src",
 		"verbatimModuleSyntax": true
 	},
 	"references": [

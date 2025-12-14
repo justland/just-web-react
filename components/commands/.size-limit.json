@@ -1,6 +1,6 @@
 [
 	{
-		"path": "./dist/just-web-react-commands.js",
+		"path": "./dist/just-web-react-commands.mjs",
 		"limit": "30 kb"
 	},
 	{

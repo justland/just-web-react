@@ -10,7 +10,7 @@ export default defineConfig({
 	plugins: [react({ exclude: [/\.spec\.tsx?$/, /\.stories\.tsx?$/] }), { ...externals(), enforce: 'pre' }],
 	build: {
 		lib: {
-			entry: resolve(__dirname, 'ts/index.ts'),
+			entry: resolve(__dirname, 'src/index.ts'),
 			formats: ['es', 'cjs'],
 			fileName: 'just-web-react',
 		},
@@ -29,7 +29,7 @@ export default defineConfig({
 	},
 	test: {
 		globals: true,
-		dir: 'ts',
+		dir: 'src',
 		environment: 'jsdom',
 		setupFiles: 'scripts/setup-test.ts',
 	},
