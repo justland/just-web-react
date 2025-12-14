@@ -8,8 +8,7 @@ jobs:
     uses: justland/.github/.github/workflows/pnpm-verify.yml@main
     with:
       os: '["ubuntu-latest"]'
-      node-version: '[18]'
-      pnpm-version: '8.6.12'
+      node-version: '[20,22,24]'
 
   release:
     uses: justland/.github/.github/workflows/pnpm-release-changeset.yml@main
