@@ -8,4 +8,4 @@ module.exports = {
 	// to use them for arrays only
 	trailingComma: 'none',
 	useTabs: true,
-};
+}

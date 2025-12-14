@@ -1,4 +1,4 @@
-import type { StorybookConfig } from '@storybook/react-vite';
+import type { StorybookConfig } from '@storybook/react-vite'
 
 const config: StorybookConfig = {
 	stories: [
@@ -34,5 +34,5 @@ const config: StorybookConfig = {
 	typescript: {
 		check: false,
 	},
-};
-export default config;
+}
+export default config

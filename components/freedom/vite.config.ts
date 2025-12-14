@@ -1,6 +1,6 @@
 /// <reference types="vitest" />
 
-import { defineConfig } from 'vite';
+import { defineConfig } from 'vite'
 
 export default defineConfig({
 	test: {
@@ -9,4 +9,4 @@ export default defineConfig({
 		exclude: ['**/{node_modules,cjs,esm,coverage}/**'],
 		// root: 'ts'
 	},
-});
+})

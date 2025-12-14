@@ -1,11 +1,11 @@
-import '@storybook/addon-console';
-import { withThemeByClassName } from '@storybook/addon-styling';
-import type { Preview } from '@storybook/react';
+import '@storybook/addon-console'
+import { withThemeByClassName } from '@storybook/addon-styling'
+import type { Preview } from '@storybook/react'
 
-import '../ts/index.css';
+import '../ts/index.css'
 
 function isTestRunner() {
-	return !!(typeof window !== 'undefined' && window && window.navigator.userAgent.match(/StorybookTestRunner/));
+	return !!(typeof window !== 'undefined' && window && window.navigator.userAgent.match(/StorybookTestRunner/))
 }
 
 const preview: Preview = {
@@ -20,8 +20,8 @@ const preview: Preview = {
 			defaultTheme: 'light',
 		}),
 		(Story, { tags }) => {
-			if (isTestRunner() && tags.some((t) => t === 'skip-test')) return <div />;
-			return <Story />;
+			if (isTestRunner() && tags.some((t) => t === 'skip-test')) return <div />
+			return <Story />
 		},
 	],
 	parameters: {
@@ -36,6 +36,6 @@ const preview: Preview = {
 			},
 		},
 	},
-};
+}
 
-export default preview;
+export default preview

@@ -1,4 +1,4 @@
-import type { Command } from './shell.types.js';
+import type { Command } from './shell.types.js'
 
 export const listCommand: Command = {
 	description: 'list all commands',
@@ -6,11 +6,11 @@ export const listCommand: Command = {
 		return Object.keys(this.commands)
 			.sort((a, b) => (a > b ? 1 : -1))
 			.map((name) => {
-				const command = this.commands[name];
+				const command = this.commands[name]
 				if (typeof command === 'object') {
-					return `${name} - ${command.description}`;
+					return `${name} - ${command.description}`
 				}
-				return name;
-			});
+				return name
+			})
 	},
-};
+}

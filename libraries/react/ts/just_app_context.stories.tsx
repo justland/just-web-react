@@ -1,13 +1,13 @@
-import { createStore } from '@just-web/states';
-import type { Meta, StoryObj } from '@storybook/react';
-import React from 'react';
-import { JustAppProvider } from './just_app_context.js';
-import { createStoreContext, useStoreContext } from './store_context.js';
-import { AppInfo, AppInfoWithUseContext, AppInfoWithUseJustAppContext } from './testing/app_info.js';
-import { App1Context, App1Info, activate as app1Activate } from './testing/app1.js';
-import { App2Context, App2Info, activate as app2Activate } from './testing/app2.js';
-import { Card } from './testing/card.js';
-import { useJustTestAppContext } from './testing/just_test_app_context.js';
+import { createStore } from '@just-web/states'
+import type { Meta, StoryObj } from '@storybook/react'
+import React from 'react'
+import { JustAppProvider } from './just_app_context.js'
+import { createStoreContext, useStoreContext } from './store_context.js'
+import { AppInfo, AppInfoWithUseContext, AppInfoWithUseJustAppContext } from './testing/app_info.js'
+import { App1Context, App1Info, activate as app1Activate } from './testing/app1.js'
+import { App2Context, App2Info, activate as app2Activate } from './testing/app2.js'
+import { Card } from './testing/card.js'
+import { useJustTestAppContext } from './testing/just_test_app_context.js'
 
 const meta: Meta<typeof JustAppProvider> = {
 	component: JustAppProvider,
@@ -17,11 +17,11 @@ const meta: Meta<typeof JustAppProvider> = {
 			app2: await app2Activate(),
 		}),
 	],
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof JustAppProvider>;
+type Story = StoryObj<typeof JustAppProvider>
 
 export const PropsVsContext: Story = {
 	render(_, { loaded: { app1, app2 } }) {
@@ -34,9 +34,9 @@ export const PropsVsContext: Story = {
 					</div>
 				</JustAppProvider>
 			</JustAppProvider>
-		);
+		)
 	},
-};
+}
 
 export const AppSpecificContext: Story = {
 	render(_, { loaded: { app1, app2 } }) {
@@ -50,9 +50,9 @@ export const AppSpecificContext: Story = {
 					</div>
 				</App2Context.Provider>
 			</App1Context.Provider>
-		);
+		)
 	},
-};
+}
 
 export const ContextPerTree: Story = {
 	render(_, { loaded: { app1, app2 } }) {
@@ -67,9 +67,9 @@ export const ContextPerTree: Story = {
 					</App2Context.Provider>
 				</div>
 			</App1Context.Provider>
-		);
+		)
 	},
-};
+}
 
 export const JustAppProviderUseSpecificContext: Story = {
 	render(_, { loaded: { app1, app2 } }) {
@@ -83,9 +83,9 @@ export const JustAppProviderUseSpecificContext: Story = {
 					</JustAppProvider>
 				</div>
 			</JustAppProvider>
-		);
+		)
 	},
-};
+}
 
 export const WithUseJustAppContext: Story = {
 	decorators: [
@@ -117,9 +117,9 @@ export const WithUseJustAppContext: Story = {
 					</div>
 				</App2Context.Provider>
 			</App1Context.Provider>
-		);
+		)
 	},
-};
+}
 
 export const WithUseContext: Story = {
 	decorators: [
@@ -146,9 +146,9 @@ export const WithUseContext: Story = {
 					</div>
 				</App2Context.Provider>
 			</App1Context.Provider>
-		);
+		)
 	},
-};
+}
 
 export const NoRenderWhenModifyState: Story = {
 	loaders: [
@@ -161,12 +161,12 @@ export const NoRenderWhenModifyState: Story = {
 			<App1Context.Provider value={app1}>
 				<EmitLog />
 			</App1Context.Provider>
-		);
+		)
 	},
-};
+}
 
 function EmitLog() {
-	const app = useJustTestAppContext();
+	const app = useJustTestAppContext()
 	return (
 		<div className="bg-slate-300 rounded-md p-3">
 			<p>Write log will not trigger render</p>
@@ -175,14 +175,14 @@ function EmitLog() {
 				Click me
 			</button>
 		</div>
-	);
+	)
 }
 
-const StoreContext = createStoreContext<{ value: number }>();
+const StoreContext = createStoreContext<{ value: number }>()
 
 export const WithStoreContext: Story = {
 	render(_, { loaded: { app1 } }) {
-		const store = createStore(app1);
+		const store = createStore(app1)
 		return (
 			<StoreContext.Provider value={store}>
 				<Card>
@@ -190,13 +190,13 @@ export const WithStoreContext: Story = {
 					<StoreChanger />
 				</Card>
 			</StoreContext.Provider>
-		);
+		)
 	},
-};
+}
 
 function StoreDisplay() {
-	const [value] = useStoreContext(StoreContext, (s) => s.value);
-	return <div>Value: {value}</div>;
+	const [value] = useStoreContext(StoreContext, (s) => s.value)
+	return <div>Value: {value}</div>
 }
 
 function StoreChanger() {
@@ -204,12 +204,12 @@ function StoreChanger() {
 		StoreContext,
 		(s) => s.value,
 		(store, value) => {
-			store.value = value;
-		}
-	);
+			store.value = value
+		},
+	)
 	return (
 		<button className="button" onClick={() => setValue((v) => v + 1)} type="button">
 			Increment
 		</button>
-	);
+	)
 }

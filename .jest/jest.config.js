@@ -3,4 +3,4 @@ module.exports = {
 		'^@justland/(.*)': '<rootDir>/../$1/ts',
 		'^just-(.*)': '<rootDir>/../$1/ts',
 	},
-};
+}

@@ -1,17 +1,17 @@
-import { expect } from '@storybook/jest';
-import type { Meta, StoryObj } from '@storybook/react';
-import { userEvent, within } from '@storybook/testing-library';
-import { type ReactNode, useState } from 'react';
-import { summary } from '../storybook/summary.js';
-import { Terminal } from './terminal.js';
+import { expect } from '@storybook/jest'
+import type { Meta, StoryObj } from '@storybook/react'
+import { userEvent, within } from '@storybook/testing-library'
+import { type ReactNode, useState } from 'react'
+import { summary } from '../storybook/summary.js'
+import { Terminal } from './terminal.js'
 
 const meta: Meta<typeof Terminal> = {
 	component: Terminal,
-};
+}
 
-export default meta;
+export default meta
 
-type Story = StoryObj<typeof Terminal>;
+type Story = StoryObj<typeof Terminal>
 
 export const OnChange: Story = {
 	decorators: [
@@ -24,17 +24,17 @@ export const OnChange: Story = {
 					This story ensures that when the input text is saved in a state, which causes redraw, the terminal input still
 					contains the input text, instead of being cleared.
 				</p>
-			</>
+			</>,
 		),
 	],
 	render() {
-		const [inputText, setInputText] = useState('');
+		const [inputText, setInputText] = useState('')
 
 		return (
 			<div className="flex flex-col gap-2 p-2 bg-slate-100">
 				<Terminal
 					onChange={(e) => {
-						setInputText(e.target.value);
+						setInputText(e.target.value)
 					}}
 					output={[]}
 					prompt="$"
@@ -43,34 +43,34 @@ export const OnChange: Story = {
 					input text: <span data-testid="captured-text">{inputText}</span>
 				</div>
 			</div>
-		);
+		)
 	},
 	async play({ canvasElement }) {
-		const canvas = within(canvasElement);
-		const input = canvas.getByRole<HTMLInputElement>('textbox');
-		await userEvent.type(input, 'hello');
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello')
 
-		expect(input.value).toBe('hello');
-		const capturedText = canvas.getByTestId('captured-text');
-		expect(capturedText.innerText).toBe('hello');
+		expect(input.value).toBe('hello')
+		const capturedText = canvas.getByTestId('captured-text')
+		expect(capturedText.innerText).toBe('hello')
 	},
-};
+}
 
 export const OnKeyDown: Story = {
 	decorators: [
 		summary(
 			<p>
 				<code>onKeyDown</code> captures the keydown event from the input
-			</p>
+			</p>,
 		),
 	],
 	render() {
-		const [inputText, setInputText] = useState('');
+		const [inputText, setInputText] = useState('')
 		return (
 			<div className="flex flex-col gap-2 p-2 bg-slate-100">
 				<Terminal
 					onKeyDown={(e) => {
-						setInputText(e.key);
+						setInputText(e.key)
 					}}
 					output={[]}
 					prompt="$"
@@ -79,18 +79,18 @@ export const OnKeyDown: Story = {
 					key down: <span data-testid="captured-text">{inputText}</span>
 				</div>
 			</div>
-		);
+		)
 	},
 	async play({ canvasElement }) {
-		const canvas = within(canvasElement);
-		const input = canvas.getByRole<HTMLInputElement>('textbox');
-		await userEvent.type(input, 'hello');
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello')
 
-		expect(input.value).toBe('hello');
-		const capturedText = canvas.getByTestId('captured-text');
-		expect(capturedText.innerText).toBe('o');
+		expect(input.value).toBe('hello')
+		const capturedText = canvas.getByTestId('captured-text')
+		expect(capturedText.innerText).toBe('o')
 	},
-};
+}
 
 export const KeyDownAndChange: Story = {
 	decorators: [
@@ -98,20 +98,20 @@ export const KeyDownAndChange: Story = {
 			<p>
 				This story ensure using both <code>onKeyDown</code> and <code>onChange</code> saving to two different states
 				work.
-			</p>
+			</p>,
 		),
 	],
 	render() {
-		const [changed, setChanged] = useState('');
-		const [keyDown, setKeyDown] = useState('');
+		const [changed, setChanged] = useState('')
+		const [keyDown, setKeyDown] = useState('')
 		return (
 			<div className="flex flex-col gap-2 p-2 bg-slate-100">
 				<Terminal
 					onChange={(e) => {
-						setChanged(e.target.value);
+						setChanged(e.target.value)
 					}}
 					onKeyDown={(e) => {
-						setKeyDown(e.key);
+						setKeyDown(e.key)
 					}}
 					output={[]}
 					prompt="$"
@@ -123,26 +123,26 @@ export const KeyDownAndChange: Story = {
 					key down: <span data-testid="keydown-text">{keyDown}</span>
 				</div>
 			</div>
-		);
+		)
 	},
 	async play({ canvasElement }) {
-		const canvas = within(canvasElement);
-		const input = canvas.getByRole<HTMLInputElement>('textbox');
-		await userEvent.type(input, 'hello');
-		expect(input.value).toBe('hello');
+		const canvas = within(canvasElement)
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		await userEvent.type(input, 'hello')
+		expect(input.value).toBe('hello')
 
-		const changed = canvas.getByTestId('change-text');
-		expect(changed.innerText).toBe('hello');
+		const changed = canvas.getByTestId('change-text')
+		expect(changed.innerText).toBe('hello')
 
-		const keydown = canvas.getByTestId('keydown-text');
-		expect(keydown.innerText).toBe('o');
+		const keydown = canvas.getByTestId('keydown-text')
+		expect(keydown.innerText).toBe('o')
 	},
-};
+}
 
 export const Disabled: Story = {
 	decorators: [summary(<p>When disabled, the input element will be disabled.</p>)],
 	render() {
-		const [disabled, setDisabled] = useState(true);
+		const [disabled, setDisabled] = useState(true)
 
 		return (
 			<div className="flex flex-col gap-2">
@@ -154,17 +154,17 @@ export const Disabled: Story = {
 					<Terminal disabled={disabled} output={[]} prompt="$" />
 				</div>
 			</div>
-		);
+		)
 	},
 	async play({ canvasElement }) {
-		const canvas = within(canvasElement);
-		const checkbox = canvas.getByRole('checkbox');
-		const input = canvas.getByRole<HTMLInputElement>('textbox');
-		expect(input.disabled).toBe(true);
-		await userEvent.click(checkbox);
-		expect(input.disabled).toBe(false);
+		const canvas = within(canvasElement)
+		const checkbox = canvas.getByRole('checkbox')
+		const input = canvas.getByRole<HTMLInputElement>('textbox')
+		expect(input.disabled).toBe(true)
+		await userEvent.click(checkbox)
+		expect(input.disabled).toBe(false)
 	},
-};
+}
 
 export const TerminalClassName: Story = {
 	decorators: [
@@ -176,7 +176,7 @@ export const TerminalClassName: Story = {
 				<p>
 					To style the output area and the prompt area, you can add <code>className</code> into those components
 				</p>
-			</>
+			</>,
 		),
 	],
 	render() {
@@ -184,20 +184,20 @@ export const TerminalClassName: Story = {
 			<div className="h-80 w-80">
 				<Terminal className="h-full bg-stone-400 py-2" output={[]} prompt="$" />
 			</div>
-		);
+		)
 	},
-};
+}
 
 export const ScrollToBottom: Story = {
 	decorators: [
 		summary(
 			<p>
 				<code>Terminal</code> will automatically scroll to the bottom.
-			</p>
+			</p>,
 		),
 	],
 	render() {
-		const [output, setOutput] = useState<ReactNode[]>([]);
+		const [output, setOutput] = useState<ReactNode[]>([])
 
 		return (
 			<div className="flex flex-col gap-2">
@@ -212,8 +212,8 @@ export const ScrollToBottom: Story = {
 									<p>Multiline 3</p>
 									<p>Multiline 4</p>
 								</div>
-							);
-							setOutput((v) => [...v, entry]);
+							)
+							setOutput((v) => [...v, entry])
 						}}
 						type="button"
 					>
@@ -224,14 +224,14 @@ export const ScrollToBottom: Story = {
 					<Terminal className="h-full overflow-auto" output={output} prompt="$" />
 				</div>
 			</div>
-		);
+		)
 	},
 	async play({ canvasElement }) {
-		const canvas = within(canvasElement);
-		const button = canvas.getByRole('button');
-		await userEvent.click(button);
-		await userEvent.click(button);
-		await userEvent.click(button);
-		await userEvent.click(button);
+		const canvas = within(canvasElement)
+		const button = canvas.getByRole('button')
+		await userEvent.click(button)
+		await userEvent.click(button)
+		await userEvent.click(button)
+		await userEvent.click(button)
 	},
-};
+}

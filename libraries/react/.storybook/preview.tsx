@@ -1,5 +1,5 @@
-import '@storybook/addon-console';
-import '../ts/styles.css';
+import '@storybook/addon-console'
+import '../ts/styles.css'
 
 export const parameters = {
 	actions: { argTypesRegex: '^on[A-Z].*' },
@@ -9,4 +9,4 @@ export const parameters = {
 			date: /Date$/,
 		},
 	},
-};
+}

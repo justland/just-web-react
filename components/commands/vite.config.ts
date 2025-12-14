@@ -1,10 +1,10 @@
 /// <reference types="vitest" />
 /// <reference types="vite/client" />
 
-import { resolve } from 'node:path';
-import react from '@vitejs/plugin-react';
-import externals from 'rollup-plugin-node-externals';
-import { defineConfig } from 'vite';
+import { resolve } from 'node:path'
+import react from '@vitejs/plugin-react'
+import externals from 'rollup-plugin-node-externals'
+import { defineConfig } from 'vite'
 
 export default defineConfig({
 	plugins: [react({ exclude: [/\.spec\.tsx?$/, /\.stories\.tsx?$/] }), { ...externals(), enforce: 'pre' }],
@@ -38,4 +38,4 @@ export default defineConfig({
 			tsconfig: './tsconfig.json',
 		},
 	},
-});
+})
