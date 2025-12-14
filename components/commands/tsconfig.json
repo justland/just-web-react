@@ -2,9 +2,9 @@
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
 		"outDir": ".nowhere",
-		"rootDir": "ts"
+		"rootDir": "src"
 	},
-	"include": ["ts", "typings"],
+	"include": ["src", "typings"],
 	"references": [
 		{
 			"path": "./tsconfig.node.json"

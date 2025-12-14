@@ -5,8 +5,8 @@
 		"jsx": "react-jsx",
 		"module": "ESNext",
 		"moduleResolution": "NodeNext",
-		"rootDir": "ts",
+		"rootDir": "src",
 		"target": "ESNext"
 	},
-	"include": ["ts", "types"]
+	"include": ["src", "types"]
 }

@@ -72,7 +72,7 @@
 		"test": "cross-env NODE_OPTIONS=--experimental-vm-modules jest",
 		"test:watch": "cross-env NODE_OPTIONS=--experimental-vm-modules NODE_NO_WARNINGS=1 jest --watch",
 		"w": "pnpm test:watch",
-		"verify": "npm-run-all -p build lint coverage depcheck -p size"
+		"verify": "npm-run-all -p build coverage depcheck -p size"
 	},
 	"dependencies": {
 		"@just-web/formatjs": "^1.0.2",

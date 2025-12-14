@@ -4,8 +4,8 @@
 		"declaration": true,
 		"declarationDir": "dts",
 		"emitDeclarationOnly": true,
-		"rootDir": "ts"
+		"rootDir": "src"
 	},
-	"include": ["ts", "typings"],
+	"include": ["src", "typings"],
 	"exclude": ["**/*.spec.*", "**/*.stories.*"]
 }

@@ -55,7 +55,7 @@
 		"dist",
 		"esm",
 		"testing",
-		"ts",
+		"src",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
 		"!**/*.stories.*"
 	],
@@ -65,6 +65,7 @@
 		"build:esm": "tsc",
 		"build:storybook": "storybook build",
 		"build:vite": "vite build",
+		"check": "biome check",
 		"coverage": "vitest run --coverage",
 		"clean": "rimraf coverage cjs esm dist dts --glob *.tsbuildinfo",
 		"depcheck": "depcheck",
@@ -78,7 +79,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:tsc": "tsc --noEmit",
-		"verify": "npm-run-all -p lint build coverage depcheck -p size"
+		"verify": "npm-run-all -p check build coverage depcheck -p size"
 	},
 	"dependencies": {
 		"@just-web/states": "^7.1.5",

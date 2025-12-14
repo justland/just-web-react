@@ -45,11 +45,11 @@
 		"build:storybook": "storybook build",
 		"build:vite": "vite build",
 		"build:dts": "tsc -p tsconfig.dts.json",
+		"check": "biome check",
 		"coverage": "vitest run --coverage",
 		"clean": "rimraf coverage dist dts --glob *.tsbuildinfo",
 		"depcheck": "depcheck",
 		"dev": "vite",
-		"lint": "biome check .",
 		"nuke": "rimraf node_modules",
 		"preview": "vite preview",
 		"sb": "storybook dev -p 6007",
@@ -58,7 +58,7 @@
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"test:tsc": "tsc --noEmit",
-		"verify": "npm-run-all -p lint build coverage depcheck -p size"
+		"verify": "npm-run-all -p check build coverage depcheck -p size"
 	},
 	"dependencies": {
 		"react-command-palette": "~0.22.0",
