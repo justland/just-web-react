@@ -27,44 +27,38 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./esm/index.d.ts",
-				"default": "./esm/index.js"
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
 			},
 			"require": {
-				"types": "./cjs/index.d.ts",
-				"default": "./dist/just-web-react.cjs"
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
 			}
 		},
 		"./testing": {
 			"import": {
-				"types": "./esm/testing/index.d.ts",
-				"default": "./esm/testing/index.js"
+				"types": "./dist/testing/index.d.mts",
+				"default": "./dist/testing/index.mjs"
 			},
 			"require": {
-				"types": "./cjs/testing/index.d.ts",
-				"default": "./cjs/testing/index.js"
+				"types": "./dist/testing/index.d.cts",
+				"default": "./dist/testing/index.cjs"
 			},
-			"default": "./esm/testing/index.js"
+			"default": "./dist/testing/index.mjs"
 		}
 	},
-	"main": "./dist/just-web-react.cjs",
-	"module": "./dist/just-web-react.js",
-	"types": "./cjs/index.d.ts",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"files": [
-		"cjs",
 		"dist",
-		"esm",
-		"testing",
 		"src",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
 		"!**/*.stories.*"
 	],
 	"scripts": {
-		"build": "run-p build:esm build:cjs build:vite",
-		"build:cjs": "buddy ts build cjs",
-		"build:esm": "tsc",
+		"build": "tsdown",
 		"build:storybook": "storybook build",
-		"build:vite": "vite build",
 		"check": "biome check",
 		"coverage": "vitest run --coverage",
 		"clean": "rimraf coverage cjs esm dist dts --glob *.tsbuildinfo",
@@ -90,6 +84,7 @@
 		"@just-web/app": "^7.1.5",
 		"@just-web/os": "^7.2.1",
 		"@repobuddy/typescript": "^1.2.0",
+		"tsdown": "^0.17.4",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook/addon-actions": "^7.0.6",
 		"@storybook/addon-backgrounds": "^7.0.6",
