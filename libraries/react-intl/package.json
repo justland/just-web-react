@@ -82,9 +82,9 @@
 		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook-community/storybook-dark-mode": "^6.0.0",
-		"@storybook/addon-console": "^3.0.0",
-		"@storybook/addon-links": "9.1.16",
-		"@storybook/react-vite": "9.1.16",
+		"@storybook/addon-docs": "10.1.8",
+		"@storybook/addon-links": "10.1.8",
+		"@storybook/react-vite": "10.1.8",
 		"@types/react": "^18.0.0",
 		"@types/react-dom": "^18.0.9",
 		"@vitejs/plugin-react": "catalog:",
@@ -97,13 +97,12 @@
 		"react-dom": "^18.0.0",
 		"rimraf": "~5.0.0",
 		"size-limit": "~8.2.0",
-		"storybook": "9.1.16",
+		"storybook": "10.1.8",
 		"tsdown": "^0.17.4",
 		"type-plus": "^7.0.1",
 		"typescript": "^5.0.4",
 		"vite": "catalog:",
-		"vitest": "catalog:",
-		"@storybook/addon-docs": "9.1.16"
+		"vitest": "catalog:"
 	},
 	"peerDependencies": {
 		"@just-web/react": "^9.0.0",
