@@ -3,6 +3,7 @@ import { formatJSGizmoFn } from '@just-web/formatjs'
 import { reactGizmo } from '@just-web/react'
 import { a } from 'assertron'
 import { testType } from 'type-plus'
+import { expect, it } from 'vitest'
 import { type IntlShape, reactIntlGizmoFn } from './index.js'
 
 it('requires react and includes formatjs', async () => {
