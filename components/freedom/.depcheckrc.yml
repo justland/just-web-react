@@ -5,7 +5,8 @@ ignores:
   - '@storybook/*'
   - '@testing-library/*'
   - '@types/*'
-  - '@vitest/coverage-c8' # used by vitest
+  - '@vitest/browser' # used by vitest
+  - '@vitest/coverage-v8' # used by vitest
   - autoprefixer # tailwind
   - eslint*
   - jest-image-snapshot

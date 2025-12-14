@@ -1,4 +1,5 @@
 import { testType } from 'type-plus'
+import { it } from 'vitest'
 import type { App1Context, App1Context2 } from './testing/app1.js'
 
 it('can infer app type from app incubator', () => {

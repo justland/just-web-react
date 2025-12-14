@@ -3,12 +3,7 @@
 	"compilerOptions": {
 		"jsx": "react",
 		"outDir": "esm",
-		"rootDir": "src",
 		"verbatimModuleSyntax": true
 	},
-	"references": [
-		{
-			"path": "./tsconfig.project.json"
-		}
-	]
+	"include": ["src", "types", ".storybook/*", "vitest.config.ts"]
 }

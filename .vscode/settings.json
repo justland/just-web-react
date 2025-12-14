@@ -87,6 +87,7 @@
     "twind",
     "unshift",
     "vite",
+    "vitejs",
     "vitest",
     "vmin"
   ],

@@ -1,11 +1,9 @@
 {
-	"extends": "./tsconfig.esm.json",
-	"references": [
-		{
-			"path": "./tsconfig.project.json"
-		},
-		{
-			"path": "../../libraries/react"
-		}
-	]
+	"extends": "./tsconfig.base.json",
+	"compilerOptions": {
+		"jsx": "react",
+		"outDir": "esm",
+		"verbatimModuleSyntax": true
+	},
+	"include": ["src", "types", ".storybook/*", "vitest.config.ts"]
 }
