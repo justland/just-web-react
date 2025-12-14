@@ -1,6 +1,6 @@
 import { justTestApp } from '@just-web/app/testing'
 import { JustAppProvider, reactGizmo } from '@just-web/react'
-import type { StoryObj } from '@storybook/react'
+import type { StoryObj } from '@storybook/react-vite'
 import React from 'react'
 import { useIntl } from 'react-intl'
 import { reactIntlGizmoFn } from './react_intl_gizmo.js'
