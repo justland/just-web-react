@@ -1,15 +1,7 @@
 {
 	"extends": "./tsconfig.base.json",
 	"compilerOptions": {
-		"outDir": "esm",
 		"verbatimModuleSyntax": true
 	},
-	"references": [
-		{
-			"path": "../../libraries/react"
-		},
-		{
-			"path": "./tsconfig.project.json"
-		}
-	]
+	"include": ["src", "types", ".storybook/*", "vitest.config.ts"]
 }

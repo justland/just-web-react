@@ -60,16 +60,16 @@
 	],
 	"scripts": {
 		"build": "tsdown",
+		"check": "biome check",
 		"clean": "rimraf cjs esm coverage tslib --glob *.tsbuildinfo",
 		"coverage": "vitest run --coverage",
-		"depcheck": "depcheck",
 		"nuke": "rimraf node_modules",
 		"sb": "storybook dev -p 6008",
 		"size": "size-limit",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"w": "pnpm test:watch",
-		"verify": "npm-run-all -p build coverage depcheck -p size"
+		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
 		"@just-web/formatjs": "^1.0.2",
