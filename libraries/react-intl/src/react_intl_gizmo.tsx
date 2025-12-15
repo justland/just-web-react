@@ -1,8 +1,8 @@
 import { define, incubate } from '@just-web/app'
 import { type FormatJSGizmo, type FormatJSGizmoOptions, formatJSGizmoFn } from '@just-web/formatjs'
-import type { ReactGizmo } from '@just-web/react'
 import React from 'react'
 import { type IntlShape, RawIntlProvider } from 'react-intl'
+import type { ReactGizmo } from '../../react/dist/hooks/store'
 
 export type ReactIntlGizmoOptions<T = string> = FormatJSGizmoOptions<T>
 
