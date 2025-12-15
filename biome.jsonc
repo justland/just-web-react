@@ -49,21 +49,8 @@
 	},
 	"javascript": {
 		"jsxRuntime": "reactClassic",
-		"globals": ["jest", "vitest", "expect", "describe", "it", "test", "beforeEach", "afterEach"]
-	},
-	"overrides": [
-		{
-			"includes": ["**/*.stories.tsx", "**/*.stories.ts", "**/*.mdx"],
-			"linter": {
-				"rules": {
-					"suspicious": {
-						"noConsole": { "level": "off", "options": { "allow": ["log"] } }
-					},
-					"style": {
-						"noDefaultExport": "off"
-					}
-				}
-			}
+		"formatter": {
+			"trailingCommas": "none"
 		}
-	]
+	}
 }

@@ -5,5 +5,5 @@
 		"outDir": "esm",
 		"verbatimModuleSyntax": true
 	},
-	"include": ["src", "types", ".storybook/*", "vitest.config.ts"]
+	"include": ["src", "types", ".storybook/*", "*.ts"]
 }
