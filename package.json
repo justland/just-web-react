@@ -35,7 +35,7 @@
 		"@repobuddy/biome": "^2.2.0",
 		"husky": "^9.1.7",
 		"knip": "^5.0.0",
-		"npm-run-all": "^4.1.5",
+		"npm-run-all2": "^5.0.0",
 		"playwright": "^1.57.0",
 		"plop": "^3.1.1",
 		"rimraf": "^6.1.2",
