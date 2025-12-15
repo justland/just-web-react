@@ -2,7 +2,7 @@ import { createStore } from '@just-web/states'
 import React from 'react'
 import { act, create } from 'react-test-renderer'
 import { expect, test } from 'vitest'
-import { useStore } from './index.js'
+import { useStore } from '../index.js'
 
 test('store change with same value will not trigger render', async () => {
 	const store = createStore({ counter: 0 })

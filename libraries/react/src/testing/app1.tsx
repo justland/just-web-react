@@ -2,8 +2,9 @@ import { type JustAppTestOptions, justTestApp, type LogTestGizmo } from '@just-w
 import React from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { createJustAppContext, useJustAppContext } from '../just_app_context.js'
-import { reactGizmo } from '../react_gizmo.js'
+import { createJustAppContext } from '../contexts/create_just_app_context.js'
+import { reactGizmo } from '../gizmos/react_gizmo.js'
+import { useJustAppContext } from '../hooks/use_just_app_context.js'
 import type { JustReactTestApp } from './just_react_test_app.types.js'
 import { type ValueGizmo, type ValueGizmoOptions, valueGizmoFn } from './value_gizmo.js'
 

@@ -1,9 +1,8 @@
 import { faker } from '@faker-js/faker'
-import { expect } from '@storybook/jest'
-import type { Meta, StoryObj } from '@storybook/react'
-import { userEvent, within } from '@storybook/testing-library'
+import type { Meta, StoryObj } from '@storybook/react-vite'
 import delay from 'delay'
-import { useState } from 'react'
+import React, { useState } from 'react'
+import { expect, userEvent, within } from 'storybook/test'
 import { summary } from '../storybook/summary.js'
 import { listCommand } from './list_commands.js'
 import { type PromptNode, type PromptNodeProps, Terminal } from './terminal.js'
@@ -38,7 +37,9 @@ export const BasicExample: Story = {
 
 export const WithInitialNodes: Story = {
 	render() {
-		const { register } = useShell({ initial: ['simple text', <b key="bold-text">Bold text</b>] })
+		const { register } = useShell({
+			initial: ['simple text', <b key="bold-text">Bold text</b>],
+		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
 	},

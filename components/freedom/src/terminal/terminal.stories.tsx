@@ -1,7 +1,6 @@
-import { expect } from '@storybook/jest'
-import type { Meta, StoryObj } from '@storybook/react'
-import { userEvent, within } from '@storybook/testing-library'
-import { type ReactNode, useState } from 'react'
+import type { Meta, StoryObj } from '@storybook/react-vite'
+import React, { type ReactNode, useState } from 'react'
+import { expect, userEvent, within } from 'storybook/test'
 import { summary } from '../storybook/summary.js'
 import { Terminal } from './terminal.js'
 
