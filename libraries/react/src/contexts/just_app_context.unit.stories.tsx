@@ -1,8 +1,8 @@
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import React, { createContext } from 'react'
-import { JustAppProvider } from './just_app_context.js'
-import { App1Info, activate as app1Activate } from './testing/app1.js'
-import { activate as app2Activate } from './testing/app2.js'
+import { App1Info, activate as app1Activate } from '../testing/app1.js'
+import { activate as app2Activate } from '../testing/app2.js'
+import { JustAppProvider } from './just_app_provider.js'
 
 const meta: Meta<typeof JustAppProvider> = {
 	component: JustAppProvider,

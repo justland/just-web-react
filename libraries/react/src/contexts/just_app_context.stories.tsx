@@ -1,13 +1,14 @@
 import { createStore } from '@just-web/states'
 import type { Meta, StoryObj } from '@storybook/react-vite'
 import React from 'react'
-import { JustAppProvider } from './just_app_context.js'
-import { createStoreContext, useStoreContext } from './store_context.js'
-import { AppInfo, AppInfoWithUseContext, AppInfoWithUseJustAppContext } from './testing/app_info.js'
-import { App1Context, App1Info, activate as app1Activate } from './testing/app1.js'
-import { App2Context, App2Info, activate as app2Activate } from './testing/app2.js'
-import { Card } from './testing/card.js'
-import { useJustTestAppContext } from './testing/just_test_app_context.js'
+import { useStoreContext } from '../hooks/use_store_context.js'
+import { AppInfo, AppInfoWithUseContext, AppInfoWithUseJustAppContext } from '../testing/app_info.js'
+import { App1Context, App1Info, activate as app1Activate } from '../testing/app1.js'
+import { App2Context, App2Info, activate as app2Activate } from '../testing/app2.js'
+import { Card } from '../testing/card.js'
+import { useJustTestAppContext } from '../testing/just_test_app_context.js'
+import { JustAppProvider } from './just_app_provider.js'
+import { createStoreContext } from './store_context.js'
 
 const meta: Meta<typeof JustAppProvider> = {
 	component: JustAppProvider,

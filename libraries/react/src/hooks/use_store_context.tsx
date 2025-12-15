@@ -1,14 +1,6 @@
 import type { Store, Updater } from '@just-web/states'
-import { type Context, createContext, useContext } from 'react'
-import { useStore } from './store.js'
-
-/**
- * Creates a `Store<T>`context to be used in `useStoreContext()`
- * @type T Type of the store value.
- */
-export function createStoreContext<T extends Record<any, any>>() {
-	return createContext<Store<T>>(undefined as any)
-}
+import { type Context, useContext } from 'react'
+import { useStore } from './use_store'
 
 /**
  * Uses a store context.
@@ -16,6 +8,7 @@ export function createStoreContext<T extends Record<any, any>>() {
  * @param getState The function to get a particular value from the store.
  * @param updateStore Optional. The function to update the store when the returning `setValue()` is called.
  */
+
 export function useStoreContext<S extends Record<any, any>, V>(
 	reactContext: Context<Store<S>>,
 	getState: (s: S) => V,

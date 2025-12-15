@@ -1,5 +1,6 @@
 import { spyOn } from 'storybook/test'
-import '../src/styles.css'
+
+import '../src/tailwind.css'
 
 export default {
 	parameters: {

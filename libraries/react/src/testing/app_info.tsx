@@ -1,7 +1,8 @@
 import React, { useContext } from 'react'
 import { tersify } from 'tersify'
 import { mapKey } from 'type-plus'
-import { type JustReactApp, useJustAppContext } from '../just_app_context.js'
+import type { JustReactApp } from '../contexts/just_app_context.js'
+import { useJustAppContext } from '../hooks/use_just_app_context.js'
 import { Card } from './card.js'
 
 /**
