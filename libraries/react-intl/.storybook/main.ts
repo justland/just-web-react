@@ -10,24 +10,24 @@ const config: StorybookConfig = {
 	addons: [
 		getAbsolutePath('@storybook/addon-links'),
 		getAbsolutePath('@storybook-community/storybook-dark-mode'),
-		getAbsolutePath('@storybook/addon-docs'),
+		getAbsolutePath('@storybook/addon-docs')
 	],
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
-		options: {},
+		options: {}
 	},
 	typescript: {
 		check: false,
-		reactDocgen: 'react-docgen-typescript',
+		reactDocgen: 'react-docgen-typescript'
 	},
 	docs: {},
 	viteFinal(config) {
 		return mergeConfig(config, {
 			build: {
-				target: 'esnext',
-			},
+				target: 'esnext'
+			}
 		})
-	},
+	}
 }
 
 export default config

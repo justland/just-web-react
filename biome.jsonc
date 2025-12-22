@@ -50,7 +50,7 @@
 	"javascript": {
 		"jsxRuntime": "reactClassic",
 		"formatter": {
-			// "trailingCommas": "none"
+			"trailingCommas": "none"
 		}
 	}
 }

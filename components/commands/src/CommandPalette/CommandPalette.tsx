@@ -135,7 +135,7 @@ function getCommands(ctx: KeyboardGizmo & CommandsGizmo & OSGizmo) {
 				name: formatCommand(c).id,
 				command: () => {
 					ctx.commands.handlers.invoke(c.id)
-				},
+				}
 			}
 			const k = kbs[c.id]
 			return k ? { ...r, key: formatKeyBinding(ctx, k).key } : r
@@ -157,7 +157,7 @@ export const CommandPalette = (props: CommandPaletteProps) => {
 
 	useEffect(
 		() => app.commands.handlers.register(showCommandPalette.id, () => setOpen(true)),
-		[app.commands.handlers.register],
+		[app.commands.handlers.register]
 	)
 
 	const commands = useMemo(() => (open ? getCommands(app) : []), [open, app])

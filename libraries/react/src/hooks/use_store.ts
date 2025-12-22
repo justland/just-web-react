@@ -11,7 +11,7 @@ import { isType } from 'type-plus'
 export function useStore<S extends Record<any, any>, V>(
 	store: Store<S>,
 	getState: (s: S) => V,
-	updater?: (draft: S, value: V) => ReturnType<Updater<S>>,
+	updater?: (draft: S, value: V) => ReturnType<Updater<S>>
 ): [value: V, setValue: (value: V | ((value: V) => V)) => void] {
 	const [value, setValue] = useState(() => getState(store.get()))
 
@@ -26,12 +26,12 @@ export function useStore<S extends Record<any, any>, V>(
 		useCallback((value) => {
 			if (updater) {
 				store.set((s) =>
-					updater(s, isType<(value: V) => V>(value, (u) => typeof u === 'function') ? value(getState(s)) : value),
+					updater(s, isType<(value: V) => V>(value, (u) => typeof u === 'function') ? value(getState(s)) : value)
 				)
 
 				return setValue(getState(store.get()))
 			}
 			return setValue(value)
-		}, []),
+		}, [])
 	]
 }

@@ -16,9 +16,9 @@ const meta: Meta<typeof JustAppProvider> = {
 	loaders: [
 		async () => ({
 			app1: await app1Activate(),
-			app2: await app2Activate(),
-		}),
-	],
+			app2: await app2Activate()
+		})
+	]
 }
 
 export default meta
@@ -37,7 +37,7 @@ export const PropsVsContext: Story = {
 				</JustAppProvider>
 			</JustAppProvider>
 		)
-	},
+	}
 }
 
 export const AppSpecificContext: Story = {
@@ -53,7 +53,7 @@ export const AppSpecificContext: Story = {
 				</App2Context.Provider>
 			</App1Context.Provider>
 		)
-	},
+	}
 }
 
 export const ContextPerTree: Story = {
@@ -70,7 +70,7 @@ export const ContextPerTree: Story = {
 				</div>
 			</App1Context.Provider>
 		)
-	},
+	}
 }
 
 export const JustAppProviderUseSpecificContext: Story = {
@@ -86,7 +86,7 @@ export const JustAppProviderUseSpecificContext: Story = {
 				</div>
 			</JustAppProvider>
 		)
-	},
+	}
 }
 
 export const WithUseJustAppContext: Story = {
@@ -106,7 +106,7 @@ export const WithUseJustAppContext: Story = {
 				</Card>
 				<Story />
 			</div>
-		),
+		)
 	],
 	render(_, { loaded: { app1, app2 } }) {
 		return (
@@ -120,7 +120,7 @@ export const WithUseJustAppContext: Story = {
 				</App2Context.Provider>
 			</App1Context.Provider>
 		)
-	},
+	}
 }
 
 export const WithUseContext: Story = {
@@ -135,7 +135,7 @@ export const WithUseContext: Story = {
 				</Card>
 				<Story />
 			</div>
-		),
+		)
 	],
 	render(_, { loaded: { app1, app2 } }) {
 		return (
@@ -149,14 +149,14 @@ export const WithUseContext: Story = {
 				</App2Context.Provider>
 			</App1Context.Provider>
 		)
-	},
+	}
 }
 
 export const NoRenderWhenModifyState: Story = {
 	loaders: [
 		async () => ({
-			app1: await app1Activate({ log: { emitLog: true } }),
-		}),
+			app1: await app1Activate({ log: { emitLog: true } })
+		})
 	],
 	render(_, { loaded: { app1 } }) {
 		return (
@@ -164,7 +164,7 @@ export const NoRenderWhenModifyState: Story = {
 				<EmitLog />
 			</App1Context.Provider>
 		)
-	},
+	}
 }
 
 function EmitLog() {
@@ -193,7 +193,7 @@ export const WithStoreContext: Story = {
 				</Card>
 			</StoreContext.Provider>
 		)
-	},
+	}
 }
 
 function StoreDisplay() {
@@ -207,7 +207,7 @@ function StoreChanger() {
 		(s) => s.value,
 		(store, value) => {
 			store.value = value
-		},
+		}
 	)
 	return (
 		<button className="button" onClick={() => setValue((v) => v + 1)} type="button">

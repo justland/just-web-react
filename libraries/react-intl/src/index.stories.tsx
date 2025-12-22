@@ -6,7 +6,7 @@ import { JustAppProvider, reactGizmo } from '../../react/dist/hooks/store.js'
 import { reactIntlGizmoFn } from './react_intl_gizmo.js'
 
 export default {
-	title: 'libraries/react-intl',
+	title: 'libraries/react-intl'
 }
 
 export const WithUseIntl: StoryObj = {
@@ -17,17 +17,17 @@ export const WithUseIntl: StoryObj = {
 				.with(reactIntlGizmoFn({ config: { locale: 'en' } }))
 				.create()
 			return { app }
-		},
+		}
 	],
 	decorators: [
 		(Story, { loaded: { app } }) => (
 			<JustAppProvider value={app}>
 				<Story />
 			</JustAppProvider>
-		),
+		)
 	],
 	render() {
 		const intl = useIntl()
 		return <div>{intl.formatMessage({ defaultMessage: 'hello', id: 'm3HSJL' })}</div>
-	},
+	}
 }

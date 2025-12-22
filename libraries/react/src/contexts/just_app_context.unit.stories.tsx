@@ -9,9 +9,9 @@ const meta: Meta<typeof JustAppProvider> = {
 	loaders: [
 		async () => ({
 			app1: await app1Activate(),
-			app2: await app2Activate(),
-		}),
-	],
+			app2: await app2Activate()
+		})
+	]
 }
 
 export default meta
@@ -29,7 +29,7 @@ export const WithDummyContextInBetween: Story = {
 				</div>
 			</JustAppProvider>
 		)
-	},
+	}
 }
 
 const UndefinedContext = createContext(undefined as any)

@@ -6,7 +6,7 @@ export const dummyGizmoFn: (options?: { a: number }) => GizmoBase<{
 }> = define((options?: { a: number }) => ({
 	async create() {
 		return { dummy: options?.a }
-	},
+	}
 }))
 
 export const Component = () => <div>dummy</div>

@@ -18,9 +18,9 @@ const meta: Meta<typeof Terminal> = {
 					<Story />
 				</div>
 			)
-		},
+		}
 	],
-	component: Terminal,
+	component: Terminal
 }
 
 export default meta
@@ -32,23 +32,23 @@ export const BasicExample: Story = {
 		const { register } = useShell()
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
-	},
+	}
 }
 
 export const WithInitialNodes: Story = {
 	render() {
 		const { register } = useShell({
-			initial: ['simple text', <b key="bold-text">Bold text</b>],
+			initial: ['simple text', <b key="bold-text">Bold text</b>]
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
-	},
+	}
 }
 
 export const FormatEachLine: Story = {
 	render() {
 		const { register } = useShell({
-			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()],
+			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()]
 		})
 
 		return (
@@ -60,20 +60,20 @@ export const FormatEachLine: Story = {
 								<div className="outline" key={line.toString()}>
 									{line}
 								</div>
-							) : null,
+							) : null
 						)
 					}
 				</Terminal.OutputArea>
 				<Terminal.PromptArea />
 			</Terminal>
 		)
-	},
+	}
 }
 
 export const WithCustomLayout: Story = {
 	render() {
 		const { register } = useShell({
-			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()],
+			initial: [faker.lorem.paragraph(), faker.lorem.paragraph(), faker.lorem.paragraph()]
 		})
 
 		return (
@@ -85,7 +85,7 @@ export const WithCustomLayout: Story = {
 				</div>
 			</Terminal>
 		)
-	},
+	}
 }
 
 export const CustomStringPrompt: Story = {
@@ -94,7 +94,7 @@ export const CustomStringPrompt: Story = {
 			prompt: '>>>',
 			onParse({ input }) {
 				setOutput((h) => [...h, `echo: ${input}`])
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -105,7 +105,7 @@ export const CustomStringPrompt: Story = {
 		await userEvent.type(input, 'hello world{enter}')
 		const echo = await canvas.findByText('echo: hello world')
 		expect(echo).toBeInTheDocument()
-	},
+	}
 }
 
 export const CustomReactPrompt: Story = {
@@ -124,7 +124,7 @@ export const CustomReactPrompt: Story = {
 			),
 			onParse({ input }) {
 				setOutput((h) => [...h, `echo: ${input}`])
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -135,7 +135,7 @@ export const CustomReactPrompt: Story = {
 		await userEvent.type(input, 'hello world{enter}')
 		const echo = await canvas.findByText('echo: hello world')
 		expect(echo).toBeInTheDocument()
-	},
+	}
 }
 
 export const InputSpanFullWidth: Story = {
@@ -147,7 +147,7 @@ export const InputSpanFullWidth: Story = {
 					<span>&gt;</span>
 					{children}
 				</div>
-			),
+			)
 		})
 
 		return (
@@ -156,7 +156,7 @@ export const InputSpanFullWidth: Story = {
 				<Terminal.PromptArea input={<Terminal.Input className="w-full outline-none" />} />
 			</Terminal>
 		)
-	},
+	}
 }
 
 export const DisableEchoPrompt: Story = {
@@ -165,7 +165,7 @@ export const DisableEchoPrompt: Story = {
 			echoPrompt: false,
 			onParse({ input }) {
 				setOutput((o) => [...o, `echo: ${input}`])
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -176,7 +176,7 @@ export const DisableEchoPrompt: Story = {
 		await userEvent.type(input, 'hello world{enter}')
 		const text = canvas.getByText('echo: hello world')
 		expect(text).toBeInTheDocument()
-	},
+	}
 }
 
 export const ChangeStringPrompt: Story = {
@@ -186,7 +186,7 @@ export const ChangeStringPrompt: Story = {
 			prompt,
 			onParse() {
 				setPrompt('$')
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -195,7 +195,7 @@ export const ChangeStringPrompt: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'change prompt{enter}')
-	},
+	}
 }
 
 export const ChangeStringToReactPrompt: Story = {
@@ -212,11 +212,11 @@ export const ChangeStringToReactPrompt: Story = {
 						{children}
 					</div>
 				))
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
-	},
+	}
 	// async play({ canvasElement }) {
 	// 	const canvas = within(canvasElement)
 	// 	const input = canvas.getByRole<HTMLInputElement>('textbox')
@@ -229,7 +229,7 @@ export const ParseInput: Story = {
 		const { register } = useShell({
 			onParse({ input }) {
 				return `echo ${input}`
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -238,7 +238,7 @@ export const ParseInput: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-	},
+	}
 }
 
 export const ParseInputAsync: Story = {
@@ -246,7 +246,7 @@ export const ParseInputAsync: Story = {
 		const { register } = useShell({
 			async onParse({ input }) {
 				return `async-echo ${input}`
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -255,7 +255,7 @@ export const ParseInputAsync: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-	},
+	}
 }
 
 export const InputClearedAfterParse: Story = {
@@ -263,7 +263,7 @@ export const InputClearedAfterParse: Story = {
 		const { register } = useShell({
 			onParse({ input }) {
 				return `echo ${input}`
-			},
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -273,15 +273,15 @@ export const InputClearedAfterParse: Story = {
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
 		await userEvent.type(input, '{enter}')
-	},
+	}
 }
 
 export const UnknownCommand: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: ({ input }) => `miku ${input}`,
-			},
+				miku: ({ input }) => `miku ${input}`
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -290,15 +290,15 @@ export const UnknownCommand: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
-	},
+	}
 }
 
 export const StringCommand: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				help: 'tried to help',
-			},
+				help: 'tried to help'
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -307,15 +307,15 @@ export const StringCommand: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'help{enter}')
-	},
+	}
 }
 
 export const FunctionCommand: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: ({ input }) => `received '${input}'`,
-			},
+				miku: ({ input }) => `received '${input}'`
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -324,15 +324,15 @@ export const FunctionCommand: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'miku sing{enter}')
-	},
+	}
 }
 
 export const CommandReturnsArray: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				chatty: ({ input }) => [`received '${input}'`, `start '${input}'`, `end '${input}'`],
-			},
+				chatty: ({ input }) => [`received '${input}'`, `start '${input}'`, `end '${input}'`]
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -341,15 +341,15 @@ export const CommandReturnsArray: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'chatty{enter}')
-	},
+	}
 }
 
 export const ReactNodeCommand: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>,
-			},
+				miku: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -358,15 +358,15 @@ export const ReactNodeCommand: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'miku sing{enter}')
-	},
+	}
 }
 
 export const AutoComplete: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: 'miku',
-			},
+				miku: 'miku'
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -376,7 +376,7 @@ export const AutoComplete: Story = {
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'm{tab}')
 		expect(input.value).toBe('miku')
-	},
+	}
 }
 
 export const TabAwayIfPromptIsEmpty: Story = {
@@ -388,8 +388,8 @@ export const TabAwayIfPromptIsEmpty: Story = {
 				console.info('received', e.key)
 			},
 			commands: {
-				miku: 'miku',
-			},
+				miku: 'miku'
+			}
 		})
 
 		return (
@@ -408,7 +408,7 @@ export const TabAwayIfPromptIsEmpty: Story = {
 		// during test the `activeElement` did not change,
 		// likely because the browser is not focused.
 		// Can only observe the result directly.
-	},
+	}
 }
 
 export const TabAwayIfNoCommands: Story = {
@@ -432,7 +432,7 @@ export const TabAwayIfNoCommands: Story = {
 		// during test the `activeElement` did not change,
 		// likely because the browser is not focused.
 		// Can only observe the result directly.
-	},
+	}
 }
 
 export const CompleteCycleThroughMatches: Story = {
@@ -440,8 +440,8 @@ export const CompleteCycleThroughMatches: Story = {
 		const { register } = useShell({
 			commands: {
 				mika: 'mika',
-				miku: 'miku',
-			},
+				miku: 'miku'
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -455,7 +455,7 @@ export const CompleteCycleThroughMatches: Story = {
 		expect(input.value).toEqual('miku')
 		await userEvent.type(input, '{tab}')
 		expect(input.value).toEqual('mika')
-	},
+	}
 }
 
 export const ReCompleteAfterBackspace: Story = {
@@ -463,8 +463,8 @@ export const ReCompleteAfterBackspace: Story = {
 		const { register } = useShell({
 			commands: {
 				mika: 'mika',
-				miku: 'miku',
-			},
+				miku: 'miku'
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -480,7 +480,7 @@ export const ReCompleteAfterBackspace: Story = {
 		expect(input.value).toEqual('miku')
 		await userEvent.type(input, '{tab}')
 		expect(input.value).toEqual('mika')
-	},
+	}
 }
 
 export const ListCommandsByEmptyPrompt: Story = {
@@ -492,10 +492,10 @@ export const ListCommandsByEmptyPrompt: Story = {
 				foo: 'foo',
 				miku: {
 					description: 'tell miku to do something',
-					run: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>,
+					run: ({ input }) => <div className="bg-teal-300">received &apos;{input}&apos;</div>
 				},
-				list: listCommand,
-			},
+				list: listCommand
+			}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -504,7 +504,7 @@ export const ListCommandsByEmptyPrompt: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'list{enter}')
-	},
+	}
 }
 
 export const HandleKeyDown: Story = {
@@ -514,7 +514,7 @@ export const HandleKeyDown: Story = {
 			onKeyDown(e) {
 				e.persist()
 				setTyped((v) => v + e.key)
-			},
+			}
 		})
 
 		return (
@@ -528,16 +528,16 @@ export const HandleKeyDown: Story = {
 		const canvas = within(canvasElement)
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'type something{enter}')
-	},
+	}
 }
 
 export const OnParseSuppressUnknownCommand: Story = {
 	render() {
 		const { register } = useShell({
 			commands: {
-				miku: ({ input }) => `miku ${input}`,
+				miku: ({ input }) => `miku ${input}`
 			},
-			onParse() {},
+			onParse() {}
 		})
 
 		return <Terminal className="h-full overflow-auto" {...register()} />
@@ -549,7 +549,7 @@ export const OnParseSuppressUnknownCommand: Story = {
 		expect(canvas.getByText('luka sing')).toBeInTheDocument()
 
 		expect(canvas.queryByText('Unknown command: luka sing')).toBeNull()
-	},
+	}
 }
 
 export const UpdateOutput: Story = {
@@ -557,7 +557,7 @@ export const UpdateOutput: Story = {
 		const { register, setOutput } = useShell({
 			onParse({ input }) {
 				setOutput((v) => [...v, `echoing with setOutput: ${input}`])
-			},
+			}
 		})
 
 		return (
@@ -571,7 +571,7 @@ export const UpdateOutput: Story = {
 		const input = canvas.getByRole<HTMLInputElement>('textbox')
 		await userEvent.type(input, 'hello world{enter}')
 		expect(canvas.getByText('echoing with setOutput: hello world')).toBeInTheDocument()
-	},
+	}
 }
 
 export const AccessInput: Story = {
@@ -584,7 +584,7 @@ export const AccessInput: Story = {
 			},
 			onParse({ input }) {
 				setOutput((v) => [...v, `onParse: ${input}`])
-			},
+			}
 		})
 
 		return (
@@ -599,7 +599,7 @@ export const AccessInput: Story = {
 		await userEvent.type(input, 'hello world{enter}')
 		expect(canvas.getByText('onKeyDown: hello world')).toBeInTheDocument()
 		expect(canvas.getByText('onParse: hello world')).toBeInTheDocument()
-	},
+	}
 }
 
 export const StopPropagation: Story = {
@@ -615,8 +615,8 @@ export const StopPropagation: Story = {
 				setOutput((v) => [...v, `onParse: ${input}`])
 			},
 			commands: {
-				miku: 'command: miku',
-			},
+				miku: 'command: miku'
+			}
 		})
 
 		return (
@@ -636,7 +636,7 @@ export const StopPropagation: Story = {
 		await userEvent.type(input, 'miku sing{enter}')
 		expect(canvas.getByText('onKeyDown: miku sing')).toBeInTheDocument()
 		expect(canvas.queryByText('command: miku')).toBeNull()
-	},
+	}
 }
 
 export const HideInputWhenProcessing: Story = {
@@ -651,8 +651,8 @@ export const HideInputWhenProcessing: Story = {
 				})
 			},
 			commands: {
-				miku: 'command: miku',
-			},
+				miku: 'command: miku'
+			}
 		})
 
 		return (
@@ -669,7 +669,7 @@ export const HideInputWhenProcessing: Story = {
 
 		await delay(1100)
 		expect(canvas.getByText('onParse: hello world')).toBeInTheDocument()
-	},
+	}
 }
 
 export const ScrollToBottomWithMultipleOutput: Story = {
@@ -684,12 +684,12 @@ export const ScrollToBottomWithMultipleOutput: Story = {
 							`${input}: result 2`,
 							`${input}: result 3`,
 							`${input}: result 4`,
-							`${input}: result 5`,
+							`${input}: result 5`
 						])
 						a()
 					}, 100)
 				})
-			},
+			}
 		})
 
 		return (
@@ -708,5 +708,5 @@ export const ScrollToBottomWithMultipleOutput: Story = {
 		await delay(300)
 		await userEvent.clear(input)
 		await userEvent.type(input, 'luke falls to the ground{enter}')
-	},
+	}
 }

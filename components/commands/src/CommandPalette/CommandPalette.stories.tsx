@@ -20,7 +20,7 @@ const meta: Meta<typeof CommandPalette> = {
 			<JustAppProvider value={app}>
 				<Story />
 			</JustAppProvider>
-		),
+		)
 	],
 	component: ({ ...args }) => {
 		const app = useJustAppContext<CommandsGizmo & OSGizmo>()
@@ -41,7 +41,7 @@ const meta: Meta<typeof CommandPalette> = {
 				<CommandPalette {...args} />
 			</>
 		)
-	},
+	}
 }
 export default meta
 
@@ -49,24 +49,24 @@ const simpleCmd = { id: 'core.simpleCommand' }
 const keyedCmd = {
 	id: 'core.keyedCommand',
 	name: 'Command with key',
-	key: 'ctrl+k',
+	key: 'ctrl+k'
 }
 const macCmd = {
 	id: 'core.macCommand',
 	name: 'Command with mac key override',
 	key: 'ctrl+m',
-	mac: 'cmd+m',
+	mac: 'cmd+m'
 }
 const macOnlyCmd = {
 	id: 'core.macOnlyCommand',
 	name: 'Command with only mac key',
-	mac: 'cmd+o',
+	mac: 'cmd+o'
 }
 
 async function setupApp(
 	options?: { keyboard?: KeyboardGizmoOptions } & { commands?: CommandsGizmoOptions } & {
 		os?: OSTestGizmoOptions
-	},
+	}
 ) {
 	const app = await justTestApp({ name: 'storybook' })
 		.with(keyboardGizmoFn(options?.keyboard))
@@ -81,7 +81,7 @@ async function setupApp(
 
 export const NoCommand: Story = {
 	loaders: [async (_) => setupApp()],
-	play: async (_) => void Mousetrap.trigger(shortcut),
+	play: async (_) => void Mousetrap.trigger(shortcut)
 }
 
 export const OneCommand: Story = {
@@ -91,12 +91,12 @@ export const OneCommand: Story = {
 				commands: {
 					contributions: [simpleCmd],
 					handlers: {
-						[simpleCmd.id]: () => alert(simpleCmd.id),
-					},
-				},
-			}),
+						[simpleCmd.id]: () => alert(simpleCmd.id)
+					}
+				}
+			})
 	],
-	play: async (_) => void Mousetrap.trigger(shortcut),
+	play: async (_) => void Mousetrap.trigger(shortcut)
 }
 
 export const WithKey: Story = {
@@ -106,15 +106,15 @@ export const WithKey: Story = {
 				commands: {
 					contributions: [keyedCmd],
 					handlers: {
-						[keyedCmd.id]: () => alert(keyedCmd.id),
-					},
+						[keyedCmd.id]: () => alert(keyedCmd.id)
+					}
 				},
 				keyboard: {
-					keyBindingContributions: [keyedCmd],
-				},
-			}) as any,
+					keyBindingContributions: [keyedCmd]
+				}
+			}) as any
 	],
-	play: async (_) => void Mousetrap.trigger(shortcut),
+	play: async (_) => void Mousetrap.trigger(shortcut)
 }
 
 export const OverrideMacCommandInMac: Story = {
@@ -127,18 +127,18 @@ export const OverrideMacCommandInMac: Story = {
 						[simpleCmd.id]: () => alert(simpleCmd.id),
 						[keyedCmd.id]: () => alert(keyedCmd.id),
 						[macCmd.id]: () => alert(macCmd.id),
-						[macOnlyCmd.id]: () => alert(macOnlyCmd.id),
-					},
+						[macOnlyCmd.id]: () => alert(macOnlyCmd.id)
+					}
 				},
 				keyboard: {
-					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd],
+					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
 				},
 				os: {
-					isMac: () => true,
-				},
-			}),
+					isMac: () => true
+				}
+			})
 	],
-	play: async (_) => void Mousetrap.trigger('command+k'),
+	play: async (_) => void Mousetrap.trigger('command+k')
 }
 
 export const OverrideMacCommandInWindow: Story = {
@@ -151,16 +151,16 @@ export const OverrideMacCommandInWindow: Story = {
 						[simpleCmd.id]: () => alert(simpleCmd.id),
 						[keyedCmd.id]: () => alert(keyedCmd.id),
 						[macCmd.id]: () => alert(macCmd.id),
-						[macOnlyCmd.id]: () => alert(macOnlyCmd.id),
-					},
+						[macOnlyCmd.id]: () => alert(macOnlyCmd.id)
+					}
 				},
 				keyboard: {
-					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd],
+					keyBindingContributions: [keyedCmd, macCmd, macOnlyCmd]
 				},
 				os: {
-					isMac: () => false,
-				},
-			}),
+					isMac: () => false
+				}
+			})
 	],
-	play: async (_) => void Mousetrap.trigger('ctrl+k'),
+	play: async (_) => void Mousetrap.trigger('ctrl+k')
 }

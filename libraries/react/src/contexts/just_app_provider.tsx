@@ -5,7 +5,7 @@ import { JustAppRootContext } from './just_app_context'
 
 export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
 	value,
-	children,
+	children
 }: {
 	value: App
 	children: React.ReactNode
@@ -18,7 +18,7 @@ export function JustAppProvider<App extends JustApp & Partial<ReactGizmo>>({
 					// biome-ignore lint/correctness/useJsxKeyInIterable: TODO
 					<Component>{children}</Component>
 				),
-				children,
+				children
 			)}
 		</JustAppRootContext.Provider>
 	)

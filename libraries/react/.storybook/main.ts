@@ -11,12 +11,12 @@ const config: StorybookConfig = {
 		getAbsolutePath('@storybook/addon-vitest'),
 		getAbsolutePath('@storybook-community/storybook-dark-mode'),
 		getAbsolutePath('storybook-addon-tag-badges'),
-		getAbsolutePath('storybook-addon-vis'),
+		getAbsolutePath('storybook-addon-vis')
 	],
 	framework: getAbsolutePath('@storybook/react-vite'),
 	typescript: {
-		reactDocgen: 'react-docgen-typescript',
-	},
+		reactDocgen: 'react-docgen-typescript'
+	}
 }
 
 export default config

@@ -9,8 +9,8 @@ it('exports createIntlCache() to provide cache support', async () => {
 		.with(
 			reactIntlGizmoFn({
 				config: { locale: 'en' },
-				cache: createIntlCache(),
-			}),
+				cache: createIntlCache()
+			})
 		)
 		.create()
 })

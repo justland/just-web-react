@@ -31,7 +31,7 @@ export const App2Context = createJustAppContext<JustApp2>()
 
 export function activate() {
 	return app2.create((app) =>
-		app.react.providers.register(({ children }) => <App2Context.Provider value={app}>{children}</App2Context.Provider>),
+		app.react.providers.register(({ children }) => <App2Context.Provider value={app}>{children}</App2Context.Provider>)
 	)
 }
 

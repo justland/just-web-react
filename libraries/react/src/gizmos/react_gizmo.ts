@@ -12,11 +12,11 @@ export const reactGizmo = define({
 					},
 					values(): IterableIterator<JSXElementConstructor<{ children: ReactNode }>> {
 						return components.values()
-					},
-				},
-			},
+					}
+				}
+			}
 		}
-	},
+	}
 })
 
 export type ReactGizmo = define.Infer<typeof reactGizmo>

@@ -26,7 +26,7 @@ export function createJustAppContext<App extends JustReactApp>(_appIncubator?: G
 	Context.Provider = function Provider({
 		value,
 		key,
-		children,
+		children
 	}: PropsWithChildren<{
 		value: App
 		key?: string

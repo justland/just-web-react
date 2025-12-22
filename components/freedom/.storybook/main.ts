@@ -8,7 +8,7 @@ const require = createRequire(import.meta.url)
 const config: StorybookConfig = {
 	stories: [
 		//'../src/**/*.mdx',
-		'../src/**/*.stories.@(js|jsx|ts|tsx)',
+		'../src/**/*.stories.@(js|jsx|ts|tsx)'
 	],
 	addons: [
 		getAbsolutePath('@storybook/addon-links'),
@@ -17,21 +17,21 @@ const config: StorybookConfig = {
 			name: getAbsolutePath('@storybook/addon-coverage'),
 			options: {
 				istanbul: {
-					exclude: ['**/headlessui/**'],
-				},
-			},
+					exclude: ['**/headlessui/**']
+				}
+			}
 		},
-		getAbsolutePath('@storybook/addon-docs'),
+		getAbsolutePath('@storybook/addon-docs')
 	],
 	docs: {},
 	framework: {
 		name: getAbsolutePath('@storybook/react-vite'),
-		options: {},
+		options: {}
 	},
 	typescript: {
 		check: false,
-		reactDocgen: 'react-docgen-typescript',
-	},
+		reactDocgen: 'react-docgen-typescript'
+	}
 }
 export default config
 

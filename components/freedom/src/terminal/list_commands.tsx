@@ -12,5 +12,5 @@ export const listCommand: Command = {
 				}
 				return name
 			})
-	},
+	}
 }
