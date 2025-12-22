@@ -20,7 +20,6 @@ import { JustAppRootContext, type JustReactApp } from './just_app_context'
  * }
  * ```
  */
-
 export function createJustAppContext<App extends JustReactApp>(_appIncubator?: GizmoIncubator<App>) {
 	const Context = createContext<App>(undefined as any)
 	const InnerProvider = Context.Provider

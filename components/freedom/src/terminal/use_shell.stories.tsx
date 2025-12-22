@@ -384,8 +384,8 @@ export const TabAwayIfPromptIsEmpty: Story = {
 	render() {
 		const { register } = useShell({
 			onKeyDown(e) {
-				console.log(document.activeElement)
-				console.log('received', e.key)
+				console.info(document.activeElement)
+				console.info('received', e.key)
 			},
 			commands: {
 				miku: 'miku',

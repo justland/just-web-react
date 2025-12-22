@@ -11,6 +11,7 @@ import { JustAppProvider } from './just_app_provider.js'
 import { createStoreContext } from './store_context.js'
 
 const meta: Meta<typeof JustAppProvider> = {
+	title: 'Contexts/JustAppProvider',
 	component: JustAppProvider,
 	loaders: [
 		async () => ({

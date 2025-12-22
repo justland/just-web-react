@@ -43,16 +43,16 @@
 		"build": "tsdown",
 		"build:storybook": "storybook build",
 		"check": "biome check",
-		"coverage": "vitest run --coverage",
 		"clean": "rimraf coverage dist dts --glob *.tsbuildinfo",
+		"coverage": "vitest run --coverage",
 		"dev": "vite",
 		"nuke": "rimraf node_modules",
 		"preview": "vite preview",
 		"sb": "storybook dev -p 6007",
 		"size": "size-limit",
 		"test": "vitest run",
-		"test:watch": "vitest",
 		"test:tsc": "tsc --noEmit",
+		"test:watch": "vitest",
 		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
@@ -68,6 +68,7 @@
 		"@just-web/react": "workspace:^",
 		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
+		"@storybook/addon-docs": "10.1.8",
 		"@storybook/addon-links": "10.1.8",
 		"@storybook/react-vite": "10.1.8",
 		"@types/jest-image-snapshot": "^6.1.0",
@@ -77,8 +78,8 @@
 		"@types/react-dom": "^16.9.19",
 		"@vitejs/plugin-react": "catalog:",
 		"@vitest/browser": "catalog:",
-		"@vitest/coverage-v8": "catalog:",
 		"@vitest/browser-playwright": "catalog:",
+		"@vitest/coverage-v8": "catalog:",
 		"jest-image-snapshot": "^6.2.0",
 		"jsdom": "^22.0.0",
 		"mousetrap": "~1.6.5",
@@ -91,8 +92,7 @@
 		"tsdown": "^0.17.4",
 		"typescript": "^5.0.0",
 		"vite": "catalog:",
-		"vitest": "catalog:",
-		"@storybook/addon-docs": "10.1.8"
+		"vitest": "catalog:"
 	},
 	"peerDependencies": {
 		"@just-web/app": "^7.0.0",
