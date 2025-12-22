@@ -5,7 +5,7 @@ import { summary } from '../storybook/summary.js'
 import { Terminal } from './terminal.js'
 
 const meta: Meta<typeof Terminal> = {
-	component: Terminal,
+	component: Terminal
 }
 
 export default meta
@@ -23,8 +23,8 @@ export const OnChange: Story = {
 					This story ensures that when the input text is saved in a state, which causes redraw, the terminal input still
 					contains the input text, instead of being cleared.
 				</p>
-			</>,
-		),
+			</>
+		)
 	],
 	render() {
 		const [inputText, setInputText] = useState('')
@@ -52,7 +52,7 @@ export const OnChange: Story = {
 		expect(input.value).toBe('hello')
 		const capturedText = canvas.getByTestId('captured-text')
 		expect(capturedText.innerText).toBe('hello')
-	},
+	}
 }
 
 export const OnKeyDown: Story = {
@@ -60,8 +60,8 @@ export const OnKeyDown: Story = {
 		summary(
 			<p>
 				<code>onKeyDown</code> captures the keydown event from the input
-			</p>,
-		),
+			</p>
+		)
 	],
 	render() {
 		const [inputText, setInputText] = useState('')
@@ -88,7 +88,7 @@ export const OnKeyDown: Story = {
 		expect(input.value).toBe('hello')
 		const capturedText = canvas.getByTestId('captured-text')
 		expect(capturedText.innerText).toBe('o')
-	},
+	}
 }
 
 export const KeyDownAndChange: Story = {
@@ -97,8 +97,8 @@ export const KeyDownAndChange: Story = {
 			<p>
 				This story ensure using both <code>onKeyDown</code> and <code>onChange</code> saving to two different states
 				work.
-			</p>,
-		),
+			</p>
+		)
 	],
 	render() {
 		const [changed, setChanged] = useState('')
@@ -135,7 +135,7 @@ export const KeyDownAndChange: Story = {
 
 		const keydown = canvas.getByTestId('keydown-text')
 		expect(keydown.innerText).toBe('o')
-	},
+	}
 }
 
 export const Disabled: Story = {
@@ -162,7 +162,7 @@ export const Disabled: Story = {
 		expect(input.disabled).toBe(true)
 		await userEvent.click(checkbox)
 		expect(input.disabled).toBe(false)
-	},
+	}
 }
 
 export const TerminalClassName: Story = {
@@ -175,8 +175,8 @@ export const TerminalClassName: Story = {
 				<p>
 					To style the output area and the prompt area, you can add <code>className</code> into those components
 				</p>
-			</>,
-		),
+			</>
+		)
 	],
 	render() {
 		return (
@@ -184,7 +184,7 @@ export const TerminalClassName: Story = {
 				<Terminal className="h-full bg-stone-400 py-2" output={[]} prompt="$" />
 			</div>
 		)
-	},
+	}
 }
 
 export const ScrollToBottom: Story = {
@@ -192,8 +192,8 @@ export const ScrollToBottom: Story = {
 		summary(
 			<p>
 				<code>Terminal</code> will automatically scroll to the bottom.
-			</p>,
-		),
+			</p>
+		)
 	],
 	render() {
 		const [output, setOutput] = useState<ReactNode[]>([])
@@ -232,5 +232,5 @@ export const ScrollToBottom: Story = {
 		await userEvent.click(button)
 		await userEvent.click(button)
 		await userEvent.click(button)
-	},
+	}
 }

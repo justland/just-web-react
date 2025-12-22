@@ -7,15 +7,15 @@ const preview: Preview = {
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
-				date: /Date$/,
-			},
-		},
+				date: /Date$/
+			}
+		}
 	},
 	initialGlobals: {
 		backgrounds: {
-			value: 'light',
-		},
-	},
+			value: 'light'
+		}
+	}
 }
 
 export default preview

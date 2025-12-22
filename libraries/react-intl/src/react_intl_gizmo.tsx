@@ -13,15 +13,15 @@ export const reactIntlGizmoFn = define(<T = string>(options?: ReactIntlGizmoOpti
 		return [
 			{
 				react_intl: {
-					intl: formatjs.intl as IntlShape,
-				},
+					intl: formatjs.intl as IntlShape
+				}
 			},
 			() =>
 				ctx.react.providers.register(({ children }) => (
 					<RawIntlProvider value={formatjs.intl as IntlShape}>{children}</RawIntlProvider>
-				)),
+				))
 		]
-	},
+	}
 }))
 
 export type ReactIntlGizmo = define.Infer<typeof reactIntlGizmoFn>

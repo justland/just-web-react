@@ -4,7 +4,7 @@ import React, {
 	type ReactNode,
 	useEffect,
 	useRef,
-	useState,
+	useState
 } from 'react'
 import type { CommandsMap, CommandTypes } from './shell.types.js'
 import { type PromptNode, usePrompt } from './terminal.js'
@@ -133,9 +133,9 @@ export function useShell(props?: UseShellProps) {
 						}
 					}
 				},
-				output,
+				output
 			}
-		},
+		}
 	}
 }
 

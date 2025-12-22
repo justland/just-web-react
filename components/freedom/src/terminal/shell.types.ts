@@ -2,7 +2,7 @@ import type { ReactNode } from 'react'
 
 export type CommandParser = (
 	this: { commands: CommandsMap },
-	props: { input: string },
+	props: { input: string }
 ) => Promise<ReactNode> | ReactNode
 
 export interface Argument {

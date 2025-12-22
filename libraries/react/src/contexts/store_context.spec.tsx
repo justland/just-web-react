@@ -11,7 +11,7 @@ describe(`${useStoreContext.name}()`, () => {
 			a.throws(
 				// biome-ignore lint/correctness/useHookAtTopLevel: TODO
 				() => useStoreContext(Context, (s) => s),
-				(err) => err.message === 'Context.Provider must be used before using useStoreContext()',
+				(err) => err.message === 'Context.Provider must be used before using useStoreContext()'
 			)
 
 			return null

@@ -12,7 +12,7 @@ import { useStore } from './use_store'
 export function useStoreContext<S extends Record<any, any>, V>(
 	reactContext: Context<Store<S>>,
 	getState: (s: S) => V,
-	updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>,
+	updateStore?: (draft: S, value: V) => ReturnType<Updater<S>>
 ): [value: V, setValue: (value: V | ((value: V) => V)) => void] {
 	const store = useContext(reactContext)
 	if (!store) {

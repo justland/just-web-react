@@ -1,4 +1,4 @@
-import { withThemeByClassName } from '@storybook/addon-styling'
+import { withThemeByClassName } from '@storybook/addon-themes'
 import type { Preview } from '@storybook/react-vite'
 import React from 'react'
 import { spyOn } from 'storybook/test'
@@ -16,14 +16,14 @@ const preview: Preview = {
 		withThemeByClassName({
 			themes: {
 				light: 'light',
-				dark: 'dark',
+				dark: 'dark'
 			},
-			defaultTheme: 'light',
+			defaultTheme: 'light'
 		}),
 		(Story, { tags }) => {
 			if (isTestRunner() && tags.some((t) => t === 'skip-test')) return <div />
 			return <Story />
-		},
+		}
 	],
 
 	parameters: {
@@ -31,16 +31,16 @@ const preview: Preview = {
 		controls: {
 			matchers: {
 				color: /(background|color)$/i,
-				date: /Date$/,
-			},
-		},
+				date: /Date$/
+			}
+		}
 	},
 
 	initialGlobals: {
 		backgrounds: {
-			value: 'light',
-		},
-	},
+			value: 'light'
+		}
+	}
 }
 
 export default preview

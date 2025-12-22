@@ -4,16 +4,9 @@ import '../src/tailwind.css'
 
 export default {
 	parameters: {
-		controls: {
-			matchers: {
-				color: /(background|color)$/i,
-				date: /Date$/,
-			},
-		},
-
 		docs: {
-			codePanel: true,
-		},
+			codePanel: true
+		}
 	},
 
 	tags: ['autodocs'],
@@ -28,5 +21,5 @@ export default {
 		spyOn(console, 'count').mockName('console.count')
 		spyOn(console, 'dir').mockName('console.dir')
 		spyOn(console, 'assert').mockName('console.assert')
-	},
+	}
 }

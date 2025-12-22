@@ -8,5 +8,5 @@ export const reactCommandsGizmo = define({
 	static: define.require<CommandsGizmo>().optional<KeyboardGizmo>().optional<OSGizmo>().require<ReactGizmo>(),
 	async create(ctx) {
 		showCommandPalette.connect(ctx)
-	},
+	}
 })

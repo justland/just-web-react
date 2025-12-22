@@ -5,7 +5,7 @@ export default defineConfig({
 	plugins: [react()],
 	test: {
 		name: 'freedom',
-		environment: 'jsdom',
+		environment: 'jsdom'
 		// browser: {
 		// 	enabled: true,
 		// 	provider: playwright(),
@@ -16,5 +16,5 @@ export default defineConfig({
 		// 		},
 		// 	],
 		// },
-	},
+	}
 })

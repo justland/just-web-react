@@ -31,7 +31,7 @@ export function activate(
 		| (JustAppTestOptions & {
 				value?: ValueGizmoOptions<number> | undefined
 		  })
-		| undefined,
+		| undefined
 ) {
 	// note that you can also compose one app from another app.
 	return justTestApp({ name: options?.name ?? 'app 1', log: options?.log })
@@ -40,7 +40,7 @@ export function activate(
 		.create((app) =>
 			app.react.providers.register(({ children }) => (
 				<App1Context.Provider value={app}>{children}</App1Context.Provider>
-			)),
+			))
 		)
 }
 

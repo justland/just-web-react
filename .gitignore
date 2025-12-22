@@ -67,6 +67,9 @@ common/autoinstallers/*/.npmrc
 # project specific
 .nowhere
 .turbo
+**/__vis__/**/__diffs__
+**/__vis__/**/__results__
+**/__vis__/local
 apps/*/*/*.tsbuildinfo
 apps/*/*/coverage
 apps/*/*/lib

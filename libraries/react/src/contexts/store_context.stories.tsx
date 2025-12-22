@@ -2,11 +2,11 @@ import { createStore } from '@just-web/states'
 import type { PropsWithChildren } from 'react'
 import React from 'react'
 import Modal from 'react-modal'
-import { createStoreContext, useStoreContext } from './index.js'
-import { Card } from './testing/card.js'
+import { createStoreContext, useStoreContext } from '../index.js'
+import { Card } from '../testing/card.js'
 
 export default {
-	component: useStoreContext,
+	component: useStoreContext
 }
 
 // https://leewarrick.com/blog/the-problem-with-context/
@@ -40,7 +40,7 @@ function CounterIncrement() {
 		(s) => s.counter,
 		(s, v) => {
 			s.counter = v
-		},
+		}
 	)
 	return (
 		<Card>
@@ -58,7 +58,7 @@ function Message() {
 	// each instance of the Message component
 	const getColor = () => Math.floor(Math.random() * 255)
 	const style = {
-		color: `rgb(${getColor()},${getColor()},${getColor()})`,
+		color: `rgb(${getColor()},${getColor()},${getColor()})`
 	}
 	return (
 		<div>
@@ -88,7 +88,7 @@ function SomeModal() {
 		(s) => s.showModal,
 		(s, v) => {
 			s.showModal = v
-		},
+		}
 	)
 	return (
 		<>

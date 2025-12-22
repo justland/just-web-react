@@ -14,7 +14,7 @@ import React, {
 	useContext,
 	useEffect,
 	useRef,
-	useState,
+	useState
 } from 'react'
 import { useForwardedRef } from '../utils/use_forwarded_ref.js'
 
@@ -87,7 +87,7 @@ export const TerminalWidget = memo(
 				<TerminalWidgetContainer className={className}>{children}</TerminalWidgetContainer>
 			</TerminalWidgetContext.Provider>
 		)
-	}),
+	})
 )
 
 interface TerminalWidgetContainerProps {
@@ -142,7 +142,7 @@ export function usePrompt(Prompt: PromptNode) {
 			}
 			return <Prompt>{children}</Prompt>
 		},
-		[Prompt],
+		[Prompt]
 	)
 }
 
@@ -214,5 +214,5 @@ export const Terminal = Object.assign(TerminalWidget, {
 	Input: TerminalInput,
 	OutputArea: TerminalOutputArea,
 	PromptArea: TerminalPromptArea,
-	WidgetContext: TerminalWidgetContext,
+	WidgetContext: TerminalWidgetContext
 })

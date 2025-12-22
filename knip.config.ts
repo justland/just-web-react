@@ -14,10 +14,10 @@ const config: KnipConfig = {
 				'**/*.spec.ts',
 				'**/*.spec.tsx',
 				'**/*.test.ts',
-				'**/*.test.tsx',
-			],
-		},
-	},
+				'**/*.test.tsx'
+			]
+		}
+	}
 }
 
 export default config

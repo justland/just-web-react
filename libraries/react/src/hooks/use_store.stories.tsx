@@ -5,7 +5,7 @@ import { Card } from '../testing/card.js'
 import { useStore } from './use_store.js'
 
 export default {
-	component: useStore,
+	component: useStore
 }
 
 type Story = StoryObj<typeof useStore>
@@ -28,9 +28,9 @@ export const UpdateWithUseEffect: Story = {
 				</Card>
 				<Story />
 			</div>
-		),
+		)
 	],
-	render: () => <WithUseEffect store={createStore({ counter: 0 })} />,
+	render: () => <WithUseEffect store={createStore({ counter: 0 })} />
 }
 
 function WithUseEffect({ store }: { store: Store<{ counter: number }> }) {
@@ -92,7 +92,7 @@ function ToggleStoreUpdate({ store }: { store: Store<{ counter: number }> }) {
 						console.info('timer store.set:', s.counter, s.counter + 1)
 						s.counter = s.counter + 1
 					}),
-				1000,
+				1000
 			)
 			return () => clearInterval(id)
 		}
@@ -122,7 +122,7 @@ export const StoreChangeTriggersRender: Story = {
 
 				<Story />
 			</div>
-		),
+		)
 	],
 	render: () => {
 		const store = createStore({ counter: 0 })
@@ -134,12 +134,12 @@ export const StoreChangeTriggersRender: Story = {
 					store.set((s) => {
 						s.counter++
 					}),
-				300,
+				300
 			)
 			return () => clearInterval(id)
 		}, [])
 		return <Counter store={store} values={values} />
-	},
+	}
 }
 
 function Counter({ store, values }: { store: Store<{ counter: number }>; values: number[] }) {
@@ -159,7 +159,7 @@ function Counter({ store, values }: { store: Store<{ counter: number }>; values:
 function WithUpdater({
 	name = 'Using updater in `useStore()`',
 	store,
-	children,
+	children
 }: PropsWithChildren<{ name?: string; store: Store<{ counter: number }> }>) {
 	const [updateValue, setUpdateValue] = useState<{ count: number; value: number }>({ count: 0, value: 0 })
 
@@ -169,7 +169,7 @@ function WithUpdater({
 		(s, v) => {
 			s.counter = v
 			setUpdateValue((u) => ({ count: u.count + 1, value: v }))
-		},
+		}
 	)
 	console.count(`${name} render`)
 	return (
@@ -207,7 +207,7 @@ function Parent({ store }: { store: Store<{ counter: number }> }) {
 		(s) => s.counter,
 		(s, v) => {
 			s.counter = v
-		},
+		}
 	)
 	console.count('re-render parent')
 
@@ -221,8 +221,8 @@ function Parent({ store }: { store: Store<{ counter: number }> }) {
 						store.set((s) => {
 							s.counter = s.counter + 1
 						}),
-					1000,
-				),
+					1000
+				)
 			)
 		} else {
 			clearInterval(timerId)
@@ -262,7 +262,7 @@ function Child({ store }: { store: Store<{ counter: number }> }) {
 		(s) => s.counter,
 		(s, v) => {
 			s.counter = v
-		},
+		}
 	)
 	console.count('re-render child')
 

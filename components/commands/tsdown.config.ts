@@ -2,7 +2,7 @@ import { defineConfig } from 'tsdown'
 
 export default defineConfig({
 	entry: {
-		'just-web-react-commands': 'src/index.tsx',
+		'just-web-react-commands': 'src/index.tsx'
 	},
 	format: ['esm', 'cjs'],
 	dts: true,
@@ -15,6 +15,6 @@ export default defineConfig({
 		'@just-web/os',
 		'@just-web/react',
 		'react',
-		'react-dom',
-	],
+		'react-dom'
+	]
 })
