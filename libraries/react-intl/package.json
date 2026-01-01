@@ -65,19 +65,18 @@
 		"coverage": "vitest run --coverage",
 		"nuke": "rimraf node_modules",
 		"sb": "storybook dev -p 6008",
-		"size": "size-limit",
 		"test": "vitest run",
 		"test:watch": "vitest",
 		"w": "pnpm test:watch",
 		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
-		"@just-web/formatjs": "^1.0.2",
+		"@just-web/formatjs": "^1.1.2",
 		"react-intl": "^6.4.2"
 	},
 	"devDependencies": {
 		"@chromatic-com/storybook": "^4.1.3",
-		"@just-web/app": "^7.1.5",
+		"@just-web/app": "^7.3.2",
 		"@just-web/react": "workspace:^",
 		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",

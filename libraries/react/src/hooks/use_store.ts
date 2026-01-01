@@ -15,7 +15,7 @@ export function useStore<S extends Record<any, any>, V>(
 ): [value: V, setValue: (value: V | ((value: V) => V)) => void] {
 	const [value, setValue] = useState(() => getState(store.get()))
 
-	useEffect(() => store.onChange((s) => setValue(getState(s))), [])
+	useEffect(() => store.onChange((s) => setValue(getState(s))), [getState, store.onChange])
 
 	const s = createStore<{ a: number }>({ a: 1 })
 	s.set((d) => {
@@ -23,15 +23,22 @@ export function useStore<S extends Record<any, any>, V>(
 	})
 	return [
 		value,
-		useCallback((value) => {
-			if (updater) {
-				store.set((s) =>
-					updater(s, isType<(value: V) => V>(value, (u) => typeof u === 'function') ? value(getState(s)) : value)
-				)
+		useCallback(
+			(value) => {
+				if (updater) {
+					store.set((s) => {
+						const v = s as unknown as S
+						return updater(
+							v,
+							isType<(value: V) => V>(value, (u) => typeof u === 'function') ? value(getState(v)) : value
+						)
+					})
 
-				return setValue(getState(store.get()))
-			}
-			return setValue(value)
-		}, [])
+					return setValue(getState(store.get()))
+				}
+				return setValue(value)
+			},
+			[getState, store.get, store.set, updater]
+		)
 	]
 }

@@ -560,11 +560,7 @@ export const UpdateOutput: Story = {
 			}
 		})
 
-		return (
-			<>
-				<Terminal className="h-full overflow-auto" {...register()} />
-			</>
-		)
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
@@ -587,11 +583,7 @@ export const AccessInput: Story = {
 			}
 		})
 
-		return (
-			<>
-				<Terminal className="h-full overflow-auto" {...register()} />
-			</>
-		)
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
@@ -619,11 +611,7 @@ export const StopPropagation: Story = {
 			}
 		})
 
-		return (
-			<>
-				<Terminal className="h-full overflow-auto" {...register()} />
-			</>
-		)
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
@@ -655,11 +643,7 @@ export const HideInputWhenProcessing: Story = {
 			}
 		})
 
-		return (
-			<>
-				<Terminal className="h-full overflow-auto" {...register()} />
-			</>
-		)
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)
@@ -692,11 +676,7 @@ export const ScrollToBottomWithMultipleOutput: Story = {
 			}
 		})
 
-		return (
-			<>
-				<Terminal className="h-full overflow-auto" {...register()} />
-			</>
-		)
+		return <Terminal className="h-full overflow-auto" {...register()} />
 	},
 	async play({ canvasElement }) {
 		const canvas = within(canvasElement)

@@ -40,7 +40,7 @@ function WithUseEffect({ store }: { store: Store<{ counter: number }> }) {
 			console.info('useEffect store.set:', s.counter, value)
 			s.counter = value
 		})
-	}, [value])
+	}, [value, store.set])
 
 	console.count('render')
 	return (
@@ -96,7 +96,7 @@ function ToggleStoreUpdate({ store }: { store: Store<{ counter: number }> }) {
 			)
 			return () => clearInterval(id)
 		}
-	}, [timer])
+	}, [timer, store.set])
 	return (
 		<Card>
 			<button className="button" onClick={() => setTimer((v) => !v)} type="button">
@@ -137,7 +137,7 @@ export const StoreChangeTriggersRender: Story = {
 				300
 			)
 			return () => clearInterval(id)
-		}, [])
+		}, [store.set])
 		return <Counter store={store} values={values} />
 	}
 }
@@ -228,7 +228,7 @@ function Parent({ store }: { store: Store<{ counter: number }> }) {
 			clearInterval(timerId)
 		}
 		return () => clearInterval(timerId)
-	}, [timer])
+	}, [timer, store.set, timerId])
 
 	return (
 		<Card className="flex flex-col gap-1 bg-slate-300">
