@@ -58,7 +58,7 @@ export function useShell(props?: UseShellProps) {
 		if (ref.current && completion) {
 			ref.current.value = completion.value
 		}
-	}, [ref, completion])
+	}, [completion])
 
 	const Prompt = usePrompt(prompt)
 	return {

@@ -96,7 +96,7 @@ interface TerminalWidgetContainerProps {
 }
 
 function TerminalWidgetContainer({ children, className }: TerminalWidgetContainerProps) {
-	const { output, inputRef } = useContext(TerminalWidgetContext)
+	const { inputRef } = useContext(TerminalWidgetContext)
 	const containerRef = useRef<HTMLDivElement>(null)
 
 	useEffect(() => {
@@ -108,7 +108,7 @@ function TerminalWidgetContainer({ children, className }: TerminalWidgetContaine
 			// })
 			containerRef.current.scrollTop = containerRef.current.scrollHeight
 		}
-	}, [containerRef, output])
+	}, [])
 
 	return (
 		// biome-ignore lint/a11y/noStaticElementInteractions: TODO
@@ -182,13 +182,13 @@ export interface TerminalInputProps {
 }
 
 export function TerminalInput({ className }: TerminalInputProps) {
-	const { inputRef, disabled, processing, onChange, onKeyDown, setProcessing } = useContext(TerminalWidgetContext)
+	const { inputRef, disabled, onChange, onKeyDown, setProcessing } = useContext(TerminalWidgetContext)
 
 	useEffect(() => {
 		if (inputRef.current) {
 			inputRef.current.focus()
 		}
-	}, [inputRef, processing])
+	}, [inputRef])
 
 	return (
 		<input

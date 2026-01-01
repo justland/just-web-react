@@ -60,11 +60,11 @@
 		"type-plus": "^7.0.1"
 	},
 	"devDependencies": {
-		"@just-web/app": "^7.1.5",
-		"@just-web/browser-keyboard": "^8.0.0",
-		"@just-web/commands": "^7.2.1",
-		"@just-web/keyboard": "^7.2.1",
-		"@just-web/os": "^7.2.1",
+		"@just-web/app": "^7.3.2",
+		"@just-web/browser-keyboard": "^8.5.1",
+		"@just-web/commands": "^7.3.3",
+		"@just-web/keyboard": "^7.3.3",
+		"@just-web/os": "^7.3.2",
 		"@just-web/react": "workspace:^",
 		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
