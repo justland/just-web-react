@@ -190,8 +190,8 @@ importers:
         version: 1.7.4(react-dom@16.14.0(react@16.14.0))(react@16.14.0)
     devDependencies:
       '@faker-js/faker':
-        specifier: ^8.0.2
-        version: 8.0.2
+        specifier: ^10.0.0
+        version: 10.2.0
       '@repobuddy/typescript':
         specifier: ^2.1.0
         version: 2.1.0
@@ -1259,10 +1259,9 @@ packages:
     cpu: [x64]
     os: [win32]
 
-  '@faker-js/faker@8.0.2':
-    resolution: {integrity: sha512-Uo3pGspElQW91PCvKSIAXoEgAUlRnH29sX2/p89kg7sP1m2PzCufHINd0FhTXQf6DYGiUlVncdSPa2F9wxed2A==}
-    engines: {node: ^14.17.0 || ^16.13.0 || >=18.0.0, npm: '>=6.14.13'}
-    deprecated: Please update to a newer version
+  '@faker-js/faker@10.2.0':
+    resolution: {integrity: sha512-rTXwAsIxpCqzUnZvrxVh3L0QA0NzToqWBLAhV+zDV3MIIwiQhAZHMdPCIaj5n/yADu/tyk12wIPgL6YHGXJP+g==}
+    engines: {node: ^20.19.0 || ^22.13.0 || ^23.5.0 || >=24.0.0, npm: '>=10'}
 
   '@formatjs/ecma402-abstract@1.15.0':
     resolution: {integrity: sha512-7bAYAv0w4AIao9DNg0avfOLTCPE9woAgs6SpXuMq11IN3A+l+cq8ghczwqSZBM11myvPSJA7vLn72q0rJ0QK6Q==}
@@ -6449,7 +6448,7 @@ snapshots:
   '@esbuild/win32-x64@0.25.12':
     optional: true
 
-  '@faker-js/faker@8.0.2': {}
+  '@faker-js/faker@10.2.0': {}
 
   '@formatjs/ecma402-abstract@1.15.0':
     dependencies:
