@@ -10,6 +10,7 @@ packages:
 
 allowBuilds:
   esbuild: true
+  fsevents: true
 
 catalog:
   '@vitejs/plugin-react': ^5.1.2
