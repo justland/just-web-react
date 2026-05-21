@@ -1,5 +1,12 @@
 # @just-web/react
 
+## 9.1.0
+
+### Minor Changes
+
+- 60e8855: Update `@just-web` dependencies.
+- f507a48: Build with `tsdown`
+
 ## 9.0.4
 
 ### Patch Changes
@@ -114,32 +121,32 @@
   and it will work with `reactPlugin` and creates providers for any registered store contexts.
 
   ```ts
-  const FeatureAContext = createStoreContext<{ a: number }>()
-  const FeatureBContext = createStoreContext<{ b: number }>()
+  const FeatureAContext = createStoreContext<{ a: number }>();
+  const FeatureBContext = createStoreContext<{ b: number }>();
 
   const FeatureA = () => {
-  	const [a] = useStoreContext(FeatureAContext, s => s.a)
-  	return <div>Feature A: {a}</div>
-  }
+    const [a] = useStoreContext(FeatureAContext, (s) => s.a);
+    return <div>Feature A: {a}</div>;
+  };
 
   const FeatureB = () => {
-  	const [b] = useStoreContext(FeatureBContext, s => s.b)
-  	return <div>Feature B: {b}</div>
-  }
+    const [b] = useStoreContext(FeatureBContext, (s) => s.b);
+    return <div>Feature B: {b}</div>;
+  };
 
   export function WithContexts() {
-  	const app = createTestApp().extend(reactPlugin())
+    const app = createTestApp().extend(reactPlugin());
 
-  	// these are normaly registered by the features in their plugins
-  	app.react.storeContexts.register(FeatureAContext, { a: 1 })
-  	app.react.storeContexts.register(FeatureBContext, { b: 2 })
+    // these are normaly registered by the features in their plugins
+    app.react.storeContexts.register(FeatureAContext, { a: 1 });
+    app.react.storeContexts.register(FeatureBContext, { b: 2 });
 
-  	return (
-  		<AppContextProvider value={app}>
-  			<FeatureA />
-  			<FeatureB />
-  		</AppContextProvider>
-  	)
+    return (
+      <AppContextProvider value={app}>
+        <FeatureA />
+        <FeatureB />
+      </AppContextProvider>
+    );
   }
   ```
 

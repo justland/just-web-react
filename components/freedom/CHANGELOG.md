@@ -1,5 +1,15 @@
 # react-freedom
 
+## 2.0.0
+
+### Major Changes
+
+- b3bfc9e: Clear input after parse
+
+### Minor Changes
+
+- f507a48: Build with `tsdown`
+
 ## 1.1.3
 
 ### Patch Changes

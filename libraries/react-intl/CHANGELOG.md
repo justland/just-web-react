@@ -1,5 +1,12 @@
 # @just-web/react-intl
 
+## 1.2.0
+
+### Minor Changes
+
+- 60e8855: Update `@just-web` dependencies.
+- f507a48: Build with `tsdown`
+
 ## 1.1.1
 
 ### Patch Changes
