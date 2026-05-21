@@ -1,5 +1,18 @@
 # @just-web/react-commands
 
+## 9.1.0
+
+### Minor Changes
+
+- 60e8855: Update `@just-web` dependencies.
+- f507a48: Build with `tsdown`
+
+### Patch Changes
+
+- Updated dependencies [60e8855]
+- Updated dependencies [f507a48]
+  - @just-web/react@9.1.0
+
 ## 9.0.4
 
 ### Patch Changes
