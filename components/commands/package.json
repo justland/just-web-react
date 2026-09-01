@@ -25,14 +25,21 @@
 	"sideEffects": false,
 	"type": "module",
 	"exports": {
-		"types": "./dist/just-web-react-commands.d.ts",
-		"import": "./dist/just-web-react-commands.js",
-		"require": "./dist/just-web-react-commands.cjs",
-		"default": "./dist/just-web-react-commands.cjs"
+		".": {
+			"import": {
+				"types": "./dist/just-web-react-commands.d.mts",
+				"default": "./dist/just-web-react-commands.mjs"
+			},
+			"require": {
+				"types": "./dist/just-web-react-commands.d.cts",
+				"default": "./dist/just-web-react-commands.cjs"
+			},
+			"default": "./dist/just-web-react-commands.mjs"
+		}
 	},
 	"main": "./dist/just-web-react-commands.cjs",
-	"module": "./dist/just-web-react-commands.js",
-	"types": "./dist/just-web-react-commands.d.ts",
+	"module": "./dist/just-web-react-commands.mjs",
+	"types": "./dist/just-web-react-commands.d.mts",
 	"files": [
 		"dist",
 		"src",

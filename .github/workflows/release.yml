@@ -9,11 +9,71 @@ jobs:
     with:
       os: '["ubuntu-latest"]'
 
+  # Secretless changesets release, inlined rather than called from
+  # justland/.github, which carries only the token-based
+  # `pnpm-release-changeset.yml`. This repo has no `NPM_TOKEN` and no
+  # `CI_GITHUB_TOKEN`, which is why that caller has been failing since
+  # 2026-05-21 and why 9.1.0 / 2.0.0 / 1.2.0 were versioned but never published.
+  #
+  # The steps mirror cyberuni/.github's `pnpm-release-changeset-oidc.yml`
+  # verbatim. Once justland/.github gains that reusable workflow this job
+  # should collapse back into a two-line caller.
+  #
+  # Publishing authenticates with npm trusted publishing (OIDC), which also
+  # emits provenance attestations. Every published package needs a trusted
+  # publisher registered at npmjs.com/package/<name>/access naming this repo
+  # and *this* file (release.yml), not any reusable workflow it delegates to.
   release:
-    uses: justland/.github/.github/workflows/pnpm-release-changeset.yml@main
     needs: code
-    secrets: inherit
+    runs-on: ubuntu-latest
+    permissions:
+      # Mints the OIDC token npm exchanges for short-lived publish credentials.
+      id-token: write
+      # Lets changesets/action push the version branch and tags.
+      contents: write
+      # Lets changesets/action open the "version packages" PR.
+      pull-requests: write
+    concurrency: ${{ github.workflow }}-release-${{ github.ref }}
+    outputs:
+      published: ${{ steps.changesets.outputs.published }}
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
 
-  # docgen:
-  #     uses: justland/.github/.github/workflows/pnpm-docs.yml@main
-  #     needs: release
+      # Version comes from `packageManager` in package.json.
+      - uses: pnpm/action-setup@v6
+
+      # No `registry-url:` on purpose. It only exists to write an auth stanza
+      # this secretless workflow can never fill in; the empty value makes
+      # `changeset publish`'s "already on the registry?" probe come back empty
+      # and republish into npm's E403.
+      - uses: actions/setup-node@v7
+        with:
+          node-version: lts/*
+          cache: pnpm
+
+      # Trusted publishing requires npm 11.5.1+, so Node LTS's bundled npm may
+      # be too old. Pinned to 11 rather than latest: npm 12 wraps `npm info
+      # --json` output in an array (changesets/changesets#2164), which breaks
+      # @changesets/cli's unpublished-version detection on the pnpm code path.
+      - name: Ensure npm supports trusted publishing
+        run: |
+          npm install -g npm@11
+          npm --version
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - run: pnpm build
+
+      # changesets/action v2 renamed its inputs (version -> version-script,
+      # publish -> publish-script, commit -> commit-message). The old names are
+      # silently ignored, so a half-done bump runs with no publish script.
+      - name: Create Release Pull Request or Publish to npm
+        id: changesets
+        uses: changesets/action@v2.1.0
+        with:
+          commit-message: 'chore: version packages'
+          version-script: pnpm run version
+          publish-script: pnpm run release
