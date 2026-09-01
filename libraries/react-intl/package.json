@@ -26,42 +26,29 @@
 	"exports": {
 		".": {
 			"import": {
-				"types": "./esm/index.d.ts",
-				"default": "./esm/index.js"
+				"types": "./dist/index.d.mts",
+				"default": "./dist/index.mjs"
 			},
 			"require": {
-				"types": "./cjs/index.d.ts",
-				"default": "./cjs/index.js"
+				"types": "./dist/index.d.cts",
+				"default": "./dist/index.cjs"
 			},
-			"default": "./esm/index.js"
-		},
-		"./testing": {
-			"import": {
-				"types": "./esm/testing/index.d.ts",
-				"default": "./esm/testing/index.js"
-			},
-			"require": {
-				"types": "./cjs/testing/index.d.ts",
-				"require": "./cjs/testing/index.js"
-			},
-			"default": "./esm/testing/index.js"
+			"default": "./dist/index.mjs"
 		}
 	},
-	"main": "./cjs/index.js",
-	"module": "./esm/index.js",
-	"types": "./cjs/index.d.ts",
+	"main": "./dist/index.cjs",
+	"module": "./dist/index.mjs",
+	"types": "./dist/index.d.mts",
 	"files": [
-		"cjs",
-		"esm",
-		"testing",
-		"ts",
+		"dist",
+		"src",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
 		"!**/*.stories.*"
 	],
 	"scripts": {
 		"build": "tsdown",
 		"check": "biome check",
-		"clean": "rimraf cjs esm coverage tslib --glob *.tsbuildinfo",
+		"clean": "rimraf coverage dist --glob *.tsbuildinfo",
 		"coverage": "vitest run --coverage",
 		"nuke": "rimraf node_modules",
 		"sb": "storybook dev -p 6008",
