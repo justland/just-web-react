@@ -1,3 +1,41 @@
 {
-	"extends": ["github>unional/renovate-preset"]
+	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
+	"description": [
+		"Policy is set here rather than inherited. github>unional/renovate-preset resolves to",
+		"config:base + :preserveSemverRanges and nothing else - no automerge, no soak - so",
+		"extending it looked like policy while providing none.",
+		"",
+		"rebaseWhen is 'auto', not 'behind-base-branch'. This repo has a merge queue, so",
+		"strict_required_status_checks_policy is off and a PR does not need to be up to date to",
+		"enqueue - the queue rebuilds each candidate against the real base. Forcing a rebase of",
+		"every open PR each time main moves would re-run the full matrix for nothing."
+	],
+	"extends": ["config:recommended", ":preserveSemverRanges", ":semanticCommits"],
+	"minimumReleaseAge": "3 days",
+	"platformAutomerge": true,
+	"rebaseWhen": "auto",
+	"packageRules": [
+		{
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
+			"automerge": true
+		},
+		{
+			"matchDepTypes": ["devDependencies"],
+			"automerge": true
+		},
+		{
+			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
+			"matchUpdateTypes": ["major"],
+			"automerge": false,
+			"additionalBranchPrefix": "major-"
+		}
+	],
+	"vulnerabilityAlerts": {
+		"minimumReleaseAge": "1 day",
+		"automerge": true
+	},
+	"lockFileMaintenance": {
+		"enabled": true,
+		"automerge": true
+	}
 }
