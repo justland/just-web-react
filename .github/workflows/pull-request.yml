@@ -2,6 +2,10 @@ name: pull-request
 on:
   pull_request:
     types: [opened, synchronize]
+  # The merge queue builds a temporary branch that fires neither
+  # `pull_request` nor `push`. Without this trigger `code / all-checks` never
+  # starts and the queue waits on it forever.
+  merge_group:
 
 jobs:
   code:
