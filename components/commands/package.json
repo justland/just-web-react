@@ -94,7 +94,8 @@
 		"rimraf": "~5.0.0",
 		"size-limit": "~8.2.0",
 		"storybook": "^10.1.11",
-		"tsdown": "^0.17.4",
+		"@tsdown/css": "^0.22.14",
+		"tsdown": "^0.22.14",
 		"typescript": "^5.0.0",
 		"vite": "catalog:",
 		"vitest": "catalog:"

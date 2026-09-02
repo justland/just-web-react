@@ -5,5 +5,7 @@ export default defineConfig({
 	format: ['esm', 'cjs'],
 	dts: true,
 	minify: false,
-	external: ['@just-web/app', '@just-web/states', 'react', 'react-dom']
+	deps: {
+		neverBundle: ['@just-web/app', '@just-web/states', 'react', 'react-dom']
+	}
 })
