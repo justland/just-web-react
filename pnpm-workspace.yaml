@@ -17,8 +17,8 @@ allowBuilds:
 
 catalog:
   '@vitejs/plugin-react': ^5.1.2
-  '@vitest/browser': ^4.0.17
-  '@vitest/browser-playwright': ^4.0.17
-  '@vitest/coverage-v8': ^4.0.17
-  vite: ^7.2.7
-  vitest: ^4.0.17
+  '@vitest/browser': ^4.1.11
+  '@vitest/browser-playwright': ^4.1.11
+  '@vitest/coverage-v8': ^4.1.11
+  vite: ^7.3.6
+  vitest: ^4.1.11
