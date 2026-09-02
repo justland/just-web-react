@@ -8,6 +8,9 @@ packages:
   - presets/*
   - tools/*
 
+minimumReleaseAge: 1440
+minimumReleaseAgeStrict: true
+
 allowBuilds:
   esbuild: true
   fsevents: true
