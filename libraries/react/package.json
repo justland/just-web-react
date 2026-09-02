@@ -97,7 +97,7 @@
 		"@vitest/browser": "catalog:",
 		"@vitest/browser-playwright": "catalog:",
 		"@vitest/coverage-v8": "catalog:",
-		"assertron": "^11.5.2",
+		"assertron": "^11.5.3",
 		"autoprefixer": "^10.4.14",
 		"npm-run-all2": "^5.0.0",
 		"postcss": "^8.4.23",
@@ -112,7 +112,8 @@
 		"storybook-addon-vis": "^3.1.2",
 		"tailwindcss": "^3.3.1",
 		"tersify": "^3.12.1",
-		"tsdown": "^0.17.4",
+		"@tsdown/css": "^0.22.14",
+		"tsdown": "^0.22.14",
 		"typescript": "^5.0.0",
 		"vite": "catalog:",
 		"vitest": "catalog:"
