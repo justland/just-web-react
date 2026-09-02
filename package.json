@@ -36,9 +36,9 @@
 		"@types/node": "^20.0.0",
 		"husky": "^9.1.7",
 		"knip": "^5.0.0",
-		"npm-run-all2": "^5.0.0",
+		"npm-run-all2": "^9.0.3",
 		"playwright": "^1.57.0",
-		"plop": "^3.1.1",
+		"plop": "^4.0.5",
 		"rimraf": "^6.1.2",
 		"turbo": "^2.6.3",
 		"typescript": "^5.7.3"

@@ -76,7 +76,7 @@
 		"autoprefixer": "^10.4.14",
 		"delay": "^6.0.0",
 		"jsdom": "^27.3.0",
-		"npm-run-all2": "^5.0.0",
+		"npm-run-all2": "^9.0.3",
 		"postcss": "^8.4.23",
 		"react": "^16.14.0",
 		"react-dom": "^16.14.0",
