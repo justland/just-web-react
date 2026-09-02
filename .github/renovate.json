@@ -24,10 +24,28 @@
 			"automerge": true
 		},
 		{
+			"description": [
+				"Runtime dependencies and peerDependencies stay manual. They are the only deps whose",
+				"version reaches a consumer's install, so a bad one ships. This rule is listed after",
+				"the two automerge rules above so it wins - later packageRules override earlier ones."
+			],
+			"matchDepTypes": ["dependencies", "peerDependencies"],
+			"automerge": false
+		},
+		{
 			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
 			"matchUpdateTypes": ["major"],
 			"automerge": false,
 			"additionalBranchPrefix": "major-"
+		},
+		{
+			"description": [
+				"type-plus 8.x is a prerelease line and latest deliberately stays on 7.x.",
+				"ignoreUnstable only blocks stable -> unstable, so once a range is already on a",
+				"prerelease every new beta reads as a patch and automerges. Pin the ceiling instead."
+			],
+			"matchPackageNames": ["type-plus"],
+			"allowedVersions": "<8.0.0-0"
 		}
 	],
 	"vulnerabilityAlerts": {
