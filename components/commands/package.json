@@ -64,7 +64,7 @@
 	},
 	"dependencies": {
 		"react-command-palette": "~0.22.0",
-		"type-plus": "^7.0.1"
+		"type-plus": "8.0.0-beta.10"
 	},
 	"devDependencies": {
 		"@just-web/app": "^7.3.2",
@@ -96,7 +96,7 @@
 		"storybook": "^10.5.10",
 		"@tsdown/css": "^0.22.14",
 		"tsdown": "^0.22.14",
-		"typescript": "^5.0.0",
+		"typescript": "^5.7.3",
 		"vite": "catalog:",
 		"vitest": "catalog:"
 	},
