@@ -1,5 +1,13 @@
 # react-freedom
 
+## 2.0.3
+
+### Patch Changes
+
+- 94eff5f: Move the `typescript` devDependency range from `^5.0.0` to `^5.7.3` so every workspace
+  package agrees with the repository root. `react-freedom` does not use `type-plus`; this
+  is alignment only, and the published contract is unchanged.
+
 ## 2.0.2
 
 ### Patch Changes
