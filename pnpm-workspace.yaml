@@ -63,3 +63,5 @@ minimumReleaseAgeExclude:
   - postcss@8.5.23
   # Renovate security update: @faker-js/faker@10.5.0
   - "@faker-js/faker@10.5.0"
+  # Renovate security update: turbo@2.9.14
+  - turbo@2.9.14
