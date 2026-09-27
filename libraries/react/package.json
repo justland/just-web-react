@@ -87,7 +87,7 @@
 		"@storybook/addon-links": "^10.5.10",
 		"@storybook/addon-vitest": "^10.5.10",
 		"@storybook/react-vite": "^10.5.10",
-		"@tsdown/css": "^0.22.14",
+		"@tsdown/css": "^0.23.0",
 		"@types/jest": "^29.2.3",
 		"@types/jest-image-snapshot": "^6.1.0",
 		"@types/react": "^16.14.43",
