@@ -59,3 +59,5 @@ minimumReleaseAgeExclude:
   - '@mocktomata/*'
   - '@repobuddy/*'
   - '@unional/*'
+  # Renovate security update: postcss@8.5.23
+  - postcss@8.5.23
