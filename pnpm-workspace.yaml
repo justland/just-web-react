@@ -16,11 +16,11 @@ allowBuilds:
   fsevents: true
 
 catalog:
-  '@vitejs/plugin-react': ^5.1.2
+  '@vitejs/plugin-react': ^6.0.0
   '@vitest/browser': ^4.1.11
   '@vitest/browser-playwright': ^4.1.11
   '@vitest/coverage-v8': ^4.1.11
-  vite: ^7.3.6
+  vite: ^8.3.1
   vitest: ^4.1.11
 
 # First-party packages are exempt from the soak.
