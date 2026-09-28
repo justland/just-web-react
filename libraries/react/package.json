@@ -80,7 +80,7 @@
 	},
 	"devDependencies": {
 		"@just-web/app": "^7.3.2",
-		"@repobuddy/typescript": "^1.2.0",
+		"@repobuddy/typescript": "^2.0.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.3",
 		"@storybook/addon-docs": "^10.5.10",
