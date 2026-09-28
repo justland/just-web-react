@@ -1,5 +1,12 @@
 # @just-web/react
 
+## 10.0.1
+
+### Patch Changes
+
+- e059e09: Update `type-plus` to `8.0.0-beta.12` and `@just-web/states` to `^8.0.1`.
+  Accept `@just-web/app` and `@just-web/states` 8.x as peer dependencies.
+
 ## 10.0.0
 
 ### Major Changes
