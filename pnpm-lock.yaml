@@ -327,8 +327,8 @@ importers:
         specifier: ^3.13.1
         version: 3.13.1
       '@types/react-test-renderer':
-        specifier: ^18.0.0
-        version: 18.0.0
+        specifier: ^19.0.0
+        version: 19.3.0
       '@vitejs/plugin-react':
         specifier: 'catalog:'
         version: 5.1.2(supports-color@9.3.1)(vite@7.3.6(@types/node@20.19.30)(jiti@2.6.1)(lightningcss@1.33.0)(yaml@2.9.0))
@@ -2463,8 +2463,8 @@ packages:
   '@types/react-modal@3.13.1':
     resolution: {integrity: sha512-iY/gPvTDIy6Z+37l+ibmrY+GTV4KQTHcCyR5FIytm182RQS69G5ps4PH2FxtC7bAQ2QRHXMevsBgck7IQruHNg==}
 
-  '@types/react-test-renderer@18.0.0':
-    resolution: {integrity: sha512-C7/5FBJ3g3sqUahguGi03O79b8afNeSD6T8/GU50oQrJCU0bVCCGQHaGKUbg2Ce8VQEEqTw8/HiS6lXHHdgkdQ==}
+  '@types/react-test-renderer@19.3.0':
+    resolution: {integrity: sha512-TX4p2D4Z2oigM3SXU7+QyLSUnSR0vR1S1Pfxm/qFL9nHQ3jclgi6ioGoWQmlIr1DeKRVmPJrmNlhgM0JlWlLUg==}
 
   '@types/react@16.14.43':
     resolution: {integrity: sha512-7zdjv7jvoLLQg1tTvpQsm+hyNUMT2mPlNV1+d0I8fbGhkJl82spopMyBlu4wb1dviZAxpGdk5eHu/muacknnfw==}
@@ -7069,7 +7069,7 @@ snapshots:
 
   '@types/hoist-non-react-statics@3.3.1':
     dependencies:
-      '@types/react': 16.14.43
+      '@types/react': 18.3.28
       hoist-non-react-statics: 3.3.2
 
   '@types/inquirer@9.0.10':
@@ -7131,7 +7131,7 @@ snapshots:
     dependencies:
       '@types/react': 16.14.43
 
-  '@types/react-test-renderer@18.0.0':
+  '@types/react-test-renderer@19.3.0':
     dependencies:
       '@types/react': 16.14.43
 
@@ -9079,7 +9079,7 @@ snapshots:
       '@formatjs/intl-displaynames': 6.3.2
       '@formatjs/intl-listformat': 7.2.2
       '@types/hoist-non-react-statics': 3.3.1
-      '@types/react': 16.14.43
+      '@types/react': 18.3.28
       hoist-non-react-statics: 3.3.2
       intl-messageformat: 10.3.5
       react: 18.2.0
