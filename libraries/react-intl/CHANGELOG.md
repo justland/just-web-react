@@ -1,5 +1,11 @@
 # @just-web/react-intl
 
+## 1.2.4
+
+### Patch Changes
+
+- e059e09: Update `@just-web/formatjs` to `^1.1.6`.
+
 ## 1.2.3
 
 ### Patch Changes
