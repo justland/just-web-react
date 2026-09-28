@@ -58,13 +58,13 @@
 		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
-		"@just-web/formatjs": "^1.1.2",
+		"@just-web/formatjs": "^1.1.6",
 		"react-intl": "^6.4.2"
 	},
 	"devDependencies": {
-		"@just-web/app": "^7.3.2",
+		"@just-web/app": "^8.1.1",
 		"@just-web/react": "workspace:^",
-		"@repobuddy/typescript": "^2.1.0",
+		"@repobuddy/typescript": "^2.2.1",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook-community/storybook-dark-mode": "^7.1.0",
 		"@storybook/addon-docs": "^10.5.10",
@@ -76,7 +76,7 @@
 		"@vitest/browser": "catalog:",
 		"@vitest/browser-playwright": "catalog:",
 		"@vitest/coverage-v8": "catalog:",
-		"assertron": "^11.6.0",
+		"assertron": "^11.7.1",
 		"npm-run-all2": "^9.0.3",
 		"react": "^18.0.0",
 		"react-dom": "^18.0.0",
@@ -84,7 +84,7 @@
 		"size-limit": "~8.2.0",
 		"storybook": "^10.5.10",
 		"tsdown": "^0.23.0",
-		"type-plus": "8.0.0-beta.10",
+		"type-plus": "8.0.0-beta.12",
 		"typescript": "^5.7.3",
 		"vite": "catalog:",
 		"vitest": "catalog:"
