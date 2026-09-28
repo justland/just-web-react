@@ -62,7 +62,7 @@
 		"react-intl": "^6.4.2"
 	},
 	"devDependencies": {
-		"@just-web/app": "^7.3.2",
+		"@just-web/app": "^8.0.0",
 		"@just-web/react": "workspace:^",
 		"@repobuddy/typescript": "^2.1.0",
 		"@size-limit/preset-small-lib": "~8.2.0",

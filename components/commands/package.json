@@ -67,7 +67,7 @@
 		"type-plus": "8.0.0-beta.10"
 	},
 	"devDependencies": {
-		"@just-web/app": "^7.3.2",
+		"@just-web/app": "^8.0.0",
 		"@just-web/browser-keyboard": "^8.5.1",
 		"@just-web/commands": "^7.3.3",
 		"@just-web/keyboard": "^7.3.3",
@@ -101,7 +101,7 @@
 		"vitest": "catalog:"
 	},
 	"peerDependencies": {
-		"@just-web/app": "^7.0.0",
+		"@just-web/app": "^8.0.0",
 		"@just-web/browser-keyboard": "^8.0.0",
 		"@just-web/commands": "^7.0.0",
 		"@just-web/keyboard": "^7.0.0",

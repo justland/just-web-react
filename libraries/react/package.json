@@ -79,7 +79,7 @@
 		"type-plus": "8.0.0-beta.10"
 	},
 	"devDependencies": {
-		"@just-web/app": "^7.3.2",
+		"@just-web/app": "^8.0.0",
 		"@repobuddy/typescript": "^1.2.0",
 		"@size-limit/preset-small-lib": "~8.2.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.3",
@@ -119,7 +119,7 @@
 		"vitest": "catalog:"
 	},
 	"peerDependencies": {
-		"@just-web/app": "^7.0.0",
+		"@just-web/app": "^8.0.0",
 		"@just-web/states": "^7.0.0",
 		"react": "^16 || ^17 || ^18",
 		"react-dom": "^16 || ^17 || ^18"
