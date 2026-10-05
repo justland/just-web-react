@@ -48,6 +48,11 @@
 			"allowedVersions": "<8.0.0-0"
 		},
 		{
+			"description": "Storybook 10.5 supports vitest ^3 || ^4 (@storybook/addon-vitest) and vite <=8; lift when Storybook supports vitest 5.",
+			"matchPackageNames": ["vitest", "@vitest/*"],
+			"allowedVersions": "<5"
+		},
+		{
 			"description": "The published packages peer on react ^16 || ^17 || ^18 and Renovate would rewrite those peer ranges to ^19, dropping consumers; @headlessui/react 2 also needs react >=18. Lift when the supported React range is raised.",
 			"matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
 			"allowedVersions": "<19"
