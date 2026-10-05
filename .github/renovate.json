@@ -10,28 +10,17 @@
 		"enqueue - the queue rebuilds each candidate against the real base. Forcing a rebase of",
 		"every open PR each time main moves would re-run the full matrix for nothing."
 	],
-	"extends": [
-		"config:recommended",
-		":preserveSemverRanges",
-		":semanticCommits"
-	],
+	"extends": ["config:recommended", ":preserveSemverRanges", ":semanticCommits"],
 	"minimumReleaseAge": "3 days",
 	"platformAutomerge": true,
 	"rebaseWhen": "auto",
 	"packageRules": [
 		{
-			"matchUpdateTypes": [
-				"minor",
-				"patch",
-				"pin",
-				"digest"
-			],
+			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
 			"automerge": true
 		},
 		{
-			"matchDepTypes": [
-				"devDependencies"
-			],
+			"matchDepTypes": ["devDependencies"],
 			"automerge": true
 		},
 		{
@@ -40,17 +29,12 @@
 				"version reaches a consumer's install, so a bad one ships. This rule is listed after",
 				"the two automerge rules above so it wins - later packageRules override earlier ones."
 			],
-			"matchDepTypes": [
-				"dependencies",
-				"peerDependencies"
-			],
+			"matchDepTypes": ["dependencies", "peerDependencies"],
 			"automerge": false
 		},
 		{
 			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
-			"matchUpdateTypes": [
-				"major"
-			],
+			"matchUpdateTypes": ["major"],
 			"automerge": false,
 			"additionalBranchPrefix": "major-"
 		},
@@ -60,26 +44,17 @@
 				"ignoreUnstable only blocks stable -> unstable, so once a range is already on a",
 				"prerelease every new beta reads as a patch and automerges. Pin the ceiling instead."
 			],
-			"matchPackageNames": [
-				"type-plus"
-			],
+			"matchPackageNames": ["type-plus"],
 			"allowedVersions": "<8.0.0-0"
 		},
 		{
 			"description": "The published packages peer on react ^16 || ^17 || ^18 and Renovate would rewrite those peer ranges to ^19, dropping consumers; @headlessui/react 2 also needs react >=18. Lift when the supported React range is raised.",
-			"matchPackageNames": [
-				"react",
-				"react-dom",
-				"@types/react",
-				"@types/react-dom"
-			],
+			"matchPackageNames": ["react", "react-dom", "@types/react", "@types/react-dom"],
 			"allowedVersions": "<19"
 		},
 		{
 			"description": "@headlessui/react 2 requires react ^18 || ^19 but react-freedom supports and tests on react 16. Lift when the supported React range is raised.",
-			"matchPackageNames": [
-				"@headlessui/react"
-			],
+			"matchPackageNames": ["@headlessui/react"],
 			"allowedVersions": "<2"
 		}
 	],
