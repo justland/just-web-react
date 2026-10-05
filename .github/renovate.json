@@ -46,6 +46,11 @@
 			],
 			"matchPackageNames": ["type-plus"],
 			"allowedVersions": "<8.0.0-0"
+		},
+		{
+			"description": "Storybook 10.5 supports vitest ^3 || ^4 (@storybook/addon-vitest) and vite <=8; lift when Storybook supports vitest 5.",
+			"matchPackageNames": ["vitest", "@vitest/*"],
+			"allowedVersions": "<5"
 		}
 	],
 	"vulnerabilityAlerts": {
