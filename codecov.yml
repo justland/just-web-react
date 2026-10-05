@@ -7,9 +7,9 @@
 # the check at all.
 #
 # Coverage enforcement belongs in vitest `thresholds`, next to the tests, where
-# it is versioned with the code and fails locally as well as in CI. Restoring
-# the lost coverage and setting those thresholds is tracked separately; until
-# then both statuses report without blocking.
+# it is versioned with the code and fails locally as well as in CI. Each
+# package's vitest.config.ts sets that floor (#302), so codecov reports the
+# trend and both statuses stay non-blocking.
 coverage:
   status:
     project:
