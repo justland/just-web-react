@@ -81,7 +81,7 @@
 	"devDependencies": {
 		"@just-web/app": "^8.1.1",
 		"@repobuddy/typescript": "^2.2.1",
-		"@size-limit/preset-small-lib": "~8.2.0",
+		"@size-limit/preset-small-lib": "~14.1.0",
 		"@storybook-community/storybook-dark-mode": "^7.0.3",
 		"@storybook/addon-docs": "^10.5.10",
 		"@storybook/addon-links": "^10.5.10",
@@ -107,7 +107,7 @@
 		"react-modal": "^3.16.1",
 		"react-test-renderer": "^16.14.0",
 		"rimraf": "~6.1.0",
-		"size-limit": "~8.2.0",
+		"size-limit": "~14.1.0",
 		"storybook": "^10.5.10",
 		"storybook-addon-tag-badges": "^3.0.4",
 		"storybook-addon-vis": "^4.2.9",
