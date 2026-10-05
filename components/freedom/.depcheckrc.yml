@@ -7,7 +7,7 @@ ignores:
   - '@types/*'
   - '@vitest/browser' # used by vitest
   - '@vitest/coverage-v8' # used by vitest
-  - autoprefixer # tailwind
+  - '@tailwindcss/postcss' # tailwind
   - eslint*
   - jest-image-snapshot
   - nyc # used by @storybook/addon-coverage
