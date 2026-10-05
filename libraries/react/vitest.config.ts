@@ -12,6 +12,10 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 export default defineConfig({
 	plugins: [react()],
 	test: {
+		coverage: {
+			// Floor at the measured baseline (#302). Raise it when coverage improves; do not lower it.
+			thresholds: { statements: 92, branches: 81, functions: 92, lines: 91 }
+		},
 		projects: [
 			{
 				extends: true,
