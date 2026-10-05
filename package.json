@@ -41,7 +41,7 @@
 		"plop": "^4.0.5",
 		"rimraf": "^6.1.2",
 		"turbo": "^2.6.3",
-		"typescript": "^5.7.3"
+		"typescript": "^7.0.0"
 	},
 	"packageManager": "pnpm@12.8.2",
 	"overrides": {
