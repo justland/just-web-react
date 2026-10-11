@@ -4,7 +4,6 @@ import type { OSGizmo } from '@just-web/os'
 import { useJustAppContext } from '@just-web/react'
 import React, { type ComponentType, type ReactElement, useCallback, useEffect, useMemo, useState } from 'react'
 import CP from 'react-command-palette'
-import type { AnyFunction } from 'type-plus'
 import styles from './CommandPalette.module.css'
 
 export type CommandPaletteCommand = Omit<CommandContribution & KeyBindingContribution, 'command'> & {
@@ -65,7 +64,7 @@ export type CommandPaletteProps = {
 		threshold?: number
 		limit?: number
 		allowTypo?: boolean
-		scoreFn?: null | AnyFunction
+		scoreFn?: null | ((...args: any[]) => any)
 	}
 	/**
 	 * a function that filters searched input. If this prop is not used the default behavior will search using the input exactly as it was entered by the user. Otherwise whatever gets returned by your function is the text that will be searched. You might use this filter out extraneous characters such as ">" or "?" like VS Code does for action keys, ex:

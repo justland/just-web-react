@@ -1,7 +1,6 @@
 import type { Store, Updater } from '@just-web/states'
 import { createStore } from '@just-web/states'
 import { useCallback, useEffect, useState } from 'react'
-import { isType } from 'type-plus'
 
 /**
  * Use a value in the store for `useState()`.
@@ -28,10 +27,7 @@ export function useStore<S extends Record<any, any>, V>(
 				if (updater) {
 					store.set((s) => {
 						const v = s as unknown as S
-						return updater(
-							v,
-							isType<(value: V) => V>(value, (u) => typeof u === 'function') ? value(getState(v)) : value
-						)
+						return updater(v, typeof value === 'function' ? (value as (value: V) => V)(getState(v)) : value)
 					})
 
 					return setValue(getState(store.get()))

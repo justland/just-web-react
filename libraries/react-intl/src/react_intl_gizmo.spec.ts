@@ -2,7 +2,7 @@ import { justTestApp } from '@just-web/app/testing'
 import { formatJSGizmoFn } from '@just-web/formatjs'
 import { reactGizmo } from '@just-web/react'
 import { a } from 'assertron'
-import { testType } from 'type-plus'
+import { testType } from 'type-plus/testing'
 import { expect, it } from 'vitest'
 import { type IntlShape, reactIntlGizmoFn } from './index.js'
 

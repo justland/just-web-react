@@ -1,9 +1,9 @@
 import React, { useContext } from 'react'
 import { tersify } from 'tersify'
-import { mapKey } from 'type-plus'
 import type { JustReactApp } from '../contexts/just_app_context.js'
 import { useJustAppContext } from '../hooks/use_just_app_context.js'
 import { Card } from './card.js'
+import { mapKey } from './map_key.js'
 
 /**
  * AppInfo is a generic component not tied to any specific app.

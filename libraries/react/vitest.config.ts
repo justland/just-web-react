@@ -11,6 +11,8 @@ const dirname = typeof __dirname !== 'undefined' ? __dirname : path.dirname(file
 // More info at: https://storybook.js.org/docs/next/writing-tests/integrations/vitest-addon
 export default defineConfig({
 	plugins: [react()],
+	// Pre-bundle so a late discovery does not reload the browser mid-run.
+	optimizeDeps: { include: ['type-plus/testing'] },
 	test: {
 		coverage: {
 			// Floor at the measured baseline (#302). Raise it when coverage improves; do not lower it.
