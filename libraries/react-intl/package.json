@@ -58,7 +58,7 @@
 		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
-		"@just-web/formatjs": "^1.1.6",
+		"@just-web/formatjs": "^2.0.0",
 		"react-intl": "^6.4.2"
 	},
 	"devDependencies": {
