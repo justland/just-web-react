@@ -63,17 +63,16 @@
 		"verify": "npm-run-all -p check build coverage -p size"
 	},
 	"dependencies": {
-		"react-command-palette": "~0.22.0",
-		"type-plus": "8.0.0-beta.12"
+		"react-command-palette": "~0.22.0"
 	},
 	"devDependencies": {
-		"@just-web/app": "^8.1.1",
-		"@just-web/browser-keyboard": "^10.1.1",
-		"@just-web/commands": "^8.0.2",
-		"@just-web/keyboard": "^8.0.2",
-		"@just-web/os": "^8.0.2",
+		"@just-web/app": "^9.0.0",
+		"@just-web/browser-keyboard": "^11.0.0",
+		"@just-web/commands": "^9.0.0",
+		"@just-web/keyboard": "^9.0.0",
+		"@just-web/os": "^9.0.0",
 		"@just-web/react": "workspace:^",
-		"@repobuddy/typescript": "^2.2.1",
+		"@repobuddy/typescript": "^2.2.3",
 		"@size-limit/preset-small-lib": "~14.2.0",
 		"@storybook/addon-docs": "^10.5.10",
 		"@storybook/addon-links": "^10.5.10",
@@ -101,11 +100,11 @@
 		"vitest": "catalog:"
 	},
 	"peerDependencies": {
-		"@just-web/app": "^7.0.0 || ^8.0.0",
-		"@just-web/browser-keyboard": "^8.0.0 || ^10.0.0",
-		"@just-web/commands": "^7.0.0 || ^8.0.0",
-		"@just-web/keyboard": "^7.0.0 || ^8.0.0",
-		"@just-web/os": "^7.0.0 || ^8.0.0",
+		"@just-web/app": "^7.0.0 || ^8.0.0 || ^9.0.0",
+		"@just-web/browser-keyboard": "^8.0.0 || ^10.0.0 || ^11.0.0",
+		"@just-web/commands": "^7.0.0 || ^8.0.0 || ^9.0.0",
+		"@just-web/keyboard": "^7.0.0 || ^8.0.0 || ^9.0.0",
+		"@just-web/os": "^7.0.0 || ^8.0.0 || ^9.0.0",
 		"@just-web/react": "workspace:^",
 		"react": "^16 || ^17 || ^18",
 		"react-dom": "^16 || ^17 || ^18"

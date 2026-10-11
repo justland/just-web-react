@@ -1,11 +1,11 @@
 import { justTestApp } from '@just-web/app/testing'
 import React from 'react'
 import { tersify } from 'tersify'
-import { mapKey } from 'type-plus'
 import { createJustAppContext } from '../contexts/create_just_app_context.js'
 import type { JustReactApp } from '../contexts/just_app_context.js'
 import { reactGizmo } from '../gizmos/react_gizmo.js'
 import { useJustAppContext } from '../hooks/use_just_app_context.js'
+import { mapKey } from './map_key.js'
 import { type ValueGizmo, valueGizmoFn } from './value_gizmo.js'
 
 /**

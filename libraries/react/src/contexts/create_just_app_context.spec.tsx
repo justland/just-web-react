@@ -1,4 +1,4 @@
-import { testType } from 'type-plus'
+import { testType } from 'type-plus/testing'
 import { it } from 'vitest'
 import type { App1Context, App1Context2 } from '../testing/app1.js'
 
