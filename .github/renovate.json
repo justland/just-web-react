@@ -1,43 +1,9 @@
 {
 	"$schema": "https://docs.renovatebot.com/renovate-schema.json",
-	"description": [
-		"Policy is set here rather than inherited. github>unional/renovate-preset resolves to",
-		"config:base + :preserveSemverRanges and nothing else - no automerge, no soak - so",
-		"extending it looked like policy while providing none.",
-		"",
-		"rebaseWhen is 'auto', not 'behind-base-branch'. This repo has a merge queue, so",
-		"strict_required_status_checks_policy is off and a PR does not need to be up to date to",
-		"enqueue - the queue rebuilds each candidate against the real base. Forcing a rebase of",
-		"every open PR each time main moves would re-run the full matrix for nothing."
-	],
-	"extends": ["config:recommended", ":preserveSemverRanges", ":semanticCommits"],
-	"minimumReleaseAge": "3 days",
-	"platformAutomerge": true,
+	"extends": ["github>repobuddy/renovate-preset"],
+	"description": "rebaseWhen is 'auto', not the preset's 'behind-base-branch': this repo has a merge queue, so a PR need not be up to date to enqueue, and forced rebases would re-run the full matrix on every open PR each time main moves.",
 	"rebaseWhen": "auto",
 	"packageRules": [
-		{
-			"matchUpdateTypes": ["minor", "patch", "pin", "digest"],
-			"automerge": true
-		},
-		{
-			"matchDepTypes": ["devDependencies"],
-			"automerge": true
-		},
-		{
-			"description": [
-				"Runtime dependencies and peerDependencies stay manual. They are the only deps whose",
-				"version reaches a consumer's install, so a bad one ships. This rule is listed after",
-				"the two automerge rules above so it wins - later packageRules override earlier ones."
-			],
-			"matchDepTypes": ["dependencies", "peerDependencies"],
-			"automerge": false
-		},
-		{
-			"description": "Majors break builds in ways CI catches but a human should choose to absorb.",
-			"matchUpdateTypes": ["major"],
-			"automerge": false,
-			"additionalBranchPrefix": "major-"
-		},
 		{
 			"description": [
 				"type-plus 8.x is a prerelease line and latest deliberately stays on 7.x.",
@@ -62,13 +28,5 @@
 			"matchPackageNames": ["@headlessui/react"],
 			"allowedVersions": "<2"
 		}
-	],
-	"vulnerabilityAlerts": {
-		"minimumReleaseAge": "1 day",
-		"automerge": true
-	},
-	"lockFileMaintenance": {
-		"enabled": true,
-		"automerge": true
-	}
+	]
 }
