@@ -54,7 +54,8 @@
 		"dist",
 		"src",
 		"!**/*.{spec,test,unit,accept,integrate,system,perf,stress}.*",
-		"!**/*.stories.*"
+		"!**/*.stories.*",
+		"CHANGELOG.md"
 	],
 	"scripts": {
 		"build": "tsdown",
