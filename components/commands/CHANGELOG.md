@@ -1,5 +1,12 @@
 # @just-web/react-commands
 
+## 10.0.2
+
+### Patch Changes
+
+- 60f6ba7: Accept `@just-web/app`, `@just-web/commands`, `@just-web/keyboard`, and `@just-web/os` 9.x, and `@just-web/browser-keyboard` 11.x, as peer dependencies.
+  Remove the dependency on `type-plus`: the `AnyFunction` type is inlined.
+
 ## 10.0.1
 
 ### Patch Changes

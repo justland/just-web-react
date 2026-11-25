@@ -1,5 +1,13 @@
 # @just-web/react
 
+## 10.0.2
+
+### Patch Changes
+
+- 60f6ba7: Update `@just-web/states` to `^9.0.0`.
+  Accept `@just-web/app` and `@just-web/states` 9.x as peer dependencies.
+  Remove the runtime dependency on `type-plus`: the `isType` and `mapKey` helpers are inlined.
+
 ## 10.0.1
 
 ### Patch Changes

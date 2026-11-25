@@ -1,5 +1,11 @@
 # @just-web/react-intl
 
+## 1.2.5
+
+### Patch Changes
+
+- 18deb4b: Update `@just-web/formatjs` to `^2.0.0`, which requires `@just-web/app` 9.x.
+
 ## 1.2.4
 
 ### Patch Changes
